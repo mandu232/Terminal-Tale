@@ -13,9 +13,27 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\Core">
+      <UniqueIdentifier>{6af7511a-e5aa-4644-899e-0d0c5f6b17c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Data">
+      <UniqueIdentifier>{30b8ba9f-9b59-4968-aec7-6a52f879d2f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Game">
+      <UniqueIdentifier>{675824cb-720a-44f8-8b44-317b5702aee5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Systems">
+      <UniqueIdentifier>{bf7cb285-e48b-412f-b00e-4e370e419c9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\UI">
+      <UniqueIdentifier>{52a680d9-fb0e-47ae-9e5a-c63c00331fcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Utils">
+      <UniqueIdentifier>{d8db4ad3-6a15-4dfc-bc1e-19f75fbc74e1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TextRPG.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

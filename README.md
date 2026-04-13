@@ -28,9 +28,9 @@ A team-developed text-base RPG built in C++ using the console interface.
 
 ## 🛠️ 개발 환경
 
-● 언어: C++
+● 언어: C++ 22
 
-● 개발 도구: Visual Studio
+● 개발 도구: Visual Studio 2022
 
 ● 버전 관리: Git & GitHub
 
@@ -43,7 +43,7 @@ A team-developed text-base RPG built in C++ using the console interface.
 
 ● main 브랜치 파일은 직접 수정하지 말아주세요.
 
-● 기능별로 파일을 정리해 주세요.
+● 확장자명을 기준 파일정리가 아닌 기능별로 파일을 정리해주세요.
 
 ● 코드는 객체지향으로 개발해주세요.
 
