@@ -3,6 +3,7 @@
 #include <memory>
 
 class StateMachine;
+class InputManager;
 
 class GameLoop
 {
@@ -20,4 +21,5 @@ private:
 private:
 	bool running;
 	std::unique_ptr<StateMachine> stateMachine;
+	std::unique_ptr<InputManager> inputManager;
 };

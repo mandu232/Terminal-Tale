@@ -3,13 +3,14 @@
 #include <memory>
 
 class State;
+class InputManager;
 
 class StateMachine
 {
 public:
 	void ChangeState(std::unique_ptr<State> newState);
 
-	void HandleInput();
+	void HandleInput(InputManager& input);
 	void Update();
 	void Render();
 

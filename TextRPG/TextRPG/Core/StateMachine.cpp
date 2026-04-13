@@ -1,4 +1,5 @@
 #include "StateMachine.h"
+#include "InputManager.h"
 #include "State.h"
 
 void StateMachine::ChangeState(std::unique_ptr<State> newState)
@@ -16,11 +17,11 @@ void StateMachine::ChangeState(std::unique_ptr<State> newState)
 	}
 }
 
-void StateMachine::HandleInput()
+void StateMachine::HandleInput(InputManager& input)
 {
 	if (currentState)
 	{
-		currentState->HandleInput();
+		currentState->HandleInput(input);
 	}
 }
 

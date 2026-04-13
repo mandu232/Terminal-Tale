@@ -126,6 +126,7 @@
   <ItemGroup>
     <ClCompile Include="Core\Application.cpp" />
     <ClCompile Include="Core\GameLoop.cpp" />
+    <ClCompile Include="Core\InputManager.cpp" />
     <ClCompile Include="Core\StateMachine.cpp" />
     <ClCompile Include="Game\States\TitleState.cpp" />
     <ClCompile Include="main.cpp" />
@@ -133,6 +134,8 @@
   <ItemGroup>
     <ClInclude Include="Core\Application.h" />
     <ClInclude Include="Core\GameLoop.h" />
+    <ClInclude Include="Core\InputAction.h" />
+    <ClInclude Include="Core\InputManager.h" />
     <ClInclude Include="Core\State.h" />
     <ClInclude Include="Core\StateMachine.h" />
     <ClInclude Include="Game\States\TitleState.h" />

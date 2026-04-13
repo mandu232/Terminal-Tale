@@ -1,5 +1,7 @@
 #pragma once
 
+class InputManager;
+
 class State
 {
 public:
@@ -8,7 +10,7 @@ public:
 	virtual void Enter() {}
 	virtual void Exit() {}
 
-	virtual void HandleInput() = 0;
+	virtual void HandleInput(InputManager& input) = 0;
 	virtual void Update() = 0;
 	virtual void Render() = 0;
 };
