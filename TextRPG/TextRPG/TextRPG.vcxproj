@@ -103,6 +103,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -125,6 +126,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application.cpp" />
+    <ClCompile Include="Core\EventBus.cpp" />
+    <ClCompile Include="Core\EventSubscription.cpp" />
     <ClCompile Include="Core\GameLoop.cpp" />
     <ClCompile Include="Core\InputManager.cpp" />
     <ClCompile Include="Core\StateMachine.cpp" />
@@ -136,6 +139,7 @@
     <ClInclude Include="Core\Context.h" />
     <ClInclude Include="Core\Event.h" />
     <ClInclude Include="Core\EventBus.h" />
+    <ClInclude Include="Core\EventSubscription.h" />
     <ClInclude Include="Core\GameLoop.h" />
     <ClInclude Include="Core\InputAction.h" />
     <ClInclude Include="Core\InputManager.h" />

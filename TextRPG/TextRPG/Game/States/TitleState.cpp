@@ -11,7 +11,12 @@ TitleState::TitleState(Context& context)
 
 void TitleState::Enter()
 {
-	std::cout << "Welcome to the Text RPG!" << std::endl;
+    startSub =
+        context.eventBus.Subscribe<GameStartEvent>(
+            [this](const GameStartEvent&)
+            {
+                std::cout << "Game Start Event Received\n";
+            });
 }
 
 void TitleState::HandleInput(InputManager& input)

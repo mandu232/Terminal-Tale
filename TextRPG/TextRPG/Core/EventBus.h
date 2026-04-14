@@ -7,36 +7,51 @@
 #include <memory>
 
 #include "Event.h"
+#include "EventSubscription.h"
 
 class EventBus
 {
 public:
-	template<typename EventType>
-	using Handler = std::function<void(const EventType&)>;
+    template<typename EventType>
+    EventSubscription Subscribe(
+        std::function<void(const EventType&)> handler);
 
-	template<typename EventType>
-	void Subscribe(Handler<EventType> handler);
+    template<typename EventType>
+    void Emit(const EventType& event);
 
-	template<typename EventType>
-	void Emit(const EventType& event);
+    void Unsubscribe(size_t id);
 
 private:
-	std::unordered_map<
-		std::type_index,
-		std::vector<std::function<void(const Event&)>>
-	> subscribers;
+    struct Subscriber
+    {
+        size_t id;
+        std::function<void(const Event&)> func;
+    };
+
+    std::unordered_map<
+        std::type_index,
+        std::vector<Subscriber>
+    > subscribers;
+
+    size_t nextId = 0;
 };
 
 template<typename EventType>
-void EventBus::Subscribe(Handler<EventType> handler)
+EventSubscription EventBus::Subscribe(
+    std::function<void(const EventType&)> handler)
 {
+    size_t id = nextId++;
+
     auto wrapper =
         [handler](const Event& e)
         {
             handler(static_cast<const EventType&>(e));
         };
 
-    subscribers[typeid(EventType)].push_back(wrapper);
+    subscribers[typeid(EventType)].push_back(
+        { id, wrapper });
+
+    return EventSubscription(this, id);
 }
 
 template<typename EventType>
@@ -47,6 +62,6 @@ void EventBus::Emit(const EventType& event)
     if (it == subscribers.end())
         return;
 
-    for (auto& handler : it->second)
-        handler(event);
+    for (auto& sub : it->second)
+        sub.func(event);
 }

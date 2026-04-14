@@ -57,6 +57,12 @@
     <ClCompile Include="Core\StateMachine.cpp">
       <Filter>소스 파일\Core</Filter>
     </ClCompile>
+    <ClCompile Include="Core\EventSubscription.cpp">
+      <Filter>소스 파일\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\EventBus.cpp">
+      <Filter>소스 파일\Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Application.h">
@@ -91,6 +97,9 @@
     </ClInclude>
     <ClInclude Include="Game\Events\GameStartEvent.h">
       <Filter>소스 파일\Game\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\EventSubscription.h">
+      <Filter>소스 파일\Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
