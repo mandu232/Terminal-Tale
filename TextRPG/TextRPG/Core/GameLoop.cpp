@@ -1,16 +1,18 @@
 #include "GameLoop.h"
 #include "StateMachine.h"
 #include "InputManager.h"
+#include "Context.h"
 #include "Game/States/TitleState.h"
 
 GameLoop::GameLoop()
 	: running(true)
 {
-	stateMachine = std::make_unique<StateMachine>();
+	context = std::make_unique<Context>();
+	stateMachine = std::make_unique<StateMachine>(*context);
 	inputManager = std::make_unique<InputManager>();
 
 	stateMachine->ChangeState(
-		std::make_unique<TitleState>()
+		std::make_unique<TitleState>(*context)
 	);
 }
 

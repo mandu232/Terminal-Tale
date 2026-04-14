@@ -1,5 +1,6 @@
 #include "StateMachine.h"
 #include "InputManager.h"
+#include "Context.h"
 #include "State.h"
 
 void StateMachine::ChangeState(std::unique_ptr<State> newState)
@@ -39,4 +40,9 @@ void StateMachine::Render()
 	{
 		currentState->Render();
 	}
+}
+
+StateMachine::StateMachine(Context& context) 
+	: context(context)
+{
 }

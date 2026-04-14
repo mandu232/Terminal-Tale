@@ -1,6 +1,13 @@
 #include "TitleState.h"
 #include "Core/InputManager.h"
+#include "Core/Context.h"
+#include "Game/Events/GameStartEvent.h"
 #include <iostream>
+
+TitleState::TitleState(Context& context)
+    : State(context)
+{
+}
 
 void TitleState::Enter()
 {
@@ -13,6 +20,7 @@ void TitleState::HandleInput(InputManager& input)
     {
     case InputAction::Confirm:
         std::cout << "Start Game\n";
+        context.eventBus.Emit(GameStartEvent{});
         break;
 
     case InputAction::Quit:
