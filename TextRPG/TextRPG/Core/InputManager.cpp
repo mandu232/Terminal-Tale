@@ -1,25 +1,33 @@
 #include "InputManager.h"
-#include <iostream>
+#include "MouseInput.h"
+#include "KeyboardInput.h"
 
-void InputManager::Update()
+
+void InputManager::PushAction(InputAction action)
 {
-	currentAction = InputAction::None;
-
-	char input;
-	std::cin >> input;
-
-    switch (input)
-    {
-    case 'w': currentAction = InputAction::MoveUp; break;
-    case 's': currentAction = InputAction::MoveDown; break;
-    case 'a': currentAction = InputAction::MoveLeft; break;
-    case 'd': currentAction = InputAction::MoveRight; break;
-    case 'e': currentAction = InputAction::Confirm; break;
-    case 'q': currentAction = InputAction::Quit; break;
-    }
+	actionQueue.push(action);
 }
 
-InputAction InputManager::GetAction() const
+bool InputManager::HasAction() const
 {
-    return currentAction;
+	return !actionQueue.empty();
+}
+
+InputAction InputManager::PopAction()
+{
+	auto action = actionQueue.front();
+	actionQueue.pop();
+	return action;
+}
+void InputManager::Update()
+{
+	for ( auto& source : sources )
+	{
+		source->Update(*this);
+	}
+}
+InputManager::InputManager()
+{
+	sources.push_back(std::make_unique<KeyboardInput>());
+	sources.push_back(std::make_unique<MouseInput>());
 }

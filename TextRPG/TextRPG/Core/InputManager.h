@@ -1,14 +1,22 @@
 #pragma once 
 
 #include "InputAction.h"
+#include "InputSource.h"
+#include <memory>
+#include <queue>
 
 class InputManager
 {
 public:
+	InputManager();
 	void Update();
 
-	InputAction GetAction() const;
+	void PushAction(InputAction action);
+
+	bool HasAction() const;
+	InputAction PopAction();
 
 private:
-	InputAction currentAction = InputAction::None;
+	std::queue<InputAction> actionQueue;
+	std::vector<std::unique_ptr<InputSource>> sources;
 };

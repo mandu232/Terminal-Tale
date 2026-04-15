@@ -21,17 +21,21 @@ void TitleState::Enter()
 
 void TitleState::HandleInput(InputManager& input)
 {
-    switch (input.GetAction())
-    {
-    case InputAction::Confirm:
-        std::cout << "Start Game\n";
-        context.eventBus.Emit(GameStartEvent{});
-        break;
+	while ( input.HasAction() )
+	{
+		auto action = input.PopAction();
 
-    case InputAction::Quit:
-        exit(0);
-        break;
-    }
+		switch ( action )
+		{
+		case InputAction::Confirm:
+			context.eventBus.Emit(GameStartEvent{});
+			break;
+
+		case InputAction::Quit:
+			exit(0);
+			break;
+		}
+	}
 }
 
 void TitleState::Update()

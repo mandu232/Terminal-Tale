@@ -13,5 +13,7 @@ enum class InputAction
 	MoveRight,
 
 	OpenMenu,
-	Quit
+	Quit,
+
+	Click
 };
