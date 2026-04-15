@@ -8,6 +8,7 @@ void StateMachine::ChangeState(std::unique_ptr<State> newState)
 	if (currentState)
 	{
 		currentState->Exit();
+		context.uiManager.Clear();
 	}
 
 	currentState = std::move(newState);

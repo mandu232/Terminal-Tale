@@ -19,7 +19,9 @@ void TitleState::Enter()
             });
 	context.uiManager.AddButton
 	(
-		UIButton(10 , 5 , 20 , 3 , InputAction::Confirm)
+		UIButton(10 , 5 , 20 , 3 , [this]() {
+			context.eventBus.Emit(GameStartEvent{});
+		})
 	);
 }
 

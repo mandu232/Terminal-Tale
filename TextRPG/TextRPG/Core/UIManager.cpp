@@ -13,7 +13,7 @@ void UIManager::HandleClick(int x , int y , InputManager& input)
 	{
 		if ( button.Contains(x , y) )
 		{
-			input.PushAction(button.GetAction());
+			button.Click();
 		}
 	}
 }
@@ -22,17 +22,19 @@ void UIManager::Render()
 {
 	for ( const auto& button : buttons )
 	{
-		int x = button.GetX();
-		int y = button.GetY();
-		int w = button.GetWidth();
-		int h = button.GetHeight();
+		button.Render();
+	}
+}
 
-		for ( int i = 0; i < h; ++i )
-		{
-			std::cout << "\033[" << ( y + i ) << ";" << x << "H";
+void UIManager::Clear()
+{
+	buttons.clear();
+}
 
-			for ( int j = 0; j < w; ++j )
-				std::cout << '#';
-		}
+void UIManager::HandleMouseMove(int x , int y)
+{
+	for ( auto& button : buttons )
+	{
+		button.SetHovered(button.Contains(x , y));
 	}
 }
