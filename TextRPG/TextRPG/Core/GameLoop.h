@@ -4,6 +4,7 @@
 
 class StateMachine;
 class InputManager;
+class uiManager;
 class Context;
 
 class GameLoop

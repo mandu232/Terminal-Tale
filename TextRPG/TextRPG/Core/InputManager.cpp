@@ -1,6 +1,4 @@
 #include "InputManager.h"
-#include "MouseInput.h"
-#include "KeyboardInput.h"
 
 
 void InputManager::PushAction(InputAction action)
@@ -26,8 +24,7 @@ void InputManager::Update()
 		source->Update(*this);
 	}
 }
-InputManager::InputManager()
+void InputManager::AddSource(std::unique_ptr<InputSource> source)
 {
-	sources.push_back(std::make_unique<KeyboardInput>());
-	sources.push_back(std::make_unique<MouseInput>());
+	sources.push_back(std::move(source));
 }

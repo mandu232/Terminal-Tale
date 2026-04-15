@@ -63,11 +63,17 @@
     <ClCompile Include="Core\EventBus.cpp">
       <Filter>소스 파일\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Core\KeyboardInput.cpp">
+    <ClCompile Include="Core\UIManager.cpp">
       <Filter>소스 파일\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Core\MouseInput.cpp">
+    <ClCompile Include="Core\UIButton.cpp">
       <Filter>소스 파일\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\ConsoleInputSource.cpp">
+      <Filter>소스 파일\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\ConsoleUtils.cpp">
+      <Filter>소스 파일\Utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -110,11 +116,17 @@
     <ClInclude Include="Core\InputSource.h">
       <Filter>소스 파일\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Core\KeyboardInput.h">
+    <ClInclude Include="Core\UIManager.h">
       <Filter>소스 파일\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Core\MouseInput.h">
+    <ClInclude Include="Core\UIButton.h">
       <Filter>소스 파일\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ConsoleInputSource.h">
+      <Filter>소스 파일\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\ConsoleUtils.h">
+      <Filter>소스 파일\Utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

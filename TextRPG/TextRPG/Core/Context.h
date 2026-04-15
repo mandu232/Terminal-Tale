@@ -1,6 +1,7 @@
 #pragma once
 
 #include "EventBus.h"
+#include "UIManager.h"
 
 class Context
 {
@@ -10,6 +11,7 @@ public:
 	// ===== Core System =====
 
 	EventBus eventBus;
+	UIManager uiManager;
 
 	// ===== Game State =====
 };

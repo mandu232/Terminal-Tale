@@ -17,6 +17,10 @@ void TitleState::Enter()
             {
                 std::cout << "Game Start Event Received\n";
             });
+	context.uiManager.AddButton
+	(
+		UIButton(10 , 5 , 20 , 3 , InputAction::Confirm)
+	);
 }
 
 void TitleState::HandleInput(InputManager& input)
@@ -44,4 +48,5 @@ void TitleState::Update()
 
 void TitleState::Render()
 {
+	context.uiManager.Render();
 }

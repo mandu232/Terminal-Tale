@@ -127,18 +127,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application.cpp" />
+    <ClCompile Include="Core\ConsoleInputSource.cpp" />
     <ClCompile Include="Core\EventBus.cpp" />
     <ClCompile Include="Core\EventSubscription.cpp" />
     <ClCompile Include="Core\GameLoop.cpp" />
     <ClCompile Include="Core\InputManager.cpp" />
-    <ClCompile Include="Core\KeyboardInput.cpp" />
-    <ClCompile Include="Core\MouseInput.cpp" />
     <ClCompile Include="Core\StateMachine.cpp" />
+    <ClCompile Include="Core\UIButton.cpp" />
+    <ClCompile Include="Core\UIManager.cpp" />
     <ClCompile Include="Game\States\TitleState.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Utils\ConsoleUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Application.h" />
+    <ClInclude Include="Core\ConsoleInputSource.h" />
     <ClInclude Include="Core\Context.h" />
     <ClInclude Include="Core\Event.h" />
     <ClInclude Include="Core\EventBus.h" />
@@ -147,12 +150,13 @@
     <ClInclude Include="Core\InputAction.h" />
     <ClInclude Include="Core\InputManager.h" />
     <ClInclude Include="Core\InputSource.h" />
-    <ClInclude Include="Core\KeyboardInput.h" />
-    <ClInclude Include="Core\MouseInput.h" />
     <ClInclude Include="Core\State.h" />
     <ClInclude Include="Core\StateMachine.h" />
+    <ClInclude Include="Core\UIButton.h" />
+    <ClInclude Include="Core\UIManager.h" />
     <ClInclude Include="Game\Events\GameStartEvent.h" />
     <ClInclude Include="Game\States\TitleState.h" />
+    <ClInclude Include="Utils\ConsoleUtils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

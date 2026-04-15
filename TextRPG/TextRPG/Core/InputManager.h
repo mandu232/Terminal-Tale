@@ -8,7 +8,7 @@
 class InputManager
 {
 public:
-	InputManager();
+	void AddSource(std::unique_ptr<InputSource> source);
 	void Update();
 
 	void PushAction(InputAction action);
