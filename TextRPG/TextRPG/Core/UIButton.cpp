@@ -1,16 +1,23 @@
 #include "UIButton.h"
+#include "ConsoleBuffer.h"
 #include <iostream>
 
-UIButton::UIButton(int x , int y , int w , int h , Callback onClick)
-	: x(x) , y(y) , width(w) , height(h) , onClick(onClick) {
+UIButton::UIButton(int x , int y , int w , int h ,
+	int z,
+	std::string text,
+	Callback onClick)
+	: x(x) , y(y) , width(w) , height(h) ,
+	zOreder(z),
+	text(std::move(text)),
+	onClick(onClick) {
 }
 
 bool UIButton::Contains(int mx , int my) const
 {
 	return mx >= x &&
-		mx <= x + width &&
+		mx < x + width &&
 		my >= y &&
-		my <= y + height;
+		my < y + height;
 }
 
 void UIButton::Click()
@@ -24,26 +31,38 @@ int UIButton::GetY() const { return y; }
 int UIButton::GetWidth() const { return width; }
 int UIButton::GetHeight() const { return height; }
 
-void UIButton::Render() const
+void UIButton::Render(ConsoleBuffer& buffer) const
 {
-	for ( int i = 0; i < height; ++i )
-	{
-		std::cout << "\033[" << ( y + i ) << ";" << x << "H";
+	short color = GetColor();
 
-		for ( int j = 0; j < width; ++j )
+	//배경 출력
+	for ( int i = 0;i < height;i++ )
+	{
+		for ( int j = 0;j < width;j++ )
 		{
-			std::cout << GetColorCode();
+			char c = ' ';
+
+			if ( i == 0 || i == height - 1 ) c = '-';
+			else if ( j == 0 || j == width - 1 ) c = '|';
+
+			buffer.Draw(x + j , y + i , c, color);
 		}
 	}
+
+	int textX = x + ( width - text.size() ) / 2;
+	int textY = y + height / 2;
+
+	buffer.DrawText(textX , textY , text, color);
 }
 
-const char* UIButton::GetColorCode() const
+short UIButton::GetColor() const
 {
 	switch ( state )
 	{
-	case State::Normal:  return "\033[37m";
-	case State::Hovered: return "\033[33m";
-	case State::Pressed: return "\033[32m";
+	case State::Normal:  return 7;   // WHITE
+	case State::Hovered: return 14;  // YELLOW
+	case State::Pressed: return 10;  // GREEN
 	}
-	return "\033[37m";
+
+	return 7;
 }

@@ -14,4 +14,11 @@ public:
 	UIManager uiManager;
 
 	// ===== Game State =====
+
+	std::unique_ptr<State> nextState;
+
+	void RequestStateChange(std::unique_ptr<State> state)
+	{
+		nextState = std::move(state);
+	}
 };

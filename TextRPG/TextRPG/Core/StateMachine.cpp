@@ -35,11 +35,11 @@ void StateMachine::Update()
 	}
 }
 
-void StateMachine::Render()
+void StateMachine::Render(ConsoleBuffer& buffer)
 {
 	if (currentState)
 	{
-		currentState->Render();
+		currentState->Render(buffer);
 	}
 }
 

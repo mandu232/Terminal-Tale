@@ -1,5 +1,8 @@
 #pragma once
 #include <functional>
+#include <string>
+
+class ConsoleBuffer;
 
 class UIButton
 {
@@ -13,7 +16,12 @@ public:
 
 	using Callback = std::function<void()>;
 
-	UIButton(int x , int y , int w , int h , Callback onClick);
+	UIButton(int x , int y , int w , int h ,
+		int z,
+		std::string text,
+		Callback onClick);
+
+	int GetZ() const { return zOreder; }
 
 	bool Contains(int mx , int my) const;
 	void Click();
@@ -28,11 +36,13 @@ public:
 	int GetWidth() const;
 	int GetHeight() const;
 
-	void Render() const;
-	const char* GetColorCode() const;
+	void Render(ConsoleBuffer& buffer) const;
+	short GetColor() const;
 
 private:
 	int x , y , width , height;
+	int zOreder = 0;
 	State state = State::Normal;
+	std::string text;
 	Callback onClick;
 };

@@ -1,7 +1,9 @@
 #include "TitleState.h"
+#include "GameState.h"
 #include "Core/InputManager.h"
 #include "Core/Context.h"
 #include "Game/Events/GameStartEvent.h"
+#include "Core/ConsoleBuffer.h"
 #include <iostream>
 
 TitleState::TitleState(Context& context)
@@ -15,14 +17,20 @@ void TitleState::Enter()
         context.eventBus.Subscribe<GameStartEvent>(
             [this](const GameStartEvent&)
             {
-                std::cout << "Game Start Event Received\n";
+				context.RequestStateChange(
+					std::make_unique<GameState>(context)
+				);
             });
+
 	context.uiManager.AddButton
 	(
-		UIButton(10 , 5 , 20 , 3 , [this]() {
+		UIButton(10 , 5 , 20 , 3 , 1, 
+			"Start Game",
+			[this]() {
 			context.eventBus.Emit(GameStartEvent{});
 		})
 	);
+
 }
 
 void TitleState::HandleInput(InputManager& input)
@@ -48,7 +56,12 @@ void TitleState::Update()
 {
 }
 
-void TitleState::Render()
+void TitleState::Render(ConsoleBuffer& buffer)
 {
-	context.uiManager.Render();
+	context.uiManager.Render(buffer);
+
+	if ( receivedStartEvent )
+	{
+		buffer.DrawText(10 , 10 , "Game Start Event Receive", 4);
+	}
 }

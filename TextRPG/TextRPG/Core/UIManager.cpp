@@ -1,28 +1,42 @@
 #include "UIManager.h"
 #include "InputManager.h"
+#include "ConsoleBuffer.h"
 #include <iostream>
+#include <algorithm>
 
 void UIManager::AddButton(const UIButton& button)
 {
 	buttons.push_back(button);
+
+	std::sort(
+		buttons.begin() ,
+		buttons.end() ,
+		[] (const UIButton& a , const UIButton& b)
+		{
+			return a.GetZ() < b.GetZ();
+		}
+	);
 }
 
-void UIManager::HandleClick(int x , int y , InputManager& input)
+void UIManager::HandleClick(int x , int y)
 {
-	for ( auto& button : buttons )
+	for ( auto it = buttons.rbegin();
+		it != buttons.rend();
+		++it )
 	{
-		if ( button.Contains(x , y) )
+		if ( it->Contains(x , y) )
 		{
-			button.Click();
+			it->Click();
+			return;
 		}
 	}
 }
 
-void UIManager::Render()
+void UIManager::Render(ConsoleBuffer& buffer)
 {
 	for ( const auto& button : buttons )
 	{
-		button.Render();
+		button.Render(buffer);
 	}
 }
 

@@ -40,12 +40,14 @@ void ConsoleInputSource::Update(InputManager& input)
 		{
 			auto& mouse = record.Event.MouseEvent;
 
+			int x = mouse.dwMousePosition.X + 1;
+			int y = mouse.dwMousePosition.Y + 1;
+
+			uiManager.HandleMouseMove(x , y);
+
 			if ( mouse.dwButtonState & FROM_LEFT_1ST_BUTTON_PRESSED )
 			{
-				int x = mouse.dwMousePosition.X;
-				int y = mouse.dwMousePosition.Y;
-
-				uiManager.HandleClick(x , y , input);
+				uiManager.HandleClick(x , y);
 			}
 		}
 	}
