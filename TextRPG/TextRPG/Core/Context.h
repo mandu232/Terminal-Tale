@@ -1,7 +1,7 @@
 #pragma once
 
 #include "EventBus.h"
-#include "UIManager.h"
+#include "StateMachine.h"
 
 class Context
 {
@@ -16,8 +16,9 @@ public:
 
 	std::unique_ptr<State> nextState;
 
-	void RequestStateChange(std::unique_ptr<State> state)
-	{
-		nextState = std::move(state);
-	}
+	StateMachine* stateMachine = nullptr;
+
+	void ChangeState(std::unique_ptr<State> state);
+	void PushState(std::unique_ptr<State> state);
+	void PopState();
 };

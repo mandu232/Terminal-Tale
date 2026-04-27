@@ -16,6 +16,7 @@ GameLoop::GameLoop()
 
 	context = std::make_unique<Context>();
 	stateMachine = std::make_unique<StateMachine>(*context);
+	context->stateMachine = stateMachine.get();
 	inputManager = std::make_unique<InputManager>();
 
 	buffer = std::make_unique<ConsoleBuffer>(120 , 40);

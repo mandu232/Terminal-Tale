@@ -1,7 +1,6 @@
 #include "GameState.h"
 #include "Core/InputManager.h"
 #include "Core/Context.h"
-#include "Game/Events/GameStartEvent.h"
 #include "Core/ConsoleBuffer.h"
 #include <iostream>
 
@@ -17,7 +16,7 @@ void GameState::Enter()
 		UIButton(20 , 5 , 20 , 3 , 1 ,
 			"GameState" ,
 			[ this ] () {
-				context.eventBus.Emit(GameStartEvent{});
+				context.PopState();
 			})
 	);
 

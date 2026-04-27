@@ -129,6 +129,7 @@
     <ClCompile Include="Core\Application.cpp" />
     <ClCompile Include="Core\ConsoleBuffer.cpp" />
     <ClCompile Include="Core\ConsoleInputSource.cpp" />
+    <ClCompile Include="Core\Context.cpp" />
     <ClCompile Include="Core\EventBus.cpp" />
     <ClCompile Include="Core\EventSubscription.cpp" />
     <ClCompile Include="Core\GameLoop.cpp" />

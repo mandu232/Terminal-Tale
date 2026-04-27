@@ -17,7 +17,7 @@ void TitleState::Enter()
         context.eventBus.Subscribe<GameStartEvent>(
             [this](const GameStartEvent&)
             {
-				context.RequestStateChange(
+				context.PushState(
 					std::make_unique<GameState>(context)
 				);
             });
@@ -29,6 +29,15 @@ void TitleState::Enter()
 			[this]() {
 			context.eventBus.Emit(GameStartEvent{});
 		})
+	);
+
+	uiManager.AddButton
+	(
+		UIButton(10 , 20 , 20 , 3 , 1 ,
+			"Quit" ,
+			[ this ] () {
+				exit(0);
+			})
 	);
 
 }
