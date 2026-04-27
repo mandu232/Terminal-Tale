@@ -3,6 +3,7 @@
 #include "EventBus.h"
 #include "StateMachine.h"
 #include "SettingsManager.h"
+#include "SoundSystem.h"
 
 class Context
 {
@@ -13,6 +14,7 @@ public:
 
 	EventBus eventBus;
 	SettingsManager settings;
+	SoundSystem sound;
 
 	// ===== Game State =====
 

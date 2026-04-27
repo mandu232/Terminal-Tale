@@ -9,10 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="리소스 파일">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="소스 파일\Core">
       <UniqueIdentifier>{6af7511a-e5aa-4644-899e-0d0c5f6b17c0}</UniqueIdentifier>
     </Filter>
@@ -42,6 +38,10 @@
     </Filter>
     <Filter Include="소스 파일\external\json">
       <UniqueIdentifier>{75099e70-460d-49ca-b35e-e12510c04fdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +163,9 @@
     </ClInclude>
     <ClInclude Include="Core\SoundSystem.h">
       <Filter>소스 파일\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Events\PlaySoundEvent.h">
+      <Filter>소스 파일\Game\Events</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -7,6 +7,7 @@ class TitleState : public State
 {
 private:
 	EventSubscription startSub;
+	EventSubscription playSound;
 	bool receivedStartEvent = false;
 public:
 	TitleState(Context& context);

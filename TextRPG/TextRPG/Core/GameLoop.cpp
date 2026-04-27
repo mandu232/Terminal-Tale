@@ -17,6 +17,11 @@ GameLoop::GameLoop()
 	context = std::make_unique<Context>();
 
 	context->settings.Load("Data/settings.json");
+	context->sound.Init();
+
+	context->sound.SetMasterVolume(
+		context->settings.settings.masterVolume
+	);
 
 	stateMachine = std::make_unique<StateMachine>(*context);
 	context->stateMachine = stateMachine.get();

@@ -166,6 +166,7 @@
     <ClInclude Include="Core\UIManager.h" />
     <ClInclude Include="external\json\json.hpp" />
     <ClInclude Include="Game\Events\GameStartEvent.h" />
+    <ClInclude Include="Game\Events\PlaySoundEvent.h" />
     <ClInclude Include="Game\States\GameState.h" />
     <ClInclude Include="Game\States\TitleState.h" />
     <ClInclude Include="Utils\ConsoleUtils.h" />

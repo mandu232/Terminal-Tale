@@ -3,6 +3,7 @@
 #include "Core/InputManager.h"
 #include "Core/Context.h"
 #include "Game/Events/GameStartEvent.h"
+#include "Game/Events/PlaySoundEvent.h"
 #include "Core/ConsoleBuffer.h"
 #include <iostream>
 
@@ -13,6 +14,14 @@ TitleState::TitleState(Context& context)
 
 void TitleState::Enter()
 {
+
+	playSound =
+		context.eventBus.Subscribe<PlaySoundEvent>(
+			[ this ] (const PlaySoundEvent& e)
+			{
+				context.sound.PlaySE(e.soundName);
+			});
+
     startSub =
         context.eventBus.Subscribe<GameStartEvent>(
             [this](const GameStartEvent&)
@@ -27,6 +36,7 @@ void TitleState::Enter()
 		UIButton(10 , 5 , 20 , 3 , 1, 
 			"Start Game",
 			[this]() {
+			context.sound.PlaySE("Assets/audio/testsound.wav");
 			context.eventBus.Emit(GameStartEvent{});
 		})
 	);
