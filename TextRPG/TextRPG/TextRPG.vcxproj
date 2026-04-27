@@ -126,7 +126,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Core\Application.cpp" />
+    <ClCompile Include="Core\Application.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)/external;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
     <ClCompile Include="Core\ConsoleBuffer.cpp" />
     <ClCompile Include="Core\ConsoleInputSource.cpp" />
     <ClCompile Include="Core\Context.cpp" />
@@ -134,6 +136,7 @@
     <ClCompile Include="Core\EventSubscription.cpp" />
     <ClCompile Include="Core\GameLoop.cpp" />
     <ClCompile Include="Core\InputManager.cpp" />
+    <ClCompile Include="Core\SettingsManager.cpp" />
     <ClCompile Include="Core\StateMachine.cpp" />
     <ClCompile Include="Core\UIButton.cpp" />
     <ClCompile Include="Core\UIManager.cpp" />
@@ -154,6 +157,7 @@
     <ClInclude Include="Core\InputAction.h" />
     <ClInclude Include="Core\InputManager.h" />
     <ClInclude Include="Core\InputSource.h" />
+    <ClInclude Include="Core\SettingsManager.h" />
     <ClInclude Include="Core\State.h" />
     <ClInclude Include="Core\StateMachine.h" />
     <ClInclude Include="Core\UIButton.h" />
@@ -162,6 +166,9 @@
     <ClInclude Include="Game\States\GameState.h" />
     <ClInclude Include="Game\States\TitleState.h" />
     <ClInclude Include="Utils\ConsoleUtils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\settings.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

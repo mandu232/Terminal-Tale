@@ -84,6 +84,9 @@
     <ClCompile Include="Core\Context.cpp">
       <Filter>소스 파일\Core</Filter>
     </ClCompile>
+    <ClCompile Include="Core\SettingsManager.cpp">
+      <Filter>소스 파일\Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Application.h">
@@ -143,5 +146,13 @@
     <ClInclude Include="Game\States\GameState.h">
       <Filter>소스 파일\Game\State</Filter>
     </ClInclude>
+    <ClInclude Include="Core\SettingsManager.h">
+      <Filter>소스 파일\Core</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\settings.json">
+      <Filter>소스 파일\Data</Filter>
+    </None>
   </ItemGroup>
 </Project>
