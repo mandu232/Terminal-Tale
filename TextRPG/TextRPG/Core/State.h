@@ -16,6 +16,7 @@ public:
 
     virtual void Enter() {}
     virtual void Exit() {}
+	virtual void Resume() {}
 
     virtual void HandleInput(InputManager& input) = 0;
     virtual void Update() = 0;

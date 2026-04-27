@@ -59,6 +59,10 @@ void StateMachine::PopState()
 		stateStack.top()->Exit();
 		stateStack.pop();
 	}
+	if ( !stateStack.empty() )
+	{
+		stateStack.top()->Resume();
+	}
 }
 
 StateMachine::StateMachine(Context& context) 
