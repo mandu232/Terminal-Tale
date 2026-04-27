@@ -11,7 +11,6 @@ public:
 	// ===== Core System =====
 
 	EventBus eventBus;
-	UIManager uiManager;
 
 	// ===== Game State =====
 

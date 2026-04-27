@@ -1,4 +1,5 @@
 #pragma once
+#include "UIManager.h"
 
 class InputManager;
 class Context;
@@ -20,6 +21,9 @@ public:
     virtual void Update() = 0;
     virtual void Render(ConsoleBuffer& buffer) = 0;
 
+	UIManager& GetUIManager() { return uiManager; }
+
 protected:
     Context& context;
+	UIManager uiManager;
 };

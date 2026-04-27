@@ -12,7 +12,7 @@ GameState::GameState(Context& context)
 
 void GameState::Enter()
 {
-	context.uiManager.AddButton
+	uiManager.AddButton
 	(
 		UIButton(20 , 5 , 20 , 3 , 1 ,
 			"GameState" ,
@@ -37,6 +37,6 @@ void GameState::Update()
 
 void GameState::Render(ConsoleBuffer& buffer)
 {
-	context.uiManager.Render(buffer);
+	uiManager.Render(buffer);
 
 }

@@ -21,7 +21,7 @@ GameLoop::GameLoop()
 	buffer = std::make_unique<ConsoleBuffer>(120 , 40);
 
 	inputManager->AddSource(
-		std::make_unique<ConsoleInputSource>(context->uiManager)
+		std::make_unique<ConsoleInputSource>()
 	);
 
 	stateMachine->ChangeState(
@@ -37,7 +37,12 @@ void GameLoop::Run()
 {
 	while(running)
 	{
-		inputManager->Update();
+		State* current = stateMachine->GetcurrentState();
+
+		if ( current )
+		{
+			inputManager->Update(current->GetUIManager());
+		}
 
 		ProcessInput();
 		Update();
@@ -47,6 +52,10 @@ void GameLoop::Run()
 
 void GameLoop::ProcessInput()
 {
+	if ( auto* current = stateMachine->GetcurrentState() )
+	{
+		inputManager->Update(current->GetUIManager());
+	}
 	stateMachine->HandleInput(*inputManager);
 }
 

@@ -5,11 +5,13 @@
 #include <memory>
 #include <queue>
 
+class UIManager;
+
 class InputManager
 {
 public:
 	void AddSource(std::unique_ptr<InputSource> source);
-	void Update();
+	void Update(UIManager& ui);
 
 	void PushAction(InputAction action);
 

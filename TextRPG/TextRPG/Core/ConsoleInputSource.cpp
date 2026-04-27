@@ -2,13 +2,12 @@
 #include "UIManager.h"
 #include "InputManager.h"
 
-ConsoleInputSource::ConsoleInputSource(UIManager& ui)
-	: uiManager(ui)
+ConsoleInputSource::ConsoleInputSource()
 {
 	hInput = GetStdHandle(STD_INPUT_HANDLE);
 }
 
-void ConsoleInputSource::Update(InputManager& input)
+void ConsoleInputSource::Update(InputManager& input, UIManager& ui)
 {
 	DWORD eventCount = 0;
 	GetNumberOfConsoleInputEvents(hInput , &eventCount);
@@ -43,11 +42,11 @@ void ConsoleInputSource::Update(InputManager& input)
 			int x = mouse.dwMousePosition.X + 1;
 			int y = mouse.dwMousePosition.Y + 1;
 
-			uiManager.HandleMouseMove(x , y);
+			ui.HandleMouseMove(x , y);
 
 			if ( mouse.dwButtonState & FROM_LEFT_1ST_BUTTON_PRESSED )
 			{
-				uiManager.HandleClick(x , y);
+				ui.HandleClick(x , y);
 			}
 		}
 	}

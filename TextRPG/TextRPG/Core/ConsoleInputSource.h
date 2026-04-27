@@ -8,11 +8,10 @@ class UIManager;
 class ConsoleInputSource : public InputSource
 {
 public:
-	ConsoleInputSource(UIManager& ui);
+	ConsoleInputSource();
 
-	void Update(InputManager& input) override;
+	virtual void Update(InputManager& input, UIManager& ui) override;
 
 private:
 	HANDLE hInput;
-	UIManager& uiManager;
 };

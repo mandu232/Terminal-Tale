@@ -5,41 +5,59 @@
 
 void StateMachine::ChangeState(std::unique_ptr<State> newState)
 {
-	if (currentState)
+	while ( !stateStack.empty() )
 	{
-		currentState->Exit();
-		context.uiManager.Clear();
+		stateStack.top()->Exit();
+		stateStack.pop();
 	}
-
-	currentState = std::move(newState);
-
-	if (currentState)
-	{
-		currentState->Enter();
-	}
+	PushState(std::move(newState));
 }
 
 void StateMachine::HandleInput(InputManager& input)
 {
-	if (currentState)
+	if (!stateStack.empty())
 	{
-		currentState->HandleInput(input);
+		stateStack.top()->HandleInput(input);
 	}
 }
 
 void StateMachine::Update()
 {
-	if (currentState)
+	if (!stateStack.empty())
 	{
-		currentState->Update();
+		stateStack.top()->Update();
 	}
 }
 
 void StateMachine::Render(ConsoleBuffer& buffer)
 {
-	if (currentState)
+	if (!stateStack.empty())
 	{
-		currentState->Render(buffer);
+		stateStack.top()->Render(buffer);
+	}
+}
+
+State* StateMachine::GetcurrentState() const
+{
+	return stateStack.empty() ? nullptr : stateStack.top().get();
+}
+
+void StateMachine::PushState(std::unique_ptr<State> newState)
+{
+	if ( newState )
+	{
+		stateStack.push(std::move(newState));
+		stateStack.top()->Enter();
+
+	}
+}
+
+void StateMachine::PopState()
+{
+	if ( !stateStack.empty() )
+	{
+		stateStack.top()->Exit();
+		stateStack.pop();
 	}
 }
 

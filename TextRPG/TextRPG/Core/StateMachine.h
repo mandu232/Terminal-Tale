@@ -1,6 +1,7 @@
 #pragma once
 
 #include <memory>
+#include <stack>
 
 class State;
 class InputManager;
@@ -11,6 +12,8 @@ class StateMachine
 {
 public:
 	void ChangeState(std::unique_ptr<State> newState);
+	void PushState(std::unique_ptr<State> newState);
+	void PopState();
 
 	void HandleInput(InputManager& input);
 	void Update();
@@ -18,7 +21,9 @@ public:
 
 	StateMachine(Context& context);
 
+	State* GetcurrentState() const;
+
 private:
-	std::unique_ptr<State> currentState;
+	std::stack<std::unique_ptr<State>> stateStack;
 	Context& context;
 };

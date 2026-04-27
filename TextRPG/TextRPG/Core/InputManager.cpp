@@ -17,11 +17,11 @@ InputAction InputManager::PopAction()
 	actionQueue.pop();
 	return action;
 }
-void InputManager::Update()
+void InputManager::Update(UIManager& ui)
 {
 	for ( auto& source : sources )
 	{
-		source->Update(*this);
+		source->Update(*this, ui);
 	}
 }
 void InputManager::AddSource(std::unique_ptr<InputSource> source)

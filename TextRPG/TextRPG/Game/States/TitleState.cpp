@@ -22,7 +22,7 @@ void TitleState::Enter()
 				);
             });
 
-	context.uiManager.AddButton
+	uiManager.AddButton
 	(
 		UIButton(10 , 5 , 20 , 3 , 1, 
 			"Start Game",
@@ -58,7 +58,7 @@ void TitleState::Update()
 
 void TitleState::Render(ConsoleBuffer& buffer)
 {
-	context.uiManager.Render(buffer);
+	uiManager.Render(buffer);
 
 	if ( receivedStartEvent )
 	{
