@@ -37,6 +37,12 @@
     <Filter Include="소스 파일\Game\Events">
       <UniqueIdentifier>{e33b1afe-45c6-45c6-84ab-6adb9d9f93da}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\external">
+      <UniqueIdentifier>{039a89c1-0bd3-420c-91da-3b8ee3340621}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\external\json">
+      <UniqueIdentifier>{75099e70-460d-49ca-b35e-e12510c04fdf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -85,6 +91,9 @@
       <Filter>소스 파일\Core</Filter>
     </ClCompile>
     <ClCompile Include="Core\SettingsManager.cpp">
+      <Filter>소스 파일\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\SoundSystem.cpp">
       <Filter>소스 파일\Core</Filter>
     </ClCompile>
   </ItemGroup>
@@ -147,6 +156,12 @@
       <Filter>소스 파일\Game\State</Filter>
     </ClInclude>
     <ClInclude Include="Core\SettingsManager.h">
+      <Filter>소스 파일\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="external\json\json.hpp">
+      <Filter>소스 파일\external\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\SoundSystem.h">
       <Filter>소스 파일\Core</Filter>
     </ClInclude>
   </ItemGroup>

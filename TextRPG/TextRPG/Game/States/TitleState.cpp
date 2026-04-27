@@ -36,6 +36,8 @@ void TitleState::Enter()
 		UIButton(10 , 20 , 20 , 3 , 1 ,
 			"Quit" ,
 			[ this ] () {
+				//테스트용 임시 저장
+				context.settings.Save("Data/settings.json");
 				exit(0);
 			})
 	);

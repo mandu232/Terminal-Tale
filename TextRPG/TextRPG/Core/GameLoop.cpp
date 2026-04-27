@@ -15,6 +15,9 @@ GameLoop::GameLoop()
 	HideCursor();
 
 	context = std::make_unique<Context>();
+
+	context->settings.Load("Data/settings.json");
+
 	stateMachine = std::make_unique<StateMachine>(*context);
 	context->stateMachine = stateMachine.get();
 	inputManager = std::make_unique<InputManager>();

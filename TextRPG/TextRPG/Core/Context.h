@@ -2,6 +2,7 @@
 
 #include "EventBus.h"
 #include "StateMachine.h"
+#include "SettingsManager.h"
 
 class Context
 {
@@ -11,6 +12,7 @@ public:
 	// ===== Core System =====
 
 	EventBus eventBus;
+	SettingsManager settings;
 
 	// ===== Game State =====
 
