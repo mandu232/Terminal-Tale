@@ -35,7 +35,7 @@ void TitleState::Enter()
 	uiManager.AddButton
 	(
 		UIButton(10 , 5 , 20 , 3 , 1, 
-			L("ui.start_game") ,
+			L("ui.start_game"),
 			[this]() {
 			context.sound.PlaySE("Assets/audio/testsound.wav");
 			context.eventBus.Emit(GameStartEvent{});
@@ -44,8 +44,18 @@ void TitleState::Enter()
 
 	uiManager.AddButton
 	(
-		UIButton(10 , 20 , 20 , 3 , 1 ,
-			"Quit" ,
+		UIButton(10 , 10 , 20 , 3 , 1 ,
+			L("ui.setting") ,
+			[ this ] () {
+				context.sound.PlaySE("Assets/audio/testsound.wav");
+				context.eventBus.Emit(GameStartEvent{});
+			})
+	);
+
+	uiManager.AddButton
+	(
+		UIButton(10 , 15 , 20 , 3 , 1 ,
+			L("ui.quit_game"),
 			[ this ] () {
 				//테스트용 임시 저장
 				context.settings.Save("Data/settings.json");

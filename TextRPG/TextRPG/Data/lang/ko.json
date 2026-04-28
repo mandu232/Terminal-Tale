@@ -1,3 +1,5 @@
 ﻿{
-    "ui.start_game":  "게임 시작"
+  "ui.start_game": "게임 시작",
+  "ui.setting": "설정",
+  "ui.quit_game": "종료"
 }

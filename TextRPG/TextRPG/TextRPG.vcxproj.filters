@@ -202,5 +202,8 @@
     <None Include="Data\lang\ko.json">
       <Filter>소스 파일\Data\lang</Filter>
     </None>
+    <None Include="Data\lang\en.json">
+      <Filter>소스 파일\Data\lang</Filter>
+    </None>
   </ItemGroup>
 </Project>

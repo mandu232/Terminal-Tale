@@ -180,6 +180,7 @@
     <ClInclude Include="Utils\UTF8ToWide.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\lang\en.json" />
     <None Include="Data\lang\ko.json" />
     <None Include="Data\settings.json" />
   </ItemGroup>
