@@ -6,6 +6,7 @@
 #include "Game/Events/PlaySoundEvent.h"
 #include "Core/ConsoleBuffer.h"
 #include <iostream>
+#include <Core/Localization.h>
 
 TitleState::TitleState(Context& context)
     : State(context)
@@ -34,7 +35,7 @@ void TitleState::Enter()
 	uiManager.AddButton
 	(
 		UIButton(10 , 5 , 20 , 3 , 1, 
-			"Start Game",
+			L("ui.start_game") ,
 			[this]() {
 			context.sound.PlaySE("Assets/audio/testsound.wav");
 			context.eventBus.Emit(GameStartEvent{});

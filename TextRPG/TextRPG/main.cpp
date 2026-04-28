@@ -1,5 +1,6 @@
 #include "Core/Application.h"
 #include <Windows.h>
+#include <iostream>
 
 void EnableMouseInput()
 {
@@ -18,6 +19,8 @@ void EnableMouseInput()
 int main()
 {
 	EnableMouseInput();
+	SetConsoleOutputCP(65001);
+
 	Application app;
 	app.Run();
 

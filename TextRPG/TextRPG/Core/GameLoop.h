@@ -1,6 +1,7 @@
 #pragma once
 
 #include <memory>
+#include "State.h"
 
 class StateMachine;
 class InputManager;
@@ -11,7 +12,7 @@ class ConsoleBuffer;
 class GameLoop
 {
 public:
-	GameLoop();
+	GameLoop(Context& ctx);
 	~GameLoop();
 
 	void Run();
@@ -22,9 +23,10 @@ private:
 	void Render();
 
 private:
+	Context& context;
+
 	bool running;
 	std::unique_ptr<StateMachine> stateMachine;
 	std::unique_ptr<InputManager> inputManager;
-	std::unique_ptr<Context> context;
 	std::unique_ptr<ConsoleBuffer> buffer;
 };

@@ -136,6 +136,8 @@
     <ClCompile Include="Core\EventSubscription.cpp" />
     <ClCompile Include="Core\GameLoop.cpp" />
     <ClCompile Include="Core\InputManager.cpp" />
+    <ClCompile Include="Core\Localization.cpp" />
+    <ClCompile Include="Core\LocalizationManager.cpp" />
     <ClCompile Include="Core\SettingsManager.cpp" />
     <ClCompile Include="Core\SoundSystem.cpp" />
     <ClCompile Include="Core\StateMachine.cpp" />
@@ -145,6 +147,8 @@
     <ClCompile Include="Game\States\TitleState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Utils\ConsoleUtils.cpp" />
+    <ClCompile Include="Utils\GetVisualWidth.cpp" />
+    <ClCompile Include="Utils\UTF8ToWide.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Application.h" />
@@ -158,6 +162,8 @@
     <ClInclude Include="Core\InputAction.h" />
     <ClInclude Include="Core\InputManager.h" />
     <ClInclude Include="Core\InputSource.h" />
+    <ClInclude Include="Core\Localization.h" />
+    <ClInclude Include="Core\LocalizationManager.h" />
     <ClInclude Include="Core\SettingsManager.h" />
     <ClInclude Include="Core\SoundSystem.h" />
     <ClInclude Include="Core\State.h" />
@@ -170,8 +176,11 @@
     <ClInclude Include="Game\States\GameState.h" />
     <ClInclude Include="Game\States\TitleState.h" />
     <ClInclude Include="Utils\ConsoleUtils.h" />
+    <ClInclude Include="Utils\GetVisualWidth.h" />
+    <ClInclude Include="Utils\UTF8ToWide.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\lang\ko.json" />
     <None Include="Data\settings.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,5 +1,6 @@
 #include "UIButton.h"
 #include "ConsoleBuffer.h"
+#include "Utils/GetVisualWidth.h"
 #include <iostream>
 
 UIButton::UIButton(int x , int y , int w , int h ,
@@ -40,16 +41,17 @@ void UIButton::Render(ConsoleBuffer& buffer) const
 	{
 		for ( int j = 0;j < width;j++ )
 		{
-			char c = ' ';
+			wchar_t c = L' ';
 
-			if ( i == 0 || i == height - 1 ) c = '-';
-			else if ( j == 0 || j == width - 1 ) c = '|';
+			if ( i == 0 || i == height - 1 ) c = L'-';
+			else if ( j == 0 || j == width - 1 ) c = L'|';
 
 			buffer.Draw(x + j , y + i , c, color);
 		}
 	}
 
-	int textX = x + ( width - text.size() ) / 2;
+	int visualWidth = GetVisualWidth(text);
+	int textX = x + ( width - visualWidth ) / 2;
 	int textY = y + height / 2;
 
 	buffer.DrawText(textX , textY , text, color);

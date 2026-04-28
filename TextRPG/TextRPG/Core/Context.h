@@ -4,6 +4,7 @@
 #include "StateMachine.h"
 #include "SettingsManager.h"
 #include "SoundSystem.h"
+#include "LocalizationManager.h"
 
 class Context
 {
@@ -15,6 +16,8 @@ public:
 	EventBus eventBus;
 	SettingsManager settings;
 	SoundSystem sound;
+	LocalizationManager localization;
+	
 
 	// ===== Game State =====
 

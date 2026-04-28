@@ -2,29 +2,26 @@
 #include "StateMachine.h"
 #include "InputManager.h"
 #include "Context.h"
-#include "UIManager.h"
 #include "ConsoleInputSource.h"
 #include "ConsoleBuffer.h"
 #include "Game/States/TitleState.h"
 #include "Utils/ConsoleUtils.h"
 
-GameLoop::GameLoop()
-	: running(true)
+GameLoop::GameLoop(Context& ctx)
+	: context(ctx), running(true)
 {
 	SetupConsole(122 , 42);
 	HideCursor();
 
-	context = std::make_unique<Context>();
+	context.settings.Load("Data/settings.json");
+	context.sound.Init();
 
-	context->settings.Load("Data/settings.json");
-	context->sound.Init();
-
-	context->sound.SetMasterVolume(
-		context->settings.settings.masterVolume
+	context.sound.SetMasterVolume(
+		context.settings.settings.masterVolume
 	);
 
-	stateMachine = std::make_unique<StateMachine>(*context);
-	context->stateMachine = stateMachine.get();
+	stateMachine = std::make_unique<StateMachine>(context);
+	context.stateMachine = stateMachine.get();
 	inputManager = std::make_unique<InputManager>();
 
 	buffer = std::make_unique<ConsoleBuffer>(120 , 40);
@@ -34,7 +31,7 @@ GameLoop::GameLoop()
 	);
 
 	stateMachine->ChangeState(
-		std::make_unique<TitleState>(*context)
+		std::make_unique<TitleState>(context)
 	);
 }
 
@@ -72,10 +69,10 @@ void GameLoop::Update()
 {
 	stateMachine->Update();
 
-	if ( context->nextState )
+	if ( context.nextState )
 	{
 		stateMachine->ChangeState(
-			std::move(context->nextState)
+			std::move(context.nextState)
 		);
 	}
 }

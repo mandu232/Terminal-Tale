@@ -3,6 +3,7 @@
 #include <memory>
 
 class GameLoop;
+class Context;
 
 class Application
 {
@@ -17,5 +18,6 @@ private:
 	void Shutdown();
 
 private:
+	std::unique_ptr<Context> context;
 	std::unique_ptr<GameLoop> gameLoop;
 };

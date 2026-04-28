@@ -1,8 +1,17 @@
 #include "Application.h"
+#include "Localization.h"
 #include "GameLoop.h"
+#include "Context.h"
 
 Application::Application()
 {
+	context = std::make_unique<Context>();
+
+	GContext = context.get();
+
+	context->localization.LoadLocalization("ko");
+	gameLoop = std::make_unique<GameLoop>(*context);
+
 }
 
 Application::~Application()
@@ -11,7 +20,6 @@ Application::~Application()
 
 void Application::Initialize()
 {
-	gameLoop = std::make_unique<GameLoop>();
 }
 
 void Application::Shutdown()
