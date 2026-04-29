@@ -1,6 +1,7 @@
 #pragma once
 
 #include <memory>
+#include <chrono>
 #include "State.h"
 
 class StateMachine;
@@ -21,8 +22,8 @@ private:
 	void ProcessInput();
 	void Update();
 	void Render();
+	void LimitFPS(std::chrono::high_resolution_clock::time_point frameStart);
 
-private:
 	Context& context;
 
 	bool running;

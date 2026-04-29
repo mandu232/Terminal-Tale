@@ -6,18 +6,19 @@
 #include "ConsoleBuffer.h"
 #include "Game/States/TitleState.h"
 #include "Utils/ConsoleUtils.h"
+#include <thread>
 
 GameLoop::GameLoop(Context& ctx)
 	: context(ctx), running(true)
 {
-	SetupConsole(122 , 42);
+	SetupConsole(202 , 62);
 	HideCursor();
 
 	stateMachine = std::make_unique<StateMachine>(context);
 	context.stateMachine = stateMachine.get();
 	inputManager = std::make_unique<InputManager>();
 
-	buffer = std::make_unique<ConsoleBuffer>(120 , 40);
+	buffer = std::make_unique<ConsoleBuffer>(200 , 60);
 
 	inputManager->AddSource(
 		std::make_unique<ConsoleInputSource>()
@@ -34,8 +35,14 @@ GameLoop::~GameLoop()
 
 void GameLoop::Run()
 {
+
+	using clock = std::chrono::high_resolution_clock;
+
 	while(running)
 	{
+
+		auto frameStart = clock::now();
+
 		State* current = stateMachine->GetcurrentState();
 
 		if ( current )
@@ -46,6 +53,8 @@ void GameLoop::Run()
 		ProcessInput();
 		Update();
 		Render();
+
+		LimitFPS(frameStart);
 	}
 }
 
@@ -75,4 +84,26 @@ void GameLoop::Render()
 	buffer->Clear();
 	stateMachine->Render(*buffer);
 	buffer->Present();
+
+}
+
+void GameLoop::LimitFPS(std::chrono::high_resolution_clock::time_point frameStart)
+{
+	int targetFPS = context.settings.settings.targetFPS;
+
+	if ( targetFPS <= 0 )
+		return;
+
+	using namespace std::chrono;
+
+	auto frameTime = high_resolution_clock::now() - frameStart;
+
+	auto targetFrameTime =
+		milliseconds(1000 / targetFPS);
+
+	if ( frameTime < targetFrameTime )
+	{
+		std::this_thread::sleep_for(
+			targetFrameTime - frameTime);
+	}
 }

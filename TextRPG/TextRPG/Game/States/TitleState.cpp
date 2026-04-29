@@ -7,6 +7,8 @@
 #include "Core/ConsoleBuffer.h"
 #include <iostream>
 #include <Core/Localization.h>
+#include "Core/UIButton.h"
+#include "Core/UILabel.h"
 
 TitleState::TitleState(Context& context)
     : State(context)
@@ -32,19 +34,28 @@ void TitleState::Enter()
 				);
             });
 
-	uiManager.AddButton
+	uiManager.Add
 	(
-		UIButton(10 , 5 , 20 , 3 , 1, 
-			L("ui.start_game"),
+		std::make_unique<UIButton>(10 , 40 , 20 , 3 , 1 ,
+			L("ui.new_game") ,
+			[ this ] () {
+				context.sound.PlaySE("Assets/audio/testsound.wav");
+			})
+	);
+
+	uiManager.Add
+	(
+		std::make_unique<UIButton>(10 , 45 , 20 , 3 , 1, 
+			L("ui.load_game"),
 			[this]() {
 			context.sound.PlaySE("Assets/audio/testsound.wav");
 			context.eventBus.Emit(GameStartEvent{});
 		})
 	);
 
-	uiManager.AddButton
+	uiManager.Add
 	(
-		UIButton(10 , 10 , 20 , 3 , 1 ,
+		std::make_unique<UIButton>(10 , 50 , 20 , 3 , 1 ,
 			L("ui.setting") ,
 			[ this ] () {
 				context.sound.PlaySE("Assets/audio/testsound.wav");
@@ -52,15 +63,20 @@ void TitleState::Enter()
 			})
 	);
 
-	uiManager.AddButton
+	uiManager.Add
 	(
-		UIButton(10 , 15 , 20 , 3 , 1 ,
+		std::make_unique<UIButton>(10 , 55 , 20 , 3 , 1 ,
 			L("ui.quit_game"),
 			[ this ] () {
 				//테스트용 임시 저장
 				context.settings.Save("Data/settings.json");
 				exit(0);
 			})
+	);
+
+	uiManager.Add
+	(
+		std::make_unique<UILabel>(50 , 15 , 10, 20 , L("ui.test_text") , 7)
 	);
 
 }

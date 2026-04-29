@@ -1,5 +1,8 @@
 ﻿{
-  "ui.start_game": "게임 시작",
-  "ui.setting": "설정",
-  "ui.quit_game": "종료"
+    "ui.new_game":  "새 게임",
+    "ui.start_game": "게임 시작",
+    "ui.load_game":  "게임 불러오기",
+    "ui.setting": "설정",
+    "ui.quit_game": "종료",
+    "ui.test_text": "테스트 텍스트"
 }

@@ -1,5 +1,6 @@
-{
-  "ui.start_game": "Game Start",
-  "ui.setting": "Setting",
-  "ui.quit_game": "Quit"
+﻿{
+    "ui.start_game": "Game Start",
+    "ui.setting": "Setting",
+    "ui.quit_game": "Quit",
+    "ui.test_text": "Test Text"
 }

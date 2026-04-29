@@ -1,10 +1,11 @@
 #pragma once
 #include <functional>
 #include <string>
+#include "UIElement.h"
 
 class ConsoleBuffer;
 
-class UIButton
+class UIButton :public UIElement
 {
 public:
 	enum class State
@@ -21,12 +22,12 @@ public:
 		std::string text,
 		Callback onClick);
 
-	int GetZ() const { return zOreder; }
+	int GetZ() const override { return zOreder; }
 
-	bool Contains(int mx , int my) const;
-	void Click();
+	bool Contains(int mx , int my) const override;
+	void Click() override;
 
-	void SetHovered(bool value)
+	void SetHovered(bool value) override
 	{
 		state = value ? State::Hovered : State::Normal;
 	}
@@ -36,7 +37,7 @@ public:
 	int GetWidth() const;
 	int GetHeight() const;
 
-	void Render(ConsoleBuffer& buffer) const;
+	void Render(ConsoleBuffer& buffer) const override;
 	short GetColor() const;
 
 private:

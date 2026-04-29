@@ -8,6 +8,10 @@ struct Settings
 	bool autoSave = true;
 
 	std::string language = "ko";
+
+	int targetFPS = 30;
+	bool vsync = false;
+	bool showFPS = false;
 };
 
 class SettingsManager

@@ -1,6 +1,9 @@
-{
+﻿{
     "autoSave": true,
     "language": "ko",
     "masterVolume": 1,
-    "textSpeed": 3
+    "showFPS": false,
+    "targetFPS": 15,
+    "textSpeed": 3,
+    "vsync": false
 }

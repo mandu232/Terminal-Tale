@@ -24,6 +24,7 @@ public:
 
 	void Clear(short color = 7);
 	void Draw(int x , int y , wchar_t c , short color = 7);
+	void DrawText(int x , int y , const std::wstring& text , short color = 7);
 	void DrawText(int x , int y , const std::string& text , short color = 7);
 
 	void Present();

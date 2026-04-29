@@ -4,29 +4,27 @@
 #include <iostream>
 #include <algorithm>
 
-void UIManager::AddButton(const UIButton& button)
+void UIManager::Add(std::unique_ptr<UIElement> element)
 {
-	buttons.push_back(button);
+	elements.push_back(std::move(element));
 
 	std::sort(
-		buttons.begin() ,
-		buttons.end() ,
-		[] (const UIButton& a , const UIButton& b)
+		elements.begin() ,
+		elements.end() ,
+		[] (const auto& a , const auto& b)
 		{
-			return a.GetZ() < b.GetZ();
+			return a->GetZ() < b->GetZ();
 		}
 	);
 }
 
 void UIManager::HandleClick(int x , int y)
 {
-	for ( auto it = buttons.rbegin();
-		it != buttons.rend();
-		++it )
+	for ( auto it = elements.rbegin(); it != elements.rend(); ++it )
 	{
-		if ( it->Contains(x , y) )
+		if ( ( *it )->Contains(x , y) )
 		{
-			it->Click();
+			( *it )->Click();
 			return;
 		}
 	}
@@ -34,21 +32,21 @@ void UIManager::HandleClick(int x , int y)
 
 void UIManager::Render(ConsoleBuffer& buffer)
 {
-	for ( const auto& button : buttons )
+	for ( auto& e : elements )
 	{
-		button.Render(buffer);
+		e->Render(buffer);
 	}
 }
 
 void UIManager::Clear()
 {
-	buttons.clear();
+	elements.clear();
 }
 
 void UIManager::HandleMouseMove(int x , int y)
 {
-	for ( auto& button : buttons )
+	for ( auto& e : elements )
 	{
-		button.SetHovered(button.Contains(x , y));
+		e->SetHovered(e->Contains(x , y));
 	}
 }

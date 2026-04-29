@@ -2,6 +2,7 @@
 #include "Core/InputManager.h"
 #include "Core/Context.h"
 #include "Core/ConsoleBuffer.h"
+#include "Core/UIButton.h"
 #include <iostream>
 
 GameState::GameState(Context& context)
@@ -11,9 +12,9 @@ GameState::GameState(Context& context)
 
 void GameState::Enter()
 {
-	uiManager.AddButton
+	uiManager.Add
 	(
-		UIButton(20 , 5 , 20 , 3 , 1 ,
+		std::make_unique<UIButton>(20 , 5 , 20 , 3 , 1 ,
 			"GameState" ,
 			[ this ] () {
 				context.PopState();

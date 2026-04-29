@@ -142,11 +142,14 @@
     <ClCompile Include="Core\SoundSystem.cpp" />
     <ClCompile Include="Core\StateMachine.cpp" />
     <ClCompile Include="Core\UIButton.cpp" />
+    <ClCompile Include="Core\UILabel.cpp" />
     <ClCompile Include="Core\UIManager.cpp" />
     <ClCompile Include="Game\States\GameState.cpp" />
     <ClCompile Include="Game\States\TitleState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Utils\ConsoleUtils.cpp" />
+    <ClCompile Include="Utils\EnableMouseInput.cpp" />
+    <ClCompile Include="Utils\GetCharWidth.cpp" />
     <ClCompile Include="Utils\GetVisualWidth.cpp" />
     <ClCompile Include="Utils\UTF8ToWide.cpp" />
   </ItemGroup>
@@ -169,6 +172,8 @@
     <ClInclude Include="Core\State.h" />
     <ClInclude Include="Core\StateMachine.h" />
     <ClInclude Include="Core\UIButton.h" />
+    <ClInclude Include="Core\UIElement.h" />
+    <ClInclude Include="Core\UILabel.h" />
     <ClInclude Include="Core\UIManager.h" />
     <ClInclude Include="external\json\json.hpp" />
     <ClInclude Include="Game\Events\GameStartEvent.h" />
@@ -176,6 +181,8 @@
     <ClInclude Include="Game\States\GameState.h" />
     <ClInclude Include="Game\States\TitleState.h" />
     <ClInclude Include="Utils\ConsoleUtils.h" />
+    <ClInclude Include="Utils\EnableMouseInput.h" />
+    <ClInclude Include="Utils\GetCharWidth.h" />
     <ClInclude Include="Utils\GetVisualWidth.h" />
     <ClInclude Include="Utils\UTF8ToWide.h" />
   </ItemGroup>
