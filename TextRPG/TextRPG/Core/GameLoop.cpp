@@ -5,15 +5,11 @@
 #include "ConsoleInputSource.h"
 #include "ConsoleBuffer.h"
 #include "Game/States/TitleState.h"
-#include "Utils/ConsoleUtils.h"
 #include <thread>
 
 GameLoop::GameLoop(Context& ctx)
 	: context(ctx), running(true)
 {
-	SetupConsole(202 , 62);
-	HideCursor();
-
 	stateMachine = std::make_unique<StateMachine>(context);
 	context.stateMachine = stateMachine.get();
 	inputManager = std::make_unique<InputManager>();

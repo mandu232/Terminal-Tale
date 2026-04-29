@@ -2,9 +2,13 @@
 #include "Localization.h"
 #include "GameLoop.h"
 #include "Context.h"
+#include "Utils/ConsoleUtils.h"
 
 Application::Application()
 {
+	SetupConsole(202 , 62);
+	HideCursor();
+
 	context = std::make_unique<Context>();
 
 	context->settings.Load("Data/settings.json");
