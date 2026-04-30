@@ -5,6 +5,7 @@
 #include "ConsoleInputSource.h"
 #include "ConsoleBuffer.h"
 #include "Game/States/TitleState.h"
+#include "ResolutionManager.h"
 #include <thread>
 
 GameLoop::GameLoop(Context& ctx)

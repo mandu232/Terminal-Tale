@@ -129,7 +129,7 @@
     <ClCompile Include="Core\Application.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)/external;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <ClCompile Include="Core\ConsoleBuffer.cpp" />
+    <ClCompile Include="Core\ConsoleDisplay.cpp" />
     <ClCompile Include="Core\ConsoleInputSource.cpp" />
     <ClCompile Include="Core\Context.cpp" />
     <ClCompile Include="Core\EventBus.cpp" />
@@ -138,6 +138,7 @@
     <ClCompile Include="Core\InputManager.cpp" />
     <ClCompile Include="Core\Localization.cpp" />
     <ClCompile Include="Core\LocalizationManager.cpp" />
+    <ClCompile Include="Core\ResolutionManager.cpp" />
     <ClCompile Include="Core\SettingsManager.cpp" />
     <ClCompile Include="Core\SoundSystem.cpp" />
     <ClCompile Include="Core\StateMachine.cpp" />
@@ -155,7 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Application.h" />
-    <ClInclude Include="Core\ConsoleBuffer.h" />
+    <ClInclude Include="Core\ConsoleDisplay.h" />
     <ClInclude Include="Core\ConsoleInputSource.h" />
     <ClInclude Include="Core\Context.h" />
     <ClInclude Include="Core\Event.h" />
@@ -167,6 +168,7 @@
     <ClInclude Include="Core\InputSource.h" />
     <ClInclude Include="Core\Localization.h" />
     <ClInclude Include="Core\LocalizationManager.h" />
+    <ClInclude Include="Core\ResolutionManager.h" />
     <ClInclude Include="Core\SettingsManager.h" />
     <ClInclude Include="Core\SoundSystem.h" />
     <ClInclude Include="Core\State.h" />
