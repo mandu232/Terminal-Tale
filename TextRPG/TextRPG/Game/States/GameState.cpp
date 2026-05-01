@@ -1,7 +1,7 @@
 #include "GameState.h"
 #include "Core/InputManager.h"
 #include "Core/Context.h"
-#include "Core/ConsoleBuffer.h"
+#include "Core/ConsoleDisplay.h"
 #include "Core/UIButton.h"
 #include <iostream>
 
@@ -35,8 +35,8 @@ void GameState::Update()
 {
 }
 
-void GameState::Render(ConsoleBuffer& buffer)
+void GameState::Render(ConsoleDisplay& display)
 {
-	uiManager.Render(buffer);
+	uiManager.Render(display);
 
 }

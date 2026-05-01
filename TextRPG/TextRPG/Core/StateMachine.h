@@ -6,7 +6,7 @@
 class State;
 class InputManager;
 class Context;
-class ConsoleBuffer;
+class ConsoleDisplay;
 
 class StateMachine
 {
@@ -17,7 +17,7 @@ public:
 
 	void HandleInput(InputManager& input);
 	void Update();
-	void Render(ConsoleBuffer& buffer);
+	void Render(ConsoleDisplay& display);
 
 	StateMachine(Context& context);
 

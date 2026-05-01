@@ -1,16 +1,18 @@
 #include "UIButton.h"
-#include "ConsoleBuffer.h"
+#include "ConsoleDisplay.h"
 #include "Utils/GetVisualWidth.h"
+#include "Utils/UTF8ToWide.h"
 #include <iostream>
 
 UIButton::UIButton(int x , int y , int w , int h ,
 	int z,
-	std::string text,
+	std::string textStr,
 	Callback onClick)
 	: x(x) , y(y) , width(w) , height(h) ,
 	zOreder(z),
-	text(std::move(text)),
-	onClick(onClick) {
+	onClick(onClick) 
+{
+	this->text = UTF8ToWide(textStr);
 }
 
 bool UIButton::Contains(int mx , int my) const
@@ -32,21 +34,25 @@ int UIButton::GetY() const { return y; }
 int UIButton::GetWidth() const { return width; }
 int UIButton::GetHeight() const { return height; }
 
-void UIButton::Render(ConsoleBuffer& buffer) const
+void UIButton::Render(ConsoleDisplay& display) const 
 {
 	short color = GetColor();
 
-	//배경 출력
-	for ( int i = 0;i < height;i++ )
-	{
-		for ( int j = 0;j < width;j++ )
-		{
+	for ( int i = 0; i < height; i++ ) {
+		for ( int j = 0; j < width; j++ ) {
+
+
 			wchar_t c = L' ';
 
-			if ( i == 0 || i == height - 1 ) c = L'-';
-			else if ( j == 0 || j == width - 1 ) c = L'|';
+			if ( i == 0 && j == 0 ) c = L'┌';
+			else if ( i == 0 && j == width - 2 ) c = L'┐';
+			else if ( i == height - 1 && j == 0 ) c = L'└';
+			else if ( i == height - 1 && j == width - 2 ) c = L'┘';
+			else if ( i == 0 || i == height - 1 ) c = L'─';
+			else if ( j == 0 || j == width - 2 ) c = L'│';
 
-			buffer.Draw(x + j , y + i , c, color);
+
+			display.Draw(x + j , y + i , c , color);
 		}
 	}
 
@@ -54,7 +60,7 @@ void UIButton::Render(ConsoleBuffer& buffer) const
 	int textX = x + ( width - visualWidth ) / 2;
 	int textY = y + height / 2;
 
-	buffer.DrawText(textX , textY , text, color);
+	display.DrawText(textX , textY , text , color);
 }
 
 short UIButton::GetColor() const

@@ -3,7 +3,7 @@
 #include <string>
 #include "UIElement.h"
 
-class ConsoleBuffer;
+class ConsoleDisplay;
 
 class UIButton :public UIElement
 {
@@ -37,13 +37,13 @@ public:
 	int GetWidth() const;
 	int GetHeight() const;
 
-	void Render(ConsoleBuffer& buffer) const override;
+	void Render(ConsoleDisplay& display) const override;
 	short GetColor() const;
 
 private:
 	int x , y , width , height;
 	int zOreder = 0;
 	State state = State::Normal;
-	std::string text;
+	std::wstring text;
 	Callback onClick;
 };

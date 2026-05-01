@@ -1,6 +1,6 @@
 #include "UIManager.h"
 #include "InputManager.h"
-#include "ConsoleBuffer.h"
+#include "ConsoleDisplay.h"
 #include <iostream>
 #include <algorithm>
 
@@ -30,11 +30,11 @@ void UIManager::HandleClick(int x , int y)
 	}
 }
 
-void UIManager::Render(ConsoleBuffer& buffer)
+void UIManager::Render(ConsoleDisplay& display)
 {
 	for ( auto& e : elements )
 	{
-		e->Render(buffer);
+		e->Render(display);
 	}
 }
 

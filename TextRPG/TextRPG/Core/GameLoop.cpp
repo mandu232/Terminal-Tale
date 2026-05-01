@@ -3,9 +3,7 @@
 #include "InputManager.h"
 #include "Context.h"
 #include "ConsoleInputSource.h"
-#include "ConsoleBuffer.h"
 #include "Game/States/TitleState.h"
-#include "ResolutionManager.h"
 #include <thread>
 
 GameLoop::GameLoop(Context& ctx)
@@ -14,8 +12,6 @@ GameLoop::GameLoop(Context& ctx)
 	stateMachine = std::make_unique<StateMachine>(context);
 	context.stateMachine = stateMachine.get();
 	inputManager = std::make_unique<InputManager>();
-
-	buffer = std::make_unique<ConsoleBuffer>(200 , 60);
 
 	inputManager->AddSource(
 		std::make_unique<ConsoleInputSource>()
@@ -39,13 +35,6 @@ void GameLoop::Run()
 	{
 
 		auto frameStart = clock::now();
-
-		State* current = stateMachine->GetcurrentState();
-
-		if ( current )
-		{
-			inputManager->Update(current->GetUIManager());
-		}
 
 		ProcessInput();
 		Update();
@@ -78,9 +67,9 @@ void GameLoop::Update()
 
 void GameLoop::Render()
 {
-	buffer->Clear();
-	stateMachine->Render(*buffer);
-	buffer->Present();
+	context.display.Clear();
+	stateMachine->Render(context.display);
+	context.display.Present();
 
 }
 

@@ -4,7 +4,7 @@
 #include "Core/Context.h"
 #include "Game/Events/GameStartEvent.h"
 #include "Game/Events/PlaySoundEvent.h"
-#include "Core/ConsoleBuffer.h"
+#include "Core/ConsoleDisplay.h"
 #include <iostream>
 #include <Core/Localization.h>
 #include "Core/UIButton.h"
@@ -36,7 +36,7 @@ void TitleState::Enter()
 
 	uiManager.Add
 	(
-		std::make_unique<UIButton>(10 , 40 , 20 , 3 , 1 ,
+		std::make_unique<UIButton>(10 , 30 , 20 , 3 , 1 ,
 			L("ui.new_game") ,
 			[ this ] () {
 				context.sound.PlaySE("Assets/audio/testsound.wav");
@@ -45,7 +45,7 @@ void TitleState::Enter()
 
 	uiManager.Add
 	(
-		std::make_unique<UIButton>(10 , 45 , 20 , 3 , 1, 
+		std::make_unique<UIButton>(10 , 35 , 20 , 3 , 1, 
 			L("ui.load_game"),
 			[this]() {
 			context.sound.PlaySE("Assets/audio/testsound.wav");
@@ -55,7 +55,7 @@ void TitleState::Enter()
 
 	uiManager.Add
 	(
-		std::make_unique<UIButton>(10 , 50 , 20 , 3 , 1 ,
+		std::make_unique<UIButton>(10 , 40 , 20 , 3 , 1 ,
 			L("ui.setting") ,
 			[ this ] () {
 				context.sound.PlaySE("Assets/audio/testsound.wav");
@@ -65,7 +65,7 @@ void TitleState::Enter()
 
 	uiManager.Add
 	(
-		std::make_unique<UIButton>(10 , 55 , 20 , 3 , 1 ,
+		std::make_unique<UIButton>(10 , 45 , 20 , 3 , 1 ,
 			L("ui.quit_game"),
 			[ this ] () {
 				//테스트용 임시 저장
@@ -104,12 +104,7 @@ void TitleState::Update()
 {
 }
 
-void TitleState::Render(ConsoleBuffer& buffer)
+void TitleState::Render(ConsoleDisplay& display)
 {
-	uiManager.Render(buffer);
-
-	if ( receivedStartEvent )
-	{
-		buffer.DrawText(10 , 10 , "Game Start Event Receive", 4);
-	}
+	uiManager.Render(display);
 }

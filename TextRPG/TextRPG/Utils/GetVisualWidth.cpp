@@ -2,8 +2,7 @@
 #include "UTF8ToWide.h"
 #include "GetVisualWidth.h"
 
-int GetVisualWidth(const std::string& utf8Text) {
-	std::wstring wtext = UTF8ToWide(utf8Text);
+int GetVisualWidth(const std::wstring& wtext) {
 	int width = 0;
 	for ( wchar_t c : wtext ) {
 		// 유니코드 범위상 한글/특수문자 등(Full-width)은 2칸, 나머지는 1칸

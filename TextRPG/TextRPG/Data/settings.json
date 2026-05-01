@@ -1,6 +1,7 @@
 {
     "autoSave": true,
-    "language": "en",
+    "fullScreen": true,
+    "language": "ko",
     "masterVolume": 1,
     "showFPS": false,
     "targetFPS": 15,

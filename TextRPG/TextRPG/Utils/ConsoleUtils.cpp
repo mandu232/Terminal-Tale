@@ -22,22 +22,12 @@ void ShowCursor()
 	SetConsoleCursorInfo(console , &info);
 }
 
-void SetupConsole(int width , int height)
+void SetupConsole()
 {
 	HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+
 	DWORD mode = 0;
 	GetConsoleMode(hOut , &mode);
 	mode &= ~ENABLE_WRAP_AT_EOL_OUTPUT;
 	SetConsoleMode(hOut , mode);
-
-	SMALL_RECT rect = { 0, 0, 1, 1 };
-	SetConsoleWindowInfo(hOut , TRUE , &rect);
-
-	COORD size;
-	size.X = width;
-	size.Y = height;
-	SetConsoleScreenBufferSize(hOut , size);
-
-	rect = { 0, 0, ( SHORT )( width - 1 ), ( SHORT )( height - 1 ) };
-	SetConsoleWindowInfo(hOut , TRUE , &rect);
 }

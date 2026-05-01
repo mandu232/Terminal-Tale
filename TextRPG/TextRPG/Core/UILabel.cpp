@@ -1,5 +1,5 @@
 #include "UILabel.h"
-#include "Core/ConsoleBuffer.h"
+#include "Core/ConsoleDisplay.h"
 #include "Utils/UTF8ToWide.h"
 #include "Utils/GetCharWidth.h"
 
@@ -12,22 +12,17 @@ UILabel::UILabel(int x , int y , int z ,
 	y(y) ,
 	maxWidth(width),
 	zOrder(z) ,
-	text(std::move(text)) ,
 	color(color)
 {
+	this->wtext = UTF8ToWide(text);
 	RebuildLayout();
 }
 
-void UILabel::Render(ConsoleBuffer& buffer) const
+void UILabel::Render(ConsoleDisplay& display) const
 {
-	for ( size_t i = 0; i < wrappedLines.size(); ++i )
-	{
-		buffer.DrawText(
-			x ,
-			y + ( int )i ,
-			wrappedLines[i] ,
-			7
-		);
+
+	for ( size_t i = 0; i < wrappedLines.size(); ++i ) {
+		display.DrawText(x , y + ( int )i , wrappedLines[ i ] , color);
 	}
 }
 
@@ -39,8 +34,6 @@ int UILabel::GetZ() const
 void UILabel::RebuildLayout()
 {
 	wrappedLines.clear();
-
-	std::wstring wtext = UTF8ToWide(text);
 
 	std::wstring currentLine;
 	int currentWidth = 0;
@@ -74,6 +67,6 @@ void UILabel::RebuildLayout()
 
 void UILabel::SetText(std::string newText)
 {
-	text = std::move(newText);
+	this->wtext = UTF8ToWide(newText);
 	RebuildLayout();
 }

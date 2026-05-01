@@ -1,11 +1,11 @@
 #pragma once
 
-class ConsoleBuffer;
+class ConsoleDisplay;
 
 class UIElement
 {
 public:
-	virtual void Render(ConsoleBuffer& buffer) const = 0;
+	virtual void Render(ConsoleDisplay& display) const = 0;
 
 	virtual bool Contains(int x , int y) const { return false; };
 	virtual void Click() {}

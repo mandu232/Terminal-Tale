@@ -8,7 +8,7 @@ class UILabel : public UIElement
 public:
 	UILabel(int x , int y , int z, int width, std::string text , short color = 7);
 
-	void Render(ConsoleBuffer& buffer) const override;
+	void Render(ConsoleDisplay& display) const override;
 
 	void SetText(std::string newText);
 
@@ -24,6 +24,6 @@ private:
 
 	void RebuildLayout();
 
-	std::string text;
+	std::wstring wtext;
 	short color;
 };

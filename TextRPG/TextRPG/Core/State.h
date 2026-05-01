@@ -3,7 +3,7 @@
 
 class InputManager;
 class Context;
-class ConsoleBuffer;
+class ConsoleDisplay;
 
 class State
 {
@@ -20,7 +20,7 @@ public:
 
     virtual void HandleInput(InputManager& input) = 0;
     virtual void Update() = 0;
-    virtual void Render(ConsoleBuffer& buffer) = 0;
+    virtual void Render(ConsoleDisplay& display) = 0;
 
 	UIManager& GetUIManager() { return uiManager; }
 

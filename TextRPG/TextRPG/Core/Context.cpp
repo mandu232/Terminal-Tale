@@ -25,3 +25,8 @@ void Context::PopState()
 		stateMachine->PopState();
 	}
 }
+
+void Context::ToggleFullscreen(bool mode)
+{
+	display.SetFullscreen(mode);
+}

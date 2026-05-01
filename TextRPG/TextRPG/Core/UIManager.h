@@ -4,7 +4,7 @@
 #include "UIElement.h"
 
 class InputManager;
-class ConsoleBuffer;
+class ConsoleDisplay;
 
 class UIManager
 {
@@ -12,7 +12,7 @@ public:
 	void Add(std::unique_ptr<UIElement> element);
 	void HandleClick(int x , int y);
 	void HandleMouseMove(int x , int y);
-	void Render(ConsoleBuffer& buffer);
+	void Render(ConsoleDisplay& display);
 	void Clear();
 
 private:

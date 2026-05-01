@@ -1,5 +1,6 @@
 #include "StateMachine.h"
 #include "InputManager.h"
+#include "ConsoleDisplay.h"
 #include "Context.h"
 #include "State.h"
 
@@ -29,11 +30,11 @@ void StateMachine::Update()
 	}
 }
 
-void StateMachine::Render(ConsoleBuffer& buffer)
+void StateMachine::Render(ConsoleDisplay& display)
 {
 	if (!stateStack.empty())
 	{
-		stateStack.top()->Render(buffer);
+		stateStack.top()->Render(display);
 	}
 }
 

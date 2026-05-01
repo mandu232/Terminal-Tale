@@ -12,6 +12,8 @@ struct Settings
 	int targetFPS = 30;
 	bool vsync = false;
 	bool showFPS = false;
+
+	bool fullScreen = true;
 };
 
 class SettingsManager

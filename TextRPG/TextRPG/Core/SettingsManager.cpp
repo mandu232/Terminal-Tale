@@ -23,6 +23,7 @@ bool SettingsManager::Load(const std::string& path)
 	settings.targetFPS = j.value("targetFPS" , 30);
 	settings.vsync = j.value("vsync" , false);
 	settings.showFPS = j.value("showFPS" , false);
+	settings.fullScreen = j.value("fullScreen" , false);
 
 	return true;
 }
@@ -40,6 +41,7 @@ bool SettingsManager::Save(const std::string& path)
 	j[ "targetFPS" ] = settings.targetFPS;
 	j[ "vsync" ] = settings.vsync;
 	j[ "showFPS" ] = settings.showFPS;
+	j[ "fullScreen" ] = settings.fullScreen;
 		 
 	std::ofstream file(path);
 	file << j.dump(4);

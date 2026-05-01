@@ -6,9 +6,7 @@
 
 Application::Application()
 {
-	SetupConsole(202 , 62);
-	HideCursor();
-
+	SetupConsole();
 	context = std::make_unique<Context>();
 
 	context->settings.Load("Data/settings.json");
@@ -21,6 +19,9 @@ Application::Application()
 	GContext = context.get();
 
 	context->localization.LoadLocalization(context->settings.settings.language);
+
+	context->ToggleFullscreen(context->settings.settings.fullScreen);
+
 	gameLoop = std::make_unique<GameLoop>(*context);
 
 }

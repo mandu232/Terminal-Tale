@@ -12,5 +12,5 @@ public:
 	void Enter() override;
 	void HandleInput(InputManager& input) override;
 	void Update() override;
-	void Render(ConsoleBuffer& buffer) override;
+	void Render(ConsoleDisplay& display) override;
 };
