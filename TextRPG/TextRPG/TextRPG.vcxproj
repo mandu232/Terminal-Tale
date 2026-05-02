@@ -138,7 +138,6 @@
     <ClCompile Include="Core\InputManager.cpp" />
     <ClCompile Include="Core\Localization.cpp" />
     <ClCompile Include="Core\LocalizationManager.cpp" />
-    <ClCompile Include="Core\ResolutionManager.cpp" />
     <ClCompile Include="Core\SettingsManager.cpp" />
     <ClCompile Include="Core\SoundSystem.cpp" />
     <ClCompile Include="Core\StateMachine.cpp" />
@@ -168,7 +167,6 @@
     <ClInclude Include="Core\InputSource.h" />
     <ClInclude Include="Core\Localization.h" />
     <ClInclude Include="Core\LocalizationManager.h" />
-    <ClInclude Include="Core\ResolutionManager.h" />
     <ClInclude Include="Core\SettingsManager.h" />
     <ClInclude Include="Core\SoundSystem.h" />
     <ClInclude Include="Core\State.h" />

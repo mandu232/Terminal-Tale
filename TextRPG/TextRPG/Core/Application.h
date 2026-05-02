@@ -17,7 +17,6 @@ private:
 	void Initialize();
 	void Shutdown();
 
-private:
 	std::unique_ptr<Context> context;
 	std::unique_ptr<GameLoop> gameLoop;
 };

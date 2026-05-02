@@ -17,11 +17,11 @@ A team-developed text-base RPG built in C++ using the console interface.
 
 ○ 전체 구조 설계: 이형원
 
-○ 전투 시스템: 노민지
+○ 저장 및 불러오기: 노민지
 
 ○ UX/Ui: 홍성우
 
-○ 이벤트 & 흐름: 김세민
+○ 스토리 / 이벤트: 김세민
 
 
 
@@ -30,11 +30,11 @@ A team-developed text-base RPG built in C++ using the console interface.
 
 ● 언어: C++ 22
 
-● 개발 도구: Visual Studio 2022
+● 개발 도구: Visual Studio 2026
 
 ● 버전 관리: Git & GitHub
 
-● 실행 환경: Windows
+● 실행 환경: Windows 10 이상
 
 
 

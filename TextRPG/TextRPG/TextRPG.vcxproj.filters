@@ -116,9 +116,6 @@
     <ClCompile Include="Utils\GetCharWidth.cpp">
       <Filter>소스 파일\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="Core\ResolutionManager.cpp">
-      <Filter>소스 파일\Core</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Application.h">
@@ -213,9 +210,6 @@
     </ClInclude>
     <ClInclude Include="Utils\GetCharWidth.h">
       <Filter>소스 파일\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\ResolutionManager.h">
-      <Filter>소스 파일\Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
