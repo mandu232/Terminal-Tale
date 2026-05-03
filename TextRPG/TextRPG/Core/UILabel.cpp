@@ -48,7 +48,7 @@ void UILabel::RebuildLayout()
 			continue;
 		}
 
-		int charWidth = GetCharWidthW(c);
+		int charWidth = GetConsoleCharWidth(c);
 
 		if ( currentWidth + charWidth > maxWidth )
 		{

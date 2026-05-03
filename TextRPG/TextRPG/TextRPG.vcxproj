@@ -142,6 +142,7 @@
     <ClCompile Include="Core\SoundSystem.cpp" />
     <ClCompile Include="Core\StateMachine.cpp" />
     <ClCompile Include="Core\UIButton.cpp" />
+    <ClCompile Include="Core\UIImage.cpp" />
     <ClCompile Include="Core\UILabel.cpp" />
     <ClCompile Include="Core\UIManager.cpp" />
     <ClCompile Include="Game\States\GameState.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="Core\StateMachine.h" />
     <ClInclude Include="Core\UIButton.h" />
     <ClInclude Include="Core\UIElement.h" />
+    <ClInclude Include="Core\UIImage.h" />
     <ClInclude Include="Core\UILabel.h" />
     <ClInclude Include="Core\UIManager.h" />
     <ClInclude Include="external\json\json.hpp" />
@@ -190,6 +192,9 @@
     <None Include="Data\lang\en.json" />
     <None Include="Data\lang\ko.json" />
     <None Include="Data\settings.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Assets\ui\test.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,3 +1,3 @@
 #pragma once
 
-int GetCharWidthW(wchar_t c);
+int GetConsoleCharWidth(wchar_t c);

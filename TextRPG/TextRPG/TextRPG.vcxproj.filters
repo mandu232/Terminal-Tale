@@ -42,6 +42,12 @@
     <Filter Include="소스 파일\Data\lang">
       <UniqueIdentifier>{46143e00-e107-4979-b8d0-a43c1b279c5d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Assets">
+      <UniqueIdentifier>{be18d4f4-4e49-4e89-8f79-f906d971ee3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Assets\ui">
+      <UniqueIdentifier>{48278d8e-5ab1-4178-8f26-0562174a71a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -115,6 +121,9 @@
     </ClCompile>
     <ClCompile Include="Utils\GetCharWidth.cpp">
       <Filter>소스 파일\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\UIImage.cpp">
+      <Filter>소스 파일\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -211,6 +220,9 @@
     <ClInclude Include="Utils\GetCharWidth.h">
       <Filter>소스 파일\Utils</Filter>
     </ClInclude>
+    <ClInclude Include="Core\UIImage.h">
+      <Filter>소스 파일\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\settings.json">
@@ -222,5 +234,10 @@
     <None Include="Data\lang\en.json">
       <Filter>소스 파일\Data\lang</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Assets\ui\test.txt">
+      <Filter>소스 파일\Assets\ui</Filter>
+    </Text>
   </ItemGroup>
 </Project>

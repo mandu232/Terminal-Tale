@@ -44,12 +44,12 @@ void UIButton::Render(ConsoleDisplay& display) const
 
 			wchar_t c = L' ';
 
-			if ( i == 0 && j == 0 ) c = L'┌';
-			else if ( i == 0 && j == width - 2 ) c = L'┐';
-			else if ( i == height - 1 && j == 0 ) c = L'└';
-			else if ( i == height - 1 && j == width - 2 ) c = L'┘';
-			else if ( i == 0 || i == height - 1 ) c = L'─';
-			else if ( j == 0 || j == width - 2 ) c = L'│';
+			if ( i == 0 && j == 0 ) c = L'+';
+			else if ( i == 0 && j == width - 1 ) c = L'+';
+			else if ( i == height - 1 && j == 0 ) c = L'+';
+			else if ( i == height - 1 && j == width - 1 ) c = L'+';
+			else if ( i == 0 || i == height - 1 ) c = L'-';
+			else if ( j == 0 || j == width - 1 ) c = L'|';
 
 
 			display.Draw(x + j , y + i , c , color);

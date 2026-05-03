@@ -1,5 +1,23 @@
 #include "ConsoleDisplay.h"
+#include "Utils/GetCharwidth.h"
 #include "Utils/UTF8ToWide.h"
+
+int GetGlyphWidth(wchar_t c)
+{
+	// CJK + Fullwidth
+	if (
+		( c >= 0x1100 && c <= 0x115F ) ||
+		( c >= 0x2E80 && c <= 0xA4CF ) ||
+		( c >= 0xAC00 && c <= 0xD7A3 ) ||
+		( c >= 0xF900 && c <= 0xFAFF ) ||
+		( c >= 0xFE10 && c <= 0xFE19 ) ||
+		( c >= 0xFF01 && c <= 0xFF60 ) ||
+		( c >= 0xFFE0 && c <= 0xFFE6 )
+		)
+		return 2;
+
+	return 1;
+}
 
 ConsoleDisplay::ConsoleDisplay(int w , int h)
 {
@@ -115,23 +133,30 @@ void ConsoleDisplay::Draw(int x , int y , wchar_t c , short color) {
 	screen[ y * width + x ] = { {c}, ( WORD )color };
 }
 
-void ConsoleDisplay::DrawText(int x , int y , const std::wstring& text , short color) {
+void ConsoleDisplay::DrawText(
+	int x ,
+	int y ,
+	const std::wstring& text ,
+	short color)
+{
 	int curX = x;
-	for ( wchar_t c : text ) {
+
+	for ( wchar_t c : text )
+	{
 		if ( curX >= width ) break;
 
-		//현재 위치에 문자 그리기
+		int w = GetGlyphWidth(c);
+
 		Draw(curX , y , c , color);
 
-		if ( c >= 0x1100 ) { // 한글일 경우
-			if ( curX + 1 < width ) {
-				Draw(curX + 1 , y , L'\0' , color);
-			}
-			curX += 2;
+		// width 2 문자 처리
+		if ( w == 2 && curX + 1 < width )
+		{
+			screen[ y * width + curX + 1 ].Char.UnicodeChar = L'\0';
+			screen[ y * width + curX + 1 ].Attributes = color;
 		}
-		else {
-			curX += 1;
-		}
+
+		curX += w;
 	}
 }
 

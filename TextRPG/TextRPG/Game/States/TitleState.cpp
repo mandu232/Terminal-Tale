@@ -9,6 +9,7 @@
 #include <Core/Localization.h>
 #include "Core/UIButton.h"
 #include "Core/UILabel.h"
+#include "Core/UIImage.h"
 
 TitleState::TitleState(Context& context)
     : State(context)
@@ -36,7 +37,7 @@ void TitleState::Enter()
 
 	uiManager.Add
 	(
-		std::make_unique<UIButton>(10 , 30 , 20 , 3 , 1 ,
+		std::make_unique<UIButton>(83 , 32 , 25 , 3 , 1 ,
 			L("ui.new_game") ,
 			[ this ] () {
 				context.sound.PlaySE("Assets/audio/testsound.wav");
@@ -45,7 +46,7 @@ void TitleState::Enter()
 
 	uiManager.Add
 	(
-		std::make_unique<UIButton>(10 , 35 , 20 , 3 , 1, 
+		std::make_unique<UIButton>(83 , 37 , 25 , 3 , 1, 
 			L("ui.load_game"),
 			[this]() {
 			context.sound.PlaySE("Assets/audio/testsound.wav");
@@ -55,7 +56,7 @@ void TitleState::Enter()
 
 	uiManager.Add
 	(
-		std::make_unique<UIButton>(10 , 40 , 20 , 3 , 1 ,
+		std::make_unique<UIButton>(83 , 42 , 25 , 3 , 1 ,
 			L("ui.setting") ,
 			[ this ] () {
 				context.sound.PlaySE("Assets/audio/testsound.wav");
@@ -65,7 +66,7 @@ void TitleState::Enter()
 
 	uiManager.Add
 	(
-		std::make_unique<UIButton>(10 , 45 , 20 , 3 , 1 ,
+		std::make_unique<UIButton>(83 , 47 , 25 , 3 , 1 ,
 			L("ui.quit_game"),
 			[ this ] () {
 				//테스트용 임시 저장
@@ -74,9 +75,13 @@ void TitleState::Enter()
 			})
 	);
 
+	//테스트 이미지
 	uiManager.Add
 	(
-		std::make_unique<UILabel>(50 , 15 , 10, 20 , L("ui.test_text") , 7)
+		std::make_unique<UIImage>(
+			63, 3, 0,
+			"Assets/ui/test.txt"
+		)
 	);
 
 }
