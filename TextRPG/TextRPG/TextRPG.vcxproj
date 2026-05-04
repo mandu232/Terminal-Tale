@@ -146,6 +146,7 @@
     <ClCompile Include="Core\UILabel.cpp" />
     <ClCompile Include="Core\UIManager.cpp" />
     <ClCompile Include="Game\States\GameState.cpp" />
+    <ClCompile Include="Game\States\SettingState.cpp" />
     <ClCompile Include="Game\States\TitleState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Utils\ConsoleUtils.cpp" />
@@ -181,6 +182,7 @@
     <ClInclude Include="Game\Events\GameStartEvent.h" />
     <ClInclude Include="Game\Events\PlaySoundEvent.h" />
     <ClInclude Include="Game\States\GameState.h" />
+    <ClInclude Include="Game\States\SettingState.h" />
     <ClInclude Include="Game\States\TitleState.h" />
     <ClInclude Include="Utils\ConsoleUtils.h" />
     <ClInclude Include="Utils\EnableMouseInput.h" />

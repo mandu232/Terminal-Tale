@@ -125,6 +125,9 @@
     <ClCompile Include="Core\UIImage.cpp">
       <Filter>소스 파일\Core</Filter>
     </ClCompile>
+    <ClCompile Include="Game\States\SettingState.cpp">
+      <Filter>소스 파일\Game\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Application.h">
@@ -222,6 +225,9 @@
     </ClInclude>
     <ClInclude Include="Core\UIImage.h">
       <Filter>소스 파일\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\States\SettingState.h">
+      <Filter>소스 파일\Game\State</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

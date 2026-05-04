@@ -1,5 +1,6 @@
 #include "TitleState.h"
 #include "GameState.h"
+#include "SettingState.h"
 #include "Core/InputManager.h"
 #include "Core/Context.h"
 #include "Game/Events/GameStartEvent.h"
@@ -37,7 +38,7 @@ void TitleState::Enter()
 
 	uiManager.Add
 	(
-		std::make_unique<UIButton>(83 , 32 , 25 , 3 , 1 ,
+		std::make_unique<UIButton>(82 , 32 , 25 , 3 , 1 ,
 			L("ui.new_game") ,
 			[ this ] () {
 				context.sound.PlaySE("Assets/audio/testsound.wav");
@@ -46,31 +47,30 @@ void TitleState::Enter()
 
 	uiManager.Add
 	(
-		std::make_unique<UIButton>(83 , 37 , 25 , 3 , 1, 
+		std::make_unique<UIButton>(82 , 37 , 25 , 3 , 1, 
 			L("ui.load_game"),
 			[this]() {
 			context.sound.PlaySE("Assets/audio/testsound.wav");
-			context.eventBus.Emit(GameStartEvent{});
 		})
 	);
 
 	uiManager.Add
 	(
-		std::make_unique<UIButton>(83 , 42 , 25 , 3 , 1 ,
+		std::make_unique<UIButton>(82 , 42 , 25 , 3 , 1 ,
 			L("ui.setting") ,
 			[ this ] () {
 				context.sound.PlaySE("Assets/audio/testsound.wav");
-				context.eventBus.Emit(GameStartEvent{});
+				context.PushState(std::make_unique<SettingState>(context));
 			})
 	);
 
 	uiManager.Add
 	(
-		std::make_unique<UIButton>(83 , 47 , 25 , 3 , 1 ,
+		std::make_unique<UIButton>(82 , 47 , 25 , 3 , 1 ,
 			L("ui.quit_game"),
 			[ this ] () {
 				//테스트용 임시 저장
-				context.settings.Save("Data/settings.json");
+				context.settingManager.Save("Data/settings.json");
 				exit(0);
 			})
 	);

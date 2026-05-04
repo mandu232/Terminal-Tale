@@ -74,3 +74,8 @@ short UIButton::GetColor() const
 
 	return 7;
 }
+
+void UIButton::SetText(std::string newText)
+{
+	this -> text = UTF8ToWide(newText);
+}

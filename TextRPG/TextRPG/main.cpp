@@ -3,6 +3,7 @@
 #include <Windows.h>
 
 
+
 int main()
 {
 	EnableMouseInput();

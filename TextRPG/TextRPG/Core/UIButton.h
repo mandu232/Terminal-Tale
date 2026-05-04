@@ -39,6 +39,8 @@ public:
 
 	void Render(ConsoleDisplay& display) const override;
 	short GetColor() const;
+	
+	void SetText(std::string newText);
 
 private:
 	int x , y , width , height;

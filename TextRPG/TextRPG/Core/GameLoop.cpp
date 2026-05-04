@@ -75,7 +75,7 @@ void GameLoop::Render()
 
 void GameLoop::LimitFPS(std::chrono::high_resolution_clock::time_point frameStart)
 {
-	int targetFPS = context.settings.settings.targetFPS;
+	int targetFPS = context.settingManager.settings.targetFPS;
 
 	if ( targetFPS <= 0 )
 		return;

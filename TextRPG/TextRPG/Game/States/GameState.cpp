@@ -2,8 +2,11 @@
 #include "Core/InputManager.h"
 #include "Core/Context.h"
 #include "Core/ConsoleDisplay.h"
-#include "Core/UIButton.h"
 #include <iostream>
+#include <Core/Localization.h>
+#include "Core/UIButton.h"
+#include "Core/UILabel.h"
+#include "Core/UIImage.h"
 
 GameState::GameState(Context& context)
 	: State(context)
@@ -15,7 +18,7 @@ void GameState::Enter()
 	uiManager.Add
 	(
 		std::make_unique<UIButton>(20 , 5 , 20 , 3 , 1 ,
-			"GameState" ,
+			L("ui.masterVolume"),
 			[ this ] () {
 				context.PopState();
 			})

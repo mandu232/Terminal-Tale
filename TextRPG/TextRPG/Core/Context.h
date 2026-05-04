@@ -16,7 +16,7 @@ public:
 	// ===== Core System =====
 
 	EventBus eventBus;
-	SettingsManager settings;
+	SettingsManager settingManager;
 	SoundSystem sound;
 	LocalizationManager localization;
 

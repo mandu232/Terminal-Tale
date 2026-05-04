@@ -9,18 +9,18 @@ Application::Application()
 	SetupConsole();
 	context = std::make_unique<Context>();
 
-	context->settings.Load("Data/settings.json");
+	context->settingManager.Load("Data/settings.json");
 	context->sound.Init();
 
 	context->sound.SetMasterVolume(
-		context->settings.settings.masterVolume
+		context->settingManager.settings.masterVolume
 	);
 
 	GContext = context.get();
 
-	context->localization.LoadLocalization(context->settings.settings.language);
+	context->localization.LoadLocalization(context->settingManager.settings.language);
 
-	context->ToggleFullscreen(context->settings.settings.fullScreen);
+	context->ToggleFullscreen(context->settingManager.settings.fullScreen);
 
 	gameLoop = std::make_unique<GameLoop>(*context);
 

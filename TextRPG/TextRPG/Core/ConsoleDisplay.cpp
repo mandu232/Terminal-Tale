@@ -42,7 +42,7 @@ void ConsoleDisplay::Resize(int w , int h)
 	COORD bufferSize = { ( SHORT )width, ( SHORT )height };
 	SetConsoleScreenBufferSize(hConsole , bufferSize);
 
-	// 실제 윈도우 크기를 버퍼와 1:1로 매칭 (스크롤바 제거 핵심)
+	// 실제 윈도우 크기를 버퍼와 1:1로 매칭
 	SMALL_RECT finalRect = { 0, 0, ( SHORT )( width - 1 ), ( SHORT )( height - 1 ) };
 
 	// 만약 실패한다면 시스템이 허용하는 최대 크기로 시도
@@ -115,7 +115,7 @@ void ConsoleDisplay::AdaptFontSizeToWindow() {
 	int screenWidth = mi.rcMonitor.right - mi.rcMonitor.left;
 	int screenHeight = mi.rcMonitor.bottom - mi.rcMonitor.top;
 
-	// 2. 192x59 그리드에 맞춘 폰트 크기 역산
+	// 192x59 그리드에 맞춘 폰트 크기 역산
 	// 소수점 버림으로 인해 발생하는 여백을 최소화하기 위해 SHORT 캐스팅
 	short fontW = ( short )( screenWidth / this->width );
 	short fontH = ( short )( screenHeight / this->height );
