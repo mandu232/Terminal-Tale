@@ -106,17 +106,32 @@ void ConsoleDisplay::SetFullscreen(bool enable)
 }
 
 void ConsoleDisplay::AdaptFontSizeToWindow() {
-	CONSOLE_FONT_INFOEX cfi = { sizeof(cfi) };
-	cfi.cbSize = sizeof(cfi); // 반드시 필요
+	HWND hwnd = GetConsoleWindow();
+	HMONITOR monitor = MonitorFromWindow(hwnd , MONITOR_DEFAULTTONEAREST);
+	MONITORINFO mi = { sizeof(mi) };
+	GetMonitorInfo(monitor , &mi);
 
+	// 1. 모니터의 가용 픽셀 크기 계산
+	int screenWidth = mi.rcMonitor.right - mi.rcMonitor.left;
+	int screenHeight = mi.rcMonitor.bottom - mi.rcMonitor.top;
+
+	// 2. 192x59 그리드에 맞춘 폰트 크기 역산
+	// 소수점 버림으로 인해 발생하는 여백을 최소화하기 위해 SHORT 캐스팅
+	short fontW = ( short )( screenWidth / this->width );
+	short fontH = ( short )( screenHeight / this->height );
+
+	// 콘솔 폰트 정보 변경
+	CONSOLE_FONT_INFOEX cfi = { sizeof(cfi) };
+	cfi.cbSize = sizeof(cfi);
 	if ( !GetCurrentConsoleFontEx(hConsole , FALSE , &cfi) ) return;
 
-	// 1920x1080 모니터, 192x54 버퍼 기준
-	cfi.dwFontSize.X = 10;
-	cfi.dwFontSize.Y = 20;
+	cfi.dwFontSize.X = fontW; // 계산된 너비 (비율에 따라 가변적)
+	cfi.dwFontSize.Y = fontH; // 계산된 높이 (비율에 따라 가변적)
 	cfi.FontFamily = FF_DONTCARE;
 	cfi.FontWeight = FW_NORMAL;
-	wcscpy_s(cfi.FaceName , L"돋움체"); // 고정폭 폰트 사용
+
+	// 폰트 지정
+	wcscpy_s(cfi.FaceName , L"돋움체");
 
 	SetCurrentConsoleFontEx(hConsole , FALSE , &cfi);
 }
