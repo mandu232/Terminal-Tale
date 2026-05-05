@@ -49,7 +49,6 @@ void StateMachine::PushState(std::unique_ptr<State> newState)
 	{
 		stateStack.push(std::move(newState));
 		stateStack.top()->Enter();
-
 	}
 }
 

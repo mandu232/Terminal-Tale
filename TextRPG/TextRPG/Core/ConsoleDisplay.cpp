@@ -111,7 +111,7 @@ void ConsoleDisplay::AdaptFontSizeToWindow() {
 	MONITORINFO mi = { sizeof(mi) };
 	GetMonitorInfo(monitor , &mi);
 
-	// 1. 모니터의 가용 픽셀 크기 계산
+	// 모니터의 가용 픽셀 크기 계산
 	int screenWidth = mi.rcMonitor.right - mi.rcMonitor.left;
 	int screenHeight = mi.rcMonitor.bottom - mi.rcMonitor.top;
 
