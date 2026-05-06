@@ -38,16 +38,18 @@ void ConsoleInputSource::Update(InputManager& input, UIManager& ui)
 		if ( record.EventType == MOUSE_EVENT )
 		{
 			auto& mouse = record.Event.MouseEvent;
-
 			int x = mouse.dwMousePosition.X + 1;
 			int y = mouse.dwMousePosition.Y + 1;
 
 			ui.HandleMouseMove(x , y);
 
-			if ( mouse.dwButtonState & FROM_LEFT_1ST_BUTTON_PRESSED )
+			bool isLeftPressedNow = ( mouse.dwButtonState & FROM_LEFT_1ST_BUTTON_PRESSED );
+
+			if ( isLeftPressedNow && !isLeftPressedBefore )
 			{
 				ui.HandleClick(x , y);
 			}
+			isLeftPressedBefore = isLeftPressedNow;
 		}
 	}
 }

@@ -14,4 +14,5 @@ public:
 
 private:
 	HANDLE hInput;
+	bool isLeftPressedBefore = false;
 };
