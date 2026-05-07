@@ -48,6 +48,9 @@
     <Filter Include="소스 파일\Assets\ui">
       <UniqueIdentifier>{48278d8e-5ab1-4178-8f26-0562174a71a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Game\Story">
+      <UniqueIdentifier>{159928b9-b9a1-4180-94ca-4904afc08ce3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -127,6 +130,9 @@
     </ClCompile>
     <ClCompile Include="Game\States\SettingState.cpp">
       <Filter>소스 파일\Game\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Story\StoryLoader.cpp">
+      <Filter>소스 파일\Game\Story</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -228,6 +234,12 @@
     </ClInclude>
     <ClInclude Include="Game\States\SettingState.h">
       <Filter>소스 파일\Game\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Story\StoryNode.h">
+      <Filter>소스 파일\Game\Story</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Story\StoryLoader.h">
+      <Filter>소스 파일\Game\Story</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -37,12 +37,12 @@ namespace Layout
     constexpr int ValueX     = 47;
     constexpr int ValueW     = 13;
     constexpr int ArrowRX    = 62;
-    constexpr int ArrowW     = 5;
+    constexpr int ArrowW     = 4;
 
     // bool 토글 버튼
-    constexpr int ToggleX    = 40;
-    constexpr int ToggleLblW = 8;   // "ON"/"OFF" 값 라벨 너비
-    constexpr int ToggleBtnX = 50;  // 토글 버튼 x
+    constexpr int ToggleX    = 43;
+    constexpr int ToggleLblW = 11;   // "ON"/"OFF" 값 라벨 너비
+    constexpr int ToggleBtnX = 53;  // 토글 버튼 x
     constexpr int ToggleBtnW = 10;
 
     // y 좌표
@@ -66,7 +66,7 @@ namespace Layout
 // ─────────────────────────────────────────────
 //  순환 목록 (Enter 에서 람다가 캡처)
 // ─────────────────────────────────────────────
-static const std::vector<std::string> langList  = { "ko", "en", "ja", "zh"};
+static const std::vector<std::string> langList  = { "ko", "en", "ja", "zh", "fr"};
 static const std::vector<int>         fpsList   = { 15, 30, 60, 120 };
 
 // ─────────────────────────────────────────────
@@ -83,6 +83,7 @@ std::string SettingState::LangToStr(const std::string& lang)
     if (lang == "en") return "English";
 	if (lang == "zh") return "中國語";
 	if (lang == "ja") return "日本語";
+	if ( lang == "fr" ) return "français"; 
     return lang;
 }
 
@@ -305,7 +306,7 @@ void SettingState::Enter()
             Layout::ArrowW, Layout::RowH, Layout::Z,
             "▶",
             [this]()
-            {
+            { 
                 auto& v = context.settingManager.settings.language;
                 auto it = std::find(langList.begin(), langList.end(), v);
                 if (it != langList.end()) ++it;

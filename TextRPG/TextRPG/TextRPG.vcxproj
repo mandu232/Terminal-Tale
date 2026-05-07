@@ -148,6 +148,7 @@
     <ClCompile Include="Game\States\GameState.cpp" />
     <ClCompile Include="Game\States\SettingState.cpp" />
     <ClCompile Include="Game\States\TitleState.cpp" />
+    <ClCompile Include="Game\Story\StoryLoader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Utils\ConsoleUtils.cpp" />
     <ClCompile Include="Utils\EnableMouseInput.cpp" />
@@ -184,6 +185,8 @@
     <ClInclude Include="Game\States\GameState.h" />
     <ClInclude Include="Game\States\SettingState.h" />
     <ClInclude Include="Game\States\TitleState.h" />
+    <ClInclude Include="Game\Story\StoryLoader.h" />
+    <ClInclude Include="Game\Story\StoryNode.h" />
     <ClInclude Include="Utils\ConsoleUtils.h" />
     <ClInclude Include="Utils\EnableMouseInput.h" />
     <ClInclude Include="Utils\GetCharWidth.h" />

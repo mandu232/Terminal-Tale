@@ -2,7 +2,7 @@
     "autoSave": true,
     "fullScreen": true,
     "language": "ko",
-    "masterVolume": 35,
+    "masterVolume": 100,
     "showFPS": false,
     "targetFPS": 15,
     "textSpeed": 3,
