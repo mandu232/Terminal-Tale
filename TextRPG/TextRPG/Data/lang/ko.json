@@ -20,5 +20,6 @@
   "status.enabled": "활성화",
   "status.disabled": "비활성화",
   "status.on": "켜짐",
-  "status.off": "꺼짐"
+  "status.off": "꺼짐",
+  "ui.toggle":  "변경"
 }

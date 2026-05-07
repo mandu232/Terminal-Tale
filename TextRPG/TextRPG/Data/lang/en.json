@@ -1,6 +1,25 @@
-﻿{
-    "ui.start_game": "Game Start",
-    "ui.setting": "Setting",
-    "ui.quit_game": "Quit",
-    "ui.test_text": "Test Text"
+{
+  "ui.new_game": "New Game",
+  "ui.start_game": "Start Game",
+  "ui.load_game": "Load Game",
+  "ui.setting": "Settings",
+  "ui.quit_game": "Quit",
+  "ui.back": "Back",
+  "ui.save": "Save",
+  "ui.reset": "Reset",
+  "system.save.completed": "Save completed.",
+  "ui.test_text": "Test",
+  "ui.masterVolume": "Master Volume",
+  "ui.textSpeed": "Text Speed",
+  "ui.autoSave": "Auto Save",
+  "ui.language": "Language",
+  "ui.targetFPS": "Target FPS",
+  "ui.vsync": "V-Sync",
+  "ui.showFPS": "Show FPS",
+  "ui.fullScreen": "Full Screen",
+  "status.enabled": "Enabled",
+  "status.disabled": "Disabled",
+  "status.on": "ON",
+  "status.off": "OFF",
+  "ui.toggle": "Change"
 }

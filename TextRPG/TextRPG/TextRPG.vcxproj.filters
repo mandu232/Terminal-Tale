@@ -240,6 +240,12 @@
     <None Include="Data\lang\en.json">
       <Filter>소스 파일\Data\lang</Filter>
     </None>
+    <None Include="Data\lang\ja.json">
+      <Filter>소스 파일\Data\lang</Filter>
+    </None>
+    <None Include="Data\lang\zh.json">
+      <Filter>소스 파일\Data\lang</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\ui\test.txt">

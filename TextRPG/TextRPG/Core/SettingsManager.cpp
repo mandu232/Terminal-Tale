@@ -19,7 +19,7 @@ bool SettingsManager::Load(const std::string& path)
 	settings.masterVolume = j.value("masterVolume" , 100);
 	settings.textSpeed = j.value("textSpeed" , 3);
 	settings.autoSave = j.value("autoSave" , true);
-	settings.language = j.value("language" , "ko");
+	settings.language = j.value("language" , "en");
 	settings.targetFPS = j.value("targetFPS" , 30);
 	settings.vsync = j.value("vsync" , false);
 	settings.showFPS = j.value("showFPS" , false);

@@ -192,7 +192,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\lang\en.json" />
+    <None Include="Data\lang\ja.json" />
     <None Include="Data\lang\ko.json" />
+    <None Include="Data\lang\zh.json" />
     <None Include="Data\settings.json" />
   </ItemGroup>
   <ItemGroup>
