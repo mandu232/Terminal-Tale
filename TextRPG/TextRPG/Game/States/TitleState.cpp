@@ -1,5 +1,6 @@
 #include "TitleState.h"
 #include "GameState.h"
+#include "StoryState.h"
 #include "SettingState.h"
 #include "Core/InputManager.h"
 #include "Core/Context.h"
@@ -42,6 +43,7 @@ void TitleState::Enter()
 			L("ui.new_game") ,
 			[ this ] () {
 				context.sound.PlaySE("Assets/audio/testsound.wav");
+				context.ChangeState(std::make_unique<StoryState>(context , "testStory_000"));
 			})
 	);
 
@@ -74,13 +76,12 @@ void TitleState::Enter()
 				exit(0);
 			})
 	);
-
-	//테스트 이미지
+	//타이틀 이미지 
 	uiManager.Add
 	(
 		std::make_unique<UIImage>(
 			63, 3, 0,
-			"Assets/ui/test.txt"
+			"Assets/ui/title.txt"
 		)
 	);
 

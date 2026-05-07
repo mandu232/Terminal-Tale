@@ -51,6 +51,9 @@
     <Filter Include="소스 파일\Game\Story">
       <UniqueIdentifier>{159928b9-b9a1-4180-94ca-4904afc08ce3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Data\story">
+      <UniqueIdentifier>{3ebd9c92-5e8e-4e96-8985-1956ea4830ad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -133,6 +136,9 @@
     </ClCompile>
     <ClCompile Include="Game\Story\StoryLoader.cpp">
       <Filter>소스 파일\Game\Story</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\States\StoryState.cpp">
+      <Filter>소스 파일\Game\State</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -241,6 +247,9 @@
     <ClInclude Include="Game\Story\StoryLoader.h">
       <Filter>소스 파일\Game\Story</Filter>
     </ClInclude>
+    <ClInclude Include="Game\States\StoryState.h">
+      <Filter>소스 파일\Game\State</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\settings.json">
@@ -258,9 +267,18 @@
     <None Include="Data\lang\zh.json">
       <Filter>소스 파일\Data\lang</Filter>
     </None>
+    <None Include="Data\story\testStory_000.json">
+      <Filter>소스 파일\Data\story</Filter>
+    </None>
+    <None Include="Data\story\testStory_001.json">
+      <Filter>소스 파일\Data\story</Filter>
+    </None>
+    <None Include="Data\story\testStory_002.json">
+      <Filter>소스 파일\Data\story</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Assets\ui\test.txt">
+    <Text Include="Assets\ui\title.txt">
       <Filter>소스 파일\Assets\ui</Filter>
     </Text>
   </ItemGroup>

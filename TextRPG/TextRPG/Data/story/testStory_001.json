@@ -1,0 +1,23 @@
+{
+  "id": "testStory_001",
+
+  "text": [
+    "해당 스토리는 테스트용 스토리 입니다.",
+    "이전 testStory_000으로 돌아갈 수 있습니다."
+  ],
+
+  "choices": [
+    {
+      "text": "그냥 돌아가기",
+      "next": "testStory_000"
+    },
+    {
+      "text": "빠르게 돌아가기",
+      "next": "testStory_000"
+    },
+    {
+      "text": "느리게 돌아가기",
+      "next": "testStory_000"
+    }
+  ]
+}

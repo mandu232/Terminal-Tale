@@ -147,6 +147,7 @@
     <ClCompile Include="Core\UIManager.cpp" />
     <ClCompile Include="Game\States\GameState.cpp" />
     <ClCompile Include="Game\States\SettingState.cpp" />
+    <ClCompile Include="Game\States\StoryState.cpp" />
     <ClCompile Include="Game\States\TitleState.cpp" />
     <ClCompile Include="Game\Story\StoryLoader.cpp" />
     <ClCompile Include="main.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="Game\Events\PlaySoundEvent.h" />
     <ClInclude Include="Game\States\GameState.h" />
     <ClInclude Include="Game\States\SettingState.h" />
+    <ClInclude Include="Game\States\StoryState.h" />
     <ClInclude Include="Game\States\TitleState.h" />
     <ClInclude Include="Game\Story\StoryLoader.h" />
     <ClInclude Include="Game\Story\StoryNode.h" />
@@ -199,9 +201,12 @@
     <None Include="Data\lang\ko.json" />
     <None Include="Data\lang\zh.json" />
     <None Include="Data\settings.json" />
+    <None Include="Data\story\testStory_000.json" />
+    <None Include="Data\story\testStory_001.json" />
+    <None Include="Data\story\testStory_002.json" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Assets\ui\test.txt" />
+    <Text Include="Assets\ui\title.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
