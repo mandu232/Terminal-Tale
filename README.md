@@ -15,13 +15,13 @@ A team-developed text-base RPG built in C++ using the console interface.
 
 ● Team: 산 넘어 산
 
-○ 전체 구조 설계: 이형원
+○ 팀장 / Core: 이형원
 
-○ 저장 및 불러오기: 노민지
+○ 저장 / 로드: 노민지
 
 ○ UX/Ui: 홍성우
 
-○ 스토리 / 이벤트: 김세민
+○ 콘텐츠 / 데이터: 김세민
 
 
 
