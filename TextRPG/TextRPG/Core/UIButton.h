@@ -12,7 +12,8 @@ public:
 	{
 		Normal ,
 		Hovered ,
-		Pressed
+		Pressed,
+		Disabled
 	};
 
 	using Callback = std::function<void()>;
@@ -44,12 +45,16 @@ public:
 
 	bool borderless = false;
 
+	void SetEnabled(bool value);
+	bool IsEnabled() const;
 private:
 	int x , y , width , height;
 	int zOreder = 0;
 	State state = State::Normal;
 	std::wstring text;
 	Callback onClick;
+
+	bool enabled = true;
 
 	// ── 호버 펄스 애니메이션 ──────────────────────
 	// 호버가 시작되면 0 → GROW_TIME 동안 +1 확장,

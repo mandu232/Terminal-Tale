@@ -217,22 +217,27 @@ void StoryState::RebuildCenter()
 
 	for ( const auto& choice : currentNode.choices )
 	{
-		if ( !ConditionChecker::Check(choice.require , context) )
-			continue;
+		bool canUse = ConditionChecker::Check(choice.require , context);
 
 		std::string nextId = choice.nextNode;
 
-		uiManager.Add(
-			std::make_unique<UIButton>(
-				Layout::CenterX , cy ,
-				Layout::CenterW , Layout::RowH , Layout::Z ,
-				choice.text ,
-				[ this , nextId ] ()
-				{
-					context.sound.PlaySE("Assets/audio/ui_button_click.wav");
-					NavigateTo(nextId);
-				})
+		auto btn = std::make_unique<UIButton>(
+			Layout::CenterX ,
+			cy ,
+			Layout::CenterW ,
+			Layout::RowH ,
+			Layout::Z,
+			choice.text ,
+			[ this , nextId ] ()
+			{
+				context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+				NavigateTo(nextId);
+			}
 		);
+
+		btn->SetEnabled(canUse);
+
+		uiManager.Add(std::move(btn));
 
 		cy += Layout::RowH + 1;
 	}

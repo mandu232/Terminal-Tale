@@ -73,6 +73,8 @@ int UIButton::GetAnimOffset() const
 // ─────────────────────────────────────────────
 void UIButton::SetHovered(bool value)
 {
+	if ( !enabled ) return;
+
 	State newState = value ? State::Hovered : State::Normal;
 
 	// 호버 진입 시에만 애니메이션 시작
@@ -105,6 +107,8 @@ bool UIButton::Contains(int mx , int my) const
 
 void UIButton::Click()
 {
+	if ( !enabled ) return;
+
 	if (onClick) onClick();
 }
 
@@ -186,6 +190,10 @@ void UIButton::Render(ConsoleDisplay& display) const
 // ─────────────────────────────────────────────
 short UIButton::GetColor() const
 {
+
+	if ( !enabled )
+		return 12; //붉은색
+
 	switch (state)
 	{
 	case State::Normal:  return 7;   // 흰색
@@ -201,4 +209,30 @@ short UIButton::GetColor() const
 void UIButton::SetText(std::string newText)
 {
 	this->text = UTF8ToWide(newText);
+}
+
+// ─────────────────────────────────────────────
+// IsEnabled
+// ─────────────────────────────────────────────
+bool UIButton::IsEnabled() const 
+{
+	return enabled;
+}
+
+// ─────────────────────────────────────────────
+//  SetEnabled
+// ─────────────────────────────────────────────
+void UIButton::SetEnabled(bool value)
+{
+	enabled = value;
+
+	if ( !enabled )
+	{
+		state = State::Disabled;
+		animRunning = false;
+	}
+	else
+	{
+		state = State::Normal;
+	}
 }
