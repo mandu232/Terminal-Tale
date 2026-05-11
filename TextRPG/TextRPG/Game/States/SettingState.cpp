@@ -172,6 +172,7 @@ void SettingState::Enter()
             "◀",
             [this]()
             {
+				context.sound.PlaySE("Assets/audio/ui_button_click_2.wav");
                 auto& v = context.settingManager.settings.masterVolume;
                 if (v > 0) v -= 5;
                 masterVolumeLabel->SetText(std::to_string(v));
@@ -184,6 +185,7 @@ void SettingState::Enter()
             "▶",
             [this]()
             {
+				context.sound.PlaySE("Assets/audio/ui_button_click_2.wav");
                 auto& v = context.settingManager.settings.masterVolume;
                 if (v < 100) v += 5;
                 masterVolumeLabel->SetText(std::to_string(v));
@@ -216,6 +218,7 @@ void SettingState::Enter()
             "◀",
             [this]()
             {
+				context.sound.PlaySE("Assets/audio/ui_button_click_2.wav");
                 auto& v = context.settingManager.settings.textSpeed;
                 if (v > 1) --v;
                 textSpeedLabel->SetText(std::to_string(v));
@@ -228,6 +231,7 @@ void SettingState::Enter()
             "▶",
             [this]()
             {
+				context.sound.PlaySE("Assets/audio/ui_button_click_2.wav");
                 auto& v = context.settingManager.settings.textSpeed;
                 if (v < 5) ++v;
                 textSpeedLabel->SetText(std::to_string(v));
@@ -260,6 +264,7 @@ void SettingState::Enter()
             L("ui.toggle"),
             [this]()
             {
+				context.sound.PlaySE("Assets/audio/ui_button_click_3.wav");
                 auto& v = context.settingManager.settings.autoSave;
                 v = !v;
                 autoSaveLabel->SetText(BoolToStr(v));
@@ -292,6 +297,7 @@ void SettingState::Enter()
             "◀",
             [this]()
             {
+				context.sound.PlaySE("Assets/audio/ui_button_click_2.wav");
                 auto& v = context.settingManager.settings.language;
                 auto it = std::find(langList.begin(), langList.end(), v);
                 if (it == langList.begin()) it = langList.end();
@@ -307,6 +313,7 @@ void SettingState::Enter()
             "▶",
             [this]()
             { 
+				context.sound.PlaySE("Assets/audio/ui_button_click_2.wav");
                 auto& v = context.settingManager.settings.language;
                 auto it = std::find(langList.begin(), langList.end(), v);
                 if (it != langList.end()) ++it;
@@ -342,6 +349,7 @@ void SettingState::Enter()
             "◀",
             [this]()
             {
+				context.sound.PlaySE("Assets/audio/ui_button_click_2.wav");
                 auto& v = context.settingManager.settings.targetFPS;
                 auto it = std::find(fpsList.begin(), fpsList.end(), v);
                 if (it == fpsList.begin()) it = fpsList.end();
@@ -357,6 +365,7 @@ void SettingState::Enter()
             "▶",
             [this]()
             {
+				context.sound.PlaySE("Assets/audio/ui_button_click_2.wav");
                 auto& v = context.settingManager.settings.targetFPS;
                 auto it = std::find(fpsList.begin(), fpsList.end(), v);
                 if (it != fpsList.end()) ++it;
@@ -392,6 +401,7 @@ void SettingState::Enter()
             L("ui.toggle"),
             [this]()
             {
+				context.sound.PlaySE("Assets/audio/ui_button_click_3.wav");
                 auto& v = context.settingManager.settings.showFPS;
                 v = !v;
                 showFPSLabel->SetText(BoolToStr(v));
@@ -409,6 +419,7 @@ void SettingState::Enter()
             [this]()
             {
                 // 파일 재로드 후 모든 값 라벨 갱신
+				context.sound.PlaySE("Assets/audio/ui_button_click_4.wav");
                 context.settingManager.Load("Data/settings.json");
                 RefreshValueLabels();
             })
@@ -420,6 +431,7 @@ void SettingState::Enter()
             L("ui.save"),
             [this]()
             {
+				context.sound.PlaySE("Assets/audio/ui_button_click_4.wav");
                 context.settingManager.Save("Data/settings.json");
             })
     );
@@ -430,6 +442,7 @@ void SettingState::Enter()
             L("ui.back"),
             [this]()
             {
+				context.sound.PlaySE("Assets/audio/ui_button_click_5.wav");
                 context.PopState();
             })
     );

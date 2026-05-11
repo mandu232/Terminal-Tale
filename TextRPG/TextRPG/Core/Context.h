@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Game/Player/PlayerStatus.h"
 #include "State.h"
 #include "EventBus.h"
 #include "StateMachine.h"
@@ -24,6 +25,10 @@ public:
 
 	std::unique_ptr<State> nextState;
 	StateMachine* stateMachine = nullptr;
+
+	PlayerStats player;
+
+	std::unordered_set<std::string> flags;
 
 	void ChangeState(std::unique_ptr<State> state);
 	void PushState(std::unique_ptr<State> state);

@@ -21,5 +21,12 @@
   "status.disabled": "비활성화",
   "status.on": "켜짐",
   "status.off": "꺼짐",
-  "ui.toggle":  "변경"
+  "ui.toggle": "변경",
+  "ui.inventory": "소지품",
+  "ui.wait": "대기",
+  "ui.sleep": "수면",
+  "ui.quickSave": "빠른 저장",
+  "ui.quickLoad": "빠른 불러오기",
+  "ui.log": "기록",
+  "ui.journal": "저널"
 }

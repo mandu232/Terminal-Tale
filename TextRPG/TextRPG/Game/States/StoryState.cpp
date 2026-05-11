@@ -1,5 +1,5 @@
 #include "StoryState.h"
-#include "TitleState.h"
+#include "SettingState.h"
 
 #include "Core/InputManager.h"
 #include "Core/Context.h"
@@ -7,64 +7,73 @@
 #include "Core/Localization.h"
 #include "Core/UIButton.h"
 #include "Core/UILabel.h"
+#include "Core/UIImage.h"
 #include "Game/Story/StoryLoader.h"
+#include "Systems/ConditionChecker.h"
 
-#include <string>
 #include <algorithm>
-
+#include <string>
 
 // ─────────────────────────────────────────────
 //  레이아웃 상수
 //
+//  전체 화면을 3개 패널로 분할합니다.
+//
+//  x=0 ─────── x=60 ───────────── x=152 ──── x=190
+//  │  좌측 이미지  │     중앙 텍스트+선택지    │ 우측 퀵메뉴 │
+//
 //  UILabel  생성자: (x, y, z, width, height, text, color, align, valign)
 //  UIButton 생성자: (x, y, w, h, z, text, callback)
-//
-//  화면 구성
-//  ┌──────────────────────────────────────────┐
-//  │  [ 노드 ID 타이틀 ]                       │  y=4
-//  │  ─────────────────────────────────────── │
-//  │  텍스트 줄 0                              │  y=10
-//  │  텍스트 줄 1                              │  y=13
-//  │  텍스트 줄 2                              │  y=16  ...
-//  │                                          │
-//  │  [ 선택지 0 버튼 ]                        │  y=ChoiceStartY
-//  │  [ 선택지 1 버튼 ]                        │  y=ChoiceStartY+RowH
-//  │  ...                                     │
-//  │                    [ 계속 / 닫기 ]        │  (선택지 없을 때)
-//  └──────────────────────────────────────────┘
+//  UIImage  생성자: (x, y, z, path, color=7)          ← width/height 없음
 // ─────────────────────────────────────────────
 namespace Layout
 {
-    constexpr int Z            = 10;
-    constexpr int RowH         = 3;
+	constexpr int Z = 10;
+	constexpr int RowH = 3;
 
-    // 타이틀
-    constexpr int TitleX       = 10;
-    constexpr int TitleY       = 4;
-    constexpr int TitleW       = 160;
+	// ── 좌측 패널 (배경 이미지) ──────────────────
+	constexpr int LeftX = 0;
+	constexpr int LeftW = 58;
+	constexpr int LeftH = 58;   // 화면 높이에 맞게 조정
+	constexpr int LeftY = 0;
 
-    // 본문 텍스트
-    constexpr int TextX        = 10;
-    constexpr int TextStartY   = 12;
-    constexpr int TextW        = 160;
+	// ── 중앙 패널 (텍스트 + 선택지) ─────────────
+	constexpr int CenterX = 61;
+	constexpr int CenterW = 88;
+	constexpr int TextStartY = 4;
 
-    // 선택지 버튼
-    constexpr int ChoiceX      = 10;
-    constexpr int ChoiceW      = 160;
-    constexpr int MaxTextLines = 6;   // 텍스트가 이 줄 이하면 선택지를 고정 Y 에 배치
-    constexpr int ChoiceFixedY = 32;  // 텍스트 줄 수에 관계없이 최소 이 Y 이하에 배치
+	// 텍스트와 선택지 사이 구분선
+	constexpr int DividerY = 38;     // 선택지 위 구분선 Y
+	constexpr int ChoiceStartY = 42;    // 선택지 첫 줄 Y
 
-    // "닫기" 버튼 (선택지 없을 때)
-    constexpr int CloseW       = 16;
-    constexpr int CloseX       = 152; // 우측 정렬
+	// ── 우측 패널 (퀵 메뉴) ─────────────────────
+	constexpr int RightX = 156;
+	constexpr int RightW = 32;
+	constexpr int RightBtnW = 12;
+
+	// 퀵메뉴 항목 Y 좌표
+	constexpr int QuickMenuStartY = 4;
+
+	// 우측 2열 레이아웃
+	//  열 A (소지품 / 대기 / 수면):  RightX
+	//  열 B (설정 / 빠른저장 / ...):  RightX + 18
+	constexpr int ColA = RightX;
+	constexpr int ColB = RightX + 18;
+	constexpr int ColW = 16;
+
+	constexpr int Row0 = QuickMenuStartY;        // 소지품 | 설정
+	constexpr int Row1 = Row0 + RowH + 1;        // 대기   | 빠른 저장
+	constexpr int Row2 = Row1 + RowH + 1;        // 수면   | 빠른 불러오기
+	constexpr int Row3 = Row2 + RowH + 1;        //        | 기록
+	constexpr int Row4 = Row3 + RowH + 1;        //        | 저널
 }
 
 // ─────────────────────────────────────────────
 //  생성자
 // ─────────────────────────────────────────────
-StoryState::StoryState(Context& context, const std::string& startNodeId)
-    : State(context)
-    , startNodeId(startNodeId)
+StoryState::StoryState(Context& context , const std::string& startNodeId)
+	: State(context)
+	, startNodeId(startNodeId)
 {
 }
 
@@ -73,121 +82,206 @@ StoryState::StoryState(Context& context, const std::string& startNodeId)
 // ─────────────────────────────────────────────
 void StoryState::Enter()
 {
-    NavigateTo(startNodeId);
+	currentNode = StoryLoader::Load(NodePath(startNodeId));
+
+	BuildLeftPanel();
+	BuildRightPanel();
+	RebuildCenter();
+	BuildDividers();
 }
 
 // ─────────────────────────────────────────────
-//  NodePath — 노드 ID → JSON 파일 경로
+//  NodePath
 // ─────────────────────────────────────────────
 std::string StoryState::NodePath(const std::string& nodeId)
 {
-    return "Data/Story/" + nodeId + ".json";
+	return "Data/Story/" + nodeId + ".json";
 }
 
 // ─────────────────────────────────────────────
-//  NavigateTo — 노드 로드 후 UI 재구성
+//  BuildLeftPanel — 배경 이미지 (Enter 1회)
+// ─────────────────────────────────────────────
+void StoryState::BuildLeftPanel()
+{
+	uiManager.Add(
+		std::make_unique<UIImage>(
+			Layout::LeftX , Layout::LeftY , Layout::Z ,
+			currentNode.bgImage)          // UIImage(x, y, z, path, color=7)
+	);
+}
+
+// ─────────────────────────────────────────────
+//  BuildRightPanel — 퀵 메뉴 (Enter 1회)
+//
+//  열 A  │ 열 B
+//  ──────┼──────────────
+//  소지품 │ 설정
+//  대기   │ 빠른 저장
+//  수면   │ 빠른 불러오기
+//         │ 기록
+//         │ 저널
+// ─────────────────────────────────────────────
+void StoryState::BuildRightPanel()
+{
+	auto addQuickBtn = [ & ] (int x , int y , std::string label , std::function<void()> cb)
+		{
+			auto btn = std::make_unique<UIButton>(
+				x , y , Layout::ColW , Layout::RowH , Layout::Z , label , cb);
+			btn->borderless = true;
+			uiManager.Add(std::move(btn));
+		};
+
+	addQuickBtn(Layout::ColA , Layout::Row0 , L("ui.inventory") , [ this ] () {
+		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+		if ( onInventory ) onInventory(); });
+	addQuickBtn(Layout::ColA , Layout::Row1 , L("ui.wait") , [ this ] () {
+		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+		if ( onWait ) onWait(); });
+	addQuickBtn(Layout::ColA , Layout::Row2 , L("ui.sleep") , [ this ] () {
+		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+		if ( onSleep ) onSleep(); });
+
+	addQuickBtn(Layout::ColB , Layout::Row0 , L("ui.setting") , [ this ] () { 
+		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+		context.PushState(std::make_unique<SettingState>(context)); 
+		});
+	addQuickBtn(Layout::ColB , Layout::Row1 , L("ui.quickSave") , [ this ] () {
+		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+		});
+	addQuickBtn(Layout::ColB , Layout::Row2 , L("ui.quickLoad") , [ this ] () {
+		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+		});
+	addQuickBtn(Layout::ColB , Layout::Row3 , L("ui.log") , [ this ] () {
+		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+		if ( onLog ) onLog(); 
+		});
+	addQuickBtn(Layout::ColB , Layout::Row4 , L("ui.journal") , [ this ] () {
+		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+		if ( onJournal ) onJournal(); 
+		});
+}
+
+// ─────────────────────────────────────────────
+//  NavigateTo — 노드 전환 (중앙 패널만 재구성)
 // ─────────────────────────────────────────────
 void StoryState::NavigateTo(const std::string& nodeId)
 {
-    currentNode = StoryLoader::Load(NodePath(nodeId));
-    RebuildUI();
+	currentNode = StoryLoader::Load(NodePath(nodeId));
+
+	// 배경 이미지가 바뀌면 좌측 패널도 갱신
+	// (UIImage 를 교체하려면 tag 기반 조회가 필요합니다.
+	//  현재는 단순하게 전체 재구성합니다.)
+	uiManager.Clear();
+	BuildLeftPanel();
+	BuildRightPanel();
+	RebuildCenter();
+	BuildDividers();
 }
 
 // ─────────────────────────────────────────────
-//  RebuildUI — UI 전체 재구성
-//  (노드가 바뀔 때마다 호출)
+//  RebuildCenter — 중앙 텍스트 + 선택지
 // ─────────────────────────────────────────────
-void StoryState::RebuildUI()
+void StoryState::RebuildCenter()
 {
-    uiManager.Clear(); // 이전 노드 UI 전부 제거
+	// ── 본문 텍스트 ──────────────────────────────
+	int y = Layout::TextStartY;
 
-    // ── 타이틀 (노드 ID 표시) ────────────────────
-    uiManager.Add(
-        std::make_unique<UILabel>(
-            Layout::TitleX, Layout::TitleY, Layout::Z,
-            Layout::TitleW, Layout::RowH,
-            currentNode.id, 14,
-            UILabel::TextAlign::Center,
-            UILabel::VAlign::Middle)
-    );
+	for ( const auto& line : currentNode.texts )
+	{
+		uiManager.Add(
+			std::make_unique<UILabel>(
+				Layout::CenterX , y , Layout::Z ,
+				Layout::CenterW , Layout::RowH ,
+				line , 7 ,
+				UILabel::TextAlign::Left ,
+				UILabel::VAlign::Middle)
+		);
+		y += Layout::RowH;
+	}
 
-    // ── 본문 텍스트 ──────────────────────────────
-    int y = Layout::TextStartY;
+	// ── 구분선 ───────────────────────────────────
+	// std::string 은 char 기반이므로 ASCII '-' 사용
+	// (wchar_t L'\u2500' 을 넘기면 잘림 경고 발생)
+	const std::string divider(Layout::CenterW , '-');
+	uiManager.Add(
+		std::make_unique<UILabel>(
+			Layout::CenterX , Layout::DividerY , Layout::Z ,
+			Layout::CenterW , Layout::RowH ,
+			divider , 8 ,
+			UILabel::TextAlign::Left ,
+			UILabel::VAlign::Middle)
+	);
 
-    for (const auto& line : currentNode.texts)
-    {
-        uiManager.Add(
-            std::make_unique<UILabel>(
-                Layout::TextX, y, Layout::Z,
-                Layout::TextW, Layout::RowH,
-                line, 7,
-                UILabel::TextAlign::Left,
-                UILabel::VAlign::Middle)
-        );
-        y += Layout::RowH;
-    }
+	// ── 선택지 버튼 / 닫기 버튼 ─────────────────
+	int cy = Layout::ChoiceStartY;
 
-    // ── 선택지 시작 Y 결정 ───────────────────────
-    //  텍스트가 짧아도 선택지가 화면 상단에 붙지 않도록 최솟값 보장
-    int choiceY = (std::max)(y + Layout::RowH, Layout::ChoiceFixedY);
+	for ( const auto& choice : currentNode.choices )
+	{
+		if ( !ConditionChecker::Check(choice.require , context) )
+			continue;
 
-    // ── 선택지 버튼 / 닫기 버튼 ─────────────────
-    if (currentNode.choices.empty())
-    {
-        // 선택지 없음 → 닫기(타이틀로 돌아가기)
-        uiManager.Add(
-            std::make_unique<UIButton>(
-                Layout::CloseX, choiceY,
-                Layout::CloseW, Layout::RowH, Layout::Z,
-                L("ui.back"),
-                [this]()
-                {
-					context.ChangeState(std::make_unique<TitleState>(context));
-                })
-        );
-    }
-    else
-    {
-        for (const auto& choice : currentNode.choices)
-        {
-            // 람다 캡처: nextNode 를 값으로 복사
-            std::string nextId = choice.nextNode;
+		std::string nextId = choice.nextNode;
 
-            uiManager.Add(
-                std::make_unique<UIButton>(
-                    Layout::ChoiceX, choiceY,
-                    Layout::ChoiceW, Layout::RowH, Layout::Z,
-                    choice.text,
-                    [this, nextId]()
-                    {
-                        NavigateTo(nextId);
-                    })
-            );
+		uiManager.Add(
+			std::make_unique<UIButton>(
+				Layout::CenterX , cy ,
+				Layout::CenterW , Layout::RowH , Layout::Z ,
+				choice.text ,
+				[ this , nextId ] ()
+				{
+					context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+					NavigateTo(nextId);
+				})
+		);
 
-            choiceY += Layout::RowH;
-        }
-    }
+		cy += Layout::RowH + 1;
+	}
 }
+
+// ─────────────────────────────────────────────
+//  BuildDividers 
+// ─────────────────────────────────────────────
+void StoryState::BuildDividers()
+{
+	// 좌/중앙 구분선 (x=59)
+	for ( int row = 0; row < 54; ++row )
+	{
+		uiManager.Add(std::make_unique<UILabel>(
+			59 , row , Layout::Z , 2 , 1 ,
+			"|" , 8 ,  // 어두운 회색
+			UILabel::TextAlign::Left ,
+			UILabel::VAlign::Top));
+	}
+
+	// 중앙/우측 구분선 (x=151)
+	for ( int row = 0; row < 54; ++row )
+	{
+		uiManager.Add(std::make_unique<UILabel>(
+			151 , row , Layout::Z , 2 , 1 ,
+			"|" , 8 ,
+			UILabel::TextAlign::Left ,
+			UILabel::VAlign::Top));
+	}
+}
+
 
 // ─────────────────────────────────────────────
 //  HandleInput / Update / Render
 // ─────────────────────────────────────────────
 void StoryState::HandleInput(InputManager& input)
 {
-    while (input.HasAction())
-    {
-        auto action = input.PopAction();
-        // 필요 시 키보드 단축키 처리 가능
-        // ex) ESC → context.PopState();
-    }
+	while ( input.HasAction() )
+	{
+		auto action = input.PopAction();
+		// ESC → context.PopState();
+	}
 }
 
 void StoryState::Update()
 {
-    // 선택지 클릭 콜백에서 즉시 갱신하므로 매 프레임 갱신 불필요
 }
 
 void StoryState::Render(ConsoleDisplay& display)
 {
-    uiManager.Render(display);
+	uiManager.Render(display);
 }

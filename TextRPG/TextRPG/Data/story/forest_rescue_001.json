@@ -1,0 +1,33 @@
+{
+  "id": "forest_rescue_001",
+
+  "text": [
+    "당신은 상처를 눌러 출혈을 막는다.",
+    "병사의 숨이 조금 안정된다.",
+    "\"...탑... 숲 깊은 곳...\"",
+    "그가 떨리는 손으로 북쪽을 가리킨다.",
+    "하지만 주변의 기척이 점점 가까워진다."
+  ],
+
+  "effects": [
+    "hp -2",
+    "flag rescued_soldier",
+    "rep_village +1"
+  ],
+
+  "choices": [
+    {
+      "text": "병사를 부축한다",
+      "next": "escort_001",
+      "require": [ "hp > 3" ]
+    },
+    {
+      "text": "위치를 기억하고 혼자 이동한다",
+      "next": "tower_hint_001"
+    },
+    {
+      "text": "숲을 빠져나간다",
+      "next": "forest_escape_001"
+    }
+  ]
+}

@@ -21,9 +21,6 @@
     <Filter Include="소스 파일\Systems">
       <UniqueIdentifier>{bf7cb285-e48b-412f-b00e-4e370e419c9e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\UI">
-      <UniqueIdentifier>{52a680d9-fb0e-47ae-9e5a-c63c00331fcc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\Utils">
       <UniqueIdentifier>{d8db4ad3-6a15-4dfc-bc1e-19f75fbc74e1}</UniqueIdentifier>
     </Filter>
@@ -53,6 +50,12 @@
     </Filter>
     <Filter Include="소스 파일\Data\story">
       <UniqueIdentifier>{3ebd9c92-5e8e-4e96-8985-1956ea4830ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Game\Player">
+      <UniqueIdentifier>{b8e9c95b-62d8-4120-a913-6116cc663b4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Game\Effect">
+      <UniqueIdentifier>{307ed938-352d-4ea5-889b-e0c94bb8256f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +142,12 @@
     </ClCompile>
     <ClCompile Include="Game\States\StoryState.cpp">
       <Filter>소스 파일\Game\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Effect\EffectInterpreter.cpp">
+      <Filter>소스 파일\Game\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Systems\ConditionChecker.cpp">
+      <Filter>소스 파일\Systems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -250,6 +259,15 @@
     <ClInclude Include="Game\States\StoryState.h">
       <Filter>소스 파일\Game\State</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Player\PlayerStatus.h">
+      <Filter>소스 파일\Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Effect\EffectInterpreter.h">
+      <Filter>소스 파일\Game\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Systems\ConditionChecker.h">
+      <Filter>소스 파일\Systems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\settings.json">
@@ -266,15 +284,6 @@
     </None>
     <None Include="Data\lang\zh.json">
       <Filter>소스 파일\Data\lang</Filter>
-    </None>
-    <None Include="Data\story\testStory_000.json">
-      <Filter>소스 파일\Data\story</Filter>
-    </None>
-    <None Include="Data\story\testStory_001.json">
-      <Filter>소스 파일\Data\story</Filter>
-    </None>
-    <None Include="Data\story\testStory_002.json">
-      <Filter>소스 파일\Data\story</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -42,6 +42,8 @@ public:
 
 	void SetText(std::string newText);
 
+	bool borderless = false;
+
 private:
 	int x , y , width , height;
 	int zOreder = 0;

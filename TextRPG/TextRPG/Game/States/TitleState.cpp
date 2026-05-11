@@ -42,8 +42,8 @@ void TitleState::Enter()
 		std::make_unique<UIButton>(82 , 32 , 25 , 3 , 1 ,
 			L("ui.new_game") ,
 			[ this ] () {
-				context.sound.PlaySE("Assets/audio/testsound.wav");
-				context.ChangeState(std::make_unique<StoryState>(context , "testStory_000"));
+				context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+				context.ChangeState(std::make_unique<StoryState>(context , "prologue_000"));
 			})
 	);
 
@@ -52,7 +52,7 @@ void TitleState::Enter()
 		std::make_unique<UIButton>(82 , 37 , 25 , 3 , 1, 
 			L("ui.load_game"),
 			[this]() {
-			context.sound.PlaySE("Assets/audio/testsound.wav");
+			context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 		})
 	);
 
@@ -61,7 +61,7 @@ void TitleState::Enter()
 		std::make_unique<UIButton>(82 , 42 , 25 , 3 , 1 ,
 			L("ui.setting") ,
 			[ this ] () {
-				context.sound.PlaySE("Assets/audio/testsound.wav");
+				context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 				context.PushState(std::make_unique<SettingState>(context));
 			})
 	);
@@ -72,6 +72,7 @@ void TitleState::Enter()
 			L("ui.quit_game"),
 			[ this ] () {
 				//테스트용 임시 저장
+				context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 				context.settingManager.Save("Data/settings.json");
 				exit(0);
 			})
