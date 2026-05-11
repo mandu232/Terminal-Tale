@@ -63,6 +63,8 @@ void UIButton::Update(float deltaTime)
 // ─────────────────────────────────────────────
 int UIButton::GetAnimOffset() const
 {
+	if ( !enabled ) return 0;
+
 	if (animTimer < GROW_TIME)
 		return 1;
 	return 0;

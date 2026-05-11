@@ -2,14 +2,16 @@
 
 #include <string>
 #include <vector>
+#include "Game/Effect/Effect.h"
+#include "Systems/Condition.h"   // ← 추가
 
 struct StoryChoice
 {
 	std::string text;
 	std::string nextNode;
 
-	// 선택 조건
-	std::vector<std::string> require;
+	std::vector<Condition> require;
+	std::vector<Effect>    effects;
 };
 
 struct StoryNode
@@ -17,12 +19,9 @@ struct StoryNode
 	std::string id;
 	std::string bgImage;
 
-	std::vector < std::string> texts;
+	std::vector<std::string> texts;
 	std::vector<StoryChoice> choices;
 
-	//노드 진입 시 실행되는 효과
-	std::vector< std::string> effects;
-
-	//노드 표시 조건
-	std::vector<std::string> require;
+	std::vector<Effect>    effects;
+	std::vector<Condition> require;
 };

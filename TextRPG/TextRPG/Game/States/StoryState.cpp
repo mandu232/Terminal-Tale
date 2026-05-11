@@ -10,6 +10,7 @@
 #include "Core/UIImage.h"
 #include "Game/Story/StoryLoader.h"
 #include "Systems/ConditionChecker.h"
+#include "Game/Effect/EffectInterpreter.h"
 
 #include <algorithm>
 #include <string>
@@ -168,6 +169,9 @@ void StoryState::NavigateTo(const std::string& nodeId)
 {
 	currentNode = StoryLoader::Load(NodePath(nodeId));
 
+	for ( const auto& effect : currentNode.effects )
+		EffectInterpreter::Apply(effect , context);
+
 	// 배경 이미지가 바뀌면 좌측 패널도 갱신
 	// (UIImage 를 교체하려면 tag 기반 조회가 필요합니다.
 	//  현재는 단순하게 전체 재구성합니다.)
@@ -228,9 +232,13 @@ void StoryState::RebuildCenter()
 			Layout::RowH ,
 			Layout::Z,
 			choice.text ,
-			[ this , nextId ] ()
+			[ this , nextId , choice] ()
 			{
 				context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+
+				for ( const auto& effect : choice.effects )
+					EffectInterpreter::Apply(effect , context);
+
 				NavigateTo(nextId);
 			}
 		);

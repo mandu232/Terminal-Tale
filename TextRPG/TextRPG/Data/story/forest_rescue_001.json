@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "forest_rescue_001",
 
   "text": [
@@ -9,17 +9,28 @@
     "하지만 주변의 기척이 점점 가까워진다."
   ],
 
-  "effects": [
-    "hp -2",
-    "flag rescued_soldier",
-    "rep_village +1"
-  ],
+    "effects": [
+        {
+            "type": "flag_add",
+            "key": "visited_village1"
+        }
+    ],
 
   "choices": [
     {
-      "text": "병사를 부축한다",
-      "next": "escort_001",
-      "require": [ "hp > 3" ]
+        "text": "병사를 부축한다",
+        "next": "escort_001",
+        "require": [
+            {
+                "type": "hp",
+                "op": "gt",
+                "value": 3
+            },
+            {
+                "type": "flag",
+                "key": "visited_village"
+            }
+        ]
     },
     {
       "text": "위치를 기억하고 혼자 이동한다",

@@ -183,6 +183,8 @@
     <ClInclude Include="Core\UILabel.h" />
     <ClInclude Include="Core\UIManager.h" />
     <ClInclude Include="external\json\json.hpp" />
+    <ClInclude Include="Game\Effect\Condition.h" />
+    <ClInclude Include="Game\Effect\Effect.h" />
     <ClInclude Include="Game\Effect\EffectInterpreter.h" />
     <ClInclude Include="Game\Events\GameStartEvent.h" />
     <ClInclude Include="Game\Events\PlaySoundEvent.h" />

@@ -23,4 +23,35 @@ void EffectInterpreter::Apply(
 		ss >> flag;
 		ctx.flags.insert(flag);
 	}
+	else if ( cmd == "flag_remove" )
+	{
+		std::string flag;
+		ss >> flag;
+		ctx.flags.erase(flag);
+	}
+	else if ( cmd == "reputation" )
+	{
+		int value;
+		ss >> value;
+		//ctx.player.reputation += value;
+	}
+}
+
+void EffectInterpreter::Apply(const Effect& effect , Context& ctx)
+{
+	switch ( effect.type )
+	{
+	case EffectType::AddHP:
+		ctx.player.hp += effect.value;
+		break;
+	case EffectType::AddFlag:
+		ctx.flags.insert(effect.key);
+		break;
+	case EffectType::RemoveFlag:
+		ctx.flags.erase(effect.key);
+		break;
+	case EffectType::AddRequtation:       // 오타 그대로 enum에 맞춤
+		//ctx.player.reputation += effect.value;
+		break;
+	}
 }
