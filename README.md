@@ -37,18 +37,3 @@ A team-developed text-base RPG built in C++ using the console interface.
 ● 실행 환경: Windows 10 이상
 
 
-
-
-## 🌱 협업 규칙
-
-● main 브랜치 파일은 직접 수정하지 말아주세요.
-
-● 확장자명을 기준 파일정리가 아닌 기능별로 파일을 정리해주세요.
-
-● 코드는 객체지향으로 개발해주세요.
-
-● Pull Request 후 병합 작업을 해주세요.
-
-● 커밋시 메시지를 명확하게 작성해 주세요.
-
-● 코드 작업시 주요 함수 및 로직, 기능에는 주석을 달아주세요.
