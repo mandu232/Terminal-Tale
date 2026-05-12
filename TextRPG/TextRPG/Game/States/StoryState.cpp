@@ -212,7 +212,7 @@ void StoryState::RebuildCenter()
 		tw->onComplete = [ this ] ()
 			{
 				if ( --pendingTypewriters == 0 )
-					EnableChoices();
+					SpawnChoices();
 			};
 
 		uiManager.Add(std::move(tw));
@@ -229,41 +229,6 @@ void StoryState::RebuildCenter()
 			UILabel::TextAlign::Left ,
 			UILabel::VAlign::Middle)
 	);
-
-	// ── 선택지 버튼 ──────────────────────────────
-	// 타이핑 중에는 비활성 → 완료 시 EnableChoices()가 활성화
-	const bool activateNow = ( pendingTypewriters == 0 );  // 텍스트 없는 노드는 즉시 활성
-	int cy = Layout::ChoiceStartY;
-
-	for ( const auto& choice : currentNode.choices )
-	{
-		bool canUse = ConditionChecker::Check(choice.require , context);
-		std::string nextId = choice.nextNode;
-
-		auto btn = std::make_unique<UIButton>(
-			Layout::CenterX ,
-			cy ,
-			Layout::CenterW ,
-			Layout::RowH ,
-			Layout::Z ,
-			choice.text ,
-			[ this , nextId , choice ] ()
-			{
-				context.sound.PlaySE("Assets/audio/ui_button_click.wav");
-
-				for ( const auto& effect : choice.effects )
-					EffectInterpreter::Apply(effect , context);
-
-				NavigateTo(nextId);
-			}
-		);
-
-		btn->SetEnabled(activateNow && canUse);
-		choiceButtons.push_back({ btn.get(), canUse });  // 나중에 활성화하기 위해 보관
-
-		uiManager.Add(std::move(btn));
-		cy += Layout::RowH + 1;
-	}
 }
 
 // ─────────────────────────────────────────────
@@ -332,4 +297,40 @@ void StoryState::EnableChoices()
 void StoryState::Render(ConsoleDisplay& display)
 {
 	uiManager.Render(display);
+}
+
+void StoryState::SpawnChoices()
+{
+	int cy = Layout::ChoiceStartY;
+
+	for ( const auto& choice : currentNode.choices )
+	{
+		bool canUse =
+			ConditionChecker::Check(choice.require , context);
+
+		if ( !canUse )
+			continue;
+
+		std::string nextId = choice.nextNode;
+
+		auto btn = std::make_unique<UIButton>(
+			Layout::CenterX ,
+			cy ,
+			Layout::CenterW ,
+			Layout::RowH ,
+			Layout::Z ,
+			choice.text ,
+			[ this , nextId , choice ] ()
+			{
+				context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+
+				for ( const auto& effect : choice.effects )
+					EffectInterpreter::Apply(effect , context);
+
+				NavigateTo(nextId);
+			});
+
+		uiManager.Add(std::move(btn));
+		cy += Layout::RowH + 1;
+	}
 }

@@ -57,4 +57,6 @@ private:
 
 	// 선택지 활성화 함수
 	void EnableChoices();
+
+	void SpawnChoices();
 };
