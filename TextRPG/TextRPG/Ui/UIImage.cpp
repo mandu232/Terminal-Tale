@@ -1,5 +1,5 @@
 #include "UIImage.h"
-#include "ConsoleDisplay.h"
+#include "Core/ConsoleDisplay.h"
 #include "Utils/UTF8ToWide.h"
 
 #include <fstream>

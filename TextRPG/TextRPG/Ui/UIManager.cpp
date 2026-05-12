@@ -1,6 +1,6 @@
 #include "UIManager.h"
-#include "InputManager.h"
-#include "ConsoleDisplay.h"
+#include "Core/InputManager.h"
+#include "Core/ConsoleDisplay.h"
 #include <iostream>
 #include <algorithm>
 
@@ -49,4 +49,14 @@ void UIManager::HandleMouseMove(int x , int y)
 	{
 		e->SetHovered(e->Contains(x , y));
 	}
+}
+
+void UIManager::Update(float fps)
+{
+	if ( fps <= 0.f ) return;
+
+	const float deltaTime = 1.0f / fps;
+
+	for ( auto& e : elements )
+		e->Update(deltaTime);
 }

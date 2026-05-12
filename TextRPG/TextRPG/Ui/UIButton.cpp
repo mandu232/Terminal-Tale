@@ -1,5 +1,5 @@
 #include "UIButton.h"
-#include "ConsoleDisplay.h"
+#include "Core/ConsoleDisplay.h"
 #include "Utils/GetVisualWidth.h"
 #include "Utils/UTF8ToWide.h"
 #include <cmath>
@@ -43,16 +43,6 @@ UIButton::UIButton(int x , int y , int w , int h ,
 // ─────────────────────────────────────────────
 void UIButton::Update(float deltaTime)
 {
-	if (!animRunning) return;
-
-	animTimer += deltaTime;
-
-	// 한 사이클(GROW + SHRINK) 완료 → 정지
-	if (animTimer >= GROW_TIME + SHRINK_TIME)
-	{
-		animTimer   = GROW_TIME + SHRINK_TIME;
-		animRunning = false;
-	}
 }
 
 // ─────────────────────────────────────────────
@@ -63,10 +53,12 @@ void UIButton::Update(float deltaTime)
 // ─────────────────────────────────────────────
 int UIButton::GetAnimOffset() const
 {
-	if ( !enabled ) return 0;
-
-	if (animTimer < GROW_TIME)
+	if ( state == State::Hovered )
 		return 1;
+
+	if ( state == State::Pressed )
+		return 1;
+	
 	return 0;
 }
 
@@ -77,23 +69,7 @@ void UIButton::SetHovered(bool value)
 {
 	if ( !enabled ) return;
 
-	State newState = value ? State::Hovered : State::Normal;
-
-	// 호버 진입 시에만 애니메이션 시작
-	if (newState == State::Hovered && state != State::Hovered)
-	{
-		animTimer   = 0.0f;
-		animRunning = true;
-	}
-
-	// 호버 해제 시 애니메이션 즉시 종료
-	if (newState == State::Normal)
-	{
-		animRunning = false;
-		animTimer   = GROW_TIME + SHRINK_TIME; // 오프셋 0으로 고정
-	}
-
-	state = newState;
+	state = value ? State::Hovered : State::Normal;
 }
 
 // ─────────────────────────────────────────────

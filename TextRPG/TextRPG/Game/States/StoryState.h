@@ -1,11 +1,15 @@
 #pragma once
 
 #include "Core/State.h"
-#include "Core/UIManager.h"
+#include "Ui/UIManager.h"
+#include "Ui/UIButton.h"
 #include "Game/Story/StoryNode.h"
 
 #include <string>
 #include <functional>
+
+#include <chrono>
+#include <vector>
 
 // ─────────────────────────────────────────────
 //  StoryState  —  로느워든 스타일 3패널 레이아웃
@@ -45,4 +49,12 @@ private:
 
 	std::string startNodeId;
 	StoryNode currentNode;
+
+	//타이핑 상태
+	int pendingTypewriters = 0;
+	std::vector<std::pair<UIButton* , bool>> choiceButtons;
+	std::chrono::steady_clock::time_point lastFrameTime{};
+
+	// 선택지 활성화 함수
+	void EnableChoices();
 };

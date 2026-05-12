@@ -1,5 +1,5 @@
 #include "ConsoleInputSource.h"
-#include "UIManager.h"
+#include "Ui/UIManager.h"
 #include "InputManager.h"
 
 ConsoleInputSource::ConsoleInputSource()

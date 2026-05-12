@@ -14,6 +14,7 @@ public:
 	void HandleMouseMove(int x , int y);
 	void Render(ConsoleDisplay& display);
 	void Clear();
+	void Update(float fps);
 
 private:
 	std::vector<std::unique_ptr<UIElement>> elements;

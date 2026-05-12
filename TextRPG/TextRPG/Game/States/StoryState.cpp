@@ -5,9 +5,12 @@
 #include "Core/Context.h"
 #include "Core/ConsoleDisplay.h"
 #include "Core/Localization.h"
-#include "Core/UIButton.h"
-#include "Core/UILabel.h"
-#include "Core/UIImage.h"
+#include "Ui/UIButton.h"
+#include "Ui/UILabel.h"
+#include "Ui/UIImage.h"
+#include "Ui/UITypewriter.h"
+
+#include <chrono>
 #include "Game/Story/StoryLoader.h"
 #include "Systems/ConditionChecker.h"
 #include "Game/Effect/EffectInterpreter.h"
@@ -142,9 +145,9 @@ void StoryState::BuildRightPanel()
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 		if ( onSleep ) onSleep(); });
 
-	addQuickBtn(Layout::ColB , Layout::Row0 , L("ui.setting") , [ this ] () { 
+	addQuickBtn(Layout::ColB , Layout::Row0 , L("ui.setting") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
-		context.PushState(std::make_unique<SettingState>(context)); 
+		context.PushState(std::make_unique<SettingState>(context));
 		});
 	addQuickBtn(Layout::ColB , Layout::Row1 , L("ui.quickSave") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
@@ -154,11 +157,11 @@ void StoryState::BuildRightPanel()
 		});
 	addQuickBtn(Layout::ColB , Layout::Row3 , L("ui.log") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
-		if ( onLog ) onLog(); 
+		if ( onLog ) onLog();
 		});
 	addQuickBtn(Layout::ColB , Layout::Row4 , L("ui.journal") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
-		if ( onJournal ) onJournal(); 
+		if ( onJournal ) onJournal();
 		});
 }
 
@@ -187,25 +190,36 @@ void StoryState::NavigateTo(const std::string& nodeId)
 // ─────────────────────────────────────────────
 void StoryState::RebuildCenter()
 {
-	// ── 본문 텍스트 ──────────────────────────────
+	// ── 상태 초기화 ──────────────────────────────
+	pendingTypewriters = 0;
+	choiceButtons.clear();
+
+	// ── 본문 텍스트 (UITypewriter) ───────────────
 	int y = Layout::TextStartY;
 
 	for ( const auto& line : currentNode.texts )
 	{
-		uiManager.Add(
-			std::make_unique<UILabel>(
-				Layout::CenterX , y , Layout::Z ,
-				Layout::CenterW , Layout::RowH ,
-				line , 7 ,
-				UILabel::TextAlign::Left ,
-				UILabel::VAlign::Middle)
-		);
+		auto tw = std::make_unique<UITypewriter>(
+			Layout::CenterX , y , Layout::Z ,
+			Layout::CenterW , Layout::RowH ,
+			line , 7 ,
+			UITypewriter::TextAlign::Left ,
+			UITypewriter::VAlign::Middle ,
+			3);                         // speed 1~5
+
+		++pendingTypewriters;
+
+		tw->onComplete = [ this ] ()
+			{
+				if ( --pendingTypewriters == 0 )
+					EnableChoices();
+			};
+
+		uiManager.Add(std::move(tw));
 		y += Layout::RowH;
 	}
 
 	// ── 구분선 ───────────────────────────────────
-	// std::string 은 char 기반이므로 ASCII '-' 사용
-	// (wchar_t L'\u2500' 을 넘기면 잘림 경고 발생)
 	const std::string divider(Layout::CenterW , '-');
 	uiManager.Add(
 		std::make_unique<UILabel>(
@@ -216,13 +230,14 @@ void StoryState::RebuildCenter()
 			UILabel::VAlign::Middle)
 	);
 
-	// ── 선택지 버튼 / 닫기 버튼 ─────────────────
+	// ── 선택지 버튼 ──────────────────────────────
+	// 타이핑 중에는 비활성 → 완료 시 EnableChoices()가 활성화
+	const bool activateNow = ( pendingTypewriters == 0 );  // 텍스트 없는 노드는 즉시 활성
 	int cy = Layout::ChoiceStartY;
 
 	for ( const auto& choice : currentNode.choices )
 	{
 		bool canUse = ConditionChecker::Check(choice.require , context);
-
 		std::string nextId = choice.nextNode;
 
 		auto btn = std::make_unique<UIButton>(
@@ -230,9 +245,9 @@ void StoryState::RebuildCenter()
 			cy ,
 			Layout::CenterW ,
 			Layout::RowH ,
-			Layout::Z,
+			Layout::Z ,
 			choice.text ,
-			[ this , nextId , choice] ()
+			[ this , nextId , choice ] ()
 			{
 				context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 
@@ -243,10 +258,10 @@ void StoryState::RebuildCenter()
 			}
 		);
 
-		btn->SetEnabled(canUse);
+		btn->SetEnabled(activateNow && canUse);
+		choiceButtons.push_back({ btn.get(), canUse });  // 나중에 활성화하기 위해 보관
 
 		uiManager.Add(std::move(btn));
-
 		cy += Layout::RowH + 1;
 	}
 }
@@ -292,6 +307,26 @@ void StoryState::HandleInput(InputManager& input)
 
 void StoryState::Update()
 {
+	using Clock = std::chrono::steady_clock;
+	auto now = Clock::now();
+
+	if ( lastFrameTime != Clock::time_point{} )
+	{
+		float elapsed = std::chrono::duration<float>(now - lastFrameTime).count();
+		if ( elapsed > 0.f && elapsed < 1.f )          // 비정상값(일시정지 등) 방어
+		{
+			float fps = 1.0f / elapsed;
+			uiManager.Update(fps);
+		}
+	}
+
+	lastFrameTime = now;
+}
+
+void StoryState::EnableChoices()
+{
+	for ( auto& [btn , canUse] : choiceButtons )
+		btn->SetEnabled(canUse);
 }
 
 void StoryState::Render(ConsoleDisplay& display)

@@ -9,9 +9,9 @@
 #include "Core/ConsoleDisplay.h"
 #include <iostream>
 #include <Core/Localization.h>
-#include "Core/UIButton.h"
-#include "Core/UILabel.h"
-#include "Core/UIImage.h"
+#include "Ui/UIButton.h"
+#include "Ui/UILabel.h"
+#include "Ui/UIImage.h"
 
 TitleState::TitleState(Context& context)
     : State(context)

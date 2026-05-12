@@ -144,10 +144,6 @@
     <ClCompile Include="Core\SettingsManager.cpp" />
     <ClCompile Include="Core\SoundSystem.cpp" />
     <ClCompile Include="Core\StateMachine.cpp" />
-    <ClCompile Include="Core\UIButton.cpp" />
-    <ClCompile Include="Core\UIImage.cpp" />
-    <ClCompile Include="Core\UILabel.cpp" />
-    <ClCompile Include="Core\UIManager.cpp" />
     <ClCompile Include="Game\Effect\EffectInterpreter.cpp" />
     <ClCompile Include="Game\States\GameState.cpp" />
     <ClCompile Include="Game\States\SettingState.cpp" />
@@ -156,6 +152,11 @@
     <ClCompile Include="Game\Story\StoryLoader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Systems\ConditionChecker.cpp" />
+    <ClCompile Include="Ui\UIButton.cpp" />
+    <ClCompile Include="Ui\UIImage.cpp" />
+    <ClCompile Include="Ui\UILabel.cpp" />
+    <ClCompile Include="Ui\UIManager.cpp" />
+    <ClCompile Include="Ui\UITypewriter.cpp" />
     <ClCompile Include="Utils\ConsoleUtils.cpp" />
     <ClCompile Include="Utils\EnableMouseInput.cpp" />
     <ClCompile Include="Utils\GetCharWidth.cpp" />
@@ -180,11 +181,6 @@
     <ClInclude Include="Core\SoundSystem.h" />
     <ClInclude Include="Core\State.h" />
     <ClInclude Include="Core\StateMachine.h" />
-    <ClInclude Include="Core\UIButton.h" />
-    <ClInclude Include="Core\UIElement.h" />
-    <ClInclude Include="Core\UIImage.h" />
-    <ClInclude Include="Core\UILabel.h" />
-    <ClInclude Include="Core\UIManager.h" />
     <ClInclude Include="external\json\json.hpp" />
     <ClInclude Include="Game\Effect\Condition.h" />
     <ClInclude Include="Game\Effect\Effect.h" />
@@ -199,6 +195,12 @@
     <ClInclude Include="Game\Story\StoryLoader.h" />
     <ClInclude Include="Game\Story\StoryNode.h" />
     <ClInclude Include="Systems\ConditionChecker.h" />
+    <ClInclude Include="Ui\UIButton.h" />
+    <ClInclude Include="Ui\UIElement.h" />
+    <ClInclude Include="Ui\UIImage.h" />
+    <ClInclude Include="Ui\UILabel.h" />
+    <ClInclude Include="Ui\UIManager.h" />
+    <ClInclude Include="Ui\UITypewriter.h" />
     <ClInclude Include="Utils\ConsoleUtils.h" />
     <ClInclude Include="Utils\EnableMouseInput.h" />
     <ClInclude Include="Utils\GetCharWidth.h" />
