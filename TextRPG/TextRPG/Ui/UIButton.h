@@ -47,6 +47,9 @@ public:
 
 	void SetEnabled(bool value);
 	bool IsEnabled() const;
+
+	void StartFadeIn(float speed = 2.5f);
+
 private:
 	int x , y , width , height;
 	int zOreder = 0;
@@ -68,4 +71,9 @@ private:
 	// 현재 프레임의 렌더 오프셋 (0 또는 1)
 	// 1이면 각 변을 1칸씩 확장해서 그림
 	int GetAnimOffset() const;
+
+	// Fade In
+	bool fadingIn = false;
+	float fadeProgress = 1.0f;
+	float fadeSpeed = 3.5f;
 };

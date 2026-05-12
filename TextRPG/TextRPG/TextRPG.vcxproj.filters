@@ -5,10 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="소스 파일\Core">
       <UniqueIdentifier>{6af7511a-e5aa-4644-899e-0d0c5f6b17c0}</UniqueIdentifier>
     </Filter>
@@ -57,6 +53,9 @@
     <Filter Include="소스 파일\Game\Effect">
       <UniqueIdentifier>{307ed938-352d-4ea5-889b-e0c94bb8256f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Ui">
+      <UniqueIdentifier>{19b875b2-f4be-4d86-a637-b9116ce4abb6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -81,12 +80,6 @@
       <Filter>소스 파일\Core</Filter>
     </ClCompile>
     <ClCompile Include="Core\EventBus.cpp">
-      <Filter>소스 파일\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\UIManager.cpp">
-      <Filter>소스 파일\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\UIButton.cpp">
       <Filter>소스 파일\Core</Filter>
     </ClCompile>
     <ClCompile Include="Core\ConsoleInputSource.cpp">
@@ -125,14 +118,8 @@
     <ClCompile Include="Utils\EnableMouseInput.cpp">
       <Filter>소스 파일\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="Core\UILabel.cpp">
-      <Filter>소스 파일\Core</Filter>
-    </ClCompile>
     <ClCompile Include="Utils\GetCharWidth.cpp">
       <Filter>소스 파일\Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\UIImage.cpp">
-      <Filter>소스 파일\Core</Filter>
     </ClCompile>
     <ClCompile Include="Game\States\SettingState.cpp">
       <Filter>소스 파일\Game\State</Filter>
@@ -148,6 +135,21 @@
     </ClCompile>
     <ClCompile Include="Systems\ConditionChecker.cpp">
       <Filter>소스 파일\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UITypewriter.cpp">
+      <Filter>소스 파일\Ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UIButton.cpp">
+      <Filter>소스 파일\Ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UIImage.cpp">
+      <Filter>소스 파일\Ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UILabel.cpp">
+      <Filter>소스 파일\Ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UIManager.cpp">
+      <Filter>소스 파일\Ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -190,12 +192,6 @@
     <ClInclude Include="Core\InputSource.h">
       <Filter>소스 파일\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Core\UIManager.h">
-      <Filter>소스 파일\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\UIButton.h">
-      <Filter>소스 파일\Core</Filter>
-    </ClInclude>
     <ClInclude Include="Core\ConsoleInputSource.h">
       <Filter>소스 파일\Core</Filter>
     </ClInclude>
@@ -235,17 +231,8 @@
     <ClInclude Include="Utils\EnableMouseInput.h">
       <Filter>소스 파일\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Core\UIElement.h">
-      <Filter>소스 파일\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\UILabel.h">
-      <Filter>소스 파일\Core</Filter>
-    </ClInclude>
     <ClInclude Include="Utils\GetCharWidth.h">
       <Filter>소스 파일\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\UIImage.h">
-      <Filter>소스 파일\Core</Filter>
     </ClInclude>
     <ClInclude Include="Game\States\SettingState.h">
       <Filter>소스 파일\Game\State</Filter>
@@ -273,6 +260,24 @@
     </ClInclude>
     <ClInclude Include="Game\Effect\Condition.h">
       <Filter>소스 파일\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UITypewriter.h">
+      <Filter>소스 파일\Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UIButton.h">
+      <Filter>소스 파일\Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UIElement.h">
+      <Filter>소스 파일\Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UIImage.h">
+      <Filter>소스 파일\Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UILabel.h">
+      <Filter>소스 파일\Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UIManager.h">
+      <Filter>소스 파일\Ui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

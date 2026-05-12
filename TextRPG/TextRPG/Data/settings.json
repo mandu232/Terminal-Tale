@@ -5,6 +5,6 @@
     "masterVolume": 100,
     "showFPS": false,
     "targetFPS": 15,
-    "textSpeed": 5,
+    "textSpeed": 1,
     "vsync": false
 }

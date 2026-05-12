@@ -205,7 +205,7 @@ void StoryState::RebuildCenter()
 			line , 7 ,
 			UITypewriter::TextAlign::Left ,
 			UITypewriter::VAlign::Middle ,
-			3);                         // speed 1~5
+			context.settingManager.settings.textSpeed);                         // speed 1~5
 
 		++pendingTypewriters;
 
@@ -275,9 +275,11 @@ void StoryState::Update()
 	using Clock = std::chrono::steady_clock;
 	auto now = Clock::now();
 
+	float elapsed = 0.f;
+
 	if ( lastFrameTime != Clock::time_point{} )
 	{
-		float elapsed = std::chrono::duration<float>(now - lastFrameTime).count();
+		elapsed = std::chrono::duration<float>(now - lastFrameTime).count();
 		if ( elapsed > 0.f && elapsed < 1.f )          // 비정상값(일시정지 등) 방어
 		{
 			float fps = 1.0f / elapsed;
@@ -286,6 +288,28 @@ void StoryState::Update()
 	}
 
 	lastFrameTime = now;
+
+	if ( spawningChoices )
+	{
+		choiceSpawnTimer += elapsed;
+
+		if ( choiceSpawnTimer >= CHOICE_SPAWN_DELAY )
+		{
+			choiceSpawnTimer = 0.f;
+
+			if ( nextChoiceIndex < pendingChoices.size() )
+			{
+				CreateChoiceButton(
+					pendingChoices[ nextChoiceIndex ].data);
+
+				nextChoiceIndex++;
+			}
+			else
+			{
+				spawningChoices = false;
+			}
+		}
+	}
 }
 
 void StoryState::EnableChoices()
@@ -301,36 +325,46 @@ void StoryState::Render(ConsoleDisplay& display)
 
 void StoryState::SpawnChoices()
 {
-	int cy = Layout::ChoiceStartY;
+	pendingChoices.clear();
 
 	for ( const auto& choice : currentNode.choices )
 	{
-		bool canUse =
-			ConditionChecker::Check(choice.require , context);
-
-		if ( !canUse )
+		if ( !ConditionChecker::Check(choice.require , context) )
 			continue;
 
-		std::string nextId = choice.nextNode;
-
-		auto btn = std::make_unique<UIButton>(
-			Layout::CenterX ,
-			cy ,
-			Layout::CenterW ,
-			Layout::RowH ,
-			Layout::Z ,
-			choice.text ,
-			[ this , nextId , choice ] ()
-			{
-				context.sound.PlaySE("Assets/audio/ui_button_click.wav");
-
-				for ( const auto& effect : choice.effects )
-					EffectInterpreter::Apply(effect , context);
-
-				NavigateTo(nextId);
-			});
-
-		uiManager.Add(std::move(btn));
-		cy += Layout::RowH + 1;
+		pendingChoices.push_back({ choice });
 	}
+
+	nextChoiceIndex = 0;
+	choiceSpawnTimer = 0.f;
+	spawningChoices = true;
+	nextChoiceY = Layout::ChoiceStartY;
+}
+
+void StoryState::CreateChoiceButton(const StoryChoice& choice)
+{
+	std::string nextId = choice.nextNode;
+
+	auto btn = std::make_unique<UIButton>(
+		Layout::CenterX ,
+		nextChoiceY ,
+		Layout::CenterW ,
+		Layout::RowH ,
+		Layout::Z ,
+		choice.text ,
+		[ this , nextId , choice ] ()
+		{
+			context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+
+			for ( const auto& effect : choice.effects )
+				EffectInterpreter::Apply(effect , context);
+
+			NavigateTo(nextId);
+		});
+
+	btn->StartFadeIn();
+
+	uiManager.Add(std::move(btn));
+
+	nextChoiceY += Layout::RowH + 1;
 }

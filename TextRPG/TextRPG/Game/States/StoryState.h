@@ -59,4 +59,20 @@ private:
 	void EnableChoices();
 
 	void SpawnChoices();
+
+	struct PendingChoice
+	{
+		StoryChoice data;
+	};
+
+	std::vector<PendingChoice> pendingChoices;
+
+	float choiceSpawnTimer = 0.f;
+	const float CHOICE_SPAWN_DELAY = 0.08f;
+
+	int nextChoiceIndex = 0;
+	bool spawningChoices = false;
+	int nextChoiceY = 0;
+
+	void CreateChoiceButton(const StoryChoice& choice);
 };

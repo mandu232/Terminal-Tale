@@ -35,14 +35,20 @@ UIButton::UIButton(int x , int y , int w , int h ,
 }
 
 // ─────────────────────────────────────────────
-//  Update — 호버 펄스 애니메이션
-//
-//  타임라인 (호버 시작 기준)
-//  0 ──── GROW_TIME ──── GROW+SHRINK ──── (유지)
-//         [확장 구간]    [복귀 구간]       [정지]
+//  Update — 업데이트
 // ─────────────────────────────────────────────
 void UIButton::Update(float deltaTime)
 {
+	if ( fadingIn )
+	{
+		fadeProgress += deltaTime * fadeSpeed;
+
+		if ( fadeProgress >= 1.f )
+		{
+			fadeProgress = 1.f;
+			fadingIn = false;
+		}
+	}
 }
 
 // ─────────────────────────────────────────────
@@ -100,6 +106,9 @@ int UIButton::GetHeight() const { return height; }
 // ─────────────────────────────────────────────
 void UIButton::Render(ConsoleDisplay& display) const
 {
+	if ( fadeProgress <= 0.f )
+		return;
+
 	short color = GetColor();
 
 	// 애니메이션 오프셋 적용
@@ -168,17 +177,27 @@ void UIButton::Render(ConsoleDisplay& display) const
 // ─────────────────────────────────────────────
 short UIButton::GetColor() const
 {
-
 	if ( !enabled )
-		return 12; //붉은색
+		return 12;
 
-	switch (state)
+	short base;
+
+	switch ( state )
 	{
-	case State::Normal:  return 7;   // 흰색
-	case State::Hovered: return 14;  // 노란색
-	case State::Pressed: return 10;  // 초록색
+	case State::Normal:  base = 7;  break;
+	case State::Hovered: base = 14; break;
+	case State::Pressed: base = 10; break;
+	default: base = 7;
 	}
-	return 7;
+
+	// Fade 적용
+	if ( fadeProgress < 1.f )
+	{
+		if ( fadeProgress < 0.33f ) return 8;  // 어두운 회색
+		if ( fadeProgress < 0.66f ) return 7;  // 중간
+	}
+
+	return base;
 }
 
 // ─────────────────────────────────────────────
@@ -213,4 +232,11 @@ void UIButton::SetEnabled(bool value)
 	{
 		state = State::Normal;
 	}
+}
+
+void UIButton::StartFadeIn(float speed)
+{
+	fadingIn = true;
+	fadeProgress = 0.f;
+	fadeSpeed = speed;
 }
