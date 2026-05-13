@@ -187,13 +187,17 @@ Terminal Tale/
   ],
 
   "text": [
-    "울창한 숲 속으로 발걸음을 옮긴다.",
-    "어둠 속에서 무언가가 움직이는 소리가 들린다."
+    "story.prologue_000.0",
+    "story.prologue_000.1",
+    "story.prologue_000.2",
+    "story.prologue_000.3",
+    "story.prologue_000.4",
+    "story.prologue_000.5"
   ],
 
   "choices": [
     {
-      "text": "소리가 나는 방향으로 다가간다",
+      "text": "story.prologue_000.choice.0",
       "next": "forest_creature_001",
       "require": [
         { "type": "karma", "op": "gte", "value": 50 }
@@ -203,7 +207,7 @@ Terminal Tale/
       ]
     },
     {
-      "text": "조용히 뒤로 물러선다",
+      "text": "story.prologue_000.choice.1",
       "next": "forest_002"
     }
   ]
@@ -246,6 +250,13 @@ Terminal Tale/
 | `lte` | 이하 (<=) |
 
 플래그 조건은 `op` 없이 `{ "type": "flag", "key": "flag_name" }` 형식으로 사용합니다.
+
+### 키 네이밍 규칙
+
+| `type` | 패턴 | 예시 |
+|---|---|---|
+| 본문 텍스트 | `story.{Nodeid}.{num}` | `story.prologue_000.0` |
+| 선택지 | `story.{Nodeid}.choice.{num}` | `story.prologue_000.choice.0` |
 
 ---
 
