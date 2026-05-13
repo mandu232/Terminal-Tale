@@ -159,7 +159,7 @@ void StoryState::BuildRightPanel()
 	addQuickBtn(Layout::ColB , Layout::Row1 , L("ui.quickSave") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 		});
-	
+
 	//빠른 불러오기
 	addQuickBtn(Layout::ColB , Layout::Row2 , L("ui.quickLoad") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
@@ -215,7 +215,7 @@ void StoryState::RebuildCenter()
 		auto tw = std::make_unique<UITypewriter>(
 			Layout::CenterX , y , Layout::Z ,
 			Layout::CenterW , Layout::RowH ,
-			line , 7 ,
+			L(line) , 7 ,
 			UITypewriter::TextAlign::Left ,
 			UITypewriter::VAlign::Middle ,
 			context.settingManager.settings.textSpeed);                         // speed 1~5
@@ -364,7 +364,7 @@ void StoryState::CreateChoiceButton(const StoryChoice& choice)
 		Layout::CenterW ,
 		Layout::RowH ,
 		Layout::Z ,
-		choice.text ,
+		L(choice.text) ,
 		[ this , nextId , choice ] ()
 		{
 			context.sound.PlaySE("Assets/audio/ui_button_click.wav");
