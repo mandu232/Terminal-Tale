@@ -2,58 +2,63 @@
 
 > A team-developed text-based RPG built in C++ using the console interface.
 
-콘솔(프롬프트) 창 환경에서 플레이 가능한 텍스트 기반 RPG 게임입니다.
-JSON 데이터로 정의된 분기형 스토리를 플레이어가 선택지를 통해 탐색하며,
-플레이어의 능력치와 플래그에 따라 선택지 가용 여부가 결정됩니다.
+Terminal Tale is a text-based RPG playable entirely within a console (prompt) environment.
+Players explore a branching story defined in JSON data by selecting choices, while the availability of choices is dynamically determined by player stats and flags.
+
+---
+## Language
+
+ - [English](README.md)
+ - [한국어](README.ko.md)
 
 ---
 
-## 목차
+## Table of Contents
 
-- [개발 환경](#개발-환경)
-- [주요 기능](#주요-기능)
-- [아키텍처](#아키텍처)
-- [프로젝트 구조](#프로젝트-구조)
-- [스토리 데이터 형식](#스토리-데이터-형식)
-- [플레이어 능력치](#플레이어-능력치)
-- [설정 파일](#설정-파일)
-- [다국어 지원](#언어파일-지원)
-- [외부 라이브러리](#외부-라이브러리)
-- [개발자](#개발자)
+- [Development Environment](#development-environment)
+- [Key Features](#key-features)
+- [Architecture](#architecture)
+- [Project Structure](#project-structure)
+- [Story Data Format](#story-data-format)
+- [Player Stats](#player-stats)
+- [Configuration File](#configuration-file)
+- [Localization Support](#localization-support)
+- [External Libraries](#external-libraries)
+- [Developers](#developers)
 
 ---
 
-## 개발 환경
+## Development Environment
 
-| 항목 | 내용 |
+| Item | Content |
 |---|---|
-| 언어 | C++ |
-| C++ 언어 표준 | ISO C++20 표준(/std:c++20) |
-| 개발 도구 | Visual Studio 2026 |
-| 플랫폼 도구 집합 | v154 (Microsoft C++ Build Tools) |
-| 대상 플랫폼 | x64 |
-| 구성 형식 | 응용 프로그램 (.exe) |
-| 버전 관리 | Git & GitHub |
-| 실행 환경 | Windows 10 이상 (x64) |
+| Language | C++ |
+| C++ Standard | ISO C++20 Standard (/std:c++20) |
+| IDE | Visual Studio 2026 |
+| Platform Toolset | v154 (Microsoft C++ Build Tools) |
+| Target Platform | x64 |
+| Configuration Type | Application (.exe) |
+| Version Control | Git & GitHub |
+| Execution Environment | Windows 10 or higher (x64) |
 
 ---
 
-## 주요 기능
+## Key Features
 
-- **분기형 텍스트 스토리** — JSON으로 정의된 노드 기반 스토리. 플레이어의 선택에 따라 다른 경로로 분기됩니다.
-- **능력치 & 플래그 시스템** — 체력, 명성, 도덕성, 재화 등 7가지 능력치와 문자열 플래그로 스토리 조건을 판별합니다.
-- **이펙트 시스템** — 선택지 또는 노드 진입 시 능력치 증감, 플래그 추가/제거 효과를 적용합니다.
-- **조건부 선택지** — `require` 조건을 만족하지 못하는 선택지는 표시되지 않습니다.
-- **타이프라이터 효과** — `UITypewriter`를 통해 텍스트가 한 글자씩 출력됩니다.
-- **콘솔 UI** — UIButton, UILabel, UIImage, UITypewriter로 구성된 커스텀 콘솔 UI 시스템.
-- **사운드** — miniaudio 기반의 효과음 재생.
-- **설정 저장/불러오기** — `Data/settings.json`을 통해 게임 설정이 영속됩니다.
-- **다국어 지원** — 한국어, 영어, 일본어, 중국어, 프랑스어 (JSON 기반 로컬라이제이션).
-- **FPS 제한** — `targetFPS` 설정에 따라 게임 루프 속도를 제어합니다.
+- **Branching Text Story** — Node-based story defined in JSON. The path branches based on player choices.
+- **Stats & Flag System** — Determines story conditions using 7 types of stats (Health, Reputation, Morality, Wealth, etc.) and string-based flags.
+- **Effect System** — Applies stat changes or flag additions/removals when entering a node or selecting a choice.
+- **Conditional Choices** — Choices that do not meet the `require` conditions are hidden from the player.
+- **Typewriter Effect** — Text is rendered character-by-character via the `UITypewriter` component.
+- **Console UI** — A custom console UI system consisting of UIButton, UILabel, UIImage, and UITypewriter.
+- **Sound** — Sound effect playback powered by the miniaudio library.
+- **Save/Load Settings** — Game configurations are persisted via `Data/settings.json`.
+- **Localization** — Support for Korean, English, Japanese, Chinese, and French (JSON-based localization).
+- **FPS Limiter** — Controls the game loop speed according to the `targetFPS` setting.
 
 ---
 
-## 아키텍처
+## Architecture
 
 ```
 Application
@@ -76,102 +81,102 @@ Application
 
 ### 게임 루프
 
-매 프레임마다 다음 순서로 실행됩니다:
+Executed every frame in the following order:
 
 ```
 ProcessInput → Update → Render → LimitFPS
 ```
 
-### 상태 머신 (StateMachine)
+### State Machine (StateMachine)
 
-스택(stack) 구조로 상태를 관리합니다.
+Manages states using a stack structure.
 
-| 메서드 | 동작 |
+| Method | Behavior |
 |---|---|
-| `ChangeState(state)` | 스택을 비우고 새 상태로 전환 |
-| `PushState(state)` | 현재 상태 위에 새 상태를 올림 (이전 상태 유지) |
-| `PopState()` | 현재 상태를 제거하고 이전 상태 재개 |
+| `ChangeState(state)` | Clears the stack and transitions to a new state |
+| `PushState(state)` | Pushes a new state onto the stack (preserving the previous state) |
+| `PopState()` | Removes the current state and resumes the previous one |
 
-### 이벤트 버스 (EventBus)
+### Event Bus (EventBus)
 
-타입 기반 Pub/Sub 패턴을 사용합니다.
+Uses a type-based Pub/Sub pattern.
 
 ```cpp
-// 구독
+// Subscription
 auto sub = context.eventBus.Subscribe<PlaySoundEvent>(
     [this](const PlaySoundEvent& e) { /* ... */ }
 );
 
-// 발행
+// Emission
 context.eventBus.Emit(PlaySoundEvent{"sound.wav"});
 ```
 
-### 스토리 화면 레이아웃 (StoryState)
+### Story Screen Layout (StoryState)
 
 ```
-x=0 ────────── x=60 ──────────────────────── x=152 ────── x=192
-│  좌측 이미지  │     중앙 텍스트 + 선택지    │ 우측 퀵메뉴 │
+x=0 ────────── x=60 ──────────────────────── x=152 ─────────── x=192
+│  Left Image  │    Center Text + Choices     │ Right Quick Menu │
 ```
 
 ---
 
-## 프로젝트 구조
+## Project Structure
 
 ```
 Terminal Tale/
 ├── Assets/
-│   ├── audio/              # 효과음 (.wav)
-│   └── ui/                 # 타이틀 아스키 아트
-├── Core/                   # 엔진 코어
-│   ├── Application         # 앱 진입점, 초기화
-│   ├── GameLoop            # 메인 루프 (ProcessInput/Update/Render)
-│   ├── StateMachine        # 스택 기반 상태 머신
-│   ├── State               # 상태 기반 클래스 (순수 가상)
-│   ├── Context             # 전역 공유 컨텍스트
-│   ├── EventBus            # 타입 기반 이벤트 버스
-│   ├── InputManager        # 입력 수집 및 라우팅
-│   ├── ConsoleDisplay      # 콘솔 버퍼 및 렌더링
-│   ├── SoundSystem         # miniaudio 래퍼
-│   ├── LocalizationManager # 다국어 JSON 로더
-│   └── SettingsManager     # 설정 저장/불러오기
+│   ├── audio/              # Sound effects (.wav)
+│   └── ui/                 # Title ASCII Art
+├── Core/                   # Engine Core
+│   ├── Application         # App entry point, initialization
+│   ├── GameLoop            # Main loop (ProcessInput/Update/Render)
+│   ├── StateMachine        # Stack-based state machine
+│   ├── State               # Base state class (Pure Virtual)
+│   ├── Context             # Globally shared context
+│   ├── EventBus            # Type-based event bus
+│   ├── InputManager        # Input collection and routing
+│   ├── ConsoleDisplay      # Console buffer and rendering
+│   ├── SoundSystem         # miniaudio wrapper
+│   ├── LocalizationManager # Localization JSON loader
+│   └── SettingsManager     # Save/Load settings
 ├── Data/
-│   ├── lang/               # 로컬라이제이션 (ko/en/ja/zh/fr .json)
-│   ├── story/              # 스토리 노드 JSON
-│   └── settings.json       # 사용자 설정
+│   ├── lang/               # Localization (ko/en/ja/zh/fr .json)
+│   ├── story/              # Story node JSON files
+│   └── settings.json       # User settings
 ├── external/
-│   ├── json/json.hpp       # nlohmann/json (헤더 온리)
-│   └── sound/miniaudio.h   # miniaudio (헤더 온리)
+│   ├── json/json.hpp       # nlohmann/json (Header-only)
+│   └── sound/miniaudio.h   # miniaudio (Header-only)
 ├── Game/
-│   ├── Effect/             # 이펙트 타입 정의 및 적용
-│   ├── Events/             # 게임 이벤트 (GameStartEvent, PlaySoundEvent)
-│   ├── Player/             # PlayerStats 구조체
+│   ├── Effect/             # Effect type definitions and application
+│   ├── Events/             # Game events (GameStartEvent, PlaySoundEvent)
+│   ├── Player/             # PlayerStats structure
 │   ├── States/             # TitleState, StoryState, GameState, SettingState
-│   └── Story/              # StoryNode, StoryLoader (JSON 파싱)
+│   └── Story/              # StoryNode, StoryLoader (JSON parsing)
 ├── Systems/
-│   └── Condition / ConditionChecker   # 조건 판별 시스템
+│   └── Condition / ConditionChecker   # Condition evaluation system
 ├── Ui/
-│   ├── UIManager           # UI 요소 컨테이너 및 렌더 디스패치
-│   ├── UIElement           # UI 기반 클래스 (순수 가상)
-│   ├── UIButton            # 클릭 가능한 버튼
-│   ├── UILabel             # 텍스트 라벨
-│   ├── UIImage             # 아스키 아트 이미지
-│   └── UITypewriter        # 타이프라이터 텍스트 효과
+│   ├── UIManager           # UI element container and render dispatch
+│   ├── UIElement           # UI base class (Pure Virtual)
+│   ├── UIButton            # Clickable buttons
+│   ├── UILabel             # Text labels
+│   ├── UIImage             # ASCII art images
+│   └── UITypewriter        # Typewriter text effects
 └── Utils/
-    ├── ConsoleUtils        # 콘솔 초기화 및 유틸
-    ├── EnableMouseInput    # 마우스 입력 활성화
-    ├── GetCharWidth        # 문자 단위 폭 계산
-    ├── GetVisualWidth      # 시각적 문자열 폭 계산
-    └── UTF8ToWide          # UTF-8 ↔ Wide 변환
+    ├── ConsoleUtils        # Console initialization and utilities
+    ├── EnableMouseInput    # Mouse input activation
+    ├── GetCharWidth        # Character width calculation
+    ├── GetVisualWidth      # Visual string width calculation
+    └── UTF8ToWide          # UTF-8 ↔ Wide conversion
 ```
 
 ---
 
-## 스토리 데이터 형식
+## Story Data Format
 
-스토리는 `Data/story/` 디렉터리의 JSON 파일로 정의됩니다.
-각 파일은 하나의 **StoryNode**를 나타내며, `id` 필드가 노드 식별자로 사용됩니다.
+Stories are defined as JSON files in the `Data/story/` directory.
+Each file represents a single StoryNode, with the `id` field serving as the node identifier.
 
-### 기본 구조
+### Basic Structure
 
 ```json
 {
@@ -214,7 +219,7 @@ Terminal Tale/
 }
 ```
 
-### 필드 설명
+### Field Descriptions
 
 | 필드 | 타입 | 설명 |
 |---|---|---|
@@ -225,7 +230,7 @@ Terminal Tale/
 | `effects` | Effect[] | 노드 진입 시 즉시 적용되는 이펙트 (선택) |
 | `require` | Condition[] | 노드 진입 조건 (선택) |
 
-### 이펙트 타입 (Effect)
+### Effect Types
 
 | `type` | 설명 |
 |---|---|
@@ -239,7 +244,7 @@ Terminal Tale/
 | `flag_add` | 플래그 추가 (`key` 필드 필요) |
 | `flag_remove` | 플래그 제거 (`key` 필드 필요) |
 
-### 조건 연산자 (ConditionOp)
+### Condition Operators (ConditionOp)
 
 | `op` | 의미 |
 |---|---|
@@ -251,7 +256,7 @@ Terminal Tale/
 
 플래그 조건은 `op` 없이 `{ "type": "flag", "key": "flag_name" }` 형식으로 사용합니다.
 
-### 키 네이밍 규칙
+### Key Naming Conventions
 
 | `type` | 패턴 | 예시 |
 |---|---|---|
@@ -260,7 +265,7 @@ Terminal Tale/
 
 ---
 
-## 플레이어 능력치
+## Player Stats
 
 | 능력치 | 기본값 | 설명 |
 |---|---|---|
@@ -275,7 +280,7 @@ Terminal Tale/
 
 ---
 
-## 설정 파일
+## Configuration File
 
 `Data/settings.json`에서 게임 설정을 확인하고 수정할 수 있습니다.
 
@@ -305,7 +310,7 @@ Terminal Tale/
 
 ---
 
-## 언어파일 지원
+## Localization Support
 
 `Data/lang/` 디렉터리에 언어 코드별 JSON 파일을 추가하면 새 언어를 등록할 수 있습니다.
 
@@ -325,7 +330,7 @@ L("ui.new_game")   // → "새 게임" (ko) / "New Game" (en) / ...
 
 ---
 
-## 외부 라이브러리
+## External Libraries
 
 | 라이브러리 | 버전 | 라이선스 | 용도 |
 |---|---|---|---|
