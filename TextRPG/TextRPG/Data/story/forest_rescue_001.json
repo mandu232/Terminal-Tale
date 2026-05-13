@@ -22,13 +22,9 @@
         "next": "escort_001",
         "require": [
             {
-                "type": "hp",
+                "type": "vitality",
                 "op": "gt",
                 "value": 3
-            },
-            {
-                "type": "flag",
-                "key": "visited_village"
             }
         ]
     },

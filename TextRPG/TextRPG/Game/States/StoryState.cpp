@@ -117,7 +117,7 @@ void StoryState::BuildLeftPanel()
 // ─────────────────────────────────────────────
 //  BuildRightPanel — 퀵 메뉴 (Enter 1회)
 //
-//  열 A  │ 열 B
+//  열 A   │ 열 B
 //  ──────┼──────────────
 //  소지품 │ 설정
 //  대기   │ 빠른 저장
@@ -134,31 +134,44 @@ void StoryState::BuildRightPanel()
 			btn->borderless = true;
 			uiManager.Add(std::move(btn));
 		};
-
+	//소지품(인벤토리)
 	addQuickBtn(Layout::ColA , Layout::Row0 , L("ui.inventory") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 		if ( onInventory ) onInventory(); });
+
+	//대기
 	addQuickBtn(Layout::ColA , Layout::Row1 , L("ui.wait") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 		if ( onWait ) onWait(); });
+
+	//수면
 	addQuickBtn(Layout::ColA , Layout::Row2 , L("ui.sleep") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 		if ( onSleep ) onSleep(); });
 
+	//설정
 	addQuickBtn(Layout::ColB , Layout::Row0 , L("ui.setting") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 		context.PushState(std::make_unique<SettingState>(context));
 		});
+
+	//빠른 저장
 	addQuickBtn(Layout::ColB , Layout::Row1 , L("ui.quickSave") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 		});
+	
+	//빠른 불러오기
 	addQuickBtn(Layout::ColB , Layout::Row2 , L("ui.quickLoad") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 		});
+
+	//로그
 	addQuickBtn(Layout::ColB , Layout::Row3 , L("ui.log") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 		if ( onLog ) onLog();
 		});
+
+	//저널
 	addQuickBtn(Layout::ColB , Layout::Row4 , L("ui.journal") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 		if ( onJournal ) onJournal();

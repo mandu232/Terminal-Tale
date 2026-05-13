@@ -182,7 +182,6 @@
     <ClInclude Include="Core\State.h" />
     <ClInclude Include="Core\StateMachine.h" />
     <ClInclude Include="external\json\json.hpp" />
-    <ClInclude Include="Game\Effect\Condition.h" />
     <ClInclude Include="Game\Effect\Effect.h" />
     <ClInclude Include="Game\Effect\EffectInterpreter.h" />
     <ClInclude Include="Game\Events\GameStartEvent.h" />
@@ -194,6 +193,7 @@
     <ClInclude Include="Game\States\TitleState.h" />
     <ClInclude Include="Game\Story\StoryLoader.h" />
     <ClInclude Include="Game\Story\StoryNode.h" />
+    <ClInclude Include="Systems\Condition.h" />
     <ClInclude Include="Systems\ConditionChecker.h" />
     <ClInclude Include="Ui\UIButton.h" />
     <ClInclude Include="Ui\UIElement.h" />
@@ -213,6 +213,22 @@
     <None Include="Data\lang\ko.json" />
     <None Include="Data\lang\zh.json" />
     <None Include="Data\settings.json" />
+    <None Include="Data\story\combat_wolf_001.json" />
+    <None Include="Data\story\forest_001.json" />
+    <None Include="Data\story\forest_002.json" />
+    <None Include="Data\story\forest_creature_001.json" />
+    <None Include="Data\story\forest_escape_001.json" />
+    <None Include="Data\story\forest_rescue_001.json" />
+    <None Include="Data\story\forset_standoff_001.json" />
+    <None Include="Data\story\forset_watch_001.json" />
+    <None Include="Data\story\prologue_000.json" />
+    <None Include="Data\story\ruins_001.json" />
+    <None Include="Data\story\ruins_fire_001.json" />
+    <None Include="Data\story\ruins_inside_001.json" />
+    <None Include="Data\story\testStory_000.json" />
+    <None Include="Data\story\testStory_001.json" />
+    <None Include="Data\story\testStory_002.json" />
+    <None Include="Data\story\village_intro_000.json" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\ui\title.txt" />

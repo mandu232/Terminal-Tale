@@ -11,9 +11,26 @@ static Effect ParseEffect(const json& j)
 	Effect e;
 	std::string type = j.at("type");
 
-	if ( type == "hp" ) e.type = EffectType::AddHP;
+	//피로도(체력) 증가
+	if ( type == "vitality" ) e.type = EffectType::AddVitality;
+	//신뢰도 증가
+	else if ( type == "appearance" ) e.type = EffectType::AddAppearance;
+	//명성 증가
+	else if ( type == "reputation" ) e.type = EffectType::AddRequtation;
+	//도덕성 증가
+	else if ( type == "karma" ) e.type = EffectType::AddKarma;
+	//돈 증가
+	else if ( type == "wealth" ) e.type = EffectType::AddWealth;
+	//날짜 증가
+	else if ( type == "day" )e.type = EffectType::AddDay;
+	//시간 증가
+	else if ( type == "time" )e.type = EffectType::AddTime;
+
+	//플레그 추가
 	else if ( type == "flag_add" ) e.type = EffectType::AddFlag;
+	//플레그 제거
 	else if ( type == "flag_remove" ) e.type = EffectType::RemoveFlag;
+	//에러
 	else throw std::runtime_error("Unknown effect type: " + type);
 
 	if ( j.contains("value") ) e.value = j[ "value" ];
@@ -28,17 +45,30 @@ static Condition ParseCondition(const json& j)
 	Condition c;
 	std::string type = j.at("type");
 
-	if ( type == "hp" ) c.type = ConditionType::HP;
+
+	if ( type == "vitality" ) c.type = ConditionType::Vittality;
+	else if(type == "appearance" ) c.type = ConditionType::Appearance;
+	else if ( type == "reputation" ) c.type = ConditionType::Reputation;
+	else if ( type == "karma" ) c.type = ConditionType::Karma;
+	else if ( type == "wealth" ) c.type = ConditionType::Wealth;
+	else if ( type == "day" ) c.type = ConditionType::Day;
+	else if ( type == "time" ) c.type = ConditionType::Time;
+
 	else if ( type == "flag" ) c.type = ConditionType::Flag;
 	else throw std::runtime_error("Unknown condition type: " + type);
 
 	if ( j.contains("op") )
 	{
 		std::string op = j[ "op" ];
+		//초과
 		if ( op == "gt" ) c.op = ConditionOp::Gt;
+		//미만
 		else if ( op == "lt" ) c.op = ConditionOp::Lt;
+		//동일
 		else if ( op == "eq" ) c.op = ConditionOp::Eq;
+		//이상
 		else if ( op == "gte" ) c.op = ConditionOp::Gte;
+		//이하
 		else if ( op == "lte" ) c.op = ConditionOp::Lte;
 		else throw std::runtime_error("Unknown condition op: " + op);
 	}
