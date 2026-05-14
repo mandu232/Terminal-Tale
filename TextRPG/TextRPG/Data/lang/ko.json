@@ -29,6 +29,39 @@
     "ui.quickLoad": "빠른 불러오기",
     "ui.log": "기록",
     "ui.journal": "저널",
+
+    "ui.close": "닫기",
+    "ui.use_item": "사용하기",
+    "ui.item_detail": "아이템 정보",
+    "ui.player_status": "플레이어 상태",
+    "ui.inventory_empty": "소지한 아이템이 없습니다.",
+    "ui.select_item_hint": "아이템을 선택하세요.",
+    "ui.key_item_hint": "이 아이템은 사용할 수 없습니다.",
+    "ui.quantity": "수량",
+    "ui.item_count_suffix": "종",
+
+    "stat.vitality": "체력",
+    "stat.appearance": "외모",
+    "stat.reputation": "명성",
+    "stat.karma": "도덕성",
+    "stat.wealth": "소지금",
+    "stat.day": "날짜",
+    "stat.time": "시간",
+
+
+    "item.health_potion.name": "체력 물약",
+    "item.health_potion.desc": "마시면 체력이 30 회복됩니다.\n피로하거나 부상을 입었을 때 사용하십시오.",
+
+    "item.travel_ration.name": "여행 식량",
+    "item.travel_ration.desc": "간단한 건빵과 말린 고기.\n체력 10을 회복하지만, 시간이 1 소모됩니다.",
+
+    "item.old_map.name": "낡은 지도",
+    "item.old_map.desc": "회색 숲 일대를 그린 손으로 그린 지도.\n어떤 길이 안전한지 표시돼 있다.\n\n※ 중요 아이템 — 사용 불가",
+
+    "item.iron_key.name": "철제 열쇠",
+    "item.iron_key.desc": "녹이 슬어 삐걱거리는 열쇠.\n어딘가의 자물쇠와 맞을 것 같다.\n\n※ 중요 아이템 — 사용 불가",
+
+
     "story.prologue_000.0": "비는 멈출 기미가 없다.",
     "story.prologue_000.1": "당신은 낡은 마차에서 내려 진흙길을 바라본다.",
     "story.prologue_000.2": "이곳이 '회색 숲의 초입'이다.",

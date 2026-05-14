@@ -1,5 +1,6 @@
 #include "StoryState.h"
 #include "SettingState.h"
+#include "InventoryState.h"
 
 #include "Core/InputManager.h"
 #include "Core/Context.h"
@@ -137,7 +138,8 @@ void StoryState::BuildRightPanel()
 	//소지품(인벤토리)
 	addQuickBtn(Layout::ColA , Layout::Row0 , L("ui.inventory") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
-		if ( onInventory ) onInventory(); });
+		context.PushState(std::make_unique< InventoryState>(context));
+		});
 
 	//대기
 	addQuickBtn(Layout::ColA , Layout::Row1 , L("ui.wait") , [ this ] () {

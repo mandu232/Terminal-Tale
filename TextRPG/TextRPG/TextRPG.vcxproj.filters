@@ -154,6 +154,12 @@
     <ClCompile Include="Ui\UIManager.cpp">
       <Filter>소스 파일\Ui</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Item\ItemRegistry.cpp">
+      <Filter>소스 파일\Game\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\States\InventoryState.cpp">
+      <Filter>소스 파일\Game\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Application.h">
@@ -285,6 +291,12 @@
     <ClInclude Include="Game\Item\Item.h">
       <Filter>소스 파일\Game\Item</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Item\ItemRegistry.h">
+      <Filter>소스 파일\Game\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\States\InventoryState.h">
+      <Filter>소스 파일\Game\State</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\settings.json">
@@ -304,6 +316,9 @@
     </None>
     <None Include="Data\story\prologue_000.json">
       <Filter>소스 파일\Data\story</Filter>
+    </None>
+    <None Include="Data\items.json">
+      <Filter>소스 파일\Data</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

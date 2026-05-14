@@ -145,7 +145,9 @@
     <ClCompile Include="Core\SoundSystem.cpp" />
     <ClCompile Include="Core\StateMachine.cpp" />
     <ClCompile Include="Game\Effect\EffectInterpreter.cpp" />
+    <ClCompile Include="Game\Item\ItemRegistry.cpp" />
     <ClCompile Include="Game\States\GameState.cpp" />
+    <ClCompile Include="Game\States\InventoryState.cpp" />
     <ClCompile Include="Game\States\SettingState.cpp" />
     <ClCompile Include="Game\States\StoryState.cpp" />
     <ClCompile Include="Game\States\TitleState.cpp" />
@@ -187,8 +189,10 @@
     <ClInclude Include="Game\Events\GameStartEvent.h" />
     <ClInclude Include="Game\Events\PlaySoundEvent.h" />
     <ClInclude Include="Game\Item\Item.h" />
+    <ClInclude Include="Game\Item\ItemRegistry.h" />
     <ClInclude Include="Game\Player\PlayerStatus.h" />
     <ClInclude Include="Game\States\GameState.h" />
+    <ClInclude Include="Game\States\InventoryState.h" />
     <ClInclude Include="Game\States\SettingState.h" />
     <ClInclude Include="Game\States\StoryState.h" />
     <ClInclude Include="Game\States\TitleState.h" />
@@ -209,6 +213,7 @@
     <ClInclude Include="Utils\UTF8ToWide.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\items.json" />
     <None Include="Data\lang\en.json" />
     <None Include="Data\lang\ja.json" />
     <None Include="Data\lang\ko.json" />

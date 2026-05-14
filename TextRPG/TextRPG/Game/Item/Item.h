@@ -9,4 +9,6 @@ struct Item
 	std::string nameKey;      // 현지화 키 ("item.health_potion.name")
 	std::string descKey;      // 현지화 키 ("item.health_potion.desc")
 	std::vector<Effect> onUseEffects; // 사용 시 발동되는 이펙트
-};
+
+	bool usable = true;               //사용 버튼 활성화
+}; 

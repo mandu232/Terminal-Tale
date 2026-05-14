@@ -8,6 +8,13 @@
         "story.prologue_000.4",
         "story.prologue_000.5"
     ],
+    "effects": [
+        {
+            "type": "give_item",
+            "key": "health_potion",
+            "value": 1
+        }
+    ],
     "choices": [
         {
             "text": "story.prologue_000.choice.0",
