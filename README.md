@@ -21,9 +21,10 @@ JSON 데이터로 정의된 분기형 스토리를 플레이어가 선택지를 
 - [아키텍처](#아키텍처)
 - [프로젝트 구조](#프로젝트-구조)
 - [스토리 데이터 형식](#스토리-데이터-형식)
+- [아이템 데이터 형식](#아이템-데이터-형식)
 - [플레이어 능력치](#플레이어-능력치)
 - [설정 파일](#설정-파일)
-- [다국어 지원](#언어파일-지원)
+- [언어파일 지원](#언어파일-지원)
 - [외부 라이브러리](#외부-라이브러리)
 - [개발자](#개발자)
 
@@ -47,9 +48,11 @@ JSON 데이터로 정의된 분기형 스토리를 플레이어가 선택지를 
 ## 주요 기능
 
 - **분기형 텍스트 스토리** — JSON으로 정의된 노드 기반 스토리. 플레이어의 선택에 따라 다른 경로로 분기됩니다.
-- **능력치 & 플래그 시스템** — 체력, 명성, 도덕성, 재화 등 7가지 능력치와 문자열 플래그로 스토리 조건을 판별합니다.
+- **능력치 & 플래그 시스템** — 체력, 명성, 도덕성, 재화 등 7가지 능력치와 문자열 플래그로 스토리 
+조건을 판별합니다.
 - **이펙트 시스템** — 선택지 또는 노드 진입 시 능력치 증감, 플래그 추가/제거 효과를 적용합니다.
 - **조건부 선택지** — `require` 조건을 만족하지 못하는 선택지는 표시되지 않습니다.
+- **아이템 추가 및 효과** — JSON으로 아이템을 추가하고 효과를 부여해줄 수 있습니다.
 - **타이프라이터 효과** — `UITypewriter`를 통해 텍스트가 한 글자씩 출력됩니다.
 - **콘솔 UI** — UIButton, UILabel, UIImage, UITypewriter로 구성된 커스텀 콘솔 UI 시스템.
 - **사운드** — miniaudio 기반의 효과음 재생.
@@ -242,6 +245,8 @@ Terminal Tale/
 | `wealth` | 재화 증감 |
 | `day` | 날짜 증가 |
 | `time` | 시간 증가 |
+| `give_item` | 아이템 부여 |
+| `remove_item` | 아이템 제거 |
 | `flag_add` | 플래그 추가 (`key` 필드 필요) |
 | `flag_remove` | 플래그 제거 (`key` 필드 필요) |
 
@@ -263,6 +268,72 @@ Terminal Tale/
 |---|---|---|
 | 본문 텍스트 | `story.{Nodeid}.{num}` | `story.prologue_000.0` |
 | 선택지 | `story.{Nodeid}.choice.{num}` | `story.prologue_000.choice.0` |
+
+---
+
+## 아이템 데이터 형식
+
+### 기본 구조
+
+```json
+[
+    {
+        "id": "health_potion",
+        "name": "item.health_potion.name",
+        "desc": "item.health_potion.desc",
+        "usable": true,
+        "effects": [
+            { "type": "vitality", "value": 2 }
+        ]
+    }
+]
+```
+
+### 필드 설명
+
+| 필드 | 타입 | 설명 |
+|---|---|---|
+| `id` | string | 아이템 고유 식별자 (실제 이펙트로 부여시 사용되는 테그) |
+| `name` | string | 인게임에서 출력되는 아이템의 이름 (언어파일에서 파싱하는 구조) |
+| `desc` | string[] | 아이템 상세 정보 (언어파일에서 파싱하는 구조) |
+| `usable` | bool | 유저가 사용가능 여부 |
+| `effects` | Effect[] | 사용 시 즉시 적용되는 이펙트 (선택) |
+
+
+### 이펙트 타입 (Effect)
+
+| `type` | 설명 |
+|---|---|
+| `vitality` | 체력 증감 |
+| `appearance` | 외형/신뢰도 증감 |
+| `reputation` | 명성 증감 |
+| `karma` | 도덕성 증감 |
+| `wealth` | 재화 증감 |
+| `day` | 날짜 증가 |
+| `time` | 시간 증가 |
+| `give_item` | 아이템 부여 |
+| `remove_item` | 아이템 제거 |
+| `flag_add` | 플래그 추가 (`key` 필드 필요) |
+| `flag_remove` | 플래그 제거 (`key` 필드 필요) |
+
+### 키 네이밍 규칙
+
+```json
+[
+    {
+    "item.health_potion.name": "체력 물약",
+    "item.health_potion.desc": "마시면 체력이 30 회복됩니다.\n피로하거나 부상을 입었을 때 사용하십시오.",
+
+    "item.travel_ration.name": "여행 식량",
+    "item.travel_ration.desc": "간단한 건빵과 말린 고기.\n체력 10을 회복하지만, 시간이 1 소모됩니다.",
+    }
+]
+```
+
+| `type` | 패턴 | 예시 |
+|---|---|---|
+| 이름 | `item.{Itemid}.name` | `item.health_potion.name` |
+| 설명 | `item.{Itemid}.desc` | `item.health_potion.desc` |
 
 ---
 
