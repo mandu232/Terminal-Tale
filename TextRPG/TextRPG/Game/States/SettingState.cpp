@@ -442,7 +442,7 @@ void SettingState::Enter()
             L("ui.back"),
             [this]()
             {
-				context.sound.PlaySE("Assets/audio/ui_button_click_5.wav");
+				context.sound.PlaySE("Assets/audio/ui_button_click.wav");
                 context.PopState();
             })
     );

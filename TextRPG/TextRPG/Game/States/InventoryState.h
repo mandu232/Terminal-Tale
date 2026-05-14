@@ -5,6 +5,7 @@
 #include "Ui/UILabel.h"
 #include <string>
 #include <vector>
+#include <chrono>
 
 // ─────────────────────────────────────────────────────────────────────────────
 //  InventoryState  —  소지품 화면
@@ -44,4 +45,9 @@ private:
 
 	// ── 애니메이션 ─────────────────────────────────────────────────────────
 	float elapsedTime = 0.f;
+
+	using Clock = std::chrono::steady_clock;
+	Clock::time_point lastTime{};
+
+	bool needsRebuild = false;
 };

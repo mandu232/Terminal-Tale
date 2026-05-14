@@ -25,7 +25,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 namespace InvLayout
 {
-	constexpr int Z    = 10;
+	constexpr int Z = 10;
 	constexpr int RowH = 3;
 
 	// ── 좌측 (플레이어 스탯) ─────────────────────────────────────────────────
@@ -33,9 +33,9 @@ namespace InvLayout
 	constexpr int LeftW = 55;
 
 	// ── 중앙 (아이템 목록) ───────────────────────────────────────────────────
-	constexpr int CenterX      = 62;
-	constexpr int CenterW      = 87;
-	constexpr int ListStartY   = 8;   // 첫 번째 아이템 버튼 Y
+	constexpr int CenterX = 62;
+	constexpr int CenterW = 87;
+	constexpr int ListStartY = 8;   // 첫 번째 아이템 버튼 Y
 	constexpr int MaxListItems = 12;  // 화면에 보여줄 최대 줄 수
 
 	// ── 우측 (아이템 상세) ───────────────────────────────────────────────────
@@ -43,9 +43,9 @@ namespace InvLayout
 	constexpr int RightW = 36;
 
 	// ── 공통 ─────────────────────────────────────────────────────────────────
-	constexpr int TitleY    = 1;   // 패널 제목 Y
-	constexpr int DividerY  = 4;   // 제목 아래 구분선 Y
-	constexpr int ContentY  = 6;   // 본문 시작 Y (스탯, 상세)
+	constexpr int TitleY = 1;   // 패널 제목 Y
+	constexpr int DividerY = 4;   // 제목 아래 구분선 Y
+	constexpr int ContentY = 6;   // 본문 시작 Y (스탯, 상세)
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -71,7 +71,7 @@ void InventoryState::Enter()
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-//  Resume — PushState 로 덮인 상태에서 돌아왔을 때 (현재는 단순 재빌드)
+//  Resume — 단준 재빌드
 // ─────────────────────────────────────────────────────────────────────────────
 void InventoryState::Resume()
 {
@@ -79,24 +79,24 @@ void InventoryState::Resume()
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-//  BuildDividers — StoryState 와 동일한 수직 분할선
+//  BuildDividers 수직 분할선
 // ─────────────────────────────────────────────────────────────────────────────
 void InventoryState::BuildDividers()
 {
 	for ( int row = 0; row < 54; ++row )
 	{
-		// 좌/중앙 경계  x=59
+		// 좌/중앙 경계
 		uiManager.Add(std::make_unique<UILabel>(
-			59, row, InvLayout::Z, 2, 1,
-			"|", 8,
-			UILabel::TextAlign::Left,
+			59 , row , InvLayout::Z , 2 , 1 ,
+			"|" , 8 ,
+			UILabel::TextAlign::Left ,
 			UILabel::VAlign::Top));
 
-		// 중앙/우측 경계  x=151
+		// 중앙/우측 경계
 		uiManager.Add(std::make_unique<UILabel>(
-			151, row, InvLayout::Z, 2, 1,
-			"|", 8,
-			UILabel::TextAlign::Left,
+			151 , row , InvLayout::Z , 2 , 1 ,
+			"|" , 8 ,
+			UILabel::TextAlign::Left ,
 			UILabel::VAlign::Top));
 	}
 }
@@ -110,16 +110,16 @@ void InventoryState::BuildLeftPanel()
 
 	// ── 패널 제목 ──────────────────────────────────────────────────────────
 	uiManager.Add(std::make_unique<UILabel>(
-		InvLayout::LeftX, InvLayout::TitleY, InvLayout::Z,
-		InvLayout::LeftW, InvLayout::RowH,
-		L("ui.player_status"), 15,
-		UILabel::TextAlign::Center, UILabel::VAlign::Middle));
+		InvLayout::LeftX , InvLayout::TitleY , InvLayout::Z ,
+		InvLayout::LeftW , InvLayout::RowH ,
+		L("ui.player_status") , 15 ,
+		UILabel::TextAlign::Center , UILabel::VAlign::Middle));
 
 	uiManager.Add(std::make_unique<UILabel>(
-		InvLayout::LeftX, InvLayout::DividerY, InvLayout::Z,
-		InvLayout::LeftW, 1,
-		std::string(InvLayout::LeftW, '-'), 8,
-		UILabel::TextAlign::Left, UILabel::VAlign::Top));
+		InvLayout::LeftX , InvLayout::DividerY , InvLayout::Z ,
+		InvLayout::LeftW , 1 ,
+		std::string(InvLayout::LeftW , '-') , 8 ,
+		UILabel::TextAlign::Left , UILabel::VAlign::Top));
 
 	// ── 스탯 항목 ──────────────────────────────────────────────────────────
 	struct StatRow { std::string labelKey; int value; };
@@ -139,27 +139,27 @@ void InventoryState::BuildLeftPanel()
 	{
 		// 레이블
 		uiManager.Add(std::make_unique<UILabel>(
-			InvLayout::LeftX, y, InvLayout::Z,
-			30, InvLayout::RowH,
-			L(row.labelKey), 7,
-			UILabel::TextAlign::Left, UILabel::VAlign::Middle));
+			InvLayout::LeftX , y , InvLayout::Z ,
+			30 , InvLayout::RowH ,
+			L(row.labelKey) , 7 ,
+			UILabel::TextAlign::Left , UILabel::VAlign::Middle));
 
 		// 값
 		uiManager.Add(std::make_unique<UILabel>(
-			InvLayout::LeftX + 30, y, InvLayout::Z,
-			InvLayout::LeftW - 30, InvLayout::RowH,
-			std::to_string(row.value), 11,  // 밝은 시안
-			UILabel::TextAlign::Left, UILabel::VAlign::Middle));
+			InvLayout::LeftX + 30 , y , InvLayout::Z ,
+			InvLayout::LeftW - 30 , InvLayout::RowH ,
+			std::to_string(row.value) , 11 ,  // 밝은 시안
+			UILabel::TextAlign::Left , UILabel::VAlign::Middle));
 
 		y += InvLayout::RowH;
 	}
 
 	// ── 닫기 버튼 (좌측 패널 하단) ────────────────────────────────────────
 	auto closeBtn = std::make_unique<UIButton>(
-		InvLayout::LeftX, 48, InvLayout::LeftW, InvLayout::RowH,
-		InvLayout::Z,
-		L("ui.close"),
-		[this]()
+		InvLayout::LeftX , 48 , InvLayout::LeftW , InvLayout::RowH ,
+		InvLayout::Z ,
+		L("ui.close") ,
+		[ this ] ()
 		{
 			context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 			context.PopState();
@@ -180,59 +180,54 @@ void InventoryState::BuildCenterPanel()
 	titleText += "  (" + std::to_string(inv.size()) + L("ui.item_count_suffix") + ")";
 
 	uiManager.Add(std::make_unique<UILabel>(
-		InvLayout::CenterX, InvLayout::TitleY, InvLayout::Z,
-		InvLayout::CenterW, InvLayout::RowH,
-		titleText, 15,
-		UILabel::TextAlign::Center, UILabel::VAlign::Middle));
+		InvLayout::CenterX , InvLayout::TitleY , InvLayout::Z ,
+		InvLayout::CenterW , InvLayout::RowH ,
+		titleText , 15 ,
+		UILabel::TextAlign::Center , UILabel::VAlign::Middle));
 
 	uiManager.Add(std::make_unique<UILabel>(
-		InvLayout::CenterX, InvLayout::DividerY, InvLayout::Z,
-		InvLayout::CenterW, 1,
-		std::string(InvLayout::CenterW, '-'), 8,
-		UILabel::TextAlign::Left, UILabel::VAlign::Top));
+		InvLayout::CenterX , InvLayout::DividerY , InvLayout::Z ,
+		InvLayout::CenterW , 1 ,
+		std::string(InvLayout::CenterW , '-') , 8 ,
+		UILabel::TextAlign::Left , UILabel::VAlign::Top));
 
 	// ── 비어있을 때 ────────────────────────────────────────────────────────
 	if ( inv.empty() )
 	{
 		uiManager.Add(std::make_unique<UILabel>(
-			InvLayout::CenterX, InvLayout::ListStartY, InvLayout::Z,
-			InvLayout::CenterW, InvLayout::RowH,
-			L("ui.inventory_empty"), 8,
-			UILabel::TextAlign::Center, UILabel::VAlign::Middle));
+			InvLayout::CenterX , InvLayout::ListStartY , InvLayout::Z ,
+			InvLayout::CenterW , InvLayout::RowH ,
+			L("ui.inventory_empty") , 8 ,
+			UILabel::TextAlign::Center , UILabel::VAlign::Middle));
 		return;
 	}
 
 	// ── 아이템 버튼 목록 ───────────────────────────────────────────────────
 	// inventory 를 정렬된 순서로 표시
-	std::vector<std::pair<std::string, int>> sortedItems(inv.begin(), inv.end());
-	std::sort(sortedItems.begin(), sortedItems.end(),
-		[](const auto& a, const auto& b) { return a.first < b.first; });
+	std::vector<std::pair<std::string , int>> sortedItems(inv.begin() , inv.end());
+	std::sort(sortedItems.begin() , sortedItems.end() ,
+		[] (const auto& a , const auto& b) { return a.first < b.first; });
 
 	int y = InvLayout::ListStartY;
-	for ( const auto& [itemId, qty] : sortedItems )
+	for ( const auto& [itemId , qty] : sortedItems )
 	{
-		const Item& item    = ItemRegistry::Get(itemId);
+		const Item& item = ItemRegistry::Get(itemId);
 		std::string btnText = L(item.nameKey) + "  x" + std::to_string(qty);
 
-		bool isSelected = (itemId == selectedItemId);
+		bool isSelected = ( itemId == selectedItemId );
 
 		// 선택된 아이템은 밝은 노랑(14)으로 강조
 		auto btn = std::make_unique<UIButton>(
-			InvLayout::CenterX, y,
-			InvLayout::CenterW, InvLayout::RowH,
-			InvLayout::Z,
-			btnText,
-			[this, itemId]()
+			InvLayout::CenterX , y ,
+			InvLayout::CenterW , InvLayout::RowH ,
+			InvLayout::Z ,
+			btnText ,
+			[ this , itemId ] ()
 			{
 				context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 				selectedItemId = itemId;
 				RebuildDetailPanel();
-				// 목록도 다시 그려야 선택 강조가 반영됨
-				uiManager.Clear();
-				BuildDividers();
-				BuildLeftPanel();
-				BuildCenterPanel();
-				BuildRightPanel();
+				needsRebuild = true;
 			});
 
 		btn->borderless = isSelected ? false : true;
@@ -240,7 +235,7 @@ void InventoryState::BuildCenterPanel()
 		uiManager.Add(std::move(btn));
 
 		y += InvLayout::RowH + 1;
-		if ( y >= InvLayout::ListStartY + InvLayout::MaxListItems * (InvLayout::RowH + 1) )
+		if ( y >= InvLayout::ListStartY + InvLayout::MaxListItems * ( InvLayout::RowH + 1 ) )
 			break;  // 화면 밖이면 중단 (스크롤은 추후 구현)
 	}
 }
@@ -252,25 +247,25 @@ void InventoryState::BuildRightPanel()
 {
 	// ── 패널 제목 ──────────────────────────────────────────────────────────
 	uiManager.Add(std::make_unique<UILabel>(
-		InvLayout::RightX, InvLayout::TitleY, InvLayout::Z,
-		InvLayout::RightW, InvLayout::RowH,
-		L("ui.item_detail"), 15,
-		UILabel::TextAlign::Center, UILabel::VAlign::Middle));
+		InvLayout::RightX , InvLayout::TitleY , InvLayout::Z ,
+		InvLayout::RightW , InvLayout::RowH ,
+		L("ui.item_detail") , 15 ,
+		UILabel::TextAlign::Center , UILabel::VAlign::Middle));
 
 	uiManager.Add(std::make_unique<UILabel>(
-		InvLayout::RightX, InvLayout::DividerY, InvLayout::Z,
-		InvLayout::RightW, 1,
-		std::string(InvLayout::RightW, '-'), 8,
-		UILabel::TextAlign::Left, UILabel::VAlign::Top));
+		InvLayout::RightX , InvLayout::DividerY , InvLayout::Z ,
+		InvLayout::RightW , 1 ,
+		std::string(InvLayout::RightW , '-') , 8 ,
+		UILabel::TextAlign::Left , UILabel::VAlign::Top));
 
 	// ── 아이템 미선택 ──────────────────────────────────────────────────────
 	if ( selectedItemId.empty() )
 	{
 		uiManager.Add(std::make_unique<UILabel>(
-			InvLayout::RightX, InvLayout::ContentY, InvLayout::Z,
-			InvLayout::RightW, InvLayout::RowH,
-			L("ui.select_item_hint"), 8,
-			UILabel::TextAlign::Center, UILabel::VAlign::Middle));
+			InvLayout::RightX , InvLayout::ContentY , InvLayout::Z ,
+			InvLayout::RightW , InvLayout::RowH ,
+			L("ui.select_item_hint") , 8 ,
+			UILabel::TextAlign::Center , UILabel::VAlign::Middle));
 		return;
 	}
 
@@ -287,75 +282,71 @@ void InventoryState::RebuildDetailPanel()
 
 	const Item& item = ItemRegistry::Get(selectedItemId);
 	auto it = context.player.inventory.find(selectedItemId);
-	int  qty = (it != context.player.inventory.end()) ? it->second : 0;
+	int  qty = ( it != context.player.inventory.end() ) ? it->second : 0;
 
 	int y = InvLayout::ContentY;
 
 	// 아이템 이름
 	uiManager.Add(std::make_unique<UILabel>(
-		InvLayout::RightX, y, InvLayout::Z,
-		InvLayout::RightW, InvLayout::RowH,
-		L(item.nameKey), 14,   // 밝은 노랑
-		UILabel::TextAlign::Left, UILabel::VAlign::Middle));
+		InvLayout::RightX , y , InvLayout::Z ,
+		InvLayout::RightW , InvLayout::RowH ,
+		L(item.nameKey) , 14 ,   // 밝은 노랑
+		UILabel::TextAlign::Left , UILabel::VAlign::Middle));
 	y += InvLayout::RowH;
 
 	// 소지 수량
 	uiManager.Add(std::make_unique<UILabel>(
-		InvLayout::RightX, y, InvLayout::Z,
-		InvLayout::RightW, InvLayout::RowH,
-		L("ui.quantity") + ": " + std::to_string(qty), 7,
-		UILabel::TextAlign::Left, UILabel::VAlign::Middle));
+		InvLayout::RightX , y , InvLayout::Z ,
+		InvLayout::RightW , InvLayout::RowH ,
+		L("ui.quantity") + ": " + std::to_string(qty) , 7 ,
+		UILabel::TextAlign::Left , UILabel::VAlign::Middle));
 	y += InvLayout::RowH + 1;
 
 	// 구분선
 	uiManager.Add(std::make_unique<UILabel>(
-		InvLayout::RightX, y, InvLayout::Z,
-		InvLayout::RightW, 1,
-		std::string(InvLayout::RightW, '-'), 8,
-		UILabel::TextAlign::Left, UILabel::VAlign::Top));
+		InvLayout::RightX , y , InvLayout::Z ,
+		InvLayout::RightW , 1 ,
+		std::string(InvLayout::RightW , '-') , 8 ,
+		UILabel::TextAlign::Left , UILabel::VAlign::Top));
 	y += 2;
 
 	// 아이템 설명 (자동 줄바꿈은 UILabel 내부가 처리)
 	uiManager.Add(std::make_unique<UILabel>(
-		InvLayout::RightX, y, InvLayout::Z,
-		InvLayout::RightW, 12,
-		L(item.descKey), 7,
-		UILabel::TextAlign::Left, UILabel::VAlign::Top));
+		InvLayout::RightX , y , InvLayout::Z ,
+		InvLayout::RightW , 12 ,
+		L(item.descKey) , 7 ,
+		UILabel::TextAlign::Left , UILabel::VAlign::Top));
 	y += 13;
 
 	// ── 사용하기 버튼 ────────────────────────────────────────────────────
 	if ( item.usable && qty > 0 )
 	{
 		auto useBtn = std::make_unique<UIButton>(
-			InvLayout::RightX, y,
-			InvLayout::RightW, InvLayout::RowH,
-			InvLayout::Z,
-			L("ui.use_item"),
-			[this]()
+			InvLayout::RightX , y ,
+			InvLayout::RightW , InvLayout::RowH ,
+			InvLayout::Z ,
+			L("ui.use_item") ,
+			[ this ] ()
 			{
 				context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 
 				const Item& it = ItemRegistry::Get(selectedItemId);
 
-				// 이펙트 적용
+				// 1. 이펙트 적용
 				for ( const auto& effect : it.onUseEffects )
-					EffectInterpreter::Apply(effect, context);
+					EffectInterpreter::Apply(effect , context);
 
-				// 인벤토리에서 1 차감
+				// 2. 데이터 처리
 				auto& inv = context.player.inventory;
-				inv[selectedItemId]--;
-				if ( inv[selectedItemId] <= 0 )
+				inv[ selectedItemId ]--;
+				if ( inv[ selectedItemId ] <= 0 )
 				{
 					inv.erase(selectedItemId);
-					selectedItemId.clear();   // 아이템이 없어졌으므로 선택 해제
+					selectedItemId.clear();
 				}
 
-				// 전체 재빌드
-				uiManager.Clear();
-				BuildDividers();
-				BuildLeftPanel();
-				BuildCenterPanel();
-				BuildRightPanel();
+				// 3. [중요] 즉시 재빌드하지 않고 플래그만 설정
+				this->needsRebuild = true;
 			});
 
 		useBtn->StartFadeIn();
@@ -365,10 +356,10 @@ void InventoryState::RebuildDetailPanel()
 	else if ( !item.usable )
 	{
 		uiManager.Add(std::make_unique<UILabel>(
-			InvLayout::RightX, y, InvLayout::Z,
-			InvLayout::RightW, InvLayout::RowH,
-			L("ui.key_item_hint"), 8,
-			UILabel::TextAlign::Left, UILabel::VAlign::Middle));
+			InvLayout::RightX , y , InvLayout::Z ,
+			InvLayout::RightW , InvLayout::RowH ,
+			L("ui.key_item_hint") , 8 ,
+			UILabel::TextAlign::Left , UILabel::VAlign::Middle));
 	}
 }
 
@@ -381,7 +372,7 @@ void InventoryState::HandleInput(InputManager& input)
 	{
 		auto action = input.PopAction();
 
-		if ( action == InputAction::Quit )   // ESC
+		if ( action == InputAction::Quit )
 		{
 			context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 			context.PopState();
@@ -395,9 +386,6 @@ void InventoryState::HandleInput(InputManager& input)
 // ─────────────────────────────────────────────────────────────────────────────
 void InventoryState::Update()
 {
-	using Clock = std::chrono::steady_clock;
-	static Clock::time_point lastTime{};
-
 	auto now = Clock::now();
 	if ( lastTime != Clock::time_point{} )
 	{
@@ -406,6 +394,15 @@ void InventoryState::Update()
 			uiManager.Update(1.f / dt);
 	}
 	lastTime = now;
+
+	if ( needsRebuild ) {
+		uiManager.Clear();
+		BuildDividers();
+		BuildLeftPanel();
+		BuildCenterPanel();
+		BuildRightPanel();
+		needsRebuild = false;
+	}
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

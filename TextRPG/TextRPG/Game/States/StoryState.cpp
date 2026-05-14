@@ -89,6 +89,9 @@ void StoryState::Enter()
 {
 	currentNode = StoryLoader::Load(NodePath(startNodeId));
 
+	for ( const auto& effect : currentNode.effects )
+		EffectInterpreter::Apply(effect , context);
+
 	BuildLeftPanel();
 	BuildRightPanel();
 	RebuildCenter();

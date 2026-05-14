@@ -13,6 +13,21 @@
             "type": "give_item",
             "key": "health_potion",
             "value": 1
+        },
+        {
+            "type": "give_item",
+            "key": "travel_ration",
+            "value": 3
+        },
+        {
+            "type": "give_item",
+            "key": "old_map",
+            "value": 1
+        },
+        {
+            "type": "give_item",
+            "key": "iron_key",
+            "value": 1
         }
     ],
     "choices": [
