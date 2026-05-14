@@ -1,4 +1,4 @@
-# Terminal Tale (V 0.1.0-alpha1)
+# Terminal Tale (v 0.1.0-alpha1)
 
 > A team-developed text-based RPG built in C++ using the console interface.
 
