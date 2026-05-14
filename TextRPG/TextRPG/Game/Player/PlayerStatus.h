@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <unordered_set>
+#include <unordered_map>
 
 struct PlayerStats
 {
@@ -17,4 +18,5 @@ struct PlayerStats
 	//플레이어 상태 
 	//(현재는 안쓰고 있음)
 	std::unordered_set<std::string> states;
+	std::unordered_map<std::string , int> inventory;
 };

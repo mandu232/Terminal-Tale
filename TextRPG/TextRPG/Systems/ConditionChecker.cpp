@@ -17,7 +17,7 @@ bool ConditionChecker::CheckOne(const Condition& c , const Context& ctx)
 	case ConditionType::Flag:
 		return ctx.flags.count(c.key) > 0;
 
-		
+
 	case ConditionType::Vittality:
 		switch ( c.op )
 		{
@@ -94,8 +94,20 @@ bool ConditionChecker::CheckOne(const Condition& c , const Context& ctx)
 		case ConditionOp::Lte: return ctx.player.time <= c.value;
 		}
 		return false;
-	}
 
+	case ConditionType::HasItem:
+		auto it = ctx.player.inventory.find(c.key);
+		int qty = ( it != ctx.player.inventory.end() ) ? it->second : 0;
+		switch ( c.op )
+		{
+		case ConditionOp::Gt:  return qty > c.value;
+		case ConditionOp::Lt:  return qty < c.value;
+		case ConditionOp::Eq:  return qty == c.value;
+		case ConditionOp::Gte: return qty >= c.value;
+		case ConditionOp::Lte: return qty <= c.value;
+		}
+		return false;
+	}
 
 	return false;
 }

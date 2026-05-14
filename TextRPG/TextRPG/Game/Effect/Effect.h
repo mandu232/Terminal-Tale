@@ -15,6 +15,9 @@ enum class EffectType
 
 	AddFlag ,          //플레그 추가
 	RemoveFlag ,       //플레그 제거
+
+	GiveItem ,         //아이템 지급
+	RemoveItem ,       //아이템 제거
 };
 
 struct Effect

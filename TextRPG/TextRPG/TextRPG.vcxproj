@@ -186,6 +186,7 @@
     <ClInclude Include="Game\Effect\EffectInterpreter.h" />
     <ClInclude Include="Game\Events\GameStartEvent.h" />
     <ClInclude Include="Game\Events\PlaySoundEvent.h" />
+    <ClInclude Include="Game\Item\Item.h" />
     <ClInclude Include="Game\Player\PlayerStatus.h" />
     <ClInclude Include="Game\States\GameState.h" />
     <ClInclude Include="Game\States\SettingState.h" />

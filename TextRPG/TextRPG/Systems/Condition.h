@@ -9,7 +9,8 @@ enum class ConditionType {
 	Wealth,
 	Day,
 	Time,
-	Flag
+	Flag,
+	HasItem
 };
 enum class ConditionOp { Gt , Lt , Eq , Gte , Lte };
 

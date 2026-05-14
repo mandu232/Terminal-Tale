@@ -74,5 +74,14 @@ void EffectInterpreter::Apply(const Effect& effect , Context& ctx)
 	case EffectType::RemoveFlag:
 		ctx.flags.erase(effect.key);
 		break;
+
+	case EffectType::GiveItem:
+		ctx.player.inventory[ effect.key ] += effect.value;
+		break;
+	case EffectType::RemoveItem:
+		ctx.player.inventory[ effect.key ] -= effect.value;
+		if ( ctx.player.inventory[ effect.key ] <= 0 )
+			ctx.player.inventory.erase(effect.key);
+		break;
 	}
 }

@@ -56,6 +56,9 @@
     <Filter Include="소스 파일\Ui">
       <UniqueIdentifier>{19b875b2-f4be-4d86-a637-b9116ce4abb6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Game\Item">
+      <UniqueIdentifier>{c280972a-e7c8-4842-81b9-6ceab8dfd021}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -278,6 +281,9 @@
     </ClInclude>
     <ClInclude Include="Systems\Condition.h">
       <Filter>소스 파일\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Item\Item.h">
+      <Filter>소스 파일\Game\Item</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

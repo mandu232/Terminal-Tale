@@ -30,6 +30,12 @@ static Effect ParseEffect(const json& j)
 	else if ( type == "flag_add" ) e.type = EffectType::AddFlag;
 	//플레그 제거
 	else if ( type == "flag_remove" ) e.type = EffectType::RemoveFlag;
+
+	//아이템 추가
+	else if ( type == "give_item" )   e.type = EffectType::GiveItem;
+	//아이템 제거
+	else if ( type == "remove_item" ) e.type = EffectType::RemoveItem;
+
 	//에러
 	else throw std::runtime_error("Unknown effect type: " + type);
 
@@ -55,6 +61,9 @@ static Condition ParseCondition(const json& j)
 	else if ( type == "time" ) c.type = ConditionType::Time;
 
 	else if ( type == "flag" ) c.type = ConditionType::Flag;
+
+	else if ( type == "has_item" ) c.type = ConditionType::HasItem;
+
 	else throw std::runtime_error("Unknown condition type: " + type);
 
 	if ( j.contains("op") )
