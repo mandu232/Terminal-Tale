@@ -1,6 +1,10 @@
 #include "StoryState.h"
 #include "SettingState.h"
 #include "InventoryState.h"
+#include "LogState.h"
+#include "JournalState.h"
+#include "WaitState.h"
+#include "SleepState.h"
 
 #include "Core/InputManager.h"
 #include "Core/Context.h"
@@ -88,6 +92,7 @@ StoryState::StoryState(Context& context , const std::string& startNodeId)
 void StoryState::Enter()
 {
 	currentNode = StoryLoader::Load(NodePath(startNodeId));
+	context.currentNodeId = startNodeId;
 
 	for ( const auto& effect : currentNode.effects )
 		EffectInterpreter::Apply(effect , context);
@@ -150,12 +155,14 @@ void StoryState::BuildRightPanel()
 	//대기
 	addQuickBtn(Layout::ColA , Layout::Row1 , L("ui.wait") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
-		if ( onWait ) onWait(); });
+		context.PushState(std::make_unique<WaitState>(context));
+		});
 
 	//수면
 	addQuickBtn(Layout::ColA , Layout::Row2 , L("ui.sleep") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
-		if ( onSleep ) onSleep(); });
+		context.PushState(std::make_unique<SleepState>(context));
+		});
 
 	//설정
 	addQuickBtn(Layout::ColB , Layout::Row0 , L("ui.setting") , [ this ] () {
@@ -166,6 +173,11 @@ void StoryState::BuildRightPanel()
 	//빠른 저장
 	addQuickBtn(Layout::ColB , Layout::Row1 , L("ui.quickSave") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+		if ( context.activeSlot > 0 )
+		{
+			context.SaveSlot(context.activeSlot);
+			context.AddLog(L("system.save.completed"));
+		}
 		});
 
 	//빠른 불러오기
@@ -176,13 +188,13 @@ void StoryState::BuildRightPanel()
 	//로그
 	addQuickBtn(Layout::ColB , Layout::Row3 , L("ui.log") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
-		if ( onLog ) onLog();
+		context.PushState(std::make_unique<LogState>(context));
 		});
 
 	//저널
 	addQuickBtn(Layout::ColB , Layout::Row4 , L("ui.journal") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
-		if ( onJournal ) onJournal();
+		context.PushState(std::make_unique<JournalState>(context));
 		});
 }
 
@@ -192,6 +204,7 @@ void StoryState::BuildRightPanel()
 void StoryState::NavigateTo(const std::string& nodeId)
 {
 	currentNode = StoryLoader::Load(NodePath(nodeId));
+	context.currentNodeId = nodeId;
 
 	for ( const auto& effect : currentNode.effects )
 		EffectInterpreter::Apply(effect , context);
@@ -390,6 +403,9 @@ void StoryState::CreateChoiceButton(const StoryChoice& choice)
 		[ this , nextId , choice ] ()
 		{
 			context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+
+			// 선택 내용을 로그에 기록
+			context.AddLog(L(choice.text));
 
 			for ( const auto& effect : choice.effects )
 				EffectInterpreter::Apply(effect , context);

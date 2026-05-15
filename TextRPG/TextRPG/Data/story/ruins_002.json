@@ -1,0 +1,25 @@
+{
+  "id": "ruins_002",
+  "text": [
+    "story.ruins_002.0",
+    "story.ruins_002.1",
+    "story.ruins_002.2",
+    "story.ruins_002.3"
+  ],
+  "effects": [
+    {
+      "type": "reputation",
+      "value": 5
+    },
+    {
+      "type": "flag_add",
+      "key": "found_scout_note"
+    }
+  ],
+  "choices": [
+    {
+      "text": "story.ruins_002.choice.0",
+      "next": "prologue_000"
+    }
+  ]
+}

@@ -22,6 +22,9 @@ void SoundSystem::PlaySE(const std::string& path)
 
 void SoundSystem::PlayBGM(const std::string& path)
 {
+    if (bgmLoaded && currentBgmPath == path)
+        return;
+
     if (bgmLoaded)
     {
         ma_sound_stop(&bgmSound);
@@ -39,6 +42,7 @@ void SoundSystem::PlayBGM(const std::string& path)
     ma_sound_set_looping(&bgmSound, MA_TRUE);
     ma_sound_start(&bgmSound);
     bgmLoaded = true;
+    currentBgmPath = path;
 }
 
 void SoundSystem::StopBGM()
@@ -47,6 +51,7 @@ void SoundSystem::StopBGM()
     ma_sound_stop(&bgmSound);
     ma_sound_uninit(&bgmSound);
     bgmLoaded = false;
+    currentBgmPath.clear();
 }
 
 void SoundSystem::SetMasterVolume(float volume)

@@ -29,6 +29,7 @@ private:
     ma_sound_group sfxGroup{};
     ma_sound       bgmSound{};
     bool           bgmLoaded = false;
+    std::string    currentBgmPath;
 
     float masterVolume = 1.0f;
     float bgmVolume    = 1.0f;

@@ -1,0 +1,23 @@
+{
+  "id": "forest_001",
+  "text": [
+    "story.forest_001.0",
+    "story.forest_001.1",
+    "story.forest_001.2",
+    "story.forest_001.3"
+  ],
+  "choices": [
+    {
+      "text": "story.forest_001.choice.0",
+      "next": "forest_002"
+    },
+    {
+      "text": "story.forest_001.choice.1",
+      "next": "forest_003"
+    },
+    {
+      "text": "story.forest_001.choice.2",
+      "next": "prologue_000"
+    }
+  ]
+}

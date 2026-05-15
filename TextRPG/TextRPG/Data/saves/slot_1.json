@@ -1,0 +1,27 @@
+{
+    "currentNodeId": "prologue_000",
+    "flags": [],
+    "journal": [],
+    "log": [
+        {
+            "day": 1,
+            "text": "수면을 취했다. → Day 1",
+            "time": 0
+        }
+    ],
+    "player": {
+        "appearance": 100,
+        "day": 1,
+        "inventory": {
+            "health_potion": 1,
+            "iron_key": 1,
+            "old_map": 1,
+            "travel_ration": 3
+        },
+        "karma": 100,
+        "reputation": 0,
+        "time": 0,
+        "vitality": 60,
+        "wealth": 0
+    }
+}

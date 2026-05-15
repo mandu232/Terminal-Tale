@@ -7,6 +7,7 @@
 #include "StoryState.h"
 #include "SettingState.h"
 #include "SlotSelectState.h"
+#include "LoadSlotState.h"
 #include "InventoryState.h"              // ← 추가
 #include "Core/InputManager.h"
 #include "Core/Context.h"
@@ -58,6 +59,8 @@ void TitleState::Enter()
 					std::make_unique<SlotSelectState>(context,
 						[this](int /*slotIndex*/)
 						{
+							context.ResetGameState();
+
 							auto story = std::make_unique<StoryState>(context, "prologue_000");
 							story->onInventory = [this]()
 								{
@@ -77,6 +80,7 @@ void TitleState::Enter()
 			[this]()
 			{
 				context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+				context.PushState(std::make_unique<LoadSlotState>(context));
 			})
 	);
 

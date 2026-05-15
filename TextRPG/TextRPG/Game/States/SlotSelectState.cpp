@@ -58,13 +58,22 @@ void SlotSelectState::Enter()
         int y = Slot1Y + (i - 1) * (SlotH + 3);
         int slotIndex = i;
 
+        auto info = context.GetSlotInfo(i);
+        std::string label = L("ui.slot") + " " + std::to_string(i) + "  —  ";
+        if (info.exists)
+            label += "Day " + std::to_string(info.day)
+                   + "  T+" + std::to_string(info.time);
+        else
+            label += L("ui.slot_empty");
+
         uiManager.Add(
             std::make_unique<UIButton>(
                 SlotX, y, SlotW, SlotH, Z,
-                L("ui.slot_empty"),
+                label,
                 [this, slotIndex]()
                 {
                     context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+                    context.activeSlot = slotIndex;
                     if (onSlotSelected) onSlotSelected(slotIndex);
                 })
         );

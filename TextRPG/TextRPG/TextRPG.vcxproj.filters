@@ -59,6 +59,15 @@
     <Filter Include="소스 파일\Game\Item">
       <UniqueIdentifier>{c280972a-e7c8-4842-81b9-6ceab8dfd021}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Game\Log">
+      <UniqueIdentifier>{d5affe06-11dd-4ba8-88a3-e1217a7d3183}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Game\Journal">
+      <UniqueIdentifier>{3bda51ce-9b11-4aee-b21e-fc28879576fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\external\sound">
+      <UniqueIdentifier>{a98b8b84-9714-4108-bfad-4e85194d5d9d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -161,6 +170,21 @@
       <Filter>소스 파일\Game\State</Filter>
     </ClCompile>
     <ClCompile Include="Game\States\SlotSelectState.cpp">
+      <Filter>소스 파일\Game\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\States\JournalState.cpp">
+      <Filter>소스 파일\Game\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\States\LogState.cpp">
+      <Filter>소스 파일\Game\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\States\LoadSlotState.cpp">
+      <Filter>소스 파일\Game\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\States\WaitState.cpp">
+      <Filter>소스 파일\Game\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\States\SleepState.cpp">
       <Filter>소스 파일\Game\State</Filter>
     </ClCompile>
   </ItemGroup>
@@ -301,6 +325,30 @@
       <Filter>소스 파일\Game\State</Filter>
     </ClInclude>
     <ClInclude Include="Game\States\SlotSelectState.h">
+      <Filter>소스 파일\Game\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Log\LogEntry.h">
+      <Filter>소스 파일\Game\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Journal\JournalEntry.h">
+      <Filter>소스 파일\Game\Journal</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\States\JournalState.h">
+      <Filter>소스 파일\Game\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\States\LogState.h">
+      <Filter>소스 파일\Game\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\States\LoadSlotState.h">
+      <Filter>소스 파일\Game\State</Filter>
+    </ClInclude>
+    <ClInclude Include="external\sound\miniaudio.h">
+      <Filter>소스 파일\external\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\States\WaitState.h">
+      <Filter>소스 파일\Game\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\States\SleepState.h">
       <Filter>소스 파일\Game\State</Filter>
     </ClInclude>
   </ItemGroup>

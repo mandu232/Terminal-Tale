@@ -30,15 +30,19 @@ void ConsoleInputSource::Update(InputManager& input, UIManager& ui)
 			WORD vk = record.Event.KeyEvent.wVirtualKeyCode;
 
 			// 가상 키 (VK 코드 기반)
-			if ( vk == VK_ESCAPE )
+			switch ( vk )
 			{
-				input.PushAction(InputAction::Cancel);
-			}
-			else
+			case VK_ESCAPE: input.PushAction(InputAction::Cancel);    break;
+			case VK_RETURN: input.PushAction(InputAction::Confirm);   break;
+			case VK_LEFT:   input.PushAction(InputAction::MoveLeft);  break;
+			case VK_RIGHT:  input.PushAction(InputAction::MoveRight); break;
+			case VK_UP:     input.PushAction(InputAction::MoveUp);    break;
+			case VK_DOWN:   input.PushAction(InputAction::MoveDown);  break;
+			default:
 			{
 				// 문자 키 (대소문자 통일)
 				char ch = record.Event.KeyEvent.uChar.AsciiChar;
-				if ( ch >= 'A' && ch <= 'Z' ) ch += 32; // 대문자 → 소문자
+				if ( ch >= 'A' && ch <= 'Z' ) ch += 32;
 
 				switch ( ch )
 				{
@@ -47,6 +51,8 @@ void ConsoleInputSource::Update(InputManager& input, UIManager& ui)
 				case 'e': input.PushAction(InputAction::Confirm);       break;
 				case 'i': input.PushAction(InputAction::OpenInventory); break;
 				}
+				break;
+			}
 			}
 		}
 

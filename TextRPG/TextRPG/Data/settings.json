@@ -1,9 +1,9 @@
 {
-    "autoSave": false,
-    "bgmVolume": 20,
+    "autoSave": true,
+    "bgmVolume": 50,
     "fullScreen": true,
     "language": "ko",
-    "masterVolume": 85,
+    "masterVolume": 15,
     "sfxVolume": 100,
     "showFPS": false,
     "targetFPS": 15,
