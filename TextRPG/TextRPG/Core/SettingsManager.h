@@ -4,7 +4,9 @@
 struct Settings
 {
 	int masterVolume = 100;
-	int textSpeed = 3;
+	int bgmVolume    = 100;
+	int sfxVolume    = 100;
+	int textSpeed    = 3;
 	bool autoSave = true;
 
 	std::string language = "ko";

@@ -149,6 +149,7 @@
     <ClCompile Include="Game\States\GameState.cpp" />
     <ClCompile Include="Game\States\InventoryState.cpp" />
     <ClCompile Include="Game\States\SettingState.cpp" />
+    <ClCompile Include="Game\States\SlotSelectState.cpp" />
     <ClCompile Include="Game\States\StoryState.cpp" />
     <ClCompile Include="Game\States\TitleState.cpp" />
     <ClCompile Include="Game\Story\StoryLoader.cpp" />
@@ -194,6 +195,7 @@
     <ClInclude Include="Game\States\GameState.h" />
     <ClInclude Include="Game\States\InventoryState.h" />
     <ClInclude Include="Game\States\SettingState.h" />
+    <ClInclude Include="Game\States\SlotSelectState.h" />
     <ClInclude Include="Game\States\StoryState.h" />
     <ClInclude Include="Game\States\TitleState.h" />
     <ClInclude Include="Game\Story\StoryLoader.h" />

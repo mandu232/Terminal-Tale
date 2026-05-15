@@ -7,7 +7,7 @@ enum class EffectType
 {
 	AddVitality,       //피로도(체력) 증가
 	AddAppearance,     //신뢰도 증가
-	AddRequtation,     //명성 증가
+	AddReputation,     //명성 증가
 	AddKarma,          //카르마(선악) 증가
 	AddWealth,         //돈 증가
 	AddDay,            //날짜 증가
@@ -22,7 +22,7 @@ enum class EffectType
 
 struct Effect
 {
-	EffectType type;
+	EffectType type = EffectType::AddVitality;
 	std::string key;
 	int value = 0;
 };

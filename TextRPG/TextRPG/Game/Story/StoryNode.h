@@ -18,6 +18,7 @@ struct StoryNode
 {
 	std::string id;
 	std::string bgImage;
+	std::string bgm;      // 비어 있으면 현재 BGM 유지
 
 	std::vector<std::string> texts;
 	std::vector<StoryChoice> choices;

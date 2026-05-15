@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
 
-enum class ConditionType { 
-	Vittality,
+enum class ConditionType {
+	Vitality,
 	Appearance,
 	Reputation,
 	Karma,

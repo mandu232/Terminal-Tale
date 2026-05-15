@@ -17,7 +17,9 @@ bool SettingsManager::Load(const std::string& path)
 	file >> j;
 
 	settings.masterVolume = j.value("masterVolume" , 100);
-	settings.textSpeed = j.value("textSpeed" , 3);
+	settings.bgmVolume    = j.value("bgmVolume"    , 100);
+	settings.sfxVolume    = j.value("sfxVolume"    , 100);
+	settings.textSpeed    = j.value("textSpeed"    , 3);
 	settings.autoSave = j.value("autoSave" , true);
 	settings.language = j.value("language" , "en");
 	settings.targetFPS = j.value("targetFPS" , 30);
@@ -35,7 +37,9 @@ bool SettingsManager::Save(const std::string& path)
 	json j;
 
 	j[ "masterVolume" ] = settings.masterVolume;
-	j[ "textSpeed" ] = settings.textSpeed;
+	j[ "bgmVolume"    ] = settings.bgmVolume;
+	j[ "sfxVolume"    ] = settings.sfxVolume;
+	j[ "textSpeed"    ] = settings.textSpeed;
 	j[ "autoSave" ] = settings.autoSave;
 	j[ "language" ] = settings.language;
 	j[ "targetFPS" ] = settings.targetFPS;

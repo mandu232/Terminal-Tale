@@ -12,9 +12,10 @@ Application::Application()
 	context->settingManager.Load("Data/settings.json");
 	context->sound.Init();
 
-	context->sound.SetMasterVolume(
-		context->settingManager.settings.masterVolume
-	);
+	auto& s = context->settingManager.settings;
+	context->sound.SetMasterVolume(s.masterVolume / 100.0f);
+	context->sound.SetBGMVolume   (s.bgmVolume    / 100.0f);
+	context->sound.SetSFXVolume   (s.sfxVolume    / 100.0f);
 
 	GContext = context.get();
 

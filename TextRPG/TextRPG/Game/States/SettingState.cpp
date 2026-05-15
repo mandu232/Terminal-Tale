@@ -45,15 +45,17 @@ namespace Layout
     constexpr int ToggleBtnX = 53;  // 토글 버튼 x
     constexpr int ToggleBtnW = 10;
 
-    // y 좌표
+    // y 좌표 (항목 9개, 간격 4, 화면 54행 기준)
     constexpr int TitleY        = 4;
-    constexpr int FullScreenY   = 13;
-    constexpr int MasterVolumeY = 18;
-    constexpr int TextSpeedY    = 23;
-    constexpr int AutoSaveY     = 28;
+    constexpr int FullScreenY   = 9;
+    constexpr int MasterVolumeY = 13;
+    constexpr int BgmVolumeY    = 17;
+    constexpr int SfxVolumeY    = 21;
+    constexpr int TextSpeedY    = 25;
+    constexpr int AutoSaveY     = 29;
     constexpr int LanguageY     = 33;
-    constexpr int TargetFPSY    = 38;
-    constexpr int ShowFPSY      = 43;
+    constexpr int TargetFPSY    = 37;
+    constexpr int ShowFPSY      = 41;
 
     // 하단 버튼
     constexpr int BottomY    = 50;
@@ -175,6 +177,7 @@ void SettingState::Enter()
 				context.sound.PlaySE("Assets/audio/ui_button_click_2.wav");
                 auto& v = context.settingManager.settings.masterVolume;
                 if (v > 0) v -= 5;
+                context.sound.SetMasterVolume(v / 100.0f);
                 masterVolumeLabel->SetText(std::to_string(v));
             })
     );
@@ -188,7 +191,104 @@ void SettingState::Enter()
 				context.sound.PlaySE("Assets/audio/ui_button_click_2.wav");
                 auto& v = context.settingManager.settings.masterVolume;
                 if (v < 100) v += 5;
+                context.sound.SetMasterVolume(v / 100.0f);
                 masterVolumeLabel->SetText(std::to_string(v));
+            })
+    );
+
+    // ────────────────────────────────────────────
+    //  BGM 볼륨  (int 0~100, 스텝 5)
+    // ────────────────────────────────────────────
+	uiManager.Add(
+		std::make_unique<UILabel>(
+			Layout::LabelX, Layout::BgmVolumeY, Layout::Z,
+			Layout::LabelW, Layout::RowH, L("ui.bgmVolume"), 7,
+			UILabel::TextAlign::Center,
+			UILabel::VAlign::Middle)
+    );
+    {
+        auto lbl = std::make_unique<UILabel>(
+            Layout::ValueX, Layout::BgmVolumeY, Layout::Z,
+            Layout::ValueW, Layout::RowH, std::to_string(s.bgmVolume), 14,
+			UILabel::TextAlign::Center,
+			UILabel::VAlign::Middle);
+        bgmVolumeLabel = lbl.get();
+        uiManager.Add(std::move(lbl));
+    }
+    uiManager.Add(
+        std::make_unique<UIButton>(
+            Layout::ArrowLX, Layout::BgmVolumeY,
+            Layout::ArrowW, Layout::RowH, Layout::Z,
+            "◀",
+            [this]()
+            {
+				context.sound.PlaySE("Assets/audio/ui_button_click_2.wav");
+                auto& v = context.settingManager.settings.bgmVolume;
+                if (v > 0) v -= 5;
+                context.sound.SetBGMVolume(v / 100.0f);
+                bgmVolumeLabel->SetText(std::to_string(v));
+            })
+    );
+    uiManager.Add(
+        std::make_unique<UIButton>(
+            Layout::ArrowRX, Layout::BgmVolumeY,
+            Layout::ArrowW, Layout::RowH, Layout::Z,
+            "▶",
+            [this]()
+            {
+				context.sound.PlaySE("Assets/audio/ui_button_click_2.wav");
+                auto& v = context.settingManager.settings.bgmVolume;
+                if (v < 100) v += 5;
+                context.sound.SetBGMVolume(v / 100.0f);
+                bgmVolumeLabel->SetText(std::to_string(v));
+            })
+    );
+
+    // ────────────────────────────────────────────
+    //  SFX 볼륨  (int 0~100, 스텝 5)
+    // ────────────────────────────────────────────
+	uiManager.Add(
+		std::make_unique<UILabel>(
+			Layout::LabelX, Layout::SfxVolumeY, Layout::Z,
+			Layout::LabelW, Layout::RowH, L("ui.sfxVolume"), 7,
+			UILabel::TextAlign::Center,
+			UILabel::VAlign::Middle)
+    );
+    {
+        auto lbl = std::make_unique<UILabel>(
+            Layout::ValueX, Layout::SfxVolumeY, Layout::Z,
+            Layout::ValueW, Layout::RowH, std::to_string(s.sfxVolume), 14,
+			UILabel::TextAlign::Center,
+			UILabel::VAlign::Middle);
+        sfxVolumeLabel = lbl.get();
+        uiManager.Add(std::move(lbl));
+    }
+    uiManager.Add(
+        std::make_unique<UIButton>(
+            Layout::ArrowLX, Layout::SfxVolumeY,
+            Layout::ArrowW, Layout::RowH, Layout::Z,
+            "◀",
+            [this]()
+            {
+				context.sound.PlaySE("Assets/audio/ui_button_click_2.wav");
+                auto& v = context.settingManager.settings.sfxVolume;
+                if (v > 0) v -= 5;
+                context.sound.SetSFXVolume(v / 100.0f);
+                sfxVolumeLabel->SetText(std::to_string(v));
+            })
+    );
+    uiManager.Add(
+        std::make_unique<UIButton>(
+            Layout::ArrowRX, Layout::SfxVolumeY,
+            Layout::ArrowW, Layout::RowH, Layout::Z,
+            "▶",
+            [this]()
+            {
+				context.sound.PlaySE("Assets/audio/ui_button_click_2.wav");
+                auto& v = context.settingManager.settings.sfxVolume;
+                if (v < 100) v += 5;
+                context.sound.SetSFXVolume(v / 100.0f);
+                sfxVolumeLabel->SetText(std::to_string(v));
             })
     );
 
@@ -457,11 +557,18 @@ void SettingState::RefreshValueLabels()
 
     if (fullScreenLabel)   fullScreenLabel->SetText(BoolToStr(s.fullScreen));
     if (masterVolumeLabel) masterVolumeLabel->SetText(std::to_string(s.masterVolume));
+    if (bgmVolumeLabel)    bgmVolumeLabel->SetText(std::to_string(s.bgmVolume));
+    if (sfxVolumeLabel)    sfxVolumeLabel->SetText(std::to_string(s.sfxVolume));
     if (textSpeedLabel)    textSpeedLabel->SetText(std::to_string(s.textSpeed));
     if (autoSaveLabel)     autoSaveLabel->SetText(BoolToStr(s.autoSave));
     if (languageLabel)     languageLabel->SetText(LangToStr(s.language));
     if (targetFPSLabel)    targetFPSLabel->SetText(std::to_string(s.targetFPS));
     if (showFPSLabel)      showFPSLabel->SetText(BoolToStr(s.showFPS));
+
+    // Reset 후 볼륨도 실제 사운드에 반영
+    context.sound.SetMasterVolume(s.masterVolume / 100.0f);
+    context.sound.SetBGMVolume   (s.bgmVolume    / 100.0f);
+    context.sound.SetSFXVolume   (s.sfxVolume    / 100.0f);
 }
 
 // ─────────────────────────────────────────────

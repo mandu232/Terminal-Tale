@@ -160,6 +160,9 @@
     <ClCompile Include="Game\States\InventoryState.cpp">
       <Filter>소스 파일\Game\State</Filter>
     </ClCompile>
+    <ClCompile Include="Game\States\SlotSelectState.cpp">
+      <Filter>소스 파일\Game\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Application.h">
@@ -295,6 +298,9 @@
       <Filter>소스 파일\Game\Item</Filter>
     </ClInclude>
     <ClInclude Include="Game\States\InventoryState.h">
+      <Filter>소스 파일\Game\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\States\SlotSelectState.h">
       <Filter>소스 파일\Game\State</Filter>
     </ClInclude>
   </ItemGroup>

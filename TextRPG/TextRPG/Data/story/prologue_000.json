@@ -1,43 +1,44 @@
 ﻿{
-    "id": "prologue_000",
-    "text": [
-        "story.prologue_000.0",
-        "story.prologue_000.1",
-        "story.prologue_000.2",
-        "story.prologue_000.3",
-        "story.prologue_000.4",
-        "story.prologue_000.5"
-    ],
-    "effects": [
-        {
-            "type": "give_item",
-            "key": "health_potion",
-            "value": 1
-        },
-        {
-            "type": "give_item",
-            "key": "travel_ration",
-            "value": 3
-        },
-        {
-            "type": "give_item",
-            "key": "old_map",
-            "value": 1
-        },
-        {
-            "type": "give_item",
-            "key": "iron_key",
-            "value": 1
-        }
-    ],
-    "choices": [
-        {
-            "text": "story.prologue_000.choice.0",
-            "next": "forest_001"
-        },
-        {
-            "text": "story.prologue_000.choice.1",
-            "next": "ruins_001"
-        }
-    ]
+  "id": "prologue_000",
+  "bgm": "Assets/audio/bgm_prologue.wav",
+  "text": [
+    "story.prologue_000.0",
+    "story.prologue_000.1",
+    "story.prologue_000.2",
+    "story.prologue_000.3",
+    "story.prologue_000.4",
+    "story.prologue_000.5"
+  ],
+  "effects": [
+    {
+      "type": "give_item",
+      "key": "health_potion",
+      "value": 1
+    },
+    {
+      "type": "give_item",
+      "key": "travel_ration",
+      "value": 3
+    },
+    {
+      "type": "give_item",
+      "key": "old_map",
+      "value": 1
+    },
+    {
+      "type": "give_item",
+      "key": "iron_key",
+      "value": 1
+    }
+  ],
+  "choices": [
+    {
+      "text": "story.prologue_000.choice.0",
+      "next": "forest_001"
+    },
+    {
+      "text": "story.prologue_000.choice.1",
+      "next": "ruins_001"
+    }
+  ]
 }

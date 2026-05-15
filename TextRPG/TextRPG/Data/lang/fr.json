@@ -1,5 +1,8 @@
 {
   "ui.new_game": "Nouvelle partie",
+  "ui.slot_select": "Choisir un fichier",
+  "ui.slot_select_hint": "Sélectionnez un emplacement pour commencer.",
+  "ui.slot_empty": "Nouvelle partie",
   "ui.start_game": "Commencer",
   "ui.load_game": "Charger une partie",
   "ui.setting": "Paramètres",
@@ -10,6 +13,8 @@
   "system.save.completed": "Sauvegarde terminée.",
   "ui.test_text": "Test",
   "ui.masterVolume": "Volume principal",
+  "ui.bgmVolume": "Volume musique",
+  "ui.sfxVolume": "Volume effets",
   "ui.textSpeed": "Vitesse du texte",
   "ui.autoSave": "Sauvegarde auto",
   "ui.language": "Langue",

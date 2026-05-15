@@ -6,6 +6,7 @@
 #include "GameState.h"
 #include "StoryState.h"
 #include "SettingState.h"
+#include "SlotSelectState.h"
 #include "InventoryState.h"              // ← 추가
 #include "Core/InputManager.h"
 #include "Core/Context.h"
@@ -53,21 +54,20 @@ void TitleState::Enter()
 			{
 				context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 
-				// StoryState 생성
-				auto story = std::make_unique<StoryState>(context, "prologue_000");
-
-				// ── onInventory 콜백 연결 ────────────────────────────────────
-				// raw 포인터를 람다에서 캡처합니다.
-				// InventoryState 가 PopState 되면 StoryState 가 Resume() 됩니다.
-				StoryState* storyPtr = story.get();
-				story->onInventory = [this]()
-					{
-						context.PushState(
-							std::make_unique<InventoryState>(context)
-						);
-					};
-
-				context.ChangeState(std::move(story));
+				context.PushState(
+					std::make_unique<SlotSelectState>(context,
+						[this](int /*slotIndex*/)
+						{
+							auto story = std::make_unique<StoryState>(context, "prologue_000");
+							story->onInventory = [this]()
+								{
+									context.PushState(
+										std::make_unique<InventoryState>(context)
+									);
+								};
+							context.ChangeState(std::move(story));
+						})
+				);
 			})
 	);
 

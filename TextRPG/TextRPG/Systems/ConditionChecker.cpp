@@ -18,7 +18,7 @@ bool ConditionChecker::CheckOne(const Condition& c , const Context& ctx)
 		return ctx.flags.count(c.key) > 0;
 
 
-	case ConditionType::Vittality:
+	case ConditionType::Vitality:
 		switch ( c.op )
 		{
 		case ConditionOp::Gt:  return ctx.player.vitality > c.value;

@@ -92,6 +92,9 @@ void StoryState::Enter()
 	for ( const auto& effect : currentNode.effects )
 		EffectInterpreter::Apply(effect , context);
 
+	if ( !currentNode.bgm.empty() )
+		context.sound.PlayBGM(currentNode.bgm);
+
 	BuildLeftPanel();
 	BuildRightPanel();
 	RebuildCenter();
@@ -193,9 +196,9 @@ void StoryState::NavigateTo(const std::string& nodeId)
 	for ( const auto& effect : currentNode.effects )
 		EffectInterpreter::Apply(effect , context);
 
-	// 배경 이미지가 바뀌면 좌측 패널도 갱신
-	// (UIImage 를 교체하려면 tag 기반 조회가 필요합니다.
-	//  현재는 단순하게 전체 재구성합니다.)
+	if ( !currentNode.bgm.empty() )
+		context.sound.PlayBGM(currentNode.bgm);
+
 	uiManager.Clear();
 	BuildLeftPanel();
 	BuildRightPanel();
@@ -284,7 +287,21 @@ void StoryState::HandleInput(InputManager& input)
 	while ( input.HasAction() )
 	{
 		auto action = input.PopAction();
-		// ESC → context.PopState();
+		switch ( action )
+		{
+		case InputAction::OpenInventory:
+			context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+			context.PushState(std::make_unique<InventoryState>(context));
+			break;
+
+		case InputAction::Cancel:
+			context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+			context.PushState(std::make_unique<SettingState>(context));
+			break;
+
+		default:
+			break;
+		}
 	}
 }
 

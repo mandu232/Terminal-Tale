@@ -19,6 +19,8 @@ private:
     // 각 설정값을 화면에 표시하는 라벨 포인터 (소유권은 uiManager)
     UILabel* fullScreenLabel   = nullptr;
     UILabel* masterVolumeLabel = nullptr;
+    UILabel* bgmVolumeLabel    = nullptr;
+    UILabel* sfxVolumeLabel    = nullptr;
     UILabel* textSpeedLabel    = nullptr;
     UILabel* autoSaveLabel     = nullptr;
     UILabel* languageLabel     = nullptr;

@@ -5,13 +5,32 @@
 class SoundSystem
 {
 public:
-	void Init();
-	void PlaySE(const std::string& path);
+    void Init();
 
-	void SetMasterVolume(float volume);
-	float GetMasterVolume() const;
+    // SFX (효과음) — fire-and-forget
+    void PlaySE(const std::string& path);
+
+    // BGM (배경음악) — 루프 재생, 한 곡만 유지
+    void PlayBGM(const std::string& path);
+    void StopBGM();
+
+    // 볼륨 (0.0 ~ 1.0)
+    void SetMasterVolume(float volume);
+    void SetBGMVolume(float volume);
+    void SetSFXVolume(float volume);
+
+    float GetMasterVolume() const;
+    float GetBGMVolume()    const;
+    float GetSFXVolume()    const;
 
 private:
-	ma_engine engine{};
-	float masterVolume = 1.0f;
+    ma_engine      engine{};
+    ma_sound_group bgmGroup{};
+    ma_sound_group sfxGroup{};
+    ma_sound       bgmSound{};
+    bool           bgmLoaded = false;
+
+    float masterVolume = 1.0f;
+    float bgmVolume    = 1.0f;
+    float sfxVolume    = 1.0f;
 };

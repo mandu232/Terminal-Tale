@@ -1,5 +1,8 @@
 {
   "ui.new_game": "はじめから",
+  "ui.slot_select": "ファイル選択",
+  "ui.slot_select_hint": "スロットを選択してください。",
+  "ui.slot_empty": "はじめから",
   "ui.start_game": "ゲーム開始",
   "ui.load_game": "ロード",
   "ui.setting": "設定",
@@ -10,6 +13,8 @@
   "system.save.completed": "保存が完了しました。",
   "ui.test_text": "テスト",
   "ui.masterVolume": "マスター音量",
+  "ui.bgmVolume": "BGM音量",
+  "ui.sfxVolume": "効果音音量",
   "ui.textSpeed": "テキスト速度",
   "ui.autoSave": "オートセーブ",
   "ui.language": "言語",

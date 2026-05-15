@@ -27,11 +27,26 @@ void ConsoleInputSource::Update(InputManager& input, UIManager& ui)
 		if ( record.EventType == KEY_EVENT &&
 			record.Event.KeyEvent.bKeyDown )
 		{
-			switch ( record.Event.KeyEvent.uChar.AsciiChar )
+			WORD vk = record.Event.KeyEvent.wVirtualKeyCode;
+
+			// 가상 키 (VK 코드 기반)
+			if ( vk == VK_ESCAPE )
 			{
-			case 'w': input.PushAction(InputAction::MoveUp); break;
-			case 'q': input.PushAction(InputAction::Quit); break;
-			case 'e': input.PushAction(InputAction::Confirm); break;
+				input.PushAction(InputAction::Cancel);
+			}
+			else
+			{
+				// 문자 키 (대소문자 통일)
+				char ch = record.Event.KeyEvent.uChar.AsciiChar;
+				if ( ch >= 'A' && ch <= 'Z' ) ch += 32; // 대문자 → 소문자
+
+				switch ( ch )
+				{
+				case 'w': input.PushAction(InputAction::MoveUp);        break;
+				case 'q': input.PushAction(InputAction::Quit);          break;
+				case 'e': input.PushAction(InputAction::Confirm);       break;
+				case 'i': input.PushAction(InputAction::OpenInventory); break;
+				}
 			}
 		}
 

@@ -1,5 +1,5 @@
 #include "ItemRegistry.h"
-#include "Game/Story/StoryLoader.h"   // ParseEffect 재사용을 위해 포함
+#include "Game/Effect/EffectParser.h"
 #include "external/json/json.hpp"
 #include <fstream>
 #include <stdexcept>
@@ -7,31 +7,6 @@
 using json = nlohmann::json;
 
 std::unordered_map<std::string, Item> ItemRegistry::s_items;
-
-// ── Effect 파싱 (StoryLoader 와 동일한 로직) ─────────────────────────────────
-static Effect ParseEffect(const json& j)
-{
-	Effect e;
-	std::string type = j.at("type");
-
-	if      ( type == "vitality"     ) e.type = EffectType::AddVitality;
-	else if ( type == "appearance"   ) e.type = EffectType::AddAppearance;
-	else if ( type == "reputation"   ) e.type = EffectType::AddRequtation;
-	else if ( type == "karma"        ) e.type = EffectType::AddKarma;
-	else if ( type == "wealth"       ) e.type = EffectType::AddWealth;
-	else if ( type == "day"          ) e.type = EffectType::AddDay;
-	else if ( type == "time"         ) e.type = EffectType::AddTime;
-	else if ( type == "flag_add"     ) e.type = EffectType::AddFlag;
-	else if ( type == "flag_remove"  ) e.type = EffectType::RemoveFlag;
-	else if ( type == "give_item"    ) e.type = EffectType::GiveItem;
-	else if ( type == "remove_item"  ) e.type = EffectType::RemoveItem;
-	else throw std::runtime_error("ItemRegistry: Unknown effect type: " + type);
-
-	if ( j.contains("value") ) e.value = j["value"];
-	if ( j.contains("key")   ) e.key   = j["key"];
-
-	return e;
-}
 
 // ── Load ────────────────────────────────────────────────────────────────────
 void ItemRegistry::Load(const std::string& path)

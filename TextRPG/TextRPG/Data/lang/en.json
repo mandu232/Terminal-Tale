@@ -1,5 +1,8 @@
 ﻿{
     "ui.new_game": "New Game",
+    "ui.slot_select": "Select Save File",
+    "ui.slot_select_hint": "Choose a slot to start.",
+    "ui.slot_empty": "New Game",
     "ui.start_game": "Start Game",
     "ui.load_game": "Load Game",
     "ui.setting": "Settings",
@@ -10,6 +13,8 @@
     "system.save.completed": "Save completed.",
     "ui.test_text": "Test",
     "ui.masterVolume": "Master Volume",
+    "ui.bgmVolume": "BGM Volume",
+    "ui.sfxVolume": "SFX Volume",
     "ui.textSpeed": "Text Speed",
     "ui.autoSave": "Auto Save",
     "ui.language": "Language",
