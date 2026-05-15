@@ -60,12 +60,20 @@ bool Context::SaveSlot(int slot) const
 
 	// 플레이어 능력치
 	j["player"]["vitality"]   = player.vitality;
-	j["player"]["appearance"] = player.appearance;
 	j["player"]["reputation"] = player.reputation;
-	j["player"]["karma"]      = player.karma;
 	j["player"]["wealth"]     = player.wealth;
 	j["player"]["day"]        = player.day;
 	j["player"]["time"]       = player.time;
+
+	j["player"]["cityOrder"]    = player.cityOrder;
+	j["player"]["citizenTrust"] = player.citizenTrust;
+	j["player"]["corruption"]   = player.corruption;
+
+	j["player"]["empathy"]    = player.empathy;
+	j["player"]["coldness"]   = player.coldness;
+	j["player"]["justice"]    = player.justice;
+	j["player"]["compliance"] = player.compliance;
+	j["player"]["suspicion"]  = player.suspicion;
 
 	json inv = json::object();
 	for (const auto& [id, qty] : player.inventory)
@@ -122,12 +130,20 @@ bool Context::LoadSlot(int slot)
 	// 플레이어 능력치
 	const auto& p    = j["player"];
 	player.vitality   = p.value("vitality"  , 10);
-	player.appearance = p.value("appearance", 100);
 	player.reputation = p.value("reputation", 0);
-	player.karma      = p.value("karma"     , 100);
 	player.wealth     = p.value("wealth"    , 0);
 	player.day        = p.value("day"       , 0);
 	player.time       = p.value("time"      , 0);
+
+	player.cityOrder    = p.value("cityOrder"   , 50);
+	player.citizenTrust = p.value("citizenTrust", 50);
+	player.corruption   = p.value("corruption"  , 0);
+
+	player.empathy    = p.value("empathy"   , 0);
+	player.coldness   = p.value("coldness"  , 0);
+	player.justice    = p.value("justice"   , 0);
+	player.compliance = p.value("compliance", 0);
+	player.suspicion  = p.value("suspicion" , 0);
 
 	player.inventory.clear();
 	if (p.contains("inventory"))

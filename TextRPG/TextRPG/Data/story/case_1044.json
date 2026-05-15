@@ -1,0 +1,31 @@
+{
+  "id": "case_1044",
+  "text": [
+    "story.case_1044.0",
+    "story.case_1044.1",
+    "story.case_1044.2",
+    "story.case_1044.3",
+    "story.case_1044.4"
+  ],
+  "choices": [
+    {
+      "text": "story.case_1044.choice.0",
+      "next": "case_1044_a"
+    },
+    {
+      "text": "story.case_1044.choice.1",
+      "next": "case_1044_b"
+    },
+    {
+      "text": "story.case_1044.choice.2",
+      "next": "case_1044_c"
+    },
+    {
+      "text": "story.case_1044.choice.3",
+      "next": "case_1044_d",
+      "require": [
+        { "type": "flag", "key": "knows_upper_involved" }
+      ]
+    }
+  ]
+}

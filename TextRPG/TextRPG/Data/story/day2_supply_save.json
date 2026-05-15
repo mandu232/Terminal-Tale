@@ -1,0 +1,19 @@
+{
+  "id": "day2_supply_save",
+  "text": [
+    "story.day2_supply_save.0",
+    "story.day2_supply_save.1",
+    "story.day2_supply_save.2"
+  ],
+  "effects": [
+    { "type": "flag_add", "key": "saved_supply_data" },
+    { "type": "corruption", "value": 5 },
+    { "type": "tendency", "key": "justice", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.day2_supply_save.choice.0",
+      "next": "case_1043"
+    }
+  ]
+}

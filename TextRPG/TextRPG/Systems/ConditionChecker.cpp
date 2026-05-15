@@ -29,17 +29,6 @@ bool ConditionChecker::CheckOne(const Condition& c , const Context& ctx)
 		}
 		return false;
 
-	case ConditionType::Appearance:
-		switch ( c.op )
-		{
-		case ConditionOp::Gt:  return ctx.player.appearance > c.value;
-		case ConditionOp::Lt:  return ctx.player.appearance < c.value;
-		case ConditionOp::Eq:  return ctx.player.appearance == c.value;
-		case ConditionOp::Gte: return ctx.player.appearance >= c.value;
-		case ConditionOp::Lte: return ctx.player.appearance <= c.value;
-		}
-		return false;
-
 	case ConditionType::Reputation:
 		switch ( c.op )
 		{
@@ -48,17 +37,6 @@ bool ConditionChecker::CheckOne(const Condition& c , const Context& ctx)
 		case ConditionOp::Eq:  return ctx.player.reputation == c.value;
 		case ConditionOp::Gte: return ctx.player.reputation >= c.value;
 		case ConditionOp::Lte: return ctx.player.reputation <= c.value;
-		}
-		return false;
-
-	case ConditionType::Karma:
-		switch ( c.op )
-		{
-		case ConditionOp::Gt:  return ctx.player.karma > c.value;
-		case ConditionOp::Lt:  return ctx.player.karma < c.value;
-		case ConditionOp::Eq:  return ctx.player.karma == c.value;
-		case ConditionOp::Gte: return ctx.player.karma >= c.value;
-		case ConditionOp::Lte: return ctx.player.karma <= c.value;
 		}
 		return false;
 
@@ -92,6 +70,59 @@ bool ConditionChecker::CheckOne(const Condition& c , const Context& ctx)
 		case ConditionOp::Eq:  return ctx.player.time == c.value;
 		case ConditionOp::Gte: return ctx.player.time >= c.value;
 		case ConditionOp::Lte: return ctx.player.time <= c.value;
+		}
+		return false;
+
+	case ConditionType::Tendency:
+	{
+		const auto& p = ctx.player;
+		int val = 0;
+		if      ( c.key == "empathy"    ) val = p.empathy;
+		else if ( c.key == "coldness"   ) val = p.coldness;
+		else if ( c.key == "justice"    ) val = p.justice;
+		else if ( c.key == "compliance" ) val = p.compliance;
+		else if ( c.key == "suspicion"  ) val = p.suspicion;
+		switch ( c.op )
+		{
+		case ConditionOp::Gt:  return val > c.value;
+		case ConditionOp::Lt:  return val < c.value;
+		case ConditionOp::Eq:  return val == c.value;
+		case ConditionOp::Gte: return val >= c.value;
+		case ConditionOp::Lte: return val <= c.value;
+		}
+		return false;
+	}
+
+	case ConditionType::CityOrder:
+		switch ( c.op )
+		{
+		case ConditionOp::Gt:  return ctx.player.cityOrder > c.value;
+		case ConditionOp::Lt:  return ctx.player.cityOrder < c.value;
+		case ConditionOp::Eq:  return ctx.player.cityOrder == c.value;
+		case ConditionOp::Gte: return ctx.player.cityOrder >= c.value;
+		case ConditionOp::Lte: return ctx.player.cityOrder <= c.value;
+		}
+		return false;
+
+	case ConditionType::CitizenTrust:
+		switch ( c.op )
+		{
+		case ConditionOp::Gt:  return ctx.player.citizenTrust > c.value;
+		case ConditionOp::Lt:  return ctx.player.citizenTrust < c.value;
+		case ConditionOp::Eq:  return ctx.player.citizenTrust == c.value;
+		case ConditionOp::Gte: return ctx.player.citizenTrust >= c.value;
+		case ConditionOp::Lte: return ctx.player.citizenTrust <= c.value;
+		}
+		return false;
+
+	case ConditionType::Corruption:
+		switch ( c.op )
+		{
+		case ConditionOp::Gt:  return ctx.player.corruption > c.value;
+		case ConditionOp::Lt:  return ctx.player.corruption < c.value;
+		case ConditionOp::Eq:  return ctx.player.corruption == c.value;
+		case ConditionOp::Gte: return ctx.player.corruption >= c.value;
+		case ConditionOp::Lte: return ctx.player.corruption <= c.value;
 		}
 		return false;
 

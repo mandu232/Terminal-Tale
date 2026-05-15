@@ -34,6 +34,7 @@ public:
 	std::function<void()> onJournal;
 
 	void Enter()                          override;
+	void Resume()                         override;
 	void HandleInput(InputManager& input)  override;
 	void Update()                         override;
 	void Render(ConsoleDisplay& display)   override;
@@ -48,7 +49,8 @@ private:
 	static std::string NodePath(const std::string& nodeId);
 
 	std::string startNodeId;
-	StoryNode currentNode;
+	StoryNode   currentNode;
+	bool        resuming = false;
 
 	//타이핑 상태
 	int pendingTypewriters = 0;

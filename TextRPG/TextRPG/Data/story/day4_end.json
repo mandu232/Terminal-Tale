@@ -1,0 +1,18 @@
+{
+  "id": "day4_end",
+  "text": [
+    "story.day4_end.0",
+    "story.day4_end.1",
+    "story.day4_end.2"
+  ],
+  "effects": [
+    { "type": "day",      "value": 1 },
+    { "type": "set_time", "value": 8 }
+  ],
+  "choices": [
+    {
+      "text": "story.day_end.choice.0",
+      "next": "case_1042"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "case_1044_d",
+  "text": [
+    "story.case_1044_d.0",
+    "story.case_1044_d.1",
+    "story.case_1044_d.2",
+    "story.case_1044_d.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 2 },
+    { "type": "tendency", "key": "suspicion", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.case_1044_d.choice.0",
+      "next": "case_1044_a"
+    },
+    {
+      "text": "story.case_1044_d.choice.1",
+      "next": "case_1044_b"
+    },
+    {
+      "text": "story.case_1044_d.choice.2",
+      "next": "case_1044_f",
+      "require": [
+        { "type": "tendency", "key": "justice", "op": "gte", "value": 3 }
+      ]
+    }
+  ]
+}

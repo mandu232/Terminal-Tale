@@ -126,29 +126,109 @@ void InventoryState::BuildLeftPanel()
 	const std::vector<StatRow> rows =
 	{
 		{ "stat.vitality",   p.vitality   },
-		{ "stat.appearance", p.appearance },
 		{ "stat.reputation", p.reputation },
-		{ "stat.karma",      p.karma      },
 		{ "stat.wealth",     p.wealth     },
-		{ "stat.day",        p.day        },
-		{ "stat.time",       p.time       },
 	};
 
 	int y = InvLayout::ContentY;
 	for ( const auto& row : rows )
 	{
-		// 레이블
 		uiManager.Add(std::make_unique<UILabel>(
 			InvLayout::LeftX , y , InvLayout::Z ,
 			30 , InvLayout::RowH ,
 			L(row.labelKey) , 7 ,
 			UILabel::TextAlign::Left , UILabel::VAlign::Middle));
 
-		// 값
 		uiManager.Add(std::make_unique<UILabel>(
 			InvLayout::LeftX + 30 , y , InvLayout::Z ,
 			InvLayout::LeftW - 30 , InvLayout::RowH ,
-			std::to_string(row.value) , 11 ,  // 밝은 시안
+			std::to_string(row.value) , 11 ,
+			UILabel::TextAlign::Left , UILabel::VAlign::Middle));
+
+		y += InvLayout::RowH;
+	}
+
+	// ── 도시 현황 구분선 ───────────────────────────────────────────────────
+	uiManager.Add(std::make_unique<UILabel>(
+		InvLayout::LeftX , y , InvLayout::Z ,
+		InvLayout::LeftW , 1 ,
+		std::string(InvLayout::LeftW , '-') , 8 ,
+		UILabel::TextAlign::Left , UILabel::VAlign::Top));
+	y += 1;
+
+	// ── 도시 현황 제목 ─────────────────────────────────────────────────────
+	uiManager.Add(std::make_unique<UILabel>(
+		InvLayout::LeftX , y , InvLayout::Z ,
+		InvLayout::LeftW , InvLayout::RowH ,
+		L("stat.city_status") , 8 ,
+		UILabel::TextAlign::Center , UILabel::VAlign::Middle));
+	y += InvLayout::RowH;
+
+	// ── 도시 현황 항목 ─────────────────────────────────────────────────────
+	struct CityRow { std::string labelKey; int value; int color; };
+	const std::vector<CityRow> cityRows =
+	{
+		{ "stat.city_order"   , p.cityOrder   , 11 },  // 시안
+		{ "stat.citizen_trust", p.citizenTrust, 10 },  // 녹색
+		{ "stat.corruption"   , p.corruption  , 12 },  // 빨강
+	};
+
+	for ( const auto& row : cityRows )
+	{
+		uiManager.Add(std::make_unique<UILabel>(
+			InvLayout::LeftX , y , InvLayout::Z ,
+			30 , InvLayout::RowH ,
+			L(row.labelKey) , 7 ,
+			UILabel::TextAlign::Left , UILabel::VAlign::Middle));
+
+		uiManager.Add(std::make_unique<UILabel>(
+			InvLayout::LeftX + 30 , y , InvLayout::Z ,
+			InvLayout::LeftW - 30 , InvLayout::RowH ,
+			std::to_string(row.value) , row.color ,
+			UILabel::TextAlign::Left , UILabel::VAlign::Middle));
+
+		y += InvLayout::RowH;
+	}
+
+	// ── 성향 구분선 ────────────────────────────────────────────────────────
+	uiManager.Add(std::make_unique<UILabel>(
+		InvLayout::LeftX , y , InvLayout::Z ,
+		InvLayout::LeftW , 1 ,
+		std::string(InvLayout::LeftW , '-') , 8 ,
+		UILabel::TextAlign::Left , UILabel::VAlign::Top));
+	y += 1;
+
+	// ── 성향 제목 ──────────────────────────────────────────────────────────
+	uiManager.Add(std::make_unique<UILabel>(
+		InvLayout::LeftX , y , InvLayout::Z ,
+		InvLayout::LeftW , InvLayout::RowH ,
+		L("stat.tendencies") , 8 ,
+		UILabel::TextAlign::Center , UILabel::VAlign::Middle));
+	y += InvLayout::RowH;
+
+	// ── 성향 항목 ──────────────────────────────────────────────────────────
+	struct TendencyRow { std::string labelKey; int value; };
+	const std::vector<TendencyRow> tendencies =
+	{
+		{ "stat.empathy"   , p.empathy    },
+		{ "stat.coldness"  , p.coldness   },
+		{ "stat.justice"   , p.justice    },
+		{ "stat.compliance", p.compliance },
+		{ "stat.suspicion" , p.suspicion  },
+	};
+
+	for ( const auto& row : tendencies )
+	{
+		uiManager.Add(std::make_unique<UILabel>(
+			InvLayout::LeftX , y , InvLayout::Z ,
+			30 , InvLayout::RowH ,
+			L(row.labelKey) , 7 ,
+			UILabel::TextAlign::Left , UILabel::VAlign::Middle));
+
+		uiManager.Add(std::make_unique<UILabel>(
+			InvLayout::LeftX + 30 , y , InvLayout::Z ,
+			InvLayout::LeftW - 30 , InvLayout::RowH ,
+			std::to_string(row.value) , 13 ,  // 밝은 마젠타
 			UILabel::TextAlign::Left , UILabel::VAlign::Middle));
 
 		y += InvLayout::RowH;

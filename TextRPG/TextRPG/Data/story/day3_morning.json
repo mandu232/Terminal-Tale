@@ -1,0 +1,29 @@
+{
+  "id": "day3_morning",
+  "text": [
+    "story.day3_morning.0",
+    "story.day3_morning.1",
+    "story.day3_morning.2",
+    "story.day3_morning.3"
+  ],
+  "choices": [
+    {
+      "text": "story.day3_morning.choice.0",
+      "next": "day3_watched",
+      "require": [
+        { "type": "flag", "key": "watched_by_system" }
+      ]
+    },
+    {
+      "text": "story.day3_morning.choice.1",
+      "next": "day3_memo",
+      "require": [
+        { "type": "flag", "key": "saved_supply_data" }
+      ]
+    },
+    {
+      "text": "story.day3_morning.choice.2",
+      "next": "case_1044"
+    }
+  ]
+}

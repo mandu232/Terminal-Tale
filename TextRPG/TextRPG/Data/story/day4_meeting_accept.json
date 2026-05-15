@@ -1,0 +1,21 @@
+{
+  "id": "day4_meeting_accept",
+  "text": [
+    "story.day4_meeting_accept.0",
+    "story.day4_meeting_accept.1",
+    "story.day4_meeting_accept.2",
+    "story.day4_meeting_accept.3"
+  ],
+  "effects": [
+    { "type": "corruption", "value": 5 },
+    { "type": "tendency", "key": "justice",   "value": 2 },
+    { "type": "tendency", "key": "suspicion", "value": 3 },
+    { "type": "flag_add", "key": "has_classified_docs" }
+  ],
+  "choices": [
+    {
+      "text": "story.day4_meeting_accept.choice.0",
+      "next": "day4_end"
+    }
+  ]
+}

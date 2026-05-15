@@ -1,4 +1,4 @@
-﻿{
+{
   "id": "prologue_000",
   "bgm": "Assets/audio/bgm_prologue.wav",
   "text": [
@@ -10,35 +10,14 @@
     "story.prologue_000.5"
   ],
   "effects": [
-    {
-      "type": "give_item",
-      "key": "health_potion",
-      "value": 1
-    },
-    {
-      "type": "give_item",
-      "key": "travel_ration",
-      "value": 3
-    },
-    {
-      "type": "give_item",
-      "key": "old_map",
-      "value": 1
-    },
-    {
-      "type": "give_item",
-      "key": "iron_key",
-      "value": 1
-    }
+    { "type": "give_item", "key": "access_card",     "value": 1 },
+    { "type": "give_item", "key": "employee_manual", "value": 1 },
+    { "type": "give_item", "key": "coffee",          "value": 2 }
   ],
   "choices": [
     {
       "text": "story.prologue_000.choice.0",
-      "next": "forest_001"
-    },
-    {
-      "text": "story.prologue_000.choice.1",
-      "next": "ruins_001"
+      "next": "case_1042"
     }
   ]
 }

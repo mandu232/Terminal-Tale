@@ -1,0 +1,22 @@
+{
+  "id": "case_1042_c",
+  "text": [
+    "story.case_1042_c.0",
+    "story.case_1042_c.1",
+    "story.case_1042_c.2",
+    "story.case_1042_c.3"
+  ],
+  "effects": [
+    { "type": "city_order",    "value": -3 },
+    { "type": "citizen_trust", "value":  5 },
+    { "type": "corruption",    "value": 10 },
+    { "type": "tendency", "key": "empathy",   "value": 2 },
+    { "type": "give_item", "key": "deleted_record", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "day_end"
+    }
+  ]
+}

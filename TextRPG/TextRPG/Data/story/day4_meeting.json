@@ -1,0 +1,24 @@
+{
+  "id": "day4_meeting",
+  "text": [
+    "story.day4_meeting.0",
+    "story.day4_meeting.1",
+    "story.day4_meeting.2",
+    "story.day4_meeting.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 1 },
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "flag_add", "key": "met_informant" }
+  ],
+  "choices": [
+    {
+      "text": "story.day4_meeting.choice.0",
+      "next": "day4_meeting_accept"
+    },
+    {
+      "text": "story.day4_meeting.choice.1",
+      "next": "day4_end"
+    }
+  ]
+}

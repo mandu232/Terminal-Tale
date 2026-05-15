@@ -1,0 +1,18 @@
+{
+  "id": "case_1042_d",
+  "text": [
+    "story.case_1042_d.0",
+    "story.case_1042_d.1",
+    "story.case_1042_d.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 1 },
+    { "type": "time", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.case_1042_d.choice.0",
+      "next": "case_1042_d2"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "day3_end",
+  "text": [
+    "story.day3_end.0",
+    "story.day3_end.1",
+    "story.day3_end.2"
+  ],
+  "effects": [
+    { "type": "day",      "value": 1 },
+    { "type": "set_time", "value": 8 }
+  ],
+  "choices": [
+    {
+      "text": "story.day_end.choice.0",
+      "next": "day4_morning"
+    }
+  ]
+}

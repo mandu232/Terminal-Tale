@@ -3,14 +3,16 @@
 
 enum class ConditionType {
 	Vitality,
-	Appearance,
 	Reputation,
-	Karma,
 	Wealth,
 	Day,
 	Time,
 	Flag,
-	HasItem
+	HasItem,
+	Tendency,
+	CityOrder,
+	CitizenTrust,
+	Corruption,
 };
 enum class ConditionOp { Gt , Lt , Eq , Gte , Lte };
 

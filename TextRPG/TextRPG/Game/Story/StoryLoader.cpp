@@ -14,17 +14,17 @@ static Condition ParseCondition(const json& j)
 	std::string type = j.at("type");
 
 
-	if ( type == "vitality" ) c.type = ConditionType::Vitality;
-	else if(type == "appearance" ) c.type = ConditionType::Appearance;
+	if      ( type == "vitality"   ) c.type = ConditionType::Vitality;
 	else if ( type == "reputation" ) c.type = ConditionType::Reputation;
-	else if ( type == "karma" ) c.type = ConditionType::Karma;
-	else if ( type == "wealth" ) c.type = ConditionType::Wealth;
-	else if ( type == "day" ) c.type = ConditionType::Day;
-	else if ( type == "time" ) c.type = ConditionType::Time;
-
-	else if ( type == "flag" ) c.type = ConditionType::Flag;
-
-	else if ( type == "has_item" ) c.type = ConditionType::HasItem;
+	else if ( type == "wealth"     ) c.type = ConditionType::Wealth;
+	else if ( type == "day"        ) c.type = ConditionType::Day;
+	else if ( type == "time"       ) c.type = ConditionType::Time;
+	else if ( type == "flag"       ) c.type = ConditionType::Flag;
+	else if ( type == "has_item"   ) c.type = ConditionType::HasItem;
+	else if ( type == "tendency"     ) c.type = ConditionType::Tendency;
+	else if ( type == "city_order"   ) c.type = ConditionType::CityOrder;
+	else if ( type == "citizen_trust") c.type = ConditionType::CitizenTrust;
+	else if ( type == "corruption"   ) c.type = ConditionType::Corruption;
 
 	else throw std::runtime_error("Unknown condition type: " + type);
 

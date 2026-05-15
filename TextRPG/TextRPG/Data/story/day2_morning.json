@@ -1,0 +1,29 @@
+{
+  "id": "day2_morning",
+  "text": [
+    "story.day2_morning.0",
+    "story.day2_morning.1",
+    "story.day2_morning.2",
+    "story.day2_morning.3"
+  ],
+  "choices": [
+    {
+      "text": "story.day2_morning.choice.0",
+      "next": "day2_summoned",
+      "require": [
+        { "type": "corruption", "op": "gte", "value": 10 }
+      ]
+    },
+    {
+      "text": "story.day2_morning.choice.1",
+      "next": "day2_supply_followup",
+      "require": [
+        { "type": "flag", "key": "found_supply_cut" }
+      ]
+    },
+    {
+      "text": "story.day2_morning.choice.2",
+      "next": "case_1043"
+    }
+  ]
+}

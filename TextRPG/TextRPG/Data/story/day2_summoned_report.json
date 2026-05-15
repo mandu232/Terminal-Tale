@@ -1,0 +1,18 @@
+{
+  "id": "day2_summoned_report",
+  "text": [
+    "story.day2_summoned_report.0",
+    "story.day2_summoned_report.1",
+    "story.day2_summoned_report.2"
+  ],
+  "choices": [
+    {
+      "text": "story.day2_summoned_report.choice.0",
+      "next": "day2_system_report"
+    },
+    {
+      "text": "story.day2_summoned_report.choice.1",
+      "next": "day2_summoned_admit"
+    }
+  ]
+}

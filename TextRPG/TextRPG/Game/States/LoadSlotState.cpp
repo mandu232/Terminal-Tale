@@ -55,7 +55,7 @@ void LoadSlotState::Enter()
         if (info.exists)
         {
             label += "Day " + std::to_string(info.day)
-                   + "  T+" + std::to_string(info.time);
+                   + "  " + std::to_string(info.time) + "시";
 
             int slotIndex = i;
             uiManager.Add(std::make_unique<UIButton>(

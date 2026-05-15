@@ -1,0 +1,23 @@
+{
+  "id": "day4_memo2",
+  "text": [
+    "story.day4_memo2.0",
+    "story.day4_memo2.1",
+    "story.day4_memo2.2",
+    "story.day4_memo2.3"
+  ],
+  "choices": [
+    {
+      "text": "story.day4_memo2.choice.0",
+      "next": "case_1045"
+    },
+    {
+      "text": "story.day4_memo2.choice.1",
+      "next": "case_1045",
+      "effects": [
+        { "type": "flag_add", "key": "meeting_scheduled" },
+        { "type": "tendency", "key": "suspicion", "value": 1 }
+      ]
+    }
+  ]
+}

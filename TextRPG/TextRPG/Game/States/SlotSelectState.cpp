@@ -62,7 +62,7 @@ void SlotSelectState::Enter()
         std::string label = L("ui.slot") + " " + std::to_string(i) + "  —  ";
         if (info.exists)
             label += "Day " + std::to_string(info.day)
-                   + "  T+" + std::to_string(info.time);
+                   + "  " + std::to_string(info.time) + "시";
         else
             label += L("ui.slot_empty");
 

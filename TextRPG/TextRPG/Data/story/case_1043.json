@@ -1,0 +1,31 @@
+{
+  "id": "case_1043",
+  "text": [
+    "story.case_1043.0",
+    "story.case_1043.1",
+    "story.case_1043.2",
+    "story.case_1043.3",
+    "story.case_1043.4"
+  ],
+  "choices": [
+    {
+      "text": "story.case_1043.choice.0",
+      "next": "case_1043_a"
+    },
+    {
+      "text": "story.case_1043.choice.1",
+      "next": "case_1043_b"
+    },
+    {
+      "text": "story.case_1043.choice.2",
+      "next": "case_1043_c"
+    },
+    {
+      "text": "story.case_1043.choice.3",
+      "next": "case_1043_d",
+      "require": [
+        { "type": "flag", "key": "found_supply_cut" }
+      ]
+    }
+  ]
+}

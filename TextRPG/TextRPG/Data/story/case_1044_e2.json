@@ -1,0 +1,21 @@
+{
+  "id": "case_1044_e2",
+  "text": [
+    "story.case_1044_e2.0",
+    "story.case_1044_e2.1",
+    "story.case_1044_e2.2",
+    "story.case_1044_e2.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 2 },
+    { "type": "tendency", "key": "suspicion", "value": 3 },
+    { "type": "corruption", "value": 5 },
+    { "type": "flag_add", "key": "case_pending" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "day3_end_pending"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "case_1043_a",
+  "text": [
+    "story.case_1043_a.0",
+    "story.case_1043_a.1",
+    "story.case_1043_a.2",
+    "story.case_1043_a.3"
+  ],
+  "effects": [
+    { "type": "city_order",    "value":  3 },
+    { "type": "citizen_trust", "value": -5 },
+    { "type": "tendency", "key": "coldness",   "value": 1 },
+    { "type": "tendency", "key": "compliance", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "day2_end"
+    }
+  ]
+}

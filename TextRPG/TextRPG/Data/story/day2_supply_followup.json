@@ -1,0 +1,23 @@
+{
+  "id": "day2_supply_followup",
+  "text": [
+    "story.day2_supply_followup.0",
+    "story.day2_supply_followup.1",
+    "story.day2_supply_followup.2",
+    "story.day2_supply_followup.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 1 },
+    { "type": "tendency", "key": "suspicion", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.day2_supply_followup.choice.0",
+      "next": "day2_supply_save"
+    },
+    {
+      "text": "story.day2_supply_followup.choice.1",
+      "next": "case_1043"
+    }
+  ]
+}

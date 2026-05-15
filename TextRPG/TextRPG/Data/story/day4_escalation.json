@@ -1,0 +1,19 @@
+{
+  "id": "day4_escalation",
+  "text": [
+    "story.day4_escalation.0",
+    "story.day4_escalation.1",
+    "story.day4_escalation.2",
+    "story.day4_escalation.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "flag_add", "key": "escalation_resolved" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1045"
+    }
+  ]
+}

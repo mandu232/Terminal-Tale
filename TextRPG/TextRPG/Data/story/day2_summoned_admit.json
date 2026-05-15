@@ -1,0 +1,19 @@
+{
+  "id": "day2_summoned_admit",
+  "text": [
+    "story.day2_summoned_admit.0",
+    "story.day2_summoned_admit.1",
+    "story.day2_summoned_admit.2",
+    "story.day2_summoned_admit.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "compliance", "value": 2 },
+    { "type": "flag_add", "key": "warned_by_superior" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1043"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "day2_system_report",
+  "text": [
+    "story.day2_system_report.0",
+    "story.day2_system_report.1",
+    "story.day2_system_report.2",
+    "story.day2_system_report.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "flag_add", "key": "knows_upper_involved" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1043"
+    }
+  ]
+}

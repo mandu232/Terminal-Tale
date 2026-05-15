@@ -1,0 +1,21 @@
+{
+  "id": "case_1043_e",
+  "text": [
+    "story.case_1043_e.0",
+    "story.case_1043_e.1",
+    "story.case_1043_e.2",
+    "story.case_1043_e.3"
+  ],
+  "effects": [
+    { "type": "corruption", "value": 8 },
+    { "type": "tendency", "key": "justice", "value": 2 },
+    { "type": "tendency", "key": "empathy", "value": 2 },
+    { "type": "flag_add", "key": "saved_hidden_history" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "day2_end"
+    }
+  ]
+}

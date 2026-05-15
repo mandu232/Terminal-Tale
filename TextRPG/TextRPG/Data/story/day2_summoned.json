@@ -1,0 +1,26 @@
+{
+  "id": "day2_summoned",
+  "text": [
+    "story.day2_summoned.0",
+    "story.day2_summoned.1",
+    "story.day2_summoned.2",
+    "story.day2_summoned.3"
+  ],
+  "choices": [
+    {
+      "text": "story.day2_summoned.choice.0",
+      "next": "day2_summoned_deny"
+    },
+    {
+      "text": "story.day2_summoned.choice.1",
+      "next": "day2_summoned_admit"
+    },
+    {
+      "text": "story.day2_summoned.choice.2",
+      "next": "day2_summoned_report",
+      "require": [
+        { "type": "tendency", "key": "justice", "op": "gte", "value": 2 }
+      ]
+    }
+  ]
+}

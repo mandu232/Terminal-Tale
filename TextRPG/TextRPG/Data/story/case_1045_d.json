@@ -1,0 +1,30 @@
+{
+  "id": "case_1045_d",
+  "text": [
+    "story.case_1045_d.0",
+    "story.case_1045_d.1",
+    "story.case_1045_d.2",
+    "story.case_1045_d.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 2 },
+    { "type": "tendency", "key": "suspicion", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.case_1045_d.choice.0",
+      "next": "case_1045_a"
+    },
+    {
+      "text": "story.case_1045_d.choice.1",
+      "next": "case_1045_b"
+    },
+    {
+      "text": "story.case_1045_d.choice.2",
+      "next": "case_1045_f",
+      "require": [
+        { "type": "flag", "key": "has_anonymous_contact" }
+      ]
+    }
+  ]
+}

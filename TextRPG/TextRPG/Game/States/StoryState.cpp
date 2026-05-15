@@ -1,10 +1,10 @@
 #include "StoryState.h"
-#include "SettingState.h"
 #include "InventoryState.h"
 #include "LogState.h"
 #include "JournalState.h"
 #include "WaitState.h"
 #include "SleepState.h"
+#include "PauseMenuState.h"
 
 #include "Core/InputManager.h"
 #include "Core/Context.h"
@@ -52,8 +52,9 @@ namespace Layout
 	constexpr int TextStartY = 4;
 
 	// 텍스트와 선택지 사이 구분선
-	constexpr int DividerY = 38;     // 선택지 위 구분선 Y
-	constexpr int ChoiceStartY = 42;    // 선택지 첫 줄 Y
+	// 선택지 최대 4개 × (RowH=3 + 간격1) = 16행 → 마지막 선택지 끝 = 39+14 = 53(화면 내)
+	constexpr int DividerY = 36;     // 선택지 위 구분선 Y
+	constexpr int ChoiceStartY = 39;    // 선택지 첫 줄 Y
 
 	// ── 우측 패널 (퀵 메뉴) ─────────────────────
 	constexpr int RightX = 156;
@@ -164,10 +165,10 @@ void StoryState::BuildRightPanel()
 		context.PushState(std::make_unique<SleepState>(context));
 		});
 
-	//설정
-	addQuickBtn(Layout::ColB , Layout::Row0 , L("ui.setting") , [ this ] () {
+	//메뉴
+	addQuickBtn(Layout::ColB , Layout::Row0 , L("ui.menu") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
-		context.PushState(std::make_unique<SettingState>(context));
+		context.PushState(std::make_unique<PauseMenuState>(context));
 		});
 
 	//빠른 저장
@@ -220,6 +221,20 @@ void StoryState::NavigateTo(const std::string& nodeId)
 }
 
 // ─────────────────────────────────────────────
+//  Resume — 대기/수면 등 복귀 시 패널 갱신
+// ─────────────────────────────────────────────
+void StoryState::Resume()
+{
+	resuming = true;
+	uiManager.Clear();
+	BuildLeftPanel();
+	BuildRightPanel();
+	RebuildCenter();
+	BuildDividers();
+	resuming = false;
+}
+
+// ─────────────────────────────────────────────
 //  RebuildCenter — 중앙 텍스트 + 선택지
 // ─────────────────────────────────────────────
 void StoryState::RebuildCenter()
@@ -228,7 +243,17 @@ void StoryState::RebuildCenter()
 	pendingTypewriters = 0;
 	choiceButtons.clear();
 
+	// ── 상단 날짜/시간 표시 ───────────────────────
+	std::string timeStr =
+		"Day " + std::to_string(context.player.day)
+		+ "  " + std::to_string(context.player.time) + "시";
+	uiManager.Add(std::make_unique<UILabel>(
+		Layout::CenterX, 1, Layout::Z,
+		Layout::CenterW, Layout::RowH, timeStr,
+		8, UILabel::TextAlign::Right, UILabel::VAlign::Middle));
+
 	// ── 본문 텍스트 (UITypewriter) ───────────────
+	int speed = resuming ? 999 : context.settingManager.settings.textSpeed;
 	int y = Layout::TextStartY;
 
 	for ( const auto& line : currentNode.texts )
@@ -239,7 +264,7 @@ void StoryState::RebuildCenter()
 			L(line) , 7 ,
 			UITypewriter::TextAlign::Left ,
 			UITypewriter::VAlign::Middle ,
-			context.settingManager.settings.textSpeed);                         // speed 1~5
+			speed);
 
 		++pendingTypewriters;
 
@@ -309,7 +334,7 @@ void StoryState::HandleInput(InputManager& input)
 
 		case InputAction::Cancel:
 			context.sound.PlaySE("Assets/audio/ui_button_click.wav");
-			context.PushState(std::make_unique<SettingState>(context));
+			context.PushState(std::make_unique<PauseMenuState>(context));
 			break;
 
 		default:

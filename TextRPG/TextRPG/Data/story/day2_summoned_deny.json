@@ -1,0 +1,19 @@
+{
+  "id": "day2_summoned_deny",
+  "text": [
+    "story.day2_summoned_deny.0",
+    "story.day2_summoned_deny.1",
+    "story.day2_summoned_deny.2",
+    "story.day2_summoned_deny.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "compliance", "value": 1 },
+    { "type": "tendency", "key": "suspicion",  "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1043"
+    }
+  ]
+}

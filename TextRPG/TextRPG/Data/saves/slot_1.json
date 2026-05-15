@@ -2,26 +2,25 @@
     "currentNodeId": "prologue_000",
     "flags": [],
     "journal": [],
-    "log": [
-        {
-            "day": 1,
-            "text": "수면을 취했다. → Day 1",
-            "time": 0
-        }
-    ],
+    "log": [],
     "player": {
-        "appearance": 100,
+        "citizenTrust": 50,
+        "cityOrder": 50,
+        "coldness": 0,
+        "compliance": 0,
+        "corruption": 0,
         "day": 1,
+        "empathy": 0,
         "inventory": {
-            "health_potion": 1,
-            "iron_key": 1,
-            "old_map": 1,
-            "travel_ration": 3
+            "access_card": 1,
+            "coffee": 2,
+            "employee_manual": 1
         },
-        "karma": 100,
+        "justice": 0,
         "reputation": 0,
-        "time": 0,
-        "vitality": 60,
+        "suspicion": 0,
+        "time": 8,
+        "vitality": 10,
         "wealth": 0
     }
 }

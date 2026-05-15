@@ -1,0 +1,25 @@
+{
+  "id": "case_1042_d2",
+  "text": [
+    "story.case_1042_d2.0",
+    "story.case_1042_d2.1",
+    "story.case_1042_d2.2",
+    "story.case_1042_d2.3",
+    "story.case_1042_d2.4"
+  ],
+  "effects": [
+    { "type": "flag_add", "key": "found_supply_cut" },
+    { "type": "tendency", "key": "justice",   "value": 1 },
+    { "type": "tendency", "key": "suspicion", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.case_1042_d2.choice.0",
+      "next": "case_1042"
+    },
+    {
+      "text": "story.case_1042_d2.choice.1",
+      "next": "day_end"
+    }
+  ]
+}

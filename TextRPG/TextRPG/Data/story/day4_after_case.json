@@ -1,0 +1,21 @@
+{
+  "id": "day4_after_case",
+  "text": [
+    "story.day4_after_case.0",
+    "story.day4_after_case.1",
+    "story.day4_after_case.2"
+  ],
+  "choices": [
+    {
+      "text": "story.day4_after_case.choice.0",
+      "next": "day4_meeting",
+      "require": [
+        { "type": "flag", "key": "meeting_scheduled" }
+      ]
+    },
+    {
+      "text": "story.day4_after_case.choice.1",
+      "next": "day4_end"
+    }
+  ]
+}

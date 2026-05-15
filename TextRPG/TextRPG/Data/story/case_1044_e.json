@@ -1,0 +1,24 @@
+{
+  "id": "case_1044_e",
+  "text": [
+    "story.case_1044_e.0",
+    "story.case_1044_e.1",
+    "story.case_1044_e.2",
+    "story.case_1044_e.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 1 },
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "corruption", "value": 5 }
+  ],
+  "choices": [
+    {
+      "text": "story.case_1044_e.choice.0",
+      "next": "case_1044_a"
+    },
+    {
+      "text": "story.case_1044_e.choice.1",
+      "next": "case_1044_e2"
+    }
+  ]
+}

@@ -58,7 +58,7 @@ void WaitState::Rebuild()
     // ── 현재 시간 표시 ────────────────────────────────────────────────────────
     std::string timeStr = L("ui.wait_current_time") + " : "
         + "Day " + std::to_string(context.player.day)
-        + "  T+" + std::to_string(context.player.time);
+        + "  " + std::to_string(context.player.time) + "시";
 
     uiManager.Add(std::make_unique<UILabel>(
         0, WaitLayout::TimeY, WaitLayout::Z,
@@ -156,7 +156,7 @@ void WaitState::Confirm()
     context.AddLog(L("log.waited")
         + " (+" + std::to_string(selectedHours) + "h"
         + " → Day " + std::to_string(context.player.day)
-        + "  T+" + std::to_string(context.player.time) + ")");
+        + "  " + std::to_string(context.player.time) + "시)");
 
     context.PopState();
 }

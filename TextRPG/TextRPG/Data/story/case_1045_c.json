@@ -1,0 +1,31 @@
+{
+  "id": "case_1045_c",
+  "text": [
+    "story.case_1045_c.0",
+    "story.case_1045_c.1",
+    "story.case_1045_c.2",
+    "story.case_1045_c.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 2 },
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "flag_add", "key": "saw_sealed_warehouse" }
+  ],
+  "choices": [
+    {
+      "text": "story.case_1045_c.choice.0",
+      "next": "case_1045_a"
+    },
+    {
+      "text": "story.case_1045_c.choice.1",
+      "next": "case_1045_b"
+    },
+    {
+      "text": "story.case_1045_c.choice.2",
+      "next": "case_1045_e",
+      "require": [
+        { "type": "tendency", "key": "justice", "op": "gte", "value": 5 }
+      ]
+    }
+  ]
+}

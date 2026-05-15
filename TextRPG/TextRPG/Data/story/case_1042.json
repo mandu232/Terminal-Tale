@@ -1,0 +1,28 @@
+{
+  "id": "case_1042",
+  "text": [
+    "story.case_1042.0",
+    "story.case_1042.1",
+    "story.case_1042.2",
+    "story.case_1042.3",
+    "story.case_1042.4"
+  ],
+  "choices": [
+    {
+      "text": "story.case_1042.choice.0",
+      "next": "case_1042_a"
+    },
+    {
+      "text": "story.case_1042.choice.1",
+      "next": "case_1042_b"
+    },
+    {
+      "text": "story.case_1042.choice.2",
+      "next": "case_1042_c"
+    },
+    {
+      "text": "story.case_1042.choice.3",
+      "next": "case_1042_d"
+    }
+  ]
+}

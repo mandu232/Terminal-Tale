@@ -1,0 +1,29 @@
+{
+  "id": "day4_morning",
+  "text": [
+    "story.day4_morning.0",
+    "story.day4_morning.1",
+    "story.day4_morning.2",
+    "story.day4_morning.3"
+  ],
+  "choices": [
+    {
+      "text": "story.day4_morning.choice.0",
+      "next": "day4_escalation",
+      "require": [
+        { "type": "flag", "key": "case_pending" }
+      ]
+    },
+    {
+      "text": "story.day4_morning.choice.1",
+      "next": "day4_memo2",
+      "require": [
+        { "type": "flag", "key": "has_anonymous_contact" }
+      ]
+    },
+    {
+      "text": "story.day4_morning.choice.2",
+      "next": "case_1045"
+    }
+  ]
+}

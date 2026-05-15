@@ -1,0 +1,24 @@
+{
+  "id": "day3_memo",
+  "text": [
+    "story.day3_memo.0",
+    "story.day3_memo.1",
+    "story.day3_memo.2",
+    "story.day3_memo.3"
+  ],
+  "choices": [
+    {
+      "text": "story.day3_memo.choice.0",
+      "next": "case_1044"
+    },
+    {
+      "text": "story.day3_memo.choice.1",
+      "next": "case_1044",
+      "effects": [
+        { "type": "flag_add", "key": "has_anonymous_contact" },
+        { "type": "tendency", "key": "suspicion", "value": 1 },
+        { "type": "tendency", "key": "justice",   "value": 1 }
+      ]
+    }
+  ]
+}

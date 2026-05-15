@@ -45,7 +45,7 @@ void SleepState::Enter()
     // ── 현재 날짜/시간 ────────────────────────────────────────────────────────
     std::string statusStr =
         "Day " + std::to_string(context.player.day)
-        + "  T+" + std::to_string(context.player.time);
+        + "  " + std::to_string(context.player.time) + "시";
 
     uiManager.Add(std::make_unique<UILabel>(
         0, SleepLayout::StatusY, SleepLayout::Z,

@@ -89,7 +89,7 @@ void LogState::Rebuild()
 
             // Day / Time 태그
             std::string tag = "Day " + std::to_string(e.day)
-                            + "  T+" + std::to_string(e.time);
+                            + "  " + std::to_string(e.time) + "시";
             uiManager.Add(std::make_unique<UILabel>(
                 LogLayout::ListX, y, LogLayout::Z,
                 LogLayout::TimeW, LogLayout::RowH, tag,

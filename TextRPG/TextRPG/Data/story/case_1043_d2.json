@@ -1,0 +1,23 @@
+{
+  "id": "case_1043_d2",
+  "text": [
+    "story.case_1043_d2.0",
+    "story.case_1043_d2.1",
+    "story.case_1043_d2.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 1 },
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "flag_add", "key": "flagged_by_senior" }
+  ],
+  "choices": [
+    {
+      "text": "story.case_1043_d2.choice.0",
+      "next": "case_1043_d3"
+    },
+    {
+      "text": "story.case_1043_d2.choice.1",
+      "next": "case_1043_b"
+    }
+  ]
+}

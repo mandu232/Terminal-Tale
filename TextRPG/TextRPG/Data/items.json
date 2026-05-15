@@ -1,34 +1,41 @@
 [
     {
-        "id": "health_potion",
-        "name": "item.health_potion.name",
-        "desc": "item.health_potion.desc",
-        "usable": true,
-        "effects": [
-            { "type": "vitality", "value": 30 }
-        ]
-    },
-    {
-        "id": "travel_ration",
-        "name": "item.travel_ration.name",
-        "desc": "item.travel_ration.desc",
-        "usable": true,
-        "effects": [
-            { "type": "vitality",   "value": 10 },
-            { "type": "time",       "value": 1  }
-        ]
-    },
-    {
-        "id": "old_map",
-        "name": "item.old_map.name",
-        "desc": "item.old_map.desc",
+        "id": "access_card",
+        "name": "item.access_card.name",
+        "desc": "item.access_card.desc",
         "usable": false,
         "effects": []
     },
     {
-        "id": "iron_key",
-        "name": "item.iron_key.name",
-        "desc": "item.iron_key.desc",
+        "id": "employee_manual",
+        "name": "item.employee_manual.name",
+        "desc": "item.employee_manual.desc",
+        "usable": false,
+        "effects": []
+    },
+    {
+        "id": "coffee",
+        "name": "item.coffee.name",
+        "desc": "item.coffee.desc",
+        "usable": true,
+        "effects": [
+            { "type": "vitality", "value": 10 }
+        ]
+    },
+    {
+        "id": "stimulant",
+        "name": "item.stimulant.name",
+        "desc": "item.stimulant.desc",
+        "usable": true,
+        "effects": [
+            { "type": "vitality", "value": 25 },
+            { "type": "time",     "value": -2  }
+        ]
+    },
+    {
+        "id": "deleted_record",
+        "name": "item.deleted_record.name",
+        "desc": "item.deleted_record.desc",
         "usable": false,
         "effects": []
     }

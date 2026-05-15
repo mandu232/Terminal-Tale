@@ -1,0 +1,21 @@
+{
+  "id": "case_1045_e",
+  "text": [
+    "story.case_1045_e.0",
+    "story.case_1045_e.1",
+    "story.case_1045_e.2",
+    "story.case_1045_e.3"
+  ],
+  "effects": [
+    { "type": "corruption", "value": 10 },
+    { "type": "tendency", "key": "justice", "value": 3 },
+    { "type": "tendency", "key": "empathy", "value": 2 },
+    { "type": "flag_add", "key": "has_evidence" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "day4_after_case"
+    }
+  ]
+}
