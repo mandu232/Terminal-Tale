@@ -1,0 +1,20 @@
+{
+  "id": "day10_ally_memo",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day10_ally_memo.0",
+    "story.day10_ally_memo.1",
+    "story.day10_ally_memo.2",
+    "story.day10_ally_memo.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 1 },
+    { "type": "tendency", "key": "suspicion", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1051"
+    }
+  ]
+}

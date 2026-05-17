@@ -1,0 +1,22 @@
+{
+  "id": "case_1049_c",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.case_1049_c.0",
+    "story.case_1049_c.1",
+    "story.case_1049_c.2",
+    "story.case_1049_c.3"
+  ],
+  "effects": [
+    { "type": "corruption",   "value":  8 },
+    { "type": "tendency", "key": "justice",   "value": 4 },
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "flag_add", "key": "refused_child_record" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "day8_end"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "day9_auditor_talk",
+  "sfx": "Assets/audio/node_footstep.wav",
+  "text": [
+    "story.day9_auditor_talk.0",
+    "story.day9_auditor_talk.1",
+    "story.day9_auditor_talk.2",
+    "story.day9_auditor_talk.3"
+  ],
+  "choices": [
+    {
+      "text": "story.day9_auditor_talk.choice.0",
+      "next": "case_1050"
+    },
+    {
+      "text": "story.day9_auditor_talk.choice.1",
+      "next": "case_1050"
+    },
+    {
+      "text": "story.day9_auditor_talk.choice.2",
+      "next": "day9_auditor_respond",
+      "require": [
+        { "type": "tendency", "key": "suspicion", "op": "gte", "value": 13 }
+      ]
+    }
+  ]
+}

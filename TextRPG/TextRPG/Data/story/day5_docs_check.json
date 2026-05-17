@@ -1,0 +1,20 @@
+{
+  "id": "day5_docs_check",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.day5_docs_check.0",
+    "story.day5_docs_check.1",
+    "story.day5_docs_check.2",
+    "story.day5_docs_check.3"
+  ],
+  "choices": [
+    {
+      "text": "story.day5_docs_check.choice.0",
+      "next": "day5_docs_search"
+    },
+    {
+      "text": "story.day5_docs_check.choice.1",
+      "next": "case_1046"
+    }
+  ]
+}

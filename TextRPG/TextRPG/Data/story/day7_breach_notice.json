@@ -1,0 +1,20 @@
+{
+  "id": "day7_breach_notice",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day7_breach_notice.0",
+    "story.day7_breach_notice.1",
+    "story.day7_breach_notice.2",
+    "story.day7_breach_notice.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 3 },
+    { "type": "flag_add", "key": "storage_compromised" }
+  ],
+  "choices": [
+    {
+      "text": "story.day7_breach_notice.choice.0",
+      "next": "case_1048"
+    }
+  ]
+}

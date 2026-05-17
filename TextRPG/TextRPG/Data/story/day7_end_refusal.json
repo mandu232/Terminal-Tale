@@ -1,0 +1,16 @@
+{
+  "id": "day7_end_refusal",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day7_end_refusal.0",
+    "story.day7_end_refusal.1",
+    "story.day7_end_refusal.2",
+    "story.day7_end_refusal.3"
+  ],
+  "choices": [
+    {
+      "text": "story.day7_end_refusal.choice.0",
+      "next": "day8_morning"
+    }
+  ]
+}

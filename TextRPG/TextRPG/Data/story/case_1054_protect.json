@@ -1,0 +1,22 @@
+{
+  "id": "case_1054_protect",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.case_1054_protect.0",
+    "story.case_1054_protect.1",
+    "story.case_1054_protect.2",
+    "story.case_1054_protect.3"
+  ],
+  "effects": [
+    { "type": "corruption",                   "value": 15 },
+    { "type": "tendency", "key": "justice",   "value":  6 },
+    { "type": "tendency", "key": "suspicion", "value":  3 },
+    { "type": "flag_add", "key": "former_insider_protected" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "day13_end_resistance"
+    }
+  ]
+}

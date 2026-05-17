@@ -1,5 +1,6 @@
 {
   "id": "day4_escalation",
+  "sfx": "Assets/audio/node_paper.wav",
   "text": [
     "story.day4_escalation.0",
     "story.day4_escalation.1",

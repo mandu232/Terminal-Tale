@@ -1,0 +1,22 @@
+{
+  "id": "day11_yun_ally",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.day11_yun_ally.0",
+    "story.day11_yun_ally.1",
+    "story.day11_yun_ally.2",
+    "story.day11_yun_ally.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 3 },
+    { "type": "tendency", "key": "suspicion", "value": 1 },
+    { "type": "flag_add", "key": "has_yun_archive" },
+    { "type": "flag_add", "key": "yun_fully_trusted" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1052"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "day9_auditor_respond",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day9_auditor_respond.0",
+    "story.day9_auditor_respond.1",
+    "story.day9_auditor_respond.2",
+    "story.day9_auditor_respond.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1050"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "case_1055_a",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.case_1055_a.0",
+    "story.case_1055_a.1",
+    "story.case_1055_a.2"
+  ],
+  "effects": [
+    { "type": "city_order",    "value":  4 },
+    { "type": "citizen_trust", "value": -15 },
+    { "type": "tendency", "key": "coldness", "value": 4 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "day14_end"
+    }
+  ]
+}

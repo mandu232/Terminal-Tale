@@ -1,5 +1,6 @@
 {
   "id": "day2_system_report",
+  "sfx": "Assets/audio/node_alert.wav",
   "text": [
     "story.day2_system_report.0",
     "story.day2_system_report.1",

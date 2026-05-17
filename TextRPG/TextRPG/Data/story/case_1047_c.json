@@ -1,0 +1,32 @@
+{
+  "id": "case_1047_c",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.case_1047_c.0",
+    "story.case_1047_c.1",
+    "story.case_1047_c.2",
+    "story.case_1047_c.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 3 },
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "flag_add", "key": "recognizes_pattern" }
+  ],
+  "choices": [
+    {
+      "text": "story.case_1047_c.choice.0",
+      "next": "case_1047_a"
+    },
+    {
+      "text": "story.case_1047_c.choice.1",
+      "next": "case_1047_b"
+    },
+    {
+      "text": "story.case_1047_c.choice.2",
+      "next": "case_1047_d",
+      "require": [
+        { "type": "flag", "key": "connected_evidence" }
+      ]
+    }
+  ]
+}

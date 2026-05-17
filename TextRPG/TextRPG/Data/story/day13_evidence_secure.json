@@ -1,0 +1,19 @@
+{
+  "id": "day13_evidence_secure",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.day13_evidence_secure.0",
+    "story.day13_evidence_secure.1",
+    "story.day13_evidence_secure.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "flag_add", "key": "evidence_access_attempted" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1054"
+    }
+  ]
+}

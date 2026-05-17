@@ -1,0 +1,25 @@
+{
+  "id": "case_1050_c",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.case_1050_c.0",
+    "story.case_1050_c.1",
+    "story.case_1050_c.2",
+    "story.case_1050_c.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 2 },
+    { "type": "tendency", "key": "suspicion", "value": 1 },
+    { "type": "flag_add", "key": "understands_algorithm" }
+  ],
+  "choices": [
+    {
+      "text": "story.case_1050_c.choice.0",
+      "next": "case_1050_a"
+    },
+    {
+      "text": "story.case_1050_c.choice.1",
+      "next": "case_1050_b"
+    }
+  ]
+}

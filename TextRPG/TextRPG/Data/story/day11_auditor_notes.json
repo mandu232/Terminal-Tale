@@ -1,0 +1,20 @@
+{
+  "id": "day11_auditor_notes",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.day11_auditor_notes.0",
+    "story.day11_auditor_notes.1",
+    "story.day11_auditor_notes.2",
+    "story.day11_auditor_notes.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 3 },
+    { "type": "flag_add", "key": "knows_audit_reason" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1052"
+    }
+  ]
+}

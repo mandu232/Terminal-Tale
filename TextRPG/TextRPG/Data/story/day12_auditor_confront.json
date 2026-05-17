@@ -1,0 +1,27 @@
+{
+  "id": "day12_auditor_confront",
+  "sfx": "Assets/audio/node_footstep.wav",
+  "text": [
+    "story.day12_auditor_confront.0",
+    "story.day12_auditor_confront.1",
+    "story.day12_auditor_confront.2"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day12_auditor_confront.choice.0",
+      "next": "case_1053"
+    },
+    {
+      "text": "story.day12_auditor_confront.choice.1",
+      "next": "day12_auditor_react"
+    },
+    {
+      "text": "story.day12_auditor_confront.choice.2",
+      "next": "day12_auditor_react_reveal",
+      "require": [
+        { "type": "flag", "key": "knows_audit_reason" }
+      ]
+    }
+  ]
+}

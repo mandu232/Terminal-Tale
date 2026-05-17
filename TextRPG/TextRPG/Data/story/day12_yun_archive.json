@@ -1,0 +1,22 @@
+{
+  "id": "day12_yun_archive",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.day12_yun_archive.0",
+    "story.day12_yun_archive.1",
+    "story.day12_yun_archive.2",
+    "story.day12_yun_archive.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 2 },
+    { "type": "tendency", "key": "suspicion", "value": 1 },
+    { "type": "corruption",                   "value": 8 },
+    { "type": "flag_add", "key": "archive_analyzed" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1053"
+    }
+  ]
+}

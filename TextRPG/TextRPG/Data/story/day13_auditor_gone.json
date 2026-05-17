@@ -1,0 +1,19 @@
+{
+  "id": "day13_auditor_gone",
+  "sfx": "Assets/audio/node_footstep.wav",
+  "text": [
+    "story.day13_auditor_gone.0",
+    "story.day13_auditor_gone.1",
+    "story.day13_auditor_gone.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice", "value": 1 },
+    { "type": "flag_add", "key": "auditor_gone" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1054"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "day11_hold_expired",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day11_hold_expired.0",
+    "story.day11_hold_expired.1",
+    "story.day11_hold_expired.2",
+    "story.day11_hold_expired.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1052"
+    }
+  ]
+}

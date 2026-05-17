@@ -1,0 +1,21 @@
+{
+  "id": "day13_end_resistance",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day13_end_resistance.0",
+    "story.day13_end_resistance.1",
+    "story.day13_end_resistance.2",
+    "story.day13_end_resistance.3"
+  ],
+  "effects": [
+    { "type": "day",      "value": 1 },
+    { "type": "set_time", "value": 8 },
+    { "type": "tendency", "key": "suspicion", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.day_end.choice.0",
+      "next": "day14_morning"
+    }
+  ]
+}

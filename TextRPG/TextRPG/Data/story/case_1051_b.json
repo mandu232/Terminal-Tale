@@ -1,0 +1,20 @@
+{
+  "id": "case_1051_b",
+  "text": [
+    "story.case_1051_b.0",
+    "story.case_1051_b.1",
+    "story.case_1051_b.2",
+    "story.case_1051_b.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 2 },
+    { "type": "tendency", "key": "empathy",   "value": 2 },
+    { "type": "tendency", "key": "suspicion", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "day10_end"
+    }
+  ]
+}

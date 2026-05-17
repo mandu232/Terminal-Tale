@@ -1,0 +1,37 @@
+{
+  "id": "day13_morning",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day13_morning.0",
+    "story.day13_morning.1",
+    "story.day13_morning.2"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day13_morning.choice.0",
+      "next": "day13_auditor_gone",
+      "require": [
+        { "type": "flag", "key": "auditor_revealed" }
+      ]
+    },
+    {
+      "text": "story.day13_morning.choice.1",
+      "next": "day13_evidence_secure",
+      "require": [
+        { "type": "flag", "key": "has_authorizer_evidence" }
+      ]
+    },
+    {
+      "text": "story.day13_morning.choice.2",
+      "next": "day13_ally_contact",
+      "require": [
+        { "type": "flag", "key": "has_insider_ally" }
+      ]
+    },
+    {
+      "text": "story.day13_morning.choice.3",
+      "next": "case_1054"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+    "currentNodeId": "case_1045",
+    "flags": [],
+    "journal": [],
+    "log": [
+        {
+            "day": 1,
+            "text": "파일을 열어본다",
+            "time": 8
+        },
+        {
+            "day": 1,
+            "text": "범죄 기록 등록",
+            "time": 8
+        },
+        {
+            "day": 1,
+            "text": "다음 파일로",
+            "time": 8
+        },
+        {
+            "day": 2,
+            "text": "다음 날로",
+            "time": 8
+        },
+        {
+            "day": 2,
+            "text": "오늘의 사건 파일을 연다",
+            "time": 8
+        },
+        {
+            "day": 2,
+            "text": "경고 후 자료 폐기 지시",
+            "time": 8
+        },
+        {
+            "day": 2,
+            "text": "다음 파일로",
+            "time": 8
+        },
+        {
+            "day": 3,
+            "text": "다음 날로",
+            "time": 8
+        },
+        {
+            "day": 3,
+            "text": "오늘의 사건 파일을 연다",
+            "time": 8
+        },
+        {
+            "day": 3,
+            "text": "경고 처리",
+            "time": 8
+        },
+        {
+            "day": 3,
+            "text": "다음 파일로",
+            "time": 8
+        },
+        {
+            "day": 4,
+            "text": "다음 날로",
+            "time": 8
+        },
+        {
+            "day": 4,
+            "text": "오늘의 사건 파일을 연다",
+            "time": 8
+        }
+    ],
+    "player": {
+        "citizenTrust": 47,
+        "cityOrder": 55,
+        "coldness": 1,
+        "compliance": 1,
+        "corruption": 0,
+        "day": 4,
+        "empathy": 2,
+        "inventory": {
+            "access_card": 1,
+            "coffee": 2,
+            "employee_manual": 1
+        },
+        "justice": 2,
+        "reputation": 0,
+        "suspicion": 1,
+        "time": 8,
+        "vitality": 10,
+        "wealth": 0
+    }
+}

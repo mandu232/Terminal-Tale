@@ -1,0 +1,25 @@
+{
+  "id": "case_1052",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.case_1052.0",
+    "story.case_1052.1",
+    "story.case_1052.2",
+    "story.case_1052.3",
+    "story.case_1052.4"
+  ],
+  "choices": [
+    {
+      "text": "story.case_1052.choice.0",
+      "next": "case_1052_a"
+    },
+    {
+      "text": "story.case_1052.choice.1",
+      "next": "case_1052_b"
+    },
+    {
+      "text": "story.case_1052.choice.2",
+      "next": "case_1052_c"
+    }
+  ]
+}

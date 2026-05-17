@@ -1,5 +1,6 @@
 {
   "id": "day4_memo2",
+  "sfx": "Assets/audio/node_notification.wav",
   "text": [
     "story.day4_memo2.0",
     "story.day4_memo2.1",

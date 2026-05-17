@@ -1,0 +1,37 @@
+{
+  "id": "day8_morning",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day8_morning.0",
+    "story.day8_morning.1",
+    "story.day8_morning.2",
+    "story.day8_morning.3"
+  ],
+  "choices": [
+    {
+      "text": "story.day8_morning.choice.0",
+      "next": "day8_commendation",
+      "require": [
+        { "type": "tendency", "key": "compliance", "op": "gte", "value": 8 }
+      ]
+    },
+    {
+      "text": "story.day8_morning.choice.1",
+      "next": "day8_audit_officer",
+      "require": [
+        { "type": "tendency", "key": "suspicion", "op": "gte", "value": 13 }
+      ]
+    },
+    {
+      "text": "story.day8_morning.choice.2",
+      "next": "day8_network_message",
+      "require": [
+        { "type": "flag", "key": "network_active" }
+      ]
+    },
+    {
+      "text": "story.day8_morning.choice.3",
+      "next": "case_1049"
+    }
+  ]
+}

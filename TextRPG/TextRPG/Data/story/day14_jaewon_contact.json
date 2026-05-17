@@ -1,0 +1,22 @@
+{
+  "id": "day14_jaewon_contact",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day14_jaewon_contact.0",
+    "story.day14_jaewon_contact.1",
+    "story.day14_jaewon_contact.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.day14_jaewon_contact.choice.0",
+      "next": "day14_jaewon_meet"
+    },
+    {
+      "text": "story.day14_jaewon_contact.choice.1",
+      "next": "case_1055"
+    }
+  ]
+}

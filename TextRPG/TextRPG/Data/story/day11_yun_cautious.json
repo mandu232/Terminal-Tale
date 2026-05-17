@@ -1,0 +1,20 @@
+{
+  "id": "day11_yun_cautious",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day11_yun_cautious.0",
+    "story.day11_yun_cautious.1",
+    "story.day11_yun_cautious.2",
+    "story.day11_yun_cautious.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice", "value": 1 },
+    { "type": "flag_add", "key": "has_cold_case_hint" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1052"
+    }
+  ]
+}

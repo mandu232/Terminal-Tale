@@ -1,5 +1,6 @@
 {
   "id": "day2_supply_followup",
+  "sfx": "Assets/audio/node_paper.wav",
   "text": [
     "story.day2_supply_followup.0",
     "story.day2_supply_followup.1",

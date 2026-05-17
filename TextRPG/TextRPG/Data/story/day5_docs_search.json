@@ -1,0 +1,20 @@
+{
+  "id": "day5_docs_search",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day5_docs_search.0",
+    "story.day5_docs_search.1",
+    "story.day5_docs_search.2",
+    "story.day5_docs_search.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 3 },
+    { "type": "flag_add", "key": "searched_classified" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1046"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "day9_colleague_end",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day9_colleague_end.0",
+    "story.day9_colleague_end.1",
+    "story.day9_colleague_end.2",
+    "story.day9_colleague_end.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1050"
+    }
+  ]
+}

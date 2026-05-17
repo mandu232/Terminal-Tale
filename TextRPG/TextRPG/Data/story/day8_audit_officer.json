@@ -1,0 +1,20 @@
+{
+  "id": "day8_audit_officer",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day8_audit_officer.0",
+    "story.day8_audit_officer.1",
+    "story.day8_audit_officer.2",
+    "story.day8_audit_officer.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "flag_add", "key": "under_audit" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1049"
+    }
+  ]
+}

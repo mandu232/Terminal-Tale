@@ -1,0 +1,27 @@
+{
+  "id": "day6_summons",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day6_summons.0",
+    "story.day6_summons.1",
+    "story.day6_summons.2",
+    "story.day6_summons.3"
+  ],
+  "choices": [
+    {
+      "text": "story.day6_summons.choice.0",
+      "next": "day6_summons_back"
+    },
+    {
+      "text": "story.day6_summons.choice.1",
+      "next": "day6_summons_back"
+    },
+    {
+      "text": "story.day6_summons.choice.2",
+      "next": "day6_summons_reveal",
+      "require": [
+        { "type": "flag", "key": "connected_evidence" }
+      ]
+    }
+  ]
+}

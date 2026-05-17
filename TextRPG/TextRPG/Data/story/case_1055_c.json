@@ -1,0 +1,26 @@
+{
+  "id": "case_1055_c",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.case_1055_c.0",
+    "story.case_1055_c.1",
+    "story.case_1055_c.2",
+    "story.case_1055_c.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 5 },
+    { "type": "tendency", "key": "suspicion", "value": 3 },
+    { "type": "corruption",                   "value": 12 },
+    { "type": "flag_add", "key": "journalist_linked" }
+  ],
+  "choices": [
+    {
+      "text": "story.case_1055_c.choice.0",
+      "next": "case_1055_protect"
+    },
+    {
+      "text": "story.case_1055_c.choice.1",
+      "next": "case_1055_a"
+    }
+  ]
+}

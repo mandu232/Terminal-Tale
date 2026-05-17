@@ -1,5 +1,6 @@
 {
   "id": "day4_after_case",
+  "sfx": "Assets/audio/node_footstep.wav",
   "text": [
     "story.day4_after_case.0",
     "story.day4_after_case.1",

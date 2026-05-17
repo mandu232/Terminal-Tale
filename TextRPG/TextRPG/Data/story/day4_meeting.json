@@ -1,5 +1,6 @@
 {
   "id": "day4_meeting",
+  "sfx": "Assets/audio/node_footstep.wav",
   "text": [
     "story.day4_meeting.0",
     "story.day4_meeting.1",

@@ -1,0 +1,37 @@
+{
+  "id": "day11_morning",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day11_morning.0",
+    "story.day11_morning.1",
+    "story.day11_morning.2",
+    "story.day11_morning.3"
+  ],
+  "choices": [
+    {
+      "text": "story.day11_morning.choice.0",
+      "next": "day11_hold_expired",
+      "require": [
+        { "type": "flag", "key": "dual_hold_filed" }
+      ]
+    },
+    {
+      "text": "story.day11_morning.choice.1",
+      "next": "day11_yun_approach",
+      "require": [
+        { "type": "flag", "key": "found_internal_dissenter" }
+      ]
+    },
+    {
+      "text": "story.day11_morning.choice.2",
+      "next": "day11_auditor_gone",
+      "require": [
+        { "type": "flag", "key": "under_audit" }
+      ]
+    },
+    {
+      "text": "story.day11_morning.choice.3",
+      "next": "case_1052"
+    }
+  ]
+}

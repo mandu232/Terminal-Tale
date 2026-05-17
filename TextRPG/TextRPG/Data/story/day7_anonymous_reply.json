@@ -1,0 +1,20 @@
+{
+  "id": "day7_anonymous_reply",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day7_anonymous_reply.0",
+    "story.day7_anonymous_reply.1",
+    "story.day7_anonymous_reply.2",
+    "story.day7_anonymous_reply.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice", "value": 2 },
+    { "type": "flag_add", "key": "network_active" }
+  ],
+  "choices": [
+    {
+      "text": "story.day7_anonymous_reply.choice.0",
+      "next": "case_1048"
+    }
+  ]
+}

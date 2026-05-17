@@ -1,0 +1,25 @@
+{
+  "id": "day14_network_report",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.day14_network_report.0",
+    "story.day14_network_report.1",
+    "story.day14_network_report.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.day14_network_report.choice.0",
+      "next": "day14_network_accept",
+      "require": [
+        { "type": "tendency", "key": "justice", "op": "gte", "value": 15 }
+      ]
+    },
+    {
+      "text": "story.day14_network_report.choice.1",
+      "next": "case_1055"
+    }
+  ]
+}

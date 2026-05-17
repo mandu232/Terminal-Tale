@@ -1,0 +1,22 @@
+{
+  "id": "case_1055_protect",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.case_1055_protect.0",
+    "story.case_1055_protect.1",
+    "story.case_1055_protect.2",
+    "story.case_1055_protect.3"
+  ],
+  "effects": [
+    { "type": "corruption",                   "value": 20 },
+    { "type": "tendency", "key": "justice",   "value":  8 },
+    { "type": "tendency", "key": "suspicion", "value":  5 },
+    { "type": "flag_add", "key": "journalist_protected" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "day14_end_act3"
+    }
+  ]
+}

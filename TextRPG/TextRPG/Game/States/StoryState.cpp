@@ -101,6 +101,9 @@ void StoryState::Enter()
 	if ( !currentNode.bgm.empty() )
 		context.sound.PlayBGM(currentNode.bgm);
 
+	if ( !currentNode.sfx.empty() )
+		context.sound.PlaySE(currentNode.sfx);
+
 	BuildLeftPanel();
 	BuildRightPanel();
 	RebuildCenter();
@@ -213,6 +216,9 @@ void StoryState::NavigateTo(const std::string& nodeId)
 	if ( !currentNode.bgm.empty() )
 		context.sound.PlayBGM(currentNode.bgm);
 
+	if ( !currentNode.sfx.empty() )
+		context.sound.PlaySE(currentNode.sfx);
+
 	uiManager.Clear();
 	BuildLeftPanel();
 	BuildRightPanel();
@@ -273,6 +279,15 @@ void StoryState::RebuildCenter()
 				if ( --pendingTypewriters == 0 )
 					SpawnChoices();
 			};
+
+		// 일반 재생 시에만 타자 효과음 연결 (resuming 시엔 무음)
+		if ( !resuming )
+		{
+			tw->onChar = [ this ] ()
+				{
+					context.sound.PlayTypewriterSE("Assets/audio/ui_typewriter_click.wav");
+				};
+		}
 
 		uiManager.Add(std::move(tw));
 		y += Layout::RowH;

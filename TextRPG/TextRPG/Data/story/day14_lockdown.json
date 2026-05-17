@@ -1,0 +1,20 @@
+{
+  "id": "day14_lockdown",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day14_lockdown.0",
+    "story.day14_lockdown.1",
+    "story.day14_lockdown.2",
+    "story.day14_lockdown.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 3 },
+    { "type": "flag_add", "key": "evidence_locked_down" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1055"
+    }
+  ]
+}

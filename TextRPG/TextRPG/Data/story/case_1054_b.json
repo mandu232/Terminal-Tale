@@ -1,0 +1,20 @@
+{
+  "id": "case_1054_b",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.case_1054_b.0",
+    "story.case_1054_b.1",
+    "story.case_1054_b.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 3 },
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "corruption",                   "value": 8 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "day13_end"
+    }
+  ]
+}

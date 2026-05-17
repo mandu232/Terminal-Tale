@@ -1,0 +1,22 @@
+{
+  "id": "case_1046_f",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.case_1046_f.0",
+    "story.case_1046_f.1",
+    "story.case_1046_f.2",
+    "story.case_1046_f.3"
+  ],
+  "effects": [
+    { "type": "corruption",     "value":  15 },
+    { "type": "tendency", "key": "justice",   "value": 5 },
+    { "type": "tendency", "key": "suspicion", "value": 4 },
+    { "type": "flag_add", "key": "evidence_passed_on" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "day5_end_revelation"
+    }
+  ]
+}

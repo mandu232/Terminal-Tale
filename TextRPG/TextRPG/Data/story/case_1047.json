@@ -1,0 +1,35 @@
+{
+  "id": "case_1047",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.case_1047.0",
+    "story.case_1047.1",
+    "story.case_1047.2",
+    "story.case_1047.3",
+    "story.case_1047.4"
+  ],
+  "choices": [
+    {
+      "text": "story.case_1047.choice.0",
+      "next": "case_1047_a"
+    },
+    {
+      "text": "story.case_1047.choice.1",
+      "next": "case_1047_b"
+    },
+    {
+      "text": "story.case_1047.choice.2",
+      "next": "case_1047_c",
+      "require": [
+        { "type": "flag", "key": "knows_true_reason" }
+      ]
+    },
+    {
+      "text": "story.case_1047.choice.3",
+      "next": "case_1047_d",
+      "require": [
+        { "type": "flag", "key": "connected_evidence" }
+      ]
+    }
+  ]
+}

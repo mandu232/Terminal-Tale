@@ -1,0 +1,36 @@
+{
+  "id": "day5_morning",
+  "text": [
+    "story.day5_morning.0",
+    "story.day5_morning.1",
+    "story.day5_morning.2",
+    "story.day5_morning.3"
+  ],
+  "choices": [
+    {
+      "text": "story.day5_morning.choice.0",
+      "next": "day5_docs_check",
+      "require": [
+        { "type": "flag", "key": "has_classified_docs" }
+      ]
+    },
+    {
+      "text": "story.day5_morning.choice.1",
+      "next": "day5_informant_news",
+      "require": [
+        { "type": "flag", "key": "met_informant" }
+      ]
+    },
+    {
+      "text": "story.day5_morning.choice.2",
+      "next": "day5_followed",
+      "require": [
+        { "type": "flag", "key": "watched_by_system" }
+      ]
+    },
+    {
+      "text": "story.day5_morning.choice.3",
+      "next": "case_1046"
+    }
+  ]
+}

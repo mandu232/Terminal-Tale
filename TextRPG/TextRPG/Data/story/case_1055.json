@@ -1,0 +1,35 @@
+{
+  "id": "case_1055",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.case_1055.0",
+    "story.case_1055.1",
+    "story.case_1055.2",
+    "story.case_1055.3"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.case_1055.choice.0",
+      "next": "case_1055_a"
+    },
+    {
+      "text": "story.case_1055.choice.1",
+      "next": "case_1055_b"
+    },
+    {
+      "text": "story.case_1055.choice.2",
+      "next": "case_1055_c",
+      "require": [
+        { "type": "flag", "key": "has_original_report" }
+      ]
+    },
+    {
+      "text": "story.case_1055.choice.3",
+      "next": "case_1055_d",
+      "require": [
+        { "type": "flag", "key": "press_connection_approved" }
+      ]
+    }
+  ]
+}

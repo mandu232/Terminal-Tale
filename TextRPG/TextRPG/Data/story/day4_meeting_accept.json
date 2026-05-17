@@ -1,5 +1,6 @@
 {
   "id": "day4_meeting_accept",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
   "text": [
     "story.day4_meeting_accept.0",
     "story.day4_meeting_accept.1",

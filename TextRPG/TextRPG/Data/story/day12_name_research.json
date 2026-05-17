@@ -1,0 +1,19 @@
+{
+  "id": "day12_name_research",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.day12_name_research.0",
+    "story.day12_name_research.1",
+    "story.day12_name_research.2",
+    "story.day12_name_research.3"
+  ],
+  "effects": [
+    { "type": "flag_add", "key": "knows_authorizer_identity" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1053"
+    }
+  ]
+}

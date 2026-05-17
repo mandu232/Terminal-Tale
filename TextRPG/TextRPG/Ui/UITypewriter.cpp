@@ -70,6 +70,14 @@ void UITypewriter::Update(float deltaTime)
 		accumulator -= static_cast< float >( newChars );    // 소수점 이월
 		visibleChars += newChars;
 
+		// 효과음: kSoundInterval(50ms)마다 최대 1회 재생
+		soundTimer += deltaTime;
+		if ( onChar && soundTimer >= kSoundInterval )
+		{
+			soundTimer = 0.f;
+			onChar();
+		}
+
 		if ( visibleChars >= totalChars )
 		{
 			visibleChars = totalChars;

@@ -12,7 +12,7 @@
   "choices": [
     {
       "text": "story.day_end.choice.0",
-      "next": "case_1042"
+      "next": "day5_morning"
     }
   ]
 }

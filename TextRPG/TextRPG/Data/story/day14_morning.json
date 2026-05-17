@@ -1,0 +1,37 @@
+{
+  "id": "day14_morning",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day14_morning.0",
+    "story.day14_morning.1",
+    "story.day14_morning.2"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day14_morning.choice.0",
+      "next": "day14_jaewon_contact",
+      "require": [
+        { "type": "flag", "key": "former_insider_protected" }
+      ]
+    },
+    {
+      "text": "story.day14_morning.choice.1",
+      "next": "day14_lockdown",
+      "require": [
+        { "type": "flag", "key": "evidence_access_attempted" }
+      ]
+    },
+    {
+      "text": "story.day14_morning.choice.2",
+      "next": "day14_network_report",
+      "require": [
+        { "type": "flag", "key": "network_request_accepted" }
+      ]
+    },
+    {
+      "text": "story.day14_morning.choice.3",
+      "next": "case_1055"
+    }
+  ]
+}

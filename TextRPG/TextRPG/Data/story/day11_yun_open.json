@@ -1,0 +1,21 @@
+{
+  "id": "day11_yun_open",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day11_yun_open.0",
+    "story.day11_yun_open.1",
+    "story.day11_yun_open.2",
+    "story.day11_yun_open.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 2 },
+    { "type": "tendency", "key": "suspicion", "value": 1 },
+    { "type": "flag_add", "key": "has_yun_archive" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1052"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "day8_commendation",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day8_commendation.0",
+    "story.day8_commendation.1",
+    "story.day8_commendation.2",
+    "story.day8_commendation.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "compliance", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1049"
+    }
+  ]
+}

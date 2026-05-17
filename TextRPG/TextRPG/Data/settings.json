@@ -3,7 +3,7 @@
     "bgmVolume": 30,
     "fullScreen": true,
     "language": "ko",
-    "masterVolume": 15,
+    "masterVolume": 75,
     "sfxVolume": 100,
     "showFPS": false,
     "targetFPS": 15,

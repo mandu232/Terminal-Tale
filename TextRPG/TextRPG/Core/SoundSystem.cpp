@@ -9,15 +9,22 @@ void SoundSystem::Init()
     ma_engine_init(NULL, &engine);
     ma_sound_group_init(&engine, 0, NULL, &bgmGroup);
     ma_sound_group_init(&engine, 0, NULL, &sfxGroup);
+    ma_sound_group_init(&engine, 0, NULL, &typewriterGroup);
 
     ma_engine_set_volume(&engine, masterVolume);
     ma_sound_group_set_volume(&bgmGroup, bgmVolume);
     ma_sound_group_set_volume(&sfxGroup, sfxVolume);
+    ma_sound_group_set_volume(&typewriterGroup, sfxVolume * 0.35f);
 }
 
 void SoundSystem::PlaySE(const std::string& path)
 {
     ma_engine_play_sound(&engine, path.c_str(), &sfxGroup);
+}
+
+void SoundSystem::PlayTypewriterSE(const std::string& path)
+{
+    ma_engine_play_sound(&engine, path.c_str(), &typewriterGroup);
 }
 
 void SoundSystem::PlayBGM(const std::string& path)
@@ -70,6 +77,7 @@ void SoundSystem::SetSFXVolume(float volume)
 {
     sfxVolume = std::clamp(volume, 0.0f, 1.0f);
     ma_sound_group_set_volume(&sfxGroup, sfxVolume);
+    ma_sound_group_set_volume(&typewriterGroup, sfxVolume * 0.25f);
 }
 
 float SoundSystem::GetMasterVolume() const { return masterVolume; }

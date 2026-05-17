@@ -9,23 +9,14 @@
 //  UITypewriter
 //
 //  UILabel과 동일한 레이아웃(줄바꿈·정렬)을 유지하면서,
-//  Update(int fps)가 호출될 때마다 FPS에 무관하게
-//  일정한 속도로 글자를 출력합니다.
+//  FPS와 분리되어 작동(프레임에 따른 출력 속도 차이 최소화)
 //
 //  ── 속도 단계 (speed 1~5) ──────────────────
-//   1 : 느림   ~  6 글자/초   (극적인 연출)
+//   1 : 느림   ~  6 글자/초
 //   2 : 보통   ~ 12 글자/초
-//   3 : 기본   ~ 20 글자/초   (권장 기본값)
+//   3 : 기본   ~ 20 글자/초 //가장 기본적인 값
 //   4 : 빠름   ~ 35 글자/초
 //   5 : 매우빠름~ 60 글자/초
-//
-//  ── 프레임 독립 원리 ────────────────────────
-//   deltaTime = 1.0f / fps
-//   accumulator += deltaTime × charsPerSec
-//   → FPS 가 달라져도 초당 출력 글자 수는 동일
-//
-//  StoryState::RebuildCenter()에서 UILabel →
-//  UITypewriter 드롭인 교체가 가능합니다.
 // ─────────────────────────────────────────────
 class UITypewriter : public UIElement
 {
@@ -65,6 +56,7 @@ public:
     bool IsFinished() const;
 
     std::function<void()> onComplete;   // 출력 완료 시 호출
+    std::function<void()> onChar;       // 글자가 새로 출력될 때 호출 (효과음 등)
 
 private:
     // 레이아웃
@@ -83,9 +75,13 @@ private:
     // 타이핑 상태
     float charsPerSec  = kSpeedTable[2]; // speed 3 기본값
     float accumulator  = 0.f;            // 소수점 글자 누적
-    int   visibleChars = 0;              // 현재 보여줄 글자 수
+    int   visibleChars = 0;              // 줄력 중인 글자 수
     int   totalChars   = 0;              // 전체 글자 수
     bool  finished     = false;
+
+    // 효과음 재생 제한 (최대 20회/초)
+    static constexpr float kSoundInterval = 0.05f;
+    float soundTimer   = kSoundInterval;  // 출력 가능 여부
 
     // 내부 헬퍼
     void  RebuildLayout();

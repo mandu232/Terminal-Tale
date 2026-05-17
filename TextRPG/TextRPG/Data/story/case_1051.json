@@ -1,0 +1,32 @@
+{
+  "id": "case_1051",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.case_1051.0",
+    "story.case_1051.1",
+    "story.case_1051.2",
+    "story.case_1051.3",
+    "story.case_1051.4"
+  ],
+  "choices": [
+    {
+      "text": "story.case_1051.choice.0",
+      "next": "case_1051_a"
+    },
+    {
+      "text": "story.case_1051.choice.1",
+      "next": "case_1051_b"
+    },
+    {
+      "text": "story.case_1051.choice.2",
+      "next": "case_1051_c"
+    },
+    {
+      "text": "story.case_1051.choice.3",
+      "next": "case_1051_d",
+      "require": [
+        { "type": "flag", "key": "understands_algorithm" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "day6_summons_back",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day6_summons_back.0",
+    "story.day6_summons_back.1",
+    "story.day6_summons_back.2",
+    "story.day6_summons_back.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion",  "value": 2 },
+    { "type": "tendency", "key": "compliance", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1047"
+    }
+  ]
+}

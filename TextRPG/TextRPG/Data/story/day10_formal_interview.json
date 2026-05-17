@@ -1,0 +1,27 @@
+{
+  "id": "day10_formal_interview",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day10_formal_interview.0",
+    "story.day10_formal_interview.1",
+    "story.day10_formal_interview.2",
+    "story.day10_formal_interview.3"
+  ],
+  "choices": [
+    {
+      "text": "story.day10_formal_interview.choice.0",
+      "next": "case_1051"
+    },
+    {
+      "text": "story.day10_formal_interview.choice.1",
+      "next": "case_1051"
+    },
+    {
+      "text": "story.day10_formal_interview.choice.2",
+      "next": "day10_interview_push",
+      "require": [
+        { "type": "tendency", "key": "suspicion", "op": "gte", "value": 15 }
+      ]
+    }
+  ]
+}

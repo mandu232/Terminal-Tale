@@ -1,0 +1,27 @@
+{
+  "id": "day11_yun_approach",
+  "sfx": "Assets/audio/node_footstep.wav",
+  "text": [
+    "story.day11_yun_approach.0",
+    "story.day11_yun_approach.1",
+    "story.day11_yun_approach.2",
+    "story.day11_yun_approach.3"
+  ],
+  "choices": [
+    {
+      "text": "story.day11_yun_approach.choice.0",
+      "next": "day11_yun_cautious"
+    },
+    {
+      "text": "story.day11_yun_approach.choice.1",
+      "next": "day11_yun_open"
+    },
+    {
+      "text": "story.day11_yun_approach.choice.2",
+      "next": "day11_yun_ally",
+      "require": [
+        { "type": "flag", "key": "protected_dissenter" }
+      ]
+    }
+  ]
+}

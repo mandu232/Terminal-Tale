@@ -1,5 +1,6 @@
 {
   "id": "day3_end_pending",
+  "sfx": "Assets/audio/node_alert.wav",
   "text": [
     "story.day3_end_pending.0",
     "story.day3_end_pending.1",

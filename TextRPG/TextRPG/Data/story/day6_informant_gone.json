@@ -1,0 +1,20 @@
+{
+  "id": "day6_informant_gone",
+  "sfx": "Assets/audio/node_footstep.wav",
+  "text": [
+    "story.day6_informant_gone.0",
+    "story.day6_informant_gone.1",
+    "story.day6_informant_gone.2",
+    "story.day6_informant_gone.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "tendency", "key": "justice",   "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1047"
+    }
+  ]
+}

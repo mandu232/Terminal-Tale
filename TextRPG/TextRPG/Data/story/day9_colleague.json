@@ -1,0 +1,27 @@
+{
+  "id": "day9_colleague",
+  "sfx": "Assets/audio/node_footstep.wav",
+  "text": [
+    "story.day9_colleague.0",
+    "story.day9_colleague.1",
+    "story.day9_colleague.2",
+    "story.day9_colleague.3"
+  ],
+  "choices": [
+    {
+      "text": "story.day9_colleague.choice.0",
+      "next": "case_1050"
+    },
+    {
+      "text": "story.day9_colleague.choice.1",
+      "next": "day9_colleague_end"
+    },
+    {
+      "text": "story.day9_colleague.choice.2",
+      "next": "day9_colleague_ally",
+      "require": [
+        { "type": "tendency", "key": "justice", "op": "gte", "value": 12 }
+      ]
+    }
+  ]
+}

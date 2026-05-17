@@ -1,0 +1,21 @@
+{
+  "id": "day12_end_expose",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day12_end_expose.0",
+    "story.day12_end_expose.1",
+    "story.day12_end_expose.2",
+    "story.day12_end_expose.3"
+  ],
+  "effects": [
+    { "type": "day",      "value": 1 },
+    { "type": "set_time", "value": 8 },
+    { "type": "tendency", "key": "suspicion", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.day_end.choice.0",
+      "next": "day13_morning"
+    }
+  ]
+}

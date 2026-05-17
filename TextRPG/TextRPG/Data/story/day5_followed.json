@@ -1,0 +1,18 @@
+{
+  "id": "day5_followed",
+  "text": [
+    "story.day5_followed.0",
+    "story.day5_followed.1",
+    "story.day5_followed.2",
+    "story.day5_followed.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1046"
+    }
+  ]
+}

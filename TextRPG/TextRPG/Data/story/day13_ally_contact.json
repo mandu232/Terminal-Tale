@@ -1,0 +1,19 @@
+{
+  "id": "day13_ally_contact",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day13_ally_contact.0",
+    "story.day13_ally_contact.1",
+    "story.day13_ally_contact.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice", "value": 1 },
+    { "type": "flag_add", "key": "has_new_contact_hint" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1054"
+    }
+  ]
+}

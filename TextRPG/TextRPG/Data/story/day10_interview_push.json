@@ -1,0 +1,20 @@
+{
+  "id": "day10_interview_push",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day10_interview_push.0",
+    "story.day10_interview_push.1",
+    "story.day10_interview_push.2",
+    "story.day10_interview_push.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "tendency", "key": "justice",   "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1051"
+    }
+  ]
+}

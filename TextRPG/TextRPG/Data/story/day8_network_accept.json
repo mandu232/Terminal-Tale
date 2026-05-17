@@ -1,0 +1,21 @@
+{
+  "id": "day8_network_accept",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day8_network_accept.0",
+    "story.day8_network_accept.1",
+    "story.day8_network_accept.2",
+    "story.day8_network_accept.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 2 },
+    { "type": "corruption", "value": 5 },
+    { "type": "flag_add", "key": "network_request_accepted" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1049"
+    }
+  ]
+}

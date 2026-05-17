@@ -1,0 +1,22 @@
+{
+  "id": "day14_jaewon_meet",
+  "sfx": "Assets/audio/node_footstep.wav",
+  "text": [
+    "story.day14_jaewon_meet.0",
+    "story.day14_jaewon_meet.1",
+    "story.day14_jaewon_meet.2",
+    "story.day14_jaewon_meet.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 3 },
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "corruption",                   "value": 10 },
+    { "type": "flag_add", "key": "has_original_report" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1055"
+    }
+  ]
+}

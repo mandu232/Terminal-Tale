@@ -1,0 +1,21 @@
+{
+  "id": "day12_auditor_react_reveal",
+  "sfx": "Assets/audio/node_footstep.wav",
+  "text": [
+    "story.day12_auditor_react_reveal.0",
+    "story.day12_auditor_react_reveal.1",
+    "story.day12_auditor_react_reveal.2",
+    "story.day12_auditor_react_reveal.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",    "value": 1 },
+    { "type": "tendency", "key": "suspicion",  "value": 2 },
+    { "type": "flag_add", "key": "auditor_revealed" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1053"
+    }
+  ]
+}

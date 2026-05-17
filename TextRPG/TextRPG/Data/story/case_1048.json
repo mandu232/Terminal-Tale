@@ -1,0 +1,35 @@
+{
+  "id": "case_1048",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.case_1048.0",
+    "story.case_1048.1",
+    "story.case_1048.2",
+    "story.case_1048.3",
+    "story.case_1048.4"
+  ],
+  "choices": [
+    {
+      "text": "story.case_1048.choice.0",
+      "next": "case_1048_a"
+    },
+    {
+      "text": "story.case_1048.choice.1",
+      "next": "case_1048_b"
+    },
+    {
+      "text": "story.case_1048.choice.2",
+      "next": "case_1048_c",
+      "require": [
+        { "type": "flag", "key": "case_fully_exposed" }
+      ]
+    },
+    {
+      "text": "story.case_1048.choice.3",
+      "next": "case_1048_d",
+      "require": [
+        { "type": "flag", "key": "connected_evidence" }
+      ]
+    }
+  ]
+}

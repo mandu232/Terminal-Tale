@@ -1,0 +1,37 @@
+{
+  "id": "day6_morning",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day6_morning.0",
+    "story.day6_morning.1",
+    "story.day6_morning.2",
+    "story.day6_morning.3"
+  ],
+  "choices": [
+    {
+      "text": "story.day6_morning.choice.0",
+      "next": "day6_summons",
+      "require": [
+        { "type": "tendency", "key": "suspicion", "op": "gte", "value": 7 }
+      ]
+    },
+    {
+      "text": "story.day6_morning.choice.1",
+      "next": "day6_audit",
+      "require": [
+        { "type": "flag", "key": "searched_classified" }
+      ]
+    },
+    {
+      "text": "story.day6_morning.choice.2",
+      "next": "day6_informant_gone",
+      "require": [
+        { "type": "flag", "key": "informant_compromised" }
+      ]
+    },
+    {
+      "text": "story.day6_morning.choice.3",
+      "next": "case_1047"
+    }
+  ]
+}

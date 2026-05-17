@@ -1,0 +1,20 @@
+{
+  "id": "day6_end",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day6_end.0",
+    "story.day6_end.1",
+    "story.day6_end.2",
+    "story.day6_end.3"
+  ],
+  "effects": [
+    { "type": "day",      "value": 1 },
+    { "type": "set_time", "value": 8 }
+  ],
+  "choices": [
+    {
+      "text": "story.day_end.choice.0",
+      "next": "day7_morning"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "day11_auditor_gone",
+  "sfx": "Assets/audio/node_footstep.wav",
+  "text": [
+    "story.day11_auditor_gone.0",
+    "story.day11_auditor_gone.1",
+    "story.day11_auditor_gone.2",
+    "story.day11_auditor_gone.3"
+  ],
+  "choices": [
+    {
+      "text": "story.day11_auditor_gone.choice.0",
+      "next": "case_1052"
+    },
+    {
+      "text": "story.day11_auditor_gone.choice.1",
+      "next": "day11_auditor_notes",
+      "require": [
+        { "type": "tendency", "key": "justice", "op": "gte", "value": 12 }
+      ]
+    }
+  ]
+}

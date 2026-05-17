@@ -1,0 +1,22 @@
+{
+  "id": "case_1046_e",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.case_1046_e.0",
+    "story.case_1046_e.1",
+    "story.case_1046_e.2",
+    "story.case_1046_e.3"
+  ],
+  "effects": [
+    { "type": "corruption",     "value":  12 },
+    { "type": "tendency", "key": "justice",   "value": 3 },
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "flag_add", "key": "has_whistleblower_docs" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "day5_end_revelation"
+    }
+  ]
+}

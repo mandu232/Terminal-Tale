@@ -1,0 +1,19 @@
+{
+  "id": "day6_audit",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day6_audit.0",
+    "story.day6_audit.1",
+    "story.day6_audit.2",
+    "story.day6_audit.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 3 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1047"
+    }
+  ]
+}

@@ -68,6 +68,7 @@ StoryNode StoryLoader::Load(const std::string& path)
 	node.id      = j[ "id" ];
 	node.bgImage = j.value("bgImage", "Data/Images/Story/default.png");
 	node.bgm     = j.value("bgm"    , "");
+	node.sfx     = j.value("sfx"    , "");
 
 	for ( auto& line : j[ "text" ] )
 		node.texts.push_back(line);

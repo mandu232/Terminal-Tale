@@ -1,0 +1,32 @@
+{
+  "id": "case_1051_d",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.case_1051_d.0",
+    "story.case_1051_d.1",
+    "story.case_1051_d.2",
+    "story.case_1051_d.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 3 },
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "flag_add", "key": "found_internal_dissenter" }
+  ],
+  "choices": [
+    {
+      "text": "story.case_1051_d.choice.0",
+      "next": "case_1051_a"
+    },
+    {
+      "text": "story.case_1051_d.choice.1",
+      "next": "case_1051_b"
+    },
+    {
+      "text": "story.case_1051_d.choice.2",
+      "next": "case_1051_protect",
+      "require": [
+        { "type": "tendency", "key": "justice", "op": "gte", "value": 12 }
+      ]
+    }
+  ]
+}

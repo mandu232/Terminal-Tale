@@ -1,0 +1,28 @@
+{
+  "id": "case_1049",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.case_1049.0",
+    "story.case_1049.1",
+    "story.case_1049.2",
+    "story.case_1049.3",
+    "story.case_1049.4"
+  ],
+  "choices": [
+    {
+      "text": "story.case_1049.choice.0",
+      "next": "case_1049_a"
+    },
+    {
+      "text": "story.case_1049.choice.1",
+      "next": "case_1049_b"
+    },
+    {
+      "text": "story.case_1049.choice.2",
+      "next": "case_1049_c",
+      "require": [
+        { "type": "tendency", "key": "justice", "op": "gte", "value": 8 }
+      ]
+    }
+  ]
+}

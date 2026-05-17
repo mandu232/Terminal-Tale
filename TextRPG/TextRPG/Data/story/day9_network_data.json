@@ -1,0 +1,22 @@
+{
+  "id": "day9_network_data",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.day9_network_data.0",
+    "story.day9_network_data.1",
+    "story.day9_network_data.2",
+    "story.day9_network_data.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 2 },
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "corruption", "value": 5 },
+    { "type": "flag_add", "key": "has_command_structure" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1050"
+    }
+  ]
+}

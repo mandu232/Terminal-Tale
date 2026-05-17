@@ -1,0 +1,22 @@
+{
+  "id": "day6_summons_reveal",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.day6_summons_reveal.0",
+    "story.day6_summons_reveal.1",
+    "story.day6_summons_reveal.2",
+    "story.day6_summons_reveal.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 5 },
+    { "type": "tendency", "key": "suspicion", "value": 5 },
+    { "type": "corruption", "value": 10 },
+    { "type": "flag_add", "key": "evidence_submitted" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1047"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "day5_informant_news",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day5_informant_news.0",
+    "story.day5_informant_news.1",
+    "story.day5_informant_news.2",
+    "story.day5_informant_news.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "flag_add", "key": "informant_compromised" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.return_to_desk",
+      "next": "case_1046"
+    }
+  ]
+}

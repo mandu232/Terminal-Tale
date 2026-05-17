@@ -1,0 +1,26 @@
+{
+  "id": "day8_network_message",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day8_network_message.0",
+    "story.day8_network_message.1",
+    "story.day8_network_message.2",
+    "story.day8_network_message.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.day8_network_message.choice.0",
+      "next": "day8_network_accept",
+      "require": [
+        { "type": "tendency", "key": "justice", "op": "gte", "value": 10 }
+      ]
+    },
+    {
+      "text": "story.day8_network_message.choice.1",
+      "next": "case_1049"
+    }
+  ]
+}
