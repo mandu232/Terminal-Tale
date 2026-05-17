@@ -1,0 +1,20 @@
+{
+  "id": "day25_audit_deadline",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day25_audit_deadline.0",
+    "story.day25_audit_deadline.1",
+    "story.day25_audit_deadline.2"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day25_audit_deadline.choice.0",
+      "next": "day25_audit_defied"
+    },
+    {
+      "text": "story.day25_audit_deadline.choice.1",
+      "next": "day25_audit_comply"
+    }
+  ]
+}

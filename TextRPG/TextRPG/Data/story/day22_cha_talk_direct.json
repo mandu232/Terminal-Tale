@@ -1,0 +1,20 @@
+{
+  "id": "day22_cha_talk_direct",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day22_cha_talk_direct.0",
+    "story.day22_cha_talk_direct.1",
+    "story.day22_cha_talk_direct.2",
+    "story.day22_cha_talk_direct.3"
+  ],
+  "effects": [
+    { "type": "flag_add", "key": "cha_made_offer" },
+    { "type": "tendency", "key": "suspicion", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1063"
+    }
+  ]
+}

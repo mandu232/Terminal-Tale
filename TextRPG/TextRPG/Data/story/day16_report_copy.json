@@ -1,0 +1,19 @@
+{
+  "id": "day16_report_copy",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.day16_report_copy.0",
+    "story.day16_report_copy.1",
+    "story.day16_report_copy.2"
+  ],
+  "effects": [
+    { "type": "corruption",  "value": 5 },
+    { "type": "flag_add", "key": "report_distributed" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1057"
+    }
+  ]
+}

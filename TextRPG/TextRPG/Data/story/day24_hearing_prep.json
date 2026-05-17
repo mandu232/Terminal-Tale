@@ -1,0 +1,19 @@
+{
+  "id": "day24_hearing_prep",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day24_hearing_prep.0",
+    "story.day24_hearing_prep.1",
+    "story.day24_hearing_prep.2",
+    "story.day24_hearing_prep.3"
+  ],
+  "effects": [
+    { "type": "flag_add", "key": "testimony_ready" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1065"
+    }
+  ]
+}

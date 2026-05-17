@@ -1,0 +1,21 @@
+{
+  "id": "day16_end_escalate",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day16_end_escalate.0",
+    "story.day16_end_escalate.1",
+    "story.day16_end_escalate.2",
+    "story.day16_end_escalate.3"
+  ],
+  "effects": [
+    { "type": "day",      "value": 1 },
+    { "type": "set_time", "value": 8 },
+    { "type": "tendency", "key": "suspicion", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.day_end.choice.0",
+      "next": "day17_morning"
+    }
+  ]
+}

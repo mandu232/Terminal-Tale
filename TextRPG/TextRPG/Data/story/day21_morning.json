@@ -1,0 +1,37 @@
+{
+  "id": "day21_morning",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day21_morning.0",
+    "story.day21_morning.1",
+    "story.day21_morning.2"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day21_morning.choice.0",
+      "next": "day21_jaeho_final",
+      "require": [
+        { "type": "flag", "key": "audit_author_protected" }
+      ]
+    },
+    {
+      "text": "story.day21_morning.choice.1",
+      "next": "day21_article_response",
+      "require": [
+        { "type": "flag", "key": "third_article_published" }
+      ]
+    },
+    {
+      "text": "story.day21_morning.choice.2",
+      "next": "day21_yun_return",
+      "require": [
+        { "type": "flag", "key": "yun_alive_confirmed" }
+      ]
+    },
+    {
+      "text": "story.day21_morning.choice.3",
+      "next": "case_1062"
+    }
+  ]
+}

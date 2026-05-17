@@ -1,0 +1,20 @@
+{
+  "id": "day24_audit_pressure",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day24_audit_pressure.0",
+    "story.day24_audit_pressure.1",
+    "story.day24_audit_pressure.2",
+    "story.day24_audit_pressure.3"
+  ],
+  "effects": [
+    { "type": "flag_add", "key": "player_file_accessed" },
+    { "type": "tendency", "key": "suspicion", "value": 5 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1065"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "day25_morning",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day25_morning.0",
+    "story.day25_morning.1",
+    "story.day25_morning.2"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day25_morning.choice.0",
+      "next": "day25_hearing_open",
+      "require": [
+        { "type": "flag", "key": "testimony_ready" }
+      ]
+    },
+    {
+      "text": "story.day25_morning.choice.1",
+      "next": "day25_evidence_submit",
+      "require": [
+        { "type": "flag", "key": "cha_pattern_documented" }
+      ]
+    },
+    {
+      "text": "story.day25_morning.choice.2",
+      "next": "day25_audit_deadline",
+      "require": [
+        { "type": "flag", "key": "player_file_accessed" }
+      ]
+    },
+    {
+      "text": "story.day25_morning.choice.3",
+      "next": "case_1066"
+    }
+  ]
+}

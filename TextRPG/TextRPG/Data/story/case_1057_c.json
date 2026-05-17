@@ -1,0 +1,47 @@
+﻿{
+    "id":  "case_1057_c",
+    "sfx":  "Assets/audio/node_paper_crunch.wav",
+    "text":  [
+                 "story.case_1057_c.0",
+                 "story.case_1057_c.1",
+                 "story.case_1057_c.2",
+                 "story.case_1057_c.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1057_c.choice.0",
+                        "next":  "case_1057_protect"
+                    },
+                    {
+                        "text":  "story.case_1057_c.choice.1",
+                        "next":  "case_1057_a"
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1057",
+                        "title":  "story.case_1057.0",
+                        "outcome":  "story.case_1057.choice.2",
+                        "content":  "story.case_1057_c.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  4
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  2
+                    },
+                    {
+                        "type":  "corruption",
+                        "value":  10
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "found_legal_resistance"
+                    }
+                ]
+}

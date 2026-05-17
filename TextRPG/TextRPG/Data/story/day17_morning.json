@@ -1,0 +1,37 @@
+{
+  "id": "day17_morning",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day17_morning.0",
+    "story.day17_morning.1",
+    "story.day17_morning.2"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day17_morning.choice.0",
+      "next": "day17_article_published",
+      "require": [
+        { "type": "flag", "key": "press_article_incoming" }
+      ]
+    },
+    {
+      "text": "story.day17_morning.choice.1",
+      "next": "day17_seonah_message",
+      "require": [
+        { "type": "flag", "key": "lawyer_protected" }
+      ]
+    },
+    {
+      "text": "story.day17_morning.choice.2",
+      "next": "day17_distribution_check",
+      "require": [
+        { "type": "flag", "key": "report_distributed" }
+      ]
+    },
+    {
+      "text": "story.day17_morning.choice.3",
+      "next": "case_1058"
+    }
+  ]
+}

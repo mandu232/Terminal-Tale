@@ -1,0 +1,42 @@
+﻿{
+    "id":  "case_1058_a",
+    "sfx":  "Assets/audio/node_paper.wav",
+    "text":  [
+                 "story.case_1058_a.0",
+                 "story.case_1058_a.1",
+                 "story.case_1058_a.2",
+                 "story.case_1058_a.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.common.next_case",
+                        "next":  "day17_end"
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1058",
+                        "title":  "story.case_1058.0",
+                        "outcome":  "story.case_1058.choice.0",
+                        "content":  "story.case_1058_a.0"
+                    },
+                    {
+                        "type":  "city_order",
+                        "value":  5
+                    },
+                    {
+                        "type":  "citizen_trust",
+                        "value":  -20
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "coldness",
+                        "value":  5
+                    },
+                    {
+                        "type":  "corruption",
+                        "value":  5
+                    }
+                ]
+}

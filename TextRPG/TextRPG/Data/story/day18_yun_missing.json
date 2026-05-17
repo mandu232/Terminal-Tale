@@ -1,0 +1,21 @@
+{
+  "id": "day18_yun_missing",
+  "sfx": "Assets/audio/node_footstep.wav",
+  "text": [
+    "story.day18_yun_missing.0",
+    "story.day18_yun_missing.1",
+    "story.day18_yun_missing.2",
+    "story.day18_yun_missing.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 1 },
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "flag_add", "key": "yun_missing" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1059"
+    }
+  ]
+}

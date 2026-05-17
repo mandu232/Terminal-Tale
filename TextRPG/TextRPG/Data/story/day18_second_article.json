@@ -1,0 +1,25 @@
+{
+  "id": "day18_second_article",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day18_second_article.0",
+    "story.day18_second_article.1",
+    "story.day18_second_article.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.day18_second_article.choice.0",
+      "next": "day18_article_data",
+      "require": [
+        { "type": "flag", "key": "legal_gap_exposed" }
+      ]
+    },
+    {
+      "text": "story.day18_second_article.choice.1",
+      "next": "case_1059"
+    }
+  ]
+}

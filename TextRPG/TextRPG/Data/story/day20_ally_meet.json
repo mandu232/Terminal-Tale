@@ -1,0 +1,22 @@
+{
+  "id": "day20_ally_meet",
+  "sfx": "Assets/audio/node_footstep.wav",
+  "text": [
+    "story.day20_ally_meet.0",
+    "story.day20_ally_meet.1",
+    "story.day20_ally_meet.2",
+    "story.day20_ally_meet.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 3 },
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "corruption",                   "value": 8 },
+    { "type": "flag_add", "key": "has_case_1038_info" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1061"
+    }
+  ]
+}

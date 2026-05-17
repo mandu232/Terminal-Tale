@@ -1,0 +1,23 @@
+{
+  "id": "day20_internal_ally",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day20_internal_ally.0",
+    "story.day20_internal_ally.1",
+    "story.day20_internal_ally.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice", "value": 2 },
+    { "type": "flag_add", "key": "internal_ally_contacted" }
+  ],
+  "choices": [
+    {
+      "text": "story.day20_internal_ally.choice.0",
+      "next": "day20_ally_meet"
+    },
+    {
+      "text": "story.day20_internal_ally.choice.1",
+      "next": "case_1061"
+    }
+  ]
+}

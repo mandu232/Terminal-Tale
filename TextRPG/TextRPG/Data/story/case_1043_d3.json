@@ -1,23 +1,38 @@
-{
-  "id": "case_1043_d3",
-  "text": [
-    "story.case_1043_d3.0",
-    "story.case_1043_d3.1",
-    "story.case_1043_d3.2",
-    "story.case_1043_d3.3"
-  ],
-  "effects": [
-    { "type": "tendency", "key": "compliance", "value": 1 },
-    { "type": "tendency", "key": "suspicion",  "value": 1 }
-  ],
-  "choices": [
-    {
-      "text": "story.case_1043_d3.choice.0",
-      "next": "case_1043_b"
-    },
-    {
-      "text": "story.case_1043_d3.choice.1",
-      "next": "case_1043_d4"
-    }
-  ]
+﻿{
+    "id":  "case_1043_d3",
+    "text":  [
+                 "story.case_1043_d3.0",
+                 "story.case_1043_d3.1",
+                 "story.case_1043_d3.2",
+                 "story.case_1043_d3.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1043_d3.choice.0",
+                        "next":  "case_1043_b"
+                    },
+                    {
+                        "text":  "story.case_1043_d3.choice.1",
+                        "next":  "case_1043_d4"
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1043",
+                        "title":  "story.case_1043.0",
+                        "outcome":  "story.case_1043_d2.choice.0",
+                        "content":  "story.case_1043_d3.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "compliance",
+                        "value":  1
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  1
+                    }
+                ]
 }

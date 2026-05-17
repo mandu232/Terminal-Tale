@@ -1,32 +1,55 @@
-{
-  "id": "case_1052_c",
-  "sfx": "Assets/audio/node_paper_crunch.wav",
-  "text": [
-    "story.case_1052_c.0",
-    "story.case_1052_c.1",
-    "story.case_1052_c.2",
-    "story.case_1052_c.3"
-  ],
-  "effects": [
-    { "type": "tendency", "key": "justice",   "value": 4 },
-    { "type": "tendency", "key": "suspicion", "value": 2 },
-    { "type": "flag_add", "key": "recognizes_dept_connection" }
-  ],
-  "choices": [
-    {
-      "text": "story.case_1052_c.choice.0",
-      "next": "case_1052_a"
-    },
-    {
-      "text": "story.case_1052_c.choice.1",
-      "next": "case_1052_b"
-    },
-    {
-      "text": "story.case_1052_c.choice.2",
-      "next": "case_1052_protect",
-      "require": [
-        { "type": "tendency", "key": "justice", "op": "gte", "value": 13 }
-      ]
-    }
-  ]
+﻿{
+    "id":  "case_1052_c",
+    "sfx":  "Assets/audio/node_paper_crunch.wav",
+    "text":  [
+                 "story.case_1052_c.0",
+                 "story.case_1052_c.1",
+                 "story.case_1052_c.2",
+                 "story.case_1052_c.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1052_c.choice.0",
+                        "next":  "case_1052_a"
+                    },
+                    {
+                        "text":  "story.case_1052_c.choice.1",
+                        "next":  "case_1052_b"
+                    },
+                    {
+                        "text":  "story.case_1052_c.choice.2",
+                        "next":  "case_1052_protect",
+                        "require":  [
+                                        {
+                                            "type":  "tendency",
+                                            "key":  "justice",
+                                            "op":  "gte",
+                                            "value":  13
+                                        }
+                                    ]
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1052",
+                        "title":  "story.case_1052.0",
+                        "outcome":  "story.case_1052.choice.2",
+                        "content":  "story.case_1052_c.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  4
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  2
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "recognizes_dept_connection"
+                    }
+                ]
 }

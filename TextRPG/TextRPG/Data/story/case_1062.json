@@ -1,0 +1,35 @@
+{
+  "id": "case_1062",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.case_1062.0",
+    "story.case_1062.1",
+    "story.case_1062.2",
+    "story.case_1062.3"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.case_1062.choice.0",
+      "next": "case_1062_a"
+    },
+    {
+      "text": "story.case_1062.choice.1",
+      "next": "case_1062_b"
+    },
+    {
+      "text": "story.case_1062.choice.2",
+      "next": "case_1062_c",
+      "require": [
+        { "type": "flag", "key": "has_authorizer_evidence" }
+      ]
+    },
+    {
+      "text": "story.case_1062.choice.3",
+      "next": "case_1062_d",
+      "require": [
+        { "type": "flag", "key": "has_case_1038_original" }
+      ]
+    }
+  ]
+}

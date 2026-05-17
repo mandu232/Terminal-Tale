@@ -1,20 +1,39 @@
-{
-  "id": "case_1051_b",
-  "text": [
-    "story.case_1051_b.0",
-    "story.case_1051_b.1",
-    "story.case_1051_b.2",
-    "story.case_1051_b.3"
-  ],
-  "effects": [
-    { "type": "tendency", "key": "justice",   "value": 2 },
-    { "type": "tendency", "key": "empathy",   "value": 2 },
-    { "type": "tendency", "key": "suspicion", "value": 1 }
-  ],
-  "choices": [
-    {
-      "text": "story.common.next_case",
-      "next": "day10_end"
-    }
-  ]
+﻿{
+    "id":  "case_1051_b",
+    "text":  [
+                 "story.case_1051_b.0",
+                 "story.case_1051_b.1",
+                 "story.case_1051_b.2",
+                 "story.case_1051_b.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.common.next_case",
+                        "next":  "day10_end"
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1051",
+                        "title":  "story.case_1051.0",
+                        "outcome":  "story.case_1051.choice.1",
+                        "content":  "story.case_1051_b.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  2
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "empathy",
+                        "value":  2
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  1
+                    }
+                ]
 }

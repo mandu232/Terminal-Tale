@@ -1,0 +1,21 @@
+{
+  "id": "day20_third_article",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day20_third_article.0",
+    "story.day20_third_article.1",
+    "story.day20_third_article.2",
+    "story.day20_third_article.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 3 },
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "flag_add", "key": "third_article_published" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1061"
+    }
+  ]
+}

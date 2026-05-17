@@ -37,8 +37,26 @@ void Context::AddJournal(const std::string& id,
 	}
 	else
 	{
-		journal.push_back({ id, title, content, player.day });
+		journal.push_back({ id, title, /*outcome=*/"", content, /*description=*/"", player.day });
 	}
+}
+
+// ── AddCaseRecord ─────────────────────────────────────────────────────────────
+void Context::AddCaseRecord(const std::string& id,
+                             const std::string& title,
+                             const std::string& outcome,
+                             const std::string& content,
+                             const std::string& description)
+{
+	auto it = std::find_if(journal.begin(), journal.end(),
+		[&id](const JournalEntry& e) { return e.id == id; });
+
+	JournalEntry entry{ id, title, outcome, content, description, player.day };
+
+	if (it != journal.end())
+		*it = entry;
+	else
+		journal.push_back(entry);
 }
 
 // ── ResetGameState ────────────────────────────────────────────────────────────
@@ -104,10 +122,12 @@ bool Context::SaveSlot(int slot) const
 	for (const auto& e : journal)
 	{
 		json entry;
-		entry["id"]      = e.id;
-		entry["title"]   = e.title;
-		entry["content"] = e.content;
-		entry["day"]     = e.day;
+		entry["id"]          = e.id;
+		entry["title"]       = e.title;
+		entry["outcome"]     = e.outcome;
+		entry["content"]     = e.content;
+		entry["description"] = e.description;
+		entry["day"]         = e.day;
 		j["journal"].push_back(entry);
 	}
 
@@ -167,10 +187,12 @@ bool Context::LoadSlot(int slot)
 	journal.clear();
 	for (const auto& e : j.value("journal", json::array()))
 		journal.push_back({
-			e.value("id"     , ""),
-			e.value("title"  , ""),
-			e.value("content", ""),
-			e.value("day"    , 0)
+			e.value("id"         , ""),
+			e.value("title"      , ""),
+			e.value("outcome"    , ""),
+			e.value("content"    , ""),
+			e.value("description", ""),
+			e.value("day"        , 0)
 		});
 
 	return true;

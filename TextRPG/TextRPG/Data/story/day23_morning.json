@@ -1,0 +1,37 @@
+{
+  "id": "day23_morning",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day23_morning.0",
+    "story.day23_morning.1",
+    "story.day23_morning.2"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day23_morning.choice.0",
+      "next": "day23_cha_response",
+      "require": [
+        { "type": "flag", "key": "cha_confronted" }
+      ]
+    },
+    {
+      "text": "story.day23_morning.choice.1",
+      "next": "day23_alliance_status",
+      "require": [
+        { "type": "flag", "key": "jaewon_in_alliance" }
+      ]
+    },
+    {
+      "text": "story.day23_morning.choice.2",
+      "next": "day23_press_fallout",
+      "require": [
+        { "type": "flag", "key": "jaewon_name_public" }
+      ]
+    },
+    {
+      "text": "story.day23_morning.choice.3",
+      "next": "case_1064"
+    }
+  ]
+}

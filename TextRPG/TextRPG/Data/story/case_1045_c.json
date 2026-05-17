@@ -1,32 +1,55 @@
-{
-  "id": "case_1045_c",
-  "sfx": "Assets/audio/node_paper.wav",
-  "text": [
-    "story.case_1045_c.0",
-    "story.case_1045_c.1",
-    "story.case_1045_c.2",
-    "story.case_1045_c.3"
-  ],
-  "effects": [
-    { "type": "tendency", "key": "justice",   "value": 2 },
-    { "type": "tendency", "key": "suspicion", "value": 2 },
-    { "type": "flag_add", "key": "saw_sealed_warehouse" }
-  ],
-  "choices": [
-    {
-      "text": "story.case_1045_c.choice.0",
-      "next": "case_1045_a"
-    },
-    {
-      "text": "story.case_1045_c.choice.1",
-      "next": "case_1045_b"
-    },
-    {
-      "text": "story.case_1045_c.choice.2",
-      "next": "case_1045_e",
-      "require": [
-        { "type": "tendency", "key": "justice", "op": "gte", "value": 5 }
-      ]
-    }
-  ]
+﻿{
+    "id":  "case_1045_c",
+    "sfx":  "Assets/audio/node_paper.wav",
+    "text":  [
+                 "story.case_1045_c.0",
+                 "story.case_1045_c.1",
+                 "story.case_1045_c.2",
+                 "story.case_1045_c.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1045_c.choice.0",
+                        "next":  "case_1045_a"
+                    },
+                    {
+                        "text":  "story.case_1045_c.choice.1",
+                        "next":  "case_1045_b"
+                    },
+                    {
+                        "text":  "story.case_1045_c.choice.2",
+                        "next":  "case_1045_e",
+                        "require":  [
+                                        {
+                                            "type":  "tendency",
+                                            "key":  "justice",
+                                            "op":  "gte",
+                                            "value":  5
+                                        }
+                                    ]
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1045",
+                        "title":  "story.case_1045.0",
+                        "outcome":  "story.case_1045.choice.2",
+                        "content":  "story.case_1045_c.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  2
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  2
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "saw_sealed_warehouse"
+                    }
+                ]
 }

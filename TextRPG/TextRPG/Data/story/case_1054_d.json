@@ -1,26 +1,47 @@
-{
-  "id": "case_1054_d",
-  "sfx": "Assets/audio/node_paper_crunch.wav",
-  "text": [
-    "story.case_1054_d.0",
-    "story.case_1054_d.1",
-    "story.case_1054_d.2",
-    "story.case_1054_d.3"
-  ],
-  "effects": [
-    { "type": "tendency", "key": "justice",   "value": 5 },
-    { "type": "tendency", "key": "suspicion", "value": 3 },
-    { "type": "corruption",                   "value": 12 },
-    { "type": "flag_add", "key": "former_insider_linked" }
-  ],
-  "choices": [
-    {
-      "text": "story.case_1054_d.choice.0",
-      "next": "case_1054_protect"
-    },
-    {
-      "text": "story.case_1054_d.choice.1",
-      "next": "case_1054_a"
-    }
-  ]
+﻿{
+    "id":  "case_1054_d",
+    "sfx":  "Assets/audio/node_paper_crunch.wav",
+    "text":  [
+                 "story.case_1054_d.0",
+                 "story.case_1054_d.1",
+                 "story.case_1054_d.2",
+                 "story.case_1054_d.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1054_d.choice.0",
+                        "next":  "case_1054_protect"
+                    },
+                    {
+                        "text":  "story.case_1054_d.choice.1",
+                        "next":  "case_1054_a"
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1054",
+                        "title":  "story.case_1054.0",
+                        "outcome":  "story.case_1054.choice.3",
+                        "content":  "story.case_1054_d.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  5
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  3
+                    },
+                    {
+                        "type":  "corruption",
+                        "value":  12
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "former_insider_linked"
+                    }
+                ]
 }

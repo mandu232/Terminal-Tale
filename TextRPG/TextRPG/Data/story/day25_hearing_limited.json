@@ -1,0 +1,20 @@
+{
+  "id": "day25_hearing_limited",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day25_hearing_limited.0",
+    "story.day25_hearing_limited.1",
+    "story.day25_hearing_limited.2"
+  ],
+  "effects": [
+    { "type": "flag_add", "key": "hearing_testimony_given" },
+    { "type": "tendency", "key": "justice",    "value": 5 },
+    { "type": "tendency", "key": "suspicion",  "value": 3 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1066"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "day25_hearing_full",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day25_hearing_full.0",
+    "story.day25_hearing_full.1",
+    "story.day25_hearing_full.2",
+    "story.day25_hearing_full.3"
+  ],
+  "effects": [
+    { "type": "flag_add", "key": "hearing_testimony_given" },
+    { "type": "tendency", "key": "justice",    "value": 8 },
+    { "type": "tendency", "key": "suspicion",  "value": 6 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1066"
+    }
+  ]
+}

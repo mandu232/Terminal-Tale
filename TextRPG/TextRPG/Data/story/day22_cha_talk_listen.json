@@ -1,0 +1,19 @@
+{
+  "id": "day22_cha_talk_listen",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day22_cha_talk_listen.0",
+    "story.day22_cha_talk_listen.1",
+    "story.day22_cha_talk_listen.2",
+    "story.day22_cha_talk_listen.3"
+  ],
+  "effects": [
+    { "type": "flag_add", "key": "heard_cha_argument" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1063"
+    }
+  ]
+}

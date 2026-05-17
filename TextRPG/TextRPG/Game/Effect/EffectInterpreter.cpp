@@ -1,5 +1,6 @@
 #include "EffectInterpreter.h"
 #include "Core/Context.h"
+#include "Core/Localization.h"
 
 void EffectInterpreter::Apply(const Effect& effect , Context& ctx)
 {
@@ -59,6 +60,30 @@ void EffectInterpreter::Apply(const Effect& effect , Context& ctx)
 		else if ( effect.key == "justice"    ) p.justice    += effect.value;
 		else if ( effect.key == "compliance" ) p.compliance += effect.value;
 		else if ( effect.key == "suspicion"  ) p.suspicion  += effect.value;
+		break;
+	}
+
+	case EffectType::CaseRecord:
+	{
+		// "case_1053" -> "story.case_1053" 로 베이스 키 생성
+		// story.case_XXXX.0 ~ .N 을 순서대로 수집 (MISSING_TEXT가 나오면 중단)
+		std::string base = "story." + effect.key;
+		std::string description;
+		for (int i = 0; i <= 9; ++i)
+		{
+			const std::string& line = L(base + "." + std::to_string(i));
+			if (line == "MISSING_TEXT") break;
+			if (!description.empty()) description += "\n";
+			description += line;
+		}
+
+		ctx.AddCaseRecord(
+			effect.key,
+			L(effect.title),
+			L(effect.outcome),
+			L(effect.content),
+			description
+		);
 		break;
 	}
 	}

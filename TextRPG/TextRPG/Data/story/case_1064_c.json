@@ -1,0 +1,24 @@
+{
+  "id": "case_1064_c",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.case_1064_c.0",
+    "story.case_1064_c.1",
+    "story.case_1064_c.2",
+    "story.case_1064_c.3"
+  ],
+  "effects": [
+    { "type": "case_record", "key": "case_1064", "title": "story.case_1064.0", "outcome": "story.case_1064.choice.2", "content": "story.case_1064_c.0" },
+    { "type": "tendency", "key": "corruption", "value": 15 },
+    { "type": "tendency", "key": "justice", "value": 9 },
+    { "type": "tendency", "key": "suspicion", "value": 5 },
+    { "type": "flag_add", "key": "junhyeok_shielded" },
+    { "type": "flag_add", "key": "audit_turned_on_itself" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day23_end_escalate"
+    }
+  ]
+}

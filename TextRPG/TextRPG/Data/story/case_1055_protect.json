@@ -1,22 +1,43 @@
-{
-  "id": "case_1055_protect",
-  "sfx": "Assets/audio/node_paper_crunch.wav",
-  "text": [
-    "story.case_1055_protect.0",
-    "story.case_1055_protect.1",
-    "story.case_1055_protect.2",
-    "story.case_1055_protect.3"
-  ],
-  "effects": [
-    { "type": "corruption",                   "value": 20 },
-    { "type": "tendency", "key": "justice",   "value":  8 },
-    { "type": "tendency", "key": "suspicion", "value":  5 },
-    { "type": "flag_add", "key": "journalist_protected" }
-  ],
-  "choices": [
-    {
-      "text": "story.common.next_case",
-      "next": "day14_end_act3"
-    }
-  ]
+﻿{
+    "id":  "case_1055_protect",
+    "sfx":  "Assets/audio/node_paper_crunch.wav",
+    "text":  [
+                 "story.case_1055_protect.0",
+                 "story.case_1055_protect.1",
+                 "story.case_1055_protect.2",
+                 "story.case_1055_protect.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.common.next_case",
+                        "next":  "day14_end_act3"
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1055",
+                        "title":  "story.case_1055.0",
+                        "outcome":  "story.case_1055_c.choice.0",
+                        "content":  "story.case_1055_protect.0"
+                    },
+                    {
+                        "type":  "corruption",
+                        "value":  20
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  8
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  5
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "journalist_protected"
+                    }
+                ]
 }

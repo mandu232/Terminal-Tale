@@ -1,0 +1,20 @@
+{
+  "id": "day23_cha_response",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day23_cha_response.0",
+    "story.day23_cha_response.1",
+    "story.day23_cha_response.2",
+    "story.day23_cha_response.3"
+  ],
+  "effects": [
+    { "type": "flag_add", "key": "internal_audit_launched" },
+    { "type": "tendency", "key": "suspicion", "value": 5 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1064"
+    }
+  ]
+}

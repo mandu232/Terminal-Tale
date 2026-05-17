@@ -1,0 +1,19 @@
+{
+  "id": "day19_yun_signal",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day19_yun_signal.0",
+    "story.day19_yun_signal.1",
+    "story.day19_yun_signal.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice", "value": 2 },
+    { "type": "flag_add", "key": "yun_alive_confirmed" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1060"
+    }
+  ]
+}

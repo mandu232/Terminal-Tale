@@ -1,0 +1,28 @@
+{
+  "id": "day20_summons",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day20_summons.0",
+    "story.day20_summons.1",
+    "story.day20_summons.2",
+    "story.day20_summons.3"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day20_summons.choice.0",
+      "next": "day20_summons_explain"
+    },
+    {
+      "text": "story.day20_summons.choice.1",
+      "next": "day20_summons_refuse"
+    },
+    {
+      "text": "story.day20_summons.choice.2",
+      "next": "day20_summons_counter",
+      "require": [
+        { "type": "flag", "key": "audit_approved" }
+      ]
+    }
+  ]
+}

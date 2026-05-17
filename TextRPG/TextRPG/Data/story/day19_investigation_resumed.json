@@ -1,0 +1,19 @@
+{
+  "id": "day19_investigation_resumed",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day19_investigation_resumed.0",
+    "story.day19_investigation_resumed.1",
+    "story.day19_investigation_resumed.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 4 },
+    { "type": "flag_add", "key": "player_summoned" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1060"
+    }
+  ]
+}

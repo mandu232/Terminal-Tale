@@ -1,0 +1,37 @@
+﻿{
+    "id":  "case_1057_a",
+    "sfx":  "Assets/audio/node_paper.wav",
+    "text":  [
+                 "story.case_1057_a.0",
+                 "story.case_1057_a.1",
+                 "story.case_1057_a.2"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.common.next_case",
+                        "next":  "day16_end"
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1057",
+                        "title":  "story.case_1057.0",
+                        "outcome":  "story.case_1057.choice.0",
+                        "content":  "story.case_1057_a.0"
+                    },
+                    {
+                        "type":  "city_order",
+                        "value":  3
+                    },
+                    {
+                        "type":  "citizen_trust",
+                        "value":  -12
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "coldness",
+                        "value":  3
+                    }
+                ]
+}

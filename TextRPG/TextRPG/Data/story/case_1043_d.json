@@ -1,28 +1,43 @@
-{
-  "id": "case_1043_d",
-  "sfx": "Assets/audio/node_paper.wav",
-  "text": [
-    "story.case_1043_d.0",
-    "story.case_1043_d.1",
-    "story.case_1043_d.2",
-    "story.case_1043_d.3"
-  ],
-  "effects": [
-    { "type": "tendency", "key": "justice",   "value": 2 },
-    { "type": "tendency", "key": "suspicion", "value": 1 }
-  ],
-  "choices": [
-    {
-      "text": "story.case_1043_d.choice.0",
-      "next": "case_1043_d2"
-    },
-    {
-      "text": "story.case_1043_d.choice.1",
-      "next": "case_1043_a"
-    },
-    {
-      "text": "story.case_1043_d.choice.2",
-      "next": "case_1043_b"
-    }
-  ]
+﻿{
+    "id":  "case_1043_d",
+    "sfx":  "Assets/audio/node_paper.wav",
+    "text":  [
+                 "story.case_1043_d.0",
+                 "story.case_1043_d.1",
+                 "story.case_1043_d.2",
+                 "story.case_1043_d.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1043_d.choice.0",
+                        "next":  "case_1043_d2"
+                    },
+                    {
+                        "text":  "story.case_1043_d.choice.1",
+                        "next":  "case_1043_a"
+                    },
+                    {
+                        "text":  "story.case_1043_d.choice.2",
+                        "next":  "case_1043_b"
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1043",
+                        "title":  "story.case_1043.0",
+                        "outcome":  "story.case_1043.choice.3",
+                        "content":  "story.case_1043_d.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  2
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  1
+                    }
+                ]
 }

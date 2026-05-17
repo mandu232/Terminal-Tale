@@ -1,0 +1,21 @@
+{
+  "id": "day22_cha_talk_confront",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day22_cha_talk_confront.0",
+    "story.day22_cha_talk_confront.1",
+    "story.day22_cha_talk_confront.2",
+    "story.day22_cha_talk_confront.3"
+  ],
+  "effects": [
+    { "type": "flag_add", "key": "cha_confronted" },
+    { "type": "tendency", "key": "suspicion", "value": 4 },
+    { "type": "tendency", "key": "justice", "value": 4 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1063"
+    }
+  ]
+}

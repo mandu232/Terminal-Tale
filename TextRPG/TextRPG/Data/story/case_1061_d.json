@@ -1,0 +1,47 @@
+﻿{
+    "id":  "case_1061_d",
+    "sfx":  "Assets/audio/node_paper_crunch.wav",
+    "text":  [
+                 "story.case_1061_d.0",
+                 "story.case_1061_d.1",
+                 "story.case_1061_d.2",
+                 "story.case_1061_d.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1061_d.choice.0",
+                        "next":  "case_1061_protect"
+                    },
+                    {
+                        "text":  "story.case_1061_d.choice.1",
+                        "next":  "case_1061_a"
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1061",
+                        "title":  "story.case_1061.0",
+                        "outcome":  "story.case_1061.choice.3",
+                        "content":  "story.case_1061_d.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  6
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  3
+                    },
+                    {
+                        "type":  "corruption",
+                        "value":  15
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "found_original_witness"
+                    }
+                ]
+}

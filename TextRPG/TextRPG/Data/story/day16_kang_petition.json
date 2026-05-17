@@ -1,0 +1,19 @@
+{
+  "id": "day16_kang_petition",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day16_kang_petition.0",
+    "story.day16_kang_petition.1",
+    "story.day16_kang_petition.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 1 },
+    { "type": "tendency", "key": "suspicion", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1057"
+    }
+  ]
+}

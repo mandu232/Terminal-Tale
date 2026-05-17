@@ -1,0 +1,37 @@
+{
+  "id": "day16_morning",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day16_morning.0",
+    "story.day16_morning.1",
+    "story.day16_morning.2"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day16_morning.choice.0",
+      "next": "day16_outside_reaction",
+      "require": [
+        { "type": "flag", "key": "national_plan_leaked" }
+      ]
+    },
+    {
+      "text": "story.day16_morning.choice.1",
+      "next": "day16_kang_petition",
+      "require": [
+        { "type": "flag", "key": "activist_protected" }
+      ]
+    },
+    {
+      "text": "story.day16_morning.choice.2",
+      "next": "day16_report_copy",
+      "require": [
+        { "type": "flag", "key": "has_original_report" }
+      ]
+    },
+    {
+      "text": "story.day16_morning.choice.3",
+      "next": "case_1057"
+    }
+  ]
+}

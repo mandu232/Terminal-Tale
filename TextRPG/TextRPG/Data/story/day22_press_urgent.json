@@ -1,0 +1,23 @@
+{
+  "id": "day22_press_urgent",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day22_press_urgent.0",
+    "story.day22_press_urgent.1",
+    "story.day22_press_urgent.2"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day22_press_urgent.choice.0",
+      "next": "day22_press_decide",
+      "require": [
+        { "type": "tendency", "key": "justice", "op": "gte", "value": 20 }
+      ]
+    },
+    {
+      "text": "story.day22_press_urgent.choice.1",
+      "next": "case_1063"
+    }
+  ]
+}

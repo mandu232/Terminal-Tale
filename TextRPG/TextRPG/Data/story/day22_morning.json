@@ -1,0 +1,37 @@
+{
+  "id": "day22_morning",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day22_morning.0",
+    "story.day22_morning.1",
+    "story.day22_morning.2"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day22_morning.choice.0",
+      "next": "day22_cha_summons",
+      "require": [
+        { "type": "flag", "key": "cha_noticed_you" }
+      ]
+    },
+    {
+      "text": "story.day22_morning.choice.1",
+      "next": "day22_yun_plan",
+      "require": [
+        { "type": "flag", "key": "yun_returned" }
+      ]
+    },
+    {
+      "text": "story.day22_morning.choice.2",
+      "next": "day22_press_urgent",
+      "require": [
+        { "type": "flag", "key": "journalist_channel_open" }
+      ]
+    },
+    {
+      "text": "story.day22_morning.choice.3",
+      "next": "case_1063"
+    }
+  ]
+}

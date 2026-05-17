@@ -1,0 +1,22 @@
+{
+  "id": "case_1065_d",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.case_1065_d.0",
+    "story.case_1065_d.1",
+    "story.case_1065_d.2"
+  ],
+  "effects": [
+    { "type": "case_record", "key": "case_1065", "title": "story.case_1065.0", "outcome": "story.case_1065.choice.3", "content": "story.case_1065_d.0" },
+    { "type": "tendency", "key": "corruption", "value": 15 },
+    { "type": "tendency", "key": "justice", "value": 7 },
+    { "type": "tendency", "key": "suspicion", "value": 3 },
+    { "type": "flag_add", "key": "sunhwa_protected" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day24_end_testimony"
+    }
+  ]
+}

@@ -1,22 +1,43 @@
-{
-  "id": "case_1051_protect",
-  "sfx": "Assets/audio/node_paper_crunch.wav",
-  "text": [
-    "story.case_1051_protect.0",
-    "story.case_1051_protect.1",
-    "story.case_1051_protect.2",
-    "story.case_1051_protect.3"
-  ],
-  "effects": [
-    { "type": "corruption",   "value":  12 },
-    { "type": "tendency", "key": "justice",   "value": 4 },
-    { "type": "tendency", "key": "suspicion", "value": 2 },
-    { "type": "flag_add", "key": "protected_dissenter" }
-  ],
-  "choices": [
-    {
-      "text": "story.common.next_case",
-      "next": "day10_end"
-    }
-  ]
+﻿{
+    "id":  "case_1051_protect",
+    "sfx":  "Assets/audio/node_paper_crunch.wav",
+    "text":  [
+                 "story.case_1051_protect.0",
+                 "story.case_1051_protect.1",
+                 "story.case_1051_protect.2",
+                 "story.case_1051_protect.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.common.next_case",
+                        "next":  "day10_end"
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1051",
+                        "title":  "story.case_1051.0",
+                        "outcome":  "story.case_1051_d.choice.2",
+                        "content":  "story.case_1051_protect.0"
+                    },
+                    {
+                        "type":  "corruption",
+                        "value":  12
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  4
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  2
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "protected_dissenter"
+                    }
+                ]
 }

@@ -1,0 +1,19 @@
+{
+  "id": "day23_alliance_status",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day23_alliance_status.0",
+    "story.day23_alliance_status.1",
+    "story.day23_alliance_status.2",
+    "story.day23_alliance_status.3"
+  ],
+  "effects": [
+    { "type": "flag_add", "key": "alliance_hearing_set" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1064"
+    }
+  ]
+}

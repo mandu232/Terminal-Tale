@@ -1,19 +1,34 @@
-{
-  "id": "case_1046_b",
-  "text": [
-    "story.case_1046_b.0",
-    "story.case_1046_b.1",
-    "story.case_1046_b.2",
-    "story.case_1046_b.3"
-  ],
-  "effects": [
-    { "type": "tendency", "key": "justice", "value": 1 },
-    { "type": "tendency", "key": "empathy", "value": 1 }
-  ],
-  "choices": [
-    {
-      "text": "story.common.next_case",
-      "next": "day5_end"
-    }
-  ]
+﻿{
+    "id":  "case_1046_b",
+    "text":  [
+                 "story.case_1046_b.0",
+                 "story.case_1046_b.1",
+                 "story.case_1046_b.2",
+                 "story.case_1046_b.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.common.next_case",
+                        "next":  "day5_end"
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1046",
+                        "title":  "story.case_1046.0",
+                        "outcome":  "story.case_1046.choice.1",
+                        "content":  "story.case_1046_b.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  1
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "empathy",
+                        "value":  1
+                    }
+                ]
 }

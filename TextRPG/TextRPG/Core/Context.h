@@ -47,6 +47,13 @@ public:
 	                const std::string& title,
 	                const std::string& content);
 
+	// 케이스 처리 기록 추가 — case_record effect에서 호출됨
+	void AddCaseRecord(const std::string& id,
+	                   const std::string& title,
+	                   const std::string& outcome,
+	                   const std::string& content,
+	                   const std::string& description);
+
 	// ===== Save / Load =====
 	struct SlotInfo
 	{

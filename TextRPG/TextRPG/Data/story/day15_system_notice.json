@@ -1,0 +1,18 @@
+{
+  "id": "day15_system_notice",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day15_system_notice.0",
+    "story.day15_system_notice.1",
+    "story.day15_system_notice.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1056"
+    }
+  ]
+}

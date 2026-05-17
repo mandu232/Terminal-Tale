@@ -1,0 +1,35 @@
+{
+  "id": "case_1059",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.case_1059.0",
+    "story.case_1059.1",
+    "story.case_1059.2",
+    "story.case_1059.3"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.case_1059.choice.0",
+      "next": "case_1059_a"
+    },
+    {
+      "text": "story.case_1059.choice.1",
+      "next": "case_1059_b"
+    },
+    {
+      "text": "story.case_1059.choice.2",
+      "next": "case_1059_c",
+      "require": [
+        { "type": "flag", "key": "yun_missing" }
+      ]
+    },
+    {
+      "text": "story.case_1059.choice.3",
+      "next": "case_1059_d",
+      "require": [
+        { "type": "flag", "key": "has_yun_archive" }
+      ]
+    }
+  ]
+}

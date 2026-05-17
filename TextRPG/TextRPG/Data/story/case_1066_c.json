@@ -1,0 +1,24 @@
+{
+  "id": "case_1066_c",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.case_1066_c.0",
+    "story.case_1066_c.1",
+    "story.case_1066_c.2",
+    "story.case_1066_c.3"
+  ],
+  "effects": [
+    { "type": "case_record", "key": "case_1066", "title": "story.case_1066.0", "outcome": "story.case_1066.choice.2", "content": "story.case_1066_c.0" },
+    { "type": "tendency", "key": "corruption", "value": 15 },
+    { "type": "tendency", "key": "justice",    "value": 10 },
+    { "type": "tendency", "key": "suspicion",  "value": 4 },
+    { "type": "flag_add", "key": "countdown_linked" },
+    { "type": "flag_add", "key": "dahee_in_record" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day25_end_hearing"
+    }
+  ]
+}

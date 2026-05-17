@@ -1,0 +1,35 @@
+{
+  "id": "case_1066",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.case_1066.0",
+    "story.case_1066.1",
+    "story.case_1066.2",
+    "story.case_1066.3"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.case_1066.choice.0",
+      "next": "case_1066_a"
+    },
+    {
+      "text": "story.case_1066.choice.1",
+      "next": "case_1066_b",
+      "require": [
+        { "type": "flag", "key": "hearing_testimony_given" }
+      ]
+    },
+    {
+      "text": "story.case_1066.choice.2",
+      "next": "case_1066_c",
+      "require": [
+        { "type": "flag", "key": "pattern_submitted" }
+      ]
+    },
+    {
+      "text": "story.case_1066.choice.3",
+      "next": "case_1066_d"
+    }
+  ]
+}

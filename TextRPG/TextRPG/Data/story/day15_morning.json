@@ -1,0 +1,37 @@
+{
+  "id": "day15_morning",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day15_morning.0",
+    "story.day15_morning.1",
+    "story.day15_morning.2"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day15_morning.choice.0",
+      "next": "day15_journalist_reach",
+      "require": [
+        { "type": "flag", "key": "journalist_protected" }
+      ]
+    },
+    {
+      "text": "story.day15_morning.choice.1",
+      "next": "day15_report_secure",
+      "require": [
+        { "type": "flag", "key": "has_original_report" }
+      ]
+    },
+    {
+      "text": "story.day15_morning.choice.2",
+      "next": "day15_system_notice",
+      "require": [
+        { "type": "flag", "key": "evidence_locked_down" }
+      ]
+    },
+    {
+      "text": "story.day15_morning.choice.3",
+      "next": "case_1056"
+    }
+  ]
+}

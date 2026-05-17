@@ -1,0 +1,21 @@
+{
+  "id": "day16_outside_reaction",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day16_outside_reaction.0",
+    "story.day16_outside_reaction.1",
+    "story.day16_outside_reaction.2",
+    "story.day16_outside_reaction.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 3 },
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "flag_add", "key": "press_article_incoming" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1057"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "day21_yun_return",
+  "sfx": "Assets/audio/node_footstep.wav",
+  "text": [
+    "story.day21_yun_return.0",
+    "story.day21_yun_return.1",
+    "story.day21_yun_return.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice", "value": 2 },
+    { "type": "flag_add", "key": "yun_returned" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1062"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "day25_audit_defied",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day25_audit_defied.0",
+    "story.day25_audit_defied.1",
+    "story.day25_audit_defied.2"
+  ],
+  "effects": [
+    { "type": "flag_add", "key": "audit_defied" },
+    { "type": "tendency", "key": "suspicion", "value": 7 },
+    { "type": "tendency", "key": "justice",   "value": 5 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1066"
+    }
+  ]
+}

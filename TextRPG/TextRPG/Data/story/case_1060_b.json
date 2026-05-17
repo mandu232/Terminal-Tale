@@ -1,0 +1,45 @@
+﻿{
+    "id":  "case_1060_b",
+    "sfx":  "Assets/audio/node_paper.wav",
+    "text":  [
+                 "story.case_1060_b.0",
+                 "story.case_1060_b.1",
+                 "story.case_1060_b.2"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.common.next_case",
+                        "next":  "day19_end"
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1060",
+                        "title":  "story.case_1060.0",
+                        "outcome":  "story.case_1060.choice.1",
+                        "content":  "story.case_1060_b.0"
+                    },
+                    {
+                        "type":  "city_order",
+                        "value":  5
+                    },
+                    {
+                        "type":  "citizen_trust",
+                        "value":  -10
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "coldness",
+                        "value":  4
+                    },
+                    {
+                        "type":  "corruption",
+                        "value":  5
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "audit_rejected"
+                    }
+                ]
+}

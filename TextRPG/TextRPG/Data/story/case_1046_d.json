@@ -1,40 +1,69 @@
-{
-  "id": "case_1046_d",
-  "sfx": "Assets/audio/node_paper_crunch.wav",
-  "text": [
-    "story.case_1046_d.0",
-    "story.case_1046_d.1",
-    "story.case_1046_d.2",
-    "story.case_1046_d.3"
-  ],
-  "effects": [
-    { "type": "tendency", "key": "justice",    "value": 4 },
-    { "type": "tendency", "key": "suspicion",  "value": 3 },
-    { "type": "flag_add", "key": "connected_evidence" },
-    { "type": "flag_add", "key": "knows_true_reason" }
-  ],
-  "choices": [
-    {
-      "text": "story.case_1046_d.choice.0",
-      "next": "case_1046_a"
-    },
-    {
-      "text": "story.case_1046_d.choice.1",
-      "next": "case_1046_b"
-    },
-    {
-      "text": "story.case_1046_d.choice.2",
-      "next": "case_1046_f",
-      "require": [
-        { "type": "flag", "key": "has_anonymous_contact" }
-      ]
-    },
-    {
-      "text": "story.case_1046_d.choice.3",
-      "next": "case_1046_e",
-      "require": [
-        { "type": "tendency", "key": "justice", "op": "gte", "value": 6 }
-      ]
-    }
-  ]
+﻿{
+    "id":  "case_1046_d",
+    "sfx":  "Assets/audio/node_paper_crunch.wav",
+    "text":  [
+                 "story.case_1046_d.0",
+                 "story.case_1046_d.1",
+                 "story.case_1046_d.2",
+                 "story.case_1046_d.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1046_d.choice.0",
+                        "next":  "case_1046_a"
+                    },
+                    {
+                        "text":  "story.case_1046_d.choice.1",
+                        "next":  "case_1046_b"
+                    },
+                    {
+                        "text":  "story.case_1046_d.choice.2",
+                        "next":  "case_1046_f",
+                        "require":  [
+                                        {
+                                            "type":  "flag",
+                                            "key":  "has_anonymous_contact"
+                                        }
+                                    ]
+                    },
+                    {
+                        "text":  "story.case_1046_d.choice.3",
+                        "next":  "case_1046_e",
+                        "require":  [
+                                        {
+                                            "type":  "tendency",
+                                            "key":  "justice",
+                                            "op":  "gte",
+                                            "value":  6
+                                        }
+                                    ]
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1046",
+                        "title":  "story.case_1046.0",
+                        "outcome":  "story.case_1046.choice.3",
+                        "content":  "story.case_1046_d.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  4
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  3
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "connected_evidence"
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "knows_true_reason"
+                    }
+                ]
 }

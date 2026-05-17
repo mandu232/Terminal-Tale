@@ -1,20 +1,38 @@
-{
-  "id": "case_1055_b",
-  "sfx": "Assets/audio/node_paper_crunch.wav",
-  "text": [
-    "story.case_1055_b.0",
-    "story.case_1055_b.1",
-    "story.case_1055_b.2"
-  ],
-  "effects": [
-    { "type": "tendency", "key": "justice",   "value": 3 },
-    { "type": "tendency", "key": "suspicion", "value": 2 },
-    { "type": "corruption",                   "value": 8 }
-  ],
-  "choices": [
-    {
-      "text": "story.common.next_case",
-      "next": "day14_end"
-    }
-  ]
+﻿{
+    "id":  "case_1055_b",
+    "sfx":  "Assets/audio/node_paper_crunch.wav",
+    "text":  [
+                 "story.case_1055_b.0",
+                 "story.case_1055_b.1",
+                 "story.case_1055_b.2"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.common.next_case",
+                        "next":  "day14_end"
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1055",
+                        "title":  "story.case_1055.0",
+                        "outcome":  "story.case_1055.choice.1",
+                        "content":  "story.case_1055_b.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  3
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  2
+                    },
+                    {
+                        "type":  "corruption",
+                        "value":  8
+                    }
+                ]
 }

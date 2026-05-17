@@ -1,0 +1,38 @@
+{
+  "id": "case_1063",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.case_1063.0",
+    "story.case_1063.1",
+    "story.case_1063.2",
+    "story.case_1063.3"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.case_1063.choice.0",
+      "next": "case_1063_a"
+    },
+    {
+      "text": "story.case_1063.choice.1",
+      "next": "case_1063_b",
+      "require": [
+        { "type": "flag", "key": "alliance_plan_proposed" }
+      ]
+    },
+    {
+      "text": "story.case_1063.choice.2",
+      "next": "case_1063_c",
+      "require": [
+        { "type": "flag", "key": "cha_confronted" }
+      ]
+    },
+    {
+      "text": "story.case_1063.choice.3",
+      "next": "case_1063_d",
+      "require": [
+        { "type": "flag", "key": "full_disclosure_sent" }
+      ]
+    }
+  ]
+}

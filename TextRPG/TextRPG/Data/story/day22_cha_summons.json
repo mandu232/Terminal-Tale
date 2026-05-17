@@ -1,0 +1,28 @@
+{
+  "id": "day22_cha_summons",
+  "sfx": "Assets/audio/node_footstep.wav",
+  "text": [
+    "story.day22_cha_summons.0",
+    "story.day22_cha_summons.1",
+    "story.day22_cha_summons.2",
+    "story.day22_cha_summons.3"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day22_cha_summons.choice.0",
+      "next": "day22_cha_talk_listen"
+    },
+    {
+      "text": "story.day22_cha_summons.choice.1",
+      "next": "day22_cha_talk_direct"
+    },
+    {
+      "text": "story.day22_cha_summons.choice.2",
+      "next": "day22_cha_talk_confront",
+      "require": [
+        { "type": "flag", "key": "blank_order_preserved" }
+      ]
+    }
+  ]
+}

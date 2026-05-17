@@ -1,23 +1,47 @@
-{
-  "id": "case_1045_f",
-  "sfx": "Assets/audio/node_paper_crunch.wav",
-  "text": [
-    "story.case_1045_f.0",
-    "story.case_1045_f.1",
-    "story.case_1045_f.2",
-    "story.case_1045_f.3"
-  ],
-  "effects": [
-    { "type": "corruption", "value": 12 },
-    { "type": "tendency", "key": "justice", "value": 2 },
-    { "type": "tendency", "key": "empathy", "value": 1 },
-    { "type": "flag_add", "key": "has_evidence" },
-    { "type": "flag_add", "key": "has_photo_evidence" }
-  ],
-  "choices": [
-    {
-      "text": "story.common.next_case",
-      "next": "day4_after_case"
-    }
-  ]
+﻿{
+    "id":  "case_1045_f",
+    "sfx":  "Assets/audio/node_paper_crunch.wav",
+    "text":  [
+                 "story.case_1045_f.0",
+                 "story.case_1045_f.1",
+                 "story.case_1045_f.2",
+                 "story.case_1045_f.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.common.next_case",
+                        "next":  "day4_after_case"
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1045",
+                        "title":  "story.case_1045.0",
+                        "outcome":  "story.case_1045_d.choice.2",
+                        "content":  "story.case_1045_f.0"
+                    },
+                    {
+                        "type":  "corruption",
+                        "value":  12
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  2
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "empathy",
+                        "value":  1
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "has_evidence"
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "has_photo_evidence"
+                    }
+                ]
 }

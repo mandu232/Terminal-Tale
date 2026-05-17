@@ -1,0 +1,21 @@
+{
+  "id": "day21_end_act4",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day21_end_act4.0",
+    "story.day21_end_act4.1",
+    "story.day21_end_act4.2",
+    "story.day21_end_act4.3"
+  ],
+  "effects": [
+    { "type": "day",      "value": 1 },
+    { "type": "set_time", "value": 8 },
+    { "type": "tendency", "key": "suspicion", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.day_end.choice.0",
+      "next": "day22_morning"
+    }
+  ]
+}

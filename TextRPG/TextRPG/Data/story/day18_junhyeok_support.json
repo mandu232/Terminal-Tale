@@ -1,0 +1,21 @@
+{
+  "id": "day18_junhyeok_support",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day18_junhyeok_support.0",
+    "story.day18_junhyeok_support.1",
+    "story.day18_junhyeok_support.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 2 },
+    { "type": "tendency", "key": "suspicion", "value": 1 },
+    { "type": "corruption",                   "value": 5 },
+    { "type": "flag_add", "key": "junhyeok_has_evidence" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1059"
+    }
+  ]
+}

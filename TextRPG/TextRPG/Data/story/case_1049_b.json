@@ -1,31 +1,51 @@
-{
-  "id": "case_1049_b",
-  "sfx": "Assets/audio/node_paper_crunch.wav",
-  "text": [
-    "story.case_1049_b.0",
-    "story.case_1049_b.1",
-    "story.case_1049_b.2",
-    "story.case_1049_b.3"
-  ],
-  "effects": [
-    { "type": "tendency", "key": "justice",   "value": 2 },
-    { "type": "tendency", "key": "suspicion", "value": 1 }
-  ],
-  "choices": [
-    {
-      "text": "story.case_1049_b.choice.0",
-      "next": "case_1049_a"
-    },
-    {
-      "text": "story.case_1049_b.choice.1",
-      "next": "case_1049_c"
-    },
-    {
-      "text": "story.case_1049_b.choice.2",
-      "next": "case_1049_d",
-      "require": [
-        { "type": "tendency", "key": "justice", "op": "gte", "value": 10 }
-      ]
-    }
-  ]
+﻿{
+    "id":  "case_1049_b",
+    "sfx":  "Assets/audio/node_paper_crunch.wav",
+    "text":  [
+                 "story.case_1049_b.0",
+                 "story.case_1049_b.1",
+                 "story.case_1049_b.2",
+                 "story.case_1049_b.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1049_b.choice.0",
+                        "next":  "case_1049_a"
+                    },
+                    {
+                        "text":  "story.case_1049_b.choice.1",
+                        "next":  "case_1049_c"
+                    },
+                    {
+                        "text":  "story.case_1049_b.choice.2",
+                        "next":  "case_1049_d",
+                        "require":  [
+                                        {
+                                            "type":  "tendency",
+                                            "key":  "justice",
+                                            "op":  "gte",
+                                            "value":  10
+                                        }
+                                    ]
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1049",
+                        "title":  "story.case_1049.0",
+                        "outcome":  "story.case_1049.choice.1",
+                        "content":  "story.case_1049_b.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  2
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  1
+                    }
+                ]
 }

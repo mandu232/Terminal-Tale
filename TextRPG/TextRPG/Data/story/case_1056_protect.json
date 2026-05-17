@@ -1,0 +1,43 @@
+﻿{
+    "id":  "case_1056_protect",
+    "sfx":  "Assets/audio/node_paper_crunch.wav",
+    "text":  [
+                 "story.case_1056_protect.0",
+                 "story.case_1056_protect.1",
+                 "story.case_1056_protect.2",
+                 "story.case_1056_protect.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.common.next_case",
+                        "next":  "day15_end_escalate"
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1056",
+                        "title":  "story.case_1056.0",
+                        "outcome":  "story.case_1056_d.choice.0",
+                        "content":  "story.case_1056_protect.0"
+                    },
+                    {
+                        "type":  "corruption",
+                        "value":  15
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  6
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  3
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "activist_protected"
+                    }
+                ]
+}

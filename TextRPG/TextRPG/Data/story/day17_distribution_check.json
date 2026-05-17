@@ -1,0 +1,19 @@
+{
+  "id": "day17_distribution_check",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.day17_distribution_check.0",
+    "story.day17_distribution_check.1",
+    "story.day17_distribution_check.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 1 },
+    { "type": "flag_add", "key": "yun_drive_offline" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1058"
+    }
+  ]
+}

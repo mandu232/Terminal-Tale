@@ -1,0 +1,19 @@
+{
+  "id": "day24_junhyeok_status",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day24_junhyeok_status.0",
+    "story.day24_junhyeok_status.1",
+    "story.day24_junhyeok_status.2",
+    "story.day24_junhyeok_status.3"
+  ],
+  "effects": [
+    { "type": "flag_add", "key": "junhyeok_witness_confirmed" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1065"
+    }
+  ]
+}

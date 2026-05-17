@@ -1,0 +1,19 @@
+{
+  "id": "day20_summons_explain",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.day20_summons_explain.0",
+    "story.day20_summons_explain.1",
+    "story.day20_summons_explain.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": -1 },
+    { "type": "flag_add", "key": "summons_completed" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1061"
+    }
+  ]
+}

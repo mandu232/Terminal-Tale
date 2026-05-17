@@ -1,0 +1,38 @@
+{
+  "id": "case_1064",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.case_1064.0",
+    "story.case_1064.1",
+    "story.case_1064.2",
+    "story.case_1064.3"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.case_1064.choice.0",
+      "next": "case_1064_a"
+    },
+    {
+      "text": "story.case_1064.choice.1",
+      "next": "case_1064_b",
+      "require": [
+        { "type": "flag", "key": "alliance_hearing_set" }
+      ]
+    },
+    {
+      "text": "story.case_1064.choice.2",
+      "next": "case_1064_c",
+      "require": [
+        { "type": "flag", "key": "internal_audit_launched" }
+      ]
+    },
+    {
+      "text": "story.case_1064.choice.3",
+      "next": "case_1064_d",
+      "require": [
+        { "type": "flag", "key": "external_pressure_rising" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "day22_press_decide",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day22_press_decide.0",
+    "story.day22_press_decide.1",
+    "story.day22_press_decide.2",
+    "story.day22_press_decide.3"
+  ],
+  "effects": [
+    { "type": "flag_add", "key": "full_disclosure_sent" },
+    { "type": "tendency", "key": "suspicion", "value": 5 },
+    { "type": "tendency", "key": "justice", "value": 6 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1063"
+    }
+  ]
+}

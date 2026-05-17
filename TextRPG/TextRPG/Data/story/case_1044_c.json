@@ -1,32 +1,55 @@
-{
-  "id": "case_1044_c",
-  "sfx": "Assets/audio/node_paper.wav",
-  "text": [
-    "story.case_1044_c.0",
-    "story.case_1044_c.1",
-    "story.case_1044_c.2",
-    "story.case_1044_c.3"
-  ],
-  "effects": [
-    { "type": "tendency", "key": "justice",   "value": 1 },
-    { "type": "tendency", "key": "suspicion", "value": 1 },
-    { "type": "flag_add", "key": "saw_assembly_list" }
-  ],
-  "choices": [
-    {
-      "text": "story.case_1044_c.choice.0",
-      "next": "case_1044_a"
-    },
-    {
-      "text": "story.case_1044_c.choice.1",
-      "next": "case_1044_b"
-    },
-    {
-      "text": "story.case_1044_c.choice.2",
-      "next": "case_1044_e",
-      "require": [
-        { "type": "tendency", "key": "justice", "op": "gte", "value": 4 }
-      ]
-    }
-  ]
+﻿{
+    "id":  "case_1044_c",
+    "sfx":  "Assets/audio/node_paper.wav",
+    "text":  [
+                 "story.case_1044_c.0",
+                 "story.case_1044_c.1",
+                 "story.case_1044_c.2",
+                 "story.case_1044_c.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1044_c.choice.0",
+                        "next":  "case_1044_a"
+                    },
+                    {
+                        "text":  "story.case_1044_c.choice.1",
+                        "next":  "case_1044_b"
+                    },
+                    {
+                        "text":  "story.case_1044_c.choice.2",
+                        "next":  "case_1044_e",
+                        "require":  [
+                                        {
+                                            "type":  "tendency",
+                                            "key":  "justice",
+                                            "op":  "gte",
+                                            "value":  4
+                                        }
+                                    ]
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1044",
+                        "title":  "story.case_1044.0",
+                        "outcome":  "story.case_1044.choice.2",
+                        "content":  "story.case_1044_c.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  1
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  1
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "saw_assembly_list"
+                    }
+                ]
 }

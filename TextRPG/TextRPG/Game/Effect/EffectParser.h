@@ -22,10 +22,14 @@ inline Effect ParseEffect(const nlohmann::json& j)
 	else if ( type == "city_order"    ) e.type = EffectType::AddCityOrder;
 	else if ( type == "citizen_trust" ) e.type = EffectType::AddCitizenTrust;
 	else if ( type == "corruption"    ) e.type = EffectType::AddCorruption;
+	else if ( type == "case_record"   ) e.type = EffectType::CaseRecord;
 	else throw std::runtime_error("Unknown effect type: " + type);
 
-	if ( j.contains("value") ) e.value = j["value"];
-	if ( j.contains("key")   ) e.key   = j["key"];
+	if ( j.contains("value")   ) e.value   = j["value"];
+	if ( j.contains("key")     ) e.key     = j["key"];
+	if ( j.contains("title")   ) e.title   = j["title"];
+	if ( j.contains("outcome") ) e.outcome = j["outcome"];
+	if ( j.contains("content") ) e.content = j["content"];
 
 	return e;
 }

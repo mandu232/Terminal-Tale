@@ -1,22 +1,43 @@
-{
-  "id": "case_1044_f",
-  "sfx": "Assets/audio/node_alert.wav",
-  "text": [
-    "story.case_1044_f.0",
-    "story.case_1044_f.1",
-    "story.case_1044_f.2",
-    "story.case_1044_f.3"
-  ],
-  "effects": [
-    { "type": "tendency", "key": "justice",   "value": 3 },
-    { "type": "tendency", "key": "suspicion", "value": 2 },
-    { "type": "corruption", "value": 8 },
-    { "type": "flag_add", "key": "case_pending" }
-  ],
-  "choices": [
-    {
-      "text": "story.common.next_case",
-      "next": "day3_end_pending"
-    }
-  ]
+﻿{
+    "id":  "case_1044_f",
+    "sfx":  "Assets/audio/node_alert.wav",
+    "text":  [
+                 "story.case_1044_f.0",
+                 "story.case_1044_f.1",
+                 "story.case_1044_f.2",
+                 "story.case_1044_f.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.common.next_case",
+                        "next":  "day3_end_pending"
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1044",
+                        "title":  "story.case_1044.0",
+                        "outcome":  "story.case_1044_d.choice.2",
+                        "content":  "story.case_1044_f.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  3
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  2
+                    },
+                    {
+                        "type":  "corruption",
+                        "value":  8
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "case_pending"
+                    }
+                ]
 }

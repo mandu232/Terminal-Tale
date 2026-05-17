@@ -1,7 +1,27 @@
 {
-    "currentNodeId": "case_1045",
-    "flags": [],
-    "journal": [],
+    "currentNodeId": "day3_morning",
+    "flags": [
+        "found_supply_cut",
+        "knows_hidden_history",
+        "saved_supply_data",
+        "saved_hidden_history"
+    ],
+    "journal": [
+        {
+            "content": "경고 처리로 기록했다. 범죄 이력은 남지 않는다.",
+            "day": 1,
+            "id": "case_1042",
+            "outcome": "경고 처리",
+            "title": "[ 사건 파일 #1042 ]"
+        },
+        {
+            "content": "자료를 '폐기 완료'로 표시했다.",
+            "day": 2,
+            "id": "case_1043",
+            "outcome": "자료를 보존한다",
+            "title": "[ 사건 파일 #1043 ]"
+        }
+    ],
     "log": [
         {
             "day": 1,
@@ -10,81 +30,91 @@
         },
         {
             "day": 1,
-            "text": "범죄 기록 등록",
+            "text": "추가 조사 요청",
             "time": 8
         },
         {
             "day": 1,
-            "text": "다음 파일로",
-            "time": 8
+            "text": "데이터를 확인한다",
+            "time": 9
         },
         {
-            "day": 2,
-            "text": "다음 날로",
-            "time": 8
+            "day": 1,
+            "text": "다시 사건 파일로 돌아간다",
+            "time": 9
         },
         {
-            "day": 2,
-            "text": "오늘의 사건 파일을 연다",
-            "time": 8
-        },
-        {
-            "day": 2,
-            "text": "경고 후 자료 폐기 지시",
-            "time": 8
-        },
-        {
-            "day": 2,
-            "text": "다음 파일로",
-            "time": 8
-        },
-        {
-            "day": 3,
-            "text": "다음 날로",
-            "time": 8
-        },
-        {
-            "day": 3,
-            "text": "오늘의 사건 파일을 연다",
-            "time": 8
-        },
-        {
-            "day": 3,
+            "day": 1,
             "text": "경고 처리",
-            "time": 8
+            "time": 9
         },
         {
-            "day": 3,
+            "day": 1,
             "text": "다음 파일로",
-            "time": 8
+            "time": 9
         },
         {
-            "day": 4,
+            "day": 2,
             "text": "다음 날로",
             "time": 8
         },
         {
-            "day": 4,
-            "text": "오늘의 사건 파일을 연다",
+            "day": 2,
+            "text": "어제 조사 후속 데이터를 확인한다",
+            "time": 8
+        },
+        {
+            "day": 2,
+            "text": "데이터를 보관한다",
+            "time": 8
+        },
+        {
+            "day": 2,
+            "text": "사건 파일로 돌아간다",
+            "time": 8
+        },
+        {
+            "day": 2,
+            "text": "저장이 완료 되었습니다.",
+            "time": 8
+        },
+        {
+            "day": 2,
+            "text": "자료 내용을 확인한다",
+            "time": 8
+        },
+        {
+            "day": 2,
+            "text": "자료를 보존한다",
+            "time": 8
+        },
+        {
+            "day": 2,
+            "text": "다음 파일로",
+            "time": 8
+        },
+        {
+            "day": 3,
+            "text": "다음 날로",
             "time": 8
         }
     ],
     "player": {
-        "citizenTrust": 47,
-        "cityOrder": 55,
-        "coldness": 1,
-        "compliance": 1,
-        "corruption": 0,
-        "day": 4,
-        "empathy": 2,
+        "citizenTrust": 50,
+        "cityOrder": 50,
+        "coldness": 0,
+        "compliance": 0,
+        "corruption": 13,
+        "day": 3,
+        "empathy": 3,
         "inventory": {
             "access_card": 1,
             "coffee": 2,
             "employee_manual": 1
         },
-        "justice": 2,
+        "justice": 7,
         "reputation": 0,
-        "suspicion": 1,
+        "suspicion": 5,
         "time": 8,
         "vitality": 10,
         "wealth": 0

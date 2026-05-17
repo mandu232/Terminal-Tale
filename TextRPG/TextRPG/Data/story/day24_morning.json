@@ -1,0 +1,37 @@
+{
+  "id": "day24_morning",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day24_morning.0",
+    "story.day24_morning.1",
+    "story.day24_morning.2"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day24_morning.choice.0",
+      "next": "day24_hearing_prep",
+      "require": [
+        { "type": "flag", "key": "alliance_hearing_set" }
+      ]
+    },
+    {
+      "text": "story.day24_morning.choice.1",
+      "next": "day24_junhyeok_status",
+      "require": [
+        { "type": "flag", "key": "junhyeok_shielded" }
+      ]
+    },
+    {
+      "text": "story.day24_morning.choice.2",
+      "next": "day24_audit_pressure",
+      "require": [
+        { "type": "flag", "key": "internal_audit_launched" }
+      ]
+    },
+    {
+      "text": "story.day24_morning.choice.3",
+      "next": "case_1065"
+    }
+  ]
+}

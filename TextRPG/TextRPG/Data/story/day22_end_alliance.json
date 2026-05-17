@@ -1,0 +1,21 @@
+{
+  "id": "day22_end_alliance",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day22_end_alliance.0",
+    "story.day22_end_alliance.1",
+    "story.day22_end_alliance.2",
+    "story.day22_end_alliance.3"
+  ],
+  "effects": [
+    { "type": "day",      "value": 1 },
+    { "type": "set_time", "value": 8 },
+    { "type": "tendency", "key": "suspicion", "value": 3 }
+  ],
+  "choices": [
+    {
+      "text": "story.day_end.choice.0",
+      "next": "day23_morning"
+    }
+  ]
+}

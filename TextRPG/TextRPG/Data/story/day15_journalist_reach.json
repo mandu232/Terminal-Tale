@@ -1,0 +1,20 @@
+{
+  "id": "day15_journalist_reach",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day15_journalist_reach.0",
+    "story.day15_journalist_reach.1",
+    "story.day15_journalist_reach.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice",   "value": 2 },
+    { "type": "tendency", "key": "suspicion", "value": 1 },
+    { "type": "flag_add", "key": "journalist_channel_open" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1056"
+    }
+  ]
+}

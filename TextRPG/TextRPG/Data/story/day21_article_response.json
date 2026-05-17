@@ -1,0 +1,20 @@
+{
+  "id": "day21_article_response",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day21_article_response.0",
+    "story.day21_article_response.1",
+    "story.day21_article_response.2",
+    "story.day21_article_response.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "flag_add", "key": "cha_noticed_you" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1062"
+    }
+  ]
+}

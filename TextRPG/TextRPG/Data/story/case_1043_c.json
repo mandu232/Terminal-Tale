@@ -1,32 +1,55 @@
-{
-  "id": "case_1043_c",
-  "sfx": "Assets/audio/node_paper.wav",
-  "text": [
-    "story.case_1043_c.0",
-    "story.case_1043_c.1",
-    "story.case_1043_c.2",
-    "story.case_1043_c.3"
-  ],
-  "effects": [
-    { "type": "tendency", "key": "justice",   "value": 1 },
-    { "type": "tendency", "key": "suspicion", "value": 2 },
-    { "type": "flag_add", "key": "knows_hidden_history" }
-  ],
-  "choices": [
-    {
-      "text": "story.case_1043_c.choice.0",
-      "next": "case_1043_a"
-    },
-    {
-      "text": "story.case_1043_c.choice.1",
-      "next": "case_1043_b"
-    },
-    {
-      "text": "story.case_1043_c.choice.2",
-      "next": "case_1043_e",
-      "require": [
-        { "type": "tendency", "key": "justice", "op": "gte", "value": 3 }
-      ]
-    }
-  ]
+﻿{
+    "id":  "case_1043_c",
+    "sfx":  "Assets/audio/node_paper.wav",
+    "text":  [
+                 "story.case_1043_c.0",
+                 "story.case_1043_c.1",
+                 "story.case_1043_c.2",
+                 "story.case_1043_c.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1043_c.choice.0",
+                        "next":  "case_1043_a"
+                    },
+                    {
+                        "text":  "story.case_1043_c.choice.1",
+                        "next":  "case_1043_b"
+                    },
+                    {
+                        "text":  "story.case_1043_c.choice.2",
+                        "next":  "case_1043_e",
+                        "require":  [
+                                        {
+                                            "type":  "tendency",
+                                            "key":  "justice",
+                                            "op":  "gte",
+                                            "value":  3
+                                        }
+                                    ]
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1043",
+                        "title":  "story.case_1043.0",
+                        "outcome":  "story.case_1043.choice.2",
+                        "content":  "story.case_1043_c.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  1
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  2
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "knows_hidden_history"
+                    }
+                ]
 }

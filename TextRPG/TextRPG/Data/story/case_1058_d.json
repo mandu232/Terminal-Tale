@@ -1,0 +1,51 @@
+﻿{
+    "id":  "case_1058_d",
+    "sfx":  "Assets/audio/node_footstep.wav",
+    "text":  [
+                 "story.case_1058_d.0",
+                 "story.case_1058_d.1",
+                 "story.case_1058_d.2",
+                 "story.case_1058_d.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1058_d.choice.0",
+                        "next":  "case_1058_resist",
+                        "require":  [
+                                        {
+                                            "type":  "tendency",
+                                            "key":  "justice",
+                                            "op":  "gte",
+                                            "value":  15
+                                        }
+                                    ]
+                    },
+                    {
+                        "text":  "story.case_1058_d.choice.1",
+                        "next":  "case_1058_b"
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1058",
+                        "title":  "story.case_1058.0",
+                        "outcome":  "story.case_1058.choice.3",
+                        "content":  "story.case_1058_d.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  3
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  2
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "ally_warned"
+                    }
+                ]
+}

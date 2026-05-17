@@ -1,0 +1,23 @@
+{
+  "id": "day18_junhyeok_status",
+  "sfx": "Assets/audio/node_footstep.wav",
+  "text": [
+    "story.day18_junhyeok_status.0",
+    "story.day18_junhyeok_status.1",
+    "story.day18_junhyeok_status.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "flag_add", "key": "junhyeok_under_investigation" }
+  ],
+  "choices": [
+    {
+      "text": "story.day18_junhyeok_status.choice.0",
+      "next": "day18_junhyeok_support"
+    },
+    {
+      "text": "story.day18_junhyeok_status.choice.1",
+      "next": "case_1059"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "day22_yun_plan",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day22_yun_plan.0",
+    "story.day22_yun_plan.1",
+    "story.day22_yun_plan.2",
+    "story.day22_yun_plan.3"
+  ],
+  "effects": [
+    { "type": "flag_add", "key": "alliance_plan_proposed" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1063"
+    }
+  ]
+}

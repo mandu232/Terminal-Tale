@@ -9,6 +9,28 @@
 #include "Ui/UIButton.h"
 
 #include <string>
+#include <cstdio>
+
+// ── 게임 날짜 → 달력 날짜 변환 ────────────────────────────────────────────────
+// 1일차 = 7월 15일, 이후 하루씩 증가 (월 경계 자동 처리)
+static std::string FormatGameDate(int gameDay)
+{
+    static const int daysInMonth[] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+
+    int month = 7;           // 시작: 7월
+    int day   = 15 + (gameDay - 1);  // 1일차 = 15일
+
+    while (day > daysInMonth[month - 1])
+    {
+        day -= daysInMonth[month - 1];
+        month++;
+        if (month > 12) month = 1;
+    }
+
+    char buf[32];
+    std::snprintf(buf, sizeof(buf), "20**년  %02d월 %02d일", month, day);
+    return std::string(buf);
+}
 
 namespace JnLayout
 {
@@ -21,19 +43,23 @@ namespace JnLayout
     // 구분선 (세로 x=62)
     constexpr int DivX     = 62;
 
-    // ── 좌측: 저널 목록 ──────────────────────────────────────────────────────
-    constexpr int ListX    = 2;
-    constexpr int ListW    = 58;
+    // ── 좌측: 처리 목록 ──────────────────────────────────────────────────────
+    constexpr int ListX      = 2;
+    constexpr int ListW      = 58;
     constexpr int ListStartY = 7;
     constexpr int MaxItems   = 13;   // (46 - 7) / 3
 
-    // ── 우측: 선택된 저널 내용 ────────────────────────────────────────────────
-    constexpr int RightX   = 65;
-    constexpr int RightW   = 124;
-    constexpr int EntryTitleY   = 7;
-    constexpr int EntryDayY     = 11;
-    constexpr int EntryContentY = 15;
-    constexpr int EntryContentH = 32;
+    // ── 우측: 문서 상세 ───────────────────────────────────────────────────────
+    constexpr int RightX          = 65;
+    constexpr int RightW          = 124;
+    constexpr int EntryTitleY     = 7;   // 케이스 헤더
+    constexpr int EntryDayY       = 11;  // 처리 날짜
+    constexpr int EntryDescY      = 15;  // 사건 내용 전문
+    constexpr int EntryDescH      = 12;  // 사건 내용 높이 (약 3~4줄)
+    constexpr int EntryDivY       = 27;  // 구분선
+    constexpr int EntryOutcomeY   = 29;  // 처리 결과 (선택지)
+    constexpr int EntryContentY   = 33;  // 결과 본문
+    constexpr int EntryContentH   = 14;
 
     // 닫기 버튼
     constexpr int CloseX   = 83;
@@ -73,7 +99,7 @@ void JournalState::Rebuild()
             8, UILabel::TextAlign::Left, UILabel::VAlign::Top));
     }
 
-    // ── 좌측: 목록 제목 ───────────────────────────────────────────────────────
+    // ── 좌측: 처리 목록 제목 ──────────────────────────────────────────────────
     uiManager.Add(std::make_unique<UILabel>(
         JnLayout::ListX, 5, JnLayout::Z,
         JnLayout::ListW, JnLayout::RowH, L("ui.journal_list"),
@@ -136,7 +162,7 @@ void JournalState::Rebuild()
 
         // 날짜
         {
-            std::string dayStr = "Day " + std::to_string(entry.day);
+            std::string dayStr = FormatGameDate(entry.day);
             auto lbl = std::make_unique<UILabel>(
                 JnLayout::RightX, JnLayout::EntryDayY, JnLayout::Z,
                 JnLayout::RightW, JnLayout::RowH, dayStr,
@@ -145,7 +171,33 @@ void JournalState::Rebuild()
             uiManager.Add(std::move(lbl));
         }
 
-        // 본문
+        // 사건 내용 전문 (케이스 노드 텍스트)
+        if (!entry.description.empty())
+        {
+            uiManager.Add(std::make_unique<UILabel>(
+                JnLayout::RightX, JnLayout::EntryDescY, JnLayout::Z,
+                JnLayout::RightW, JnLayout::EntryDescH, entry.description,
+                7, UILabel::TextAlign::Left, UILabel::VAlign::Top));
+        }
+
+        // 가로 구분선
+        uiManager.Add(std::make_unique<UILabel>(
+            JnLayout::RightX, JnLayout::EntryDivY, JnLayout::Z,
+            JnLayout::RightW, 1,
+            std::string(62, '-'),
+            8, UILabel::TextAlign::Left, UILabel::VAlign::Top));
+
+        // 처리 결과 (선택한 선택지)
+        if (!entry.outcome.empty())
+        {
+            std::string outcomeStr = L("ui.journal_outcome") + "  " + entry.outcome;
+            uiManager.Add(std::make_unique<UILabel>(
+                JnLayout::RightX, JnLayout::EntryOutcomeY, JnLayout::Z,
+                JnLayout::RightW, JnLayout::RowH, outcomeStr,
+                11, UILabel::TextAlign::Left, UILabel::VAlign::Middle));
+        }
+
+        // 결과 본문
         {
             auto lbl = std::make_unique<UILabel>(
                 JnLayout::RightX, JnLayout::EntryContentY, JnLayout::Z,

@@ -1,0 +1,20 @@
+{
+  "id": "case_1065_a",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.case_1065_a.0",
+    "story.case_1065_a.1",
+    "story.case_1065_a.2"
+  ],
+  "effects": [
+    { "type": "case_record", "key": "case_1065", "title": "story.case_1065.0", "outcome": "story.case_1065.choice.0", "content": "story.case_1065_a.0" },
+    { "type": "tendency", "key": "corruption", "value": 20 },
+    { "type": "tendency", "key": "suspicion", "value": -2 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day24_end"
+    }
+  ]
+}

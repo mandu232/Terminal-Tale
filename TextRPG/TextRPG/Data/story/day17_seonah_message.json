@@ -1,0 +1,18 @@
+{
+  "id": "day17_seonah_message",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day17_seonah_message.0",
+    "story.day17_seonah_message.1",
+    "story.day17_seonah_message.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1058"
+    }
+  ]
+}

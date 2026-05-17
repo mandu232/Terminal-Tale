@@ -1,0 +1,21 @@
+{
+  "id": "day25_evidence_submit",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day25_evidence_submit.0",
+    "story.day25_evidence_submit.1",
+    "story.day25_evidence_submit.2",
+    "story.day25_evidence_submit.3"
+  ],
+  "effects": [
+    { "type": "flag_add", "key": "pattern_submitted" },
+    { "type": "tendency", "key": "justice",   "value": 8 },
+    { "type": "tendency", "key": "suspicion", "value": 5 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1066"
+    }
+  ]
+}

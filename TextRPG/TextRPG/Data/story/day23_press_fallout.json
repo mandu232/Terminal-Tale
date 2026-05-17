@@ -1,0 +1,21 @@
+{
+  "id": "day23_press_fallout",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day23_press_fallout.0",
+    "story.day23_press_fallout.1",
+    "story.day23_press_fallout.2",
+    "story.day23_press_fallout.3"
+  ],
+  "effects": [
+    { "type": "flag_add", "key": "external_pressure_rising" },
+    { "type": "tendency", "key": "suspicion", "value": 4 },
+    { "type": "tendency", "key": "justice", "value": 3 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1064"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "day25_hearing_open",
+  "sfx": "Assets/audio/node_footstep.wav",
+  "text": [
+    "story.day25_hearing_open.0",
+    "story.day25_hearing_open.1",
+    "story.day25_hearing_open.2",
+    "story.day25_hearing_open.3"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day25_hearing_open.choice.0",
+      "next": "day25_hearing_full"
+    },
+    {
+      "text": "story.day25_hearing_open.choice.1",
+      "next": "day25_hearing_pattern",
+      "require": [
+        { "type": "flag", "key": "cha_pattern_documented" }
+      ]
+    },
+    {
+      "text": "story.day25_hearing_open.choice.2",
+      "next": "day25_hearing_limited"
+    }
+  ]
+}

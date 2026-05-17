@@ -1,0 +1,22 @@
+{
+  "id": "case_1063_b",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.case_1063_b.0",
+    "story.case_1063_b.1",
+    "story.case_1063_b.2"
+  ],
+  "effects": [
+    { "type": "case_record", "key": "case_1063", "title": "story.case_1063.0", "outcome": "story.case_1063.choice.1", "content": "story.case_1063_b.0" },
+    { "type": "tendency", "key": "corruption", "value": 15 },
+    { "type": "tendency", "key": "justice", "value": 8 },
+    { "type": "tendency", "key": "suspicion", "value": 3 },
+    { "type": "flag_add", "key": "jaewon_in_alliance" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day22_end_alliance"
+    }
+  ]
+}

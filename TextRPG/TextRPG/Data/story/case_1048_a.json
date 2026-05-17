@@ -1,21 +1,42 @@
-{
-  "id": "case_1048_a",
-  "text": [
-    "story.case_1048_a.0",
-    "story.case_1048_a.1",
-    "story.case_1048_a.2",
-    "story.case_1048_a.3"
-  ],
-  "effects": [
-    { "type": "city_order",    "value":  10 },
-    { "type": "citizen_trust", "value": -30 },
-    { "type": "tendency", "key": "coldness",   "value": 5 },
-    { "type": "tendency", "key": "compliance", "value": 5 }
-  ],
-  "choices": [
-    {
-      "text": "story.common.next_case",
-      "next": "day7_end_compliance"
-    }
-  ]
+﻿{
+    "id":  "case_1048_a",
+    "text":  [
+                 "story.case_1048_a.0",
+                 "story.case_1048_a.1",
+                 "story.case_1048_a.2",
+                 "story.case_1048_a.3"
+             ],
+    "choices":  [
+                    {
+                        "text":  "story.common.next_case",
+                        "next":  "day7_end_compliance"
+                    }
+                ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1048",
+                        "title":  "story.case_1048.0",
+                        "outcome":  "story.case_1048.choice.0",
+                        "content":  "story.case_1048_a.0"
+                    },
+                    {
+                        "type":  "city_order",
+                        "value":  10
+                    },
+                    {
+                        "type":  "citizen_trust",
+                        "value":  -30
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "coldness",
+                        "value":  5
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "compliance",
+                        "value":  5
+                    }
+                ]
 }

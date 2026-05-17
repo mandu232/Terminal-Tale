@@ -23,11 +23,18 @@ enum class EffectType
 	AddCityOrder ,     //도시 질서 변화
 	AddCitizenTrust ,  //시민 신뢰 변화
 	AddCorruption ,    //오염도 변화
+
+	CaseRecord ,       //케이스 처리 기록 추가 (처리 문서 열람용)
 };
 
 struct Effect
 {
 	EffectType type = EffectType::AddVitality;
-	std::string key;
+	std::string key;      // 공용 키 (flag 이름, item id, tendency 키, case id 등)
 	int value = 0;
+
+	// CaseRecord 전용 필드
+	std::string title;    // 케이스 헤더 로컬라이제이션 키 (e.g. "story.case_1053.0")
+	std::string outcome;  // 선택한 선택지 로컬라이제이션 키 (e.g. "story.case_1053.choice.0")
+	std::string content;  // 결과 본문 로컬라이제이션 키 (e.g. "story.case_1053_a.0")
 };

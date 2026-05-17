@@ -1,0 +1,21 @@
+{
+  "id": "day21_jaeho_final",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.day21_jaeho_final.0",
+    "story.day21_jaeho_final.1",
+    "story.day21_jaeho_final.2",
+    "story.day21_jaeho_final.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "justice", "value": 3 },
+    { "type": "corruption",                 "value": 8 },
+    { "type": "flag_add", "key": "has_case_1038_original" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1062"
+    }
+  ]
+}

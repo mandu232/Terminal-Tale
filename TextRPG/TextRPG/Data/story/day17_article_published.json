@@ -1,0 +1,20 @@
+{
+  "id": "day17_article_published",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day17_article_published.0",
+    "story.day17_article_published.1",
+    "story.day17_article_published.2",
+    "story.day17_article_published.3"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "suspicion", "value": 2 },
+    { "type": "flag_add", "key": "article_published" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.next_case",
+      "next": "case_1058"
+    }
+  ]
+}

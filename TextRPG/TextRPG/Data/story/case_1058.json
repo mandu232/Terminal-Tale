@@ -1,0 +1,35 @@
+{
+  "id": "case_1058",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.case_1058.0",
+    "story.case_1058.1",
+    "story.case_1058.2",
+    "story.case_1058.3"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.case_1058.choice.0",
+      "next": "case_1058_a"
+    },
+    {
+      "text": "story.case_1058.choice.1",
+      "next": "case_1058_b"
+    },
+    {
+      "text": "story.case_1058.choice.2",
+      "next": "case_1058_c",
+      "require": [
+        { "type": "flag", "key": "article_published" }
+      ]
+    },
+    {
+      "text": "story.case_1058.choice.3",
+      "next": "case_1058_d",
+      "require": [
+        { "type": "flag", "key": "has_insider_ally" }
+      ]
+    }
+  ]
+}
