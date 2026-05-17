@@ -1,0 +1,19 @@
+{
+  "id": "day28_yun_retreat",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day28_yun_retreat.0",
+    "story.day28_yun_retreat.1",
+    "story.day28_yun_retreat.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "empathy",  "value": 1 },
+    { "type": "tendency", "key": "coldness", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.day28_yun_retreat.choice.0",
+      "next": "day28_final_choice"
+    }
+  ]
+}

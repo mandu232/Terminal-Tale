@@ -1,0 +1,20 @@
+{
+  "id": "case_1069_c",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.case_1069_c.0",
+    "story.case_1069_c.1",
+    "story.case_1069_c.2"
+  ],
+  "effects": [
+    { "type": "case_record", "key": "case_1069", "title": "story.case_1069.0", "outcome": "story.case_1069.choice.2", "content": "story.case_1069_c.0" },
+    { "type": "tendency",    "key": "justice",   "value": 2 },
+    { "type": "tendency",    "key": "empathy",   "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day28_final_choice"
+    }
+  ]
+}

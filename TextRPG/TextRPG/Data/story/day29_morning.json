@@ -1,0 +1,39 @@
+{
+  "id": "day29_morning",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day29_morning.0",
+    "story.day29_morning.1"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day29_morning.choice.0",
+      "next": "day29_alliance_action",
+      "require": [
+        { "type": "flag", "key": "ending_alliance" }
+      ]
+    },
+    {
+      "text": "story.day29_morning.choice.1",
+      "next": "day29_resistance_action",
+      "require": [
+        { "type": "flag", "key": "ending_resistance" }
+      ]
+    },
+    {
+      "text": "story.day29_morning.choice.2",
+      "next": "day29_compliance_action",
+      "require": [
+        { "type": "flag", "key": "ending_compliance" }
+      ]
+    },
+    {
+      "text": "story.day29_morning.choice.3",
+      "next": "day29_retreat_action",
+      "require": [
+        { "type": "flag", "key": "ending_retreat" }
+      ]
+    }
+  ]
+}

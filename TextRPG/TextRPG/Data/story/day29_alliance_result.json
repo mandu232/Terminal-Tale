@@ -1,0 +1,20 @@
+{
+  "id": "day29_alliance_result",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day29_alliance_result.0",
+    "story.day29_alliance_result.1",
+    "story.day29_alliance_result.2"
+  ],
+  "effects": [
+    { "type": "day",          "value": 1 },
+    { "type": "set_time",     "value": 8 },
+    { "type": "citizen_trust","value": 10 }
+  ],
+  "choices": [
+    {
+      "text": "story.day_end.choice.0",
+      "next": "day30_ending_alliance"
+    }
+  ]
+}

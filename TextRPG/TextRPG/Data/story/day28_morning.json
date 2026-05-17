@@ -1,0 +1,31 @@
+{
+  "id": "day28_morning",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day28_morning.0",
+    "story.day28_morning.1",
+    "story.day28_morning.2"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day28_morning.choice.0",
+      "next": "day28_cha_ultimatum"
+    },
+    {
+      "text": "story.day28_morning.choice.1",
+      "next": "day28_yun_crisis",
+      "require": [
+        { "type": "flag", "key": "yun_warned" }
+      ]
+    },
+    {
+      "text": "story.day28_morning.choice.2",
+      "next": "case_1069"
+    },
+    {
+      "text": "story.day28_morning.choice.3",
+      "next": "day28_final_choice"
+    }
+  ]
+}

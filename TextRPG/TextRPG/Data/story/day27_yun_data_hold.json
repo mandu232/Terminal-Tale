@@ -1,0 +1,19 @@
+{
+  "id": "day27_yun_data_hold",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day27_yun_data_hold.0",
+    "story.day27_yun_data_hold.1",
+    "story.day27_yun_data_hold.2"
+  ],
+  "effects": [
+    { "type": "flag_add",  "key": "yun_data_held" },
+    { "type": "tendency", "key": "suspicion", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day27_end"
+    }
+  ]
+}

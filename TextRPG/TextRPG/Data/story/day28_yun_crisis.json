@@ -1,0 +1,21 @@
+{
+  "id": "day28_yun_crisis",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day28_yun_crisis.0",
+    "story.day28_yun_crisis.1",
+    "story.day28_yun_crisis.2",
+    "story.day28_yun_crisis.3"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day28_yun_crisis.choice.0",
+      "next": "day28_yun_together"
+    },
+    {
+      "text": "story.day28_yun_crisis.choice.1",
+      "next": "day28_yun_retreat"
+    }
+  ]
+}

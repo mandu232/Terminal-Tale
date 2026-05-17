@@ -1,0 +1,18 @@
+{
+  "id": "day30_ending_resistance",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day30_ending_resistance.0",
+    "story.day30_ending_resistance.1",
+    "story.day30_ending_resistance.2",
+    "story.day30_ending_resistance.3",
+    "story.day30_ending_resistance.4"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day30.choice.finish",
+      "next": "day30_credits"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "day28_yun_together",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day28_yun_together.0",
+    "story.day28_yun_together.1",
+    "story.day28_yun_together.2"
+  ],
+  "effects": [
+    { "type": "flag_add",  "key": "alliance_formed" },
+    { "type": "tendency", "key": "empathy", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.day28_yun_together.choice.0",
+      "next": "day28_final_choice"
+    }
+  ]
+}

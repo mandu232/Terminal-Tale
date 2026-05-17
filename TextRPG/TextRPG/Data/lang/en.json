@@ -1982,5 +1982,339 @@
     "story.day25_end_hearing.0": "The twenty-fifth day ends. The hearing is over.",
     "story.day25_end_hearing.1": "What you said is now official record. It cannot be unsaid.",
     "story.day25_end_hearing.2": "Three reviewers deliver their decision tomorrow. Cha Min-seok will have heard what was said today.",
-    "story.day25_end_hearing.3": "No day in this city has ever put your name in front of this many people."
+    "story.day25_end_hearing.3": "No day in this city has ever put your name in front of this many people.",
+
+    "story.day26_morning.0": "Day twenty-six. Last night's hearing testimony has spread.",
+    "story.day26_morning.1": "Two outlets reported it. One in support, one critical. Cha Min-seok's side has yet to respond officially.",
+    "story.day26_morning.2": "And today, a new case file arrived. And a call came in from Cha Min-seok.",
+    "story.day26_morning.choice.0": "Hearing fallout — check media coverage",
+    "story.day26_morning.choice.1": "Cha Min-seok's counter — assess the response",
+    "story.day26_morning.choice.2": "Contact Oh Yu-jin",
+    "story.day26_morning.choice.3": "[Process Case #1067]",
+
+    "story.day26_hearing_fallout.0": "A message from the hearing's press contact: 'Your statement is now on the official record.'",
+    "story.day26_hearing_fallout.1": "Two supporting legislators requested a follow-up investigation committee. One dissenter called it 'a personal vendetta.'",
+    "story.day26_hearing_fallout.2": "Cha Min-seok's statement: 'The officer in question misreads internal regulations and continues to cause disruption.'",
+    "story.day26_hearing_fallout.3": "Word is a formal clarification request will arrive tomorrow.",
+    "story.day26_hearing_fallout.choice.0": "Review Cha Min-seok's countermeasure",
+    "story.day26_hearing_fallout.choice.1": "Go process the case",
+
+    "story.day26_cha_counter.0": "10 a.m. Cha Min-seok called directly. Not a deputy this time.",
+    "story.day26_cha_counter.1": "'I know what you said at the hearing yesterday. Issue a public clarification within 24 hours.'",
+    "story.day26_cha_counter.2": "'Or else? Getting your name on next week's transfer list isn't hard.'",
+    "story.day26_cha_counter.3": "The call ended. Twenty-four hours remain.",
+    "story.day26_cha_counter.choice.0": "Write the clarification — walk back part of the hearing statement",
+    "story.day26_cha_counter.choice.1": "Ignore it — accept the transfer if it comes",
+    "story.day26_cha_counter.choice.2": "Tell Oh Yu-jin",
+
+    "story.day26_cha_comply.0": "You drafted the public clarification. It contained the phrase 'some data was misread.'",
+    "story.day26_cha_comply.1": "Cha Min-seok's side immediately issued a press release: 'Officer voluntarily corrects hearing statement.'",
+    "story.day26_cha_comply.2": "No transfer notice came. But one of the supportive legislators has gone quiet.",
+
+    "story.day26_cha_ignore.0": "You ignored the call.",
+    "story.day26_cha_ignore.1": "Late afternoon, a brief message arrived from the legislator who supported the hearing. 'Keep it up.'",
+    "story.day26_cha_ignore.2": "Whether the transfer happens will be clear tomorrow. The night is long.",
+
+    "story.day26_cha_notify.0": "You relayed the full contents of Cha's call to Oh Yu-jin.",
+    "story.day26_cha_notify.1": "'So he came out directly.' A pause. 'I'll send you something tomorrow morning.'",
+    "story.day26_cha_notify.2": "'There are records Cha left behind. Things only I know.'",
+
+    "story.day26_yun_news.0": "A message arrived from Oh Yu-jin first.",
+    "story.day26_yun_news.1": "'Cha Min-seok has hired an outside legal team. They're reviewing a defamation suit over the hearing statement.'",
+    "story.day26_yun_news.2": "'And my access log was viewed by someone. I think there's someone inside.'",
+    "story.day26_yun_news.3": "Oh Yu-jin is in danger.",
+    "story.day26_yun_news.choice.0": "Find a way to protect Oh Yu-jin",
+    "story.day26_yun_news.choice.1": "Handle the case for now",
+
+    "story.day26_yun_protect.0": "You searched the internal security log. Three days ago at 11 p.m. — an external access event.",
+    "story.day26_yun_protect.1": "Not Oh Yu-jin's account. The login IP is from outside this building.",
+    "story.day26_yun_protect.2": "Someone infiltrated the internal system to surveil Oh Yu-jin. You screenshotted the log and sent it to her.",
+
+    "story.case_1067.0": "Case #1067. Han Seung-min. Male. 38.",
+    "story.case_1067.1": "Report: The resident of unit 402 in the same building repeatedly creates late-night noise and displays threatening behavior.",
+    "story.case_1067.2": "Three attached files. All named 'sound.mp3'. Timestamps show all three saved the same day at 10 a.m.",
+    "story.case_1067.3": "Note: Unit 402 has filed repeated noise complaints against Han Seung-min for the past year.",
+    "story.case_1067.choice.0": "Process as reported — send warning to unit 402",
+    "story.case_1067.choice.1": "Dismiss — insufficient evidence",
+    "story.case_1067.choice.2": "Joint dispute — issue warnings to both parties",
+    "story.case_1067.choice.3": "Counter-investigate the reporter — possible false report",
+
+    "story.case_1067_a.0": "A warning was issued to unit 402.",
+    "story.case_1067_a.1": "Two days later, the unit 402 resident filed an appeal. 'I'm actually the victim here.'",
+    "story.case_1067_a.2": "Reviewing the files again: all three recordings were saved on the same day at 10 a.m. Possible fabrication.",
+
+    "story.case_1067_b.0": "Dismissed on grounds of insufficient evidence.",
+    "story.case_1067_b.1": "Han Seung-min called to protest. 'Why is nothing being done?'",
+    "story.case_1067_b.2": "The record stays. If there's a real threat, it will return.",
+
+    "story.case_1067_c.0": "Warnings issued to both parties.",
+    "story.case_1067_c.1": "Han Seung-min: 'Why do I get a warning too?' Unit 402 acknowledged receipt without comment.",
+    "story.case_1067_c.2": "Processed as a joint dispute. The truth remains unclear.",
+
+    "story.case_1067_d.0": "Searched Han Seung-min's complaint history. Three in this building. Two at the previous address.",
+    "story.case_1067_d.1": "A pattern: files a complaint against a neighbor within six months of moving in. All dismissed.",
+    "story.case_1067_d.2": "Internal warning issued for repeated false reports. File retained internally — not shared externally.",
+
+    "story.day26_end.0": "The twenty-sixth day fades. Cha Min-seok's moves are growing more brazen.",
+    "story.day26_end.1": "The fallout from the hearing will continue tomorrow.",
+    "story.day26_end.2": "Whatever you chose today, the weight accumulates.",
+
+    "story.day26_end_exposed.0": "The twenty-sixth day fades. Today, more things came to light.",
+    "story.day26_end_exposed.1": "Cha Min-seok is now prepared to use legal means as well. Lawsuits. Transfers. Surveillance.",
+    "story.day26_end_exposed.2": "From inside and out. The pressure is closing in.",
+
+    "story.day27_morning.0": "Day twenty-seven. A quieter morning than expected.",
+    "story.day27_morning.1": "Transfer notice. Oh Yu-jin's promise. Hearing results. What's been piling up may finally surface today.",
+    "story.day27_morning.2": "And one more case file arrived.",
+    "story.day27_morning.choice.0": "Check transfer notice",
+    "story.day27_morning.choice.1": "Receive Oh Yu-jin's data",
+    "story.day27_morning.choice.2": "Check hearing follow-up result",
+    "story.day27_morning.choice.3": "[Process Case #1068]",
+
+    "story.day27_transfer_notice.0": "9:30 a.m. A transfer notice arrived.",
+    "story.day27_transfer_notice.1": "'Transfer order: Field administration assistant, Northern District 3.' Effectively a demotion.",
+    "story.day27_transfer_notice.2": "Effective in five days. Appeal window: 72 hours.",
+    "story.day27_transfer_notice.3": "Cha Min-seok followed through.",
+    "story.day27_transfer_notice.choice.0": "File an appeal",
+    "story.day27_transfer_notice.choice.1": "Accept it — staying is enough",
+    "story.day27_transfer_notice.choice.2": "Ignore it — keep processing cases",
+
+    "story.day27_transfer_appeal.0": "You wrote and filed the appeal. Grounds: 'Retaliatory transfer without basis.'",
+    "story.day27_transfer_appeal.1": "The department sent an automated reply: 'Under review.'",
+    "story.day27_transfer_appeal.2": "Cha Min-seok would have expected an appeal. Still, the record stands.",
+
+    "story.day27_transfer_accept.0": "You accepted the transfer notice.",
+    "story.day27_transfer_accept.1": "This places distance between you and the hearing, Cha Min-seok, and this city's review system.",
+    "story.day27_transfer_accept.2": "But five days remain.",
+
+    "story.day27_transfer_ignore.0": "You put the notice in a drawer.",
+    "story.day27_transfer_ignore.1": "There are things that can still be done in five days.",
+    "story.day27_transfer_ignore.2": "Cha Min-seok intends to pressure you slowly now.",
+
+    "story.day27_yun_data.0": "Oh Yu-jin handed over a small USB drive. 'The records I mentioned.'",
+    "story.day27_yun_data.1": "File list: Cha Min-seok's internal approval records. Memos directing specific case dispositions. Timestamps included.",
+    "story.day27_yun_data.2": "'Submit it to the hearing committee... or the press.' She spoke quietly.",
+    "story.day27_yun_data.3": "The judgment is yours.",
+    "story.day27_yun_data.choice.0": "Submit to the hearing investigation committee",
+    "story.day27_yun_data.choice.1": "Pass it to the press",
+    "story.day27_yun_data.choice.2": "Hold onto it for now",
+
+    "story.day27_yun_data_hearing.0": "The data was submitted to the hearing investigation committee.",
+    "story.day27_yun_data_hearing.1": "Receipt confirmed. Review will take time.",
+    "story.day27_yun_data_hearing.2": "Oh Yu-jin sent a message: 'Good. Whatever comes of it.'",
+
+    "story.day27_yun_data_press.0": "You passed the data through a press channel.",
+    "story.day27_yun_data_press.1": "A breaking report dropped in the afternoon: 'Cha Min-seok internal directive obtained — direct intervention in case dispositions suspected.'",
+    "story.day27_yun_data_press.2": "Cha Min-seok's side immediately called it a forgery.",
+
+    "story.day27_yun_data_hold.0": "You held onto the data.",
+    "story.day27_yun_data_hold.1": "Oh Yu-jin replied briefly: 'Understood. Wait for the right moment.'",
+    "story.day27_yun_data_hold.2": "The right moment will come.",
+
+    "story.day27_hearing_result.0": "The hearing investigation committee issued its first conclusion.",
+    "story.day27_hearing_result.1": "'Inconsistencies in case processing standards confirmed in select cases. Cha Min-seok's personal responsibility: further review required.'",
+    "story.day27_hearing_result.2": "Cha Min-seok announced this to the press as a 'finding of no wrongdoing.'",
+    "story.day27_hearing_result.3": "But 'further review required' also means this is not over.",
+    "story.day27_hearing_result.choice.0": "Connect with submitted data — file supplemental opinion to committee",
+    "story.day27_hearing_result.choice.1": "Go process the case",
+
+    "story.case_1068.0": "Case #1068. Lee Dong-hyeok. Male. 45.",
+    "story.case_1068.1": "Report: Repeatedly challenged internal directives and overlooked subordinate rule violations.",
+    "story.case_1068.2": "Reporter: Anonymous. Attached: one internal meeting audio excerpt. No official seal.",
+    "story.case_1068.3": "Note: Lee Dong-hyeok's subordinate has a history of reporting to external agencies without going through direct supervisors.",
+    "story.case_1068.choice.0": "Process as reported — issue warning for insubordination",
+    "story.case_1068.choice.1": "Dismiss — anonymous report, no official evidence",
+    "story.case_1068.choice.2": "Hold — request additional materials",
+    "story.case_1068.choice.3": "Counter-investigate — identify the reporter",
+
+    "story.case_1068_a.0": "Warning issued: 'One formal warning for insubordination.'",
+    "story.case_1068_a.1": "Lee Dong-hyeok filed an appeal after receiving it. 'I was only trying to protect my subordinate.'",
+    "story.case_1068_a.2": "The identity of the reporter remains unknown.",
+
+    "story.case_1068_b.0": "Dismissed on grounds of anonymous report and lack of official evidence.",
+    "story.case_1068_b.1": "Lee Dong-hyeok was notified. A short reply came back. 'Thank you.'",
+    "story.case_1068_b.2": "The reporter may try again — better prepared next time.",
+
+    "story.case_1068_c.0": "A request for additional materials was issued. The anonymous reporter cannot be reached.",
+    "story.case_1068_c.1": "If no materials are submitted within the deadline, the case is automatically dismissed.",
+    "story.case_1068_c.2": "Lee Dong-hyeok still doesn't know any of this.",
+
+    "story.case_1068_d.0": "You traced the report's origin. Submission time: 6:07 p.m. Outside the department's official hours.",
+    "story.case_1068_d.1": "Internal access logs checked. The reporter is Lee Dong-hyeok's direct superior.",
+    "story.case_1068_d.2": "And that superior is connected to Cha Min-seok's network. This report was a targeted hit from the start.",
+
+    "story.day27_end.0": "The twenty-seventh day fades.",
+    "story.day27_end.1": "Cha Min-seok's moves are surfacing one by one. But surfacing doesn't mean it's over.",
+    "story.day27_end.2": "Tomorrow, the days you can still act in this city may be numbered.",
+
+    "story.day27_end_turning.0": "The twenty-seventh day fades. Something shifted today.",
+    "story.day27_end_turning.1": "Data was submitted, the press moved, or the reporter's identity came to light.",
+    "story.day27_end_turning.2": "Cha Min-seok won't sleep easily tonight.",
+
+    "story.day28_morning.0": "Day twenty-eight. Two days before the transfer takes effect.",
+    "story.day28_morning.1": "A message from Cha Min-seok. Short and clear. 'Give me your answer today.'",
+    "story.day28_morning.2": "This may be the last real day of choice.",
+    "story.day28_morning.choice.0": "Read Cha Min-seok's ultimatum",
+    "story.day28_morning.choice.1": "Check on Oh Yu-jin",
+    "story.day28_morning.choice.2": "[Process Case #1069]",
+    "story.day28_morning.choice.3": "Make your final decision",
+
+    "story.day28_cha_ultimatum.0": "Message: 'Recall all materials and officially retract your hearing statement.'",
+    "story.day28_cha_ultimatum.1": "'Do that, and I will cancel the transfer and guarantee your current position. This is my final offer.'",
+    "story.day28_cha_ultimatum.2": "'Refuse? I will use every tool at my disposal. Including legal ones.'",
+    "story.day28_cha_ultimatum.3": "You must respond today.",
+    "story.day28_cha_ultimatum.choice.0": "Refuse",
+    "story.day28_cha_ultimatum.choice.1": "Consider acceptance",
+
+    "story.day28_cha_refused.0": "You sent your refusal.",
+    "story.day28_cha_refused.1": "Cha Min-seok replied briefly. 'I see.'",
+    "story.day28_cha_refused.2": "Every tool will now be deployed. You said no knowing that.",
+    "story.day28_cha_refused.choice.0": "Make your final decision",
+
+    "story.day28_cha_considering.0": "You indicated you were considering acceptance.",
+    "story.day28_cha_considering.1": "Cha Min-seok replied: 'Give me your final answer by tomorrow morning.'",
+    "story.day28_cha_considering.2": "One more day. But the answer still has to come.",
+    "story.day28_cha_considering.choice.0": "Make your final decision",
+
+    "story.day28_yun_crisis.0": "Oh Yu-jin reached out. She received a suspension notice.",
+    "story.day28_yun_crisis.1": "'I feel like I've made things harder for you. I'm sorry.'",
+    "story.day28_yun_crisis.2": "'But I'm not going to give up. We can do this together.'",
+    "story.day28_yun_crisis.3": "In her eyes — not fear. Something harder.",
+    "story.day28_yun_crisis.choice.0": "Fight together",
+    "story.day28_yun_crisis.choice.1": "Protect Oh Yu-jin — tell her to stand down for now",
+
+    "story.day28_yun_together.0": "You agreed to stand together. Oh Yu-jin gave a short nod.",
+    "story.day28_yun_together.1": "'Then I'll bring out everything I have.'",
+    "story.day28_yun_together.2": "Two sets of records become one.",
+    "story.day28_yun_together.choice.0": "Make your final decision",
+
+    "story.day28_yun_retreat.0": "You told Oh Yu-jin to stand down for now.",
+    "story.day28_yun_retreat.1": "A pause. 'Understood. But my data is in your hands.'",
+    "story.day28_yun_retreat.2": "That may be enough.",
+    "story.day28_yun_retreat.choice.0": "Make your final decision",
+
+    "story.case_1069.0": "Case #1069. Choi Won-jun. Male. 52.",
+    "story.case_1069.1": "Report: Self-report. Requesting reinvestigation and correction of a disposition issued by the filer himself twenty years ago.",
+    "story.case_1069.2": "Attached: copy of original disposition, three handwritten memos. 'I processed it as directed, and I now know it was wrong.'",
+    "story.case_1069.3": "Note: Choi Won-jun resigned as a reviewing officer twelve years ago. Currently unemployed.",
+    "story.case_1069.choice.0": "Dismiss — statute of limitations expired",
+    "story.case_1069.choice.1": "Accept for reinvestigation — honor his request",
+    "story.case_1069.choice.2": "Preserve testimony as internal record — no formal action",
+    "story.case_1069.choice.3": "Investigate Cha Min-seok's involvement — identify who gave the order",
+
+    "story.case_1069_a.0": "Dismissed on statute of limitations grounds.",
+    "story.case_1069_a.1": "Choi Won-jun was silent for a long time. 'I figured. Please at least keep the record.'",
+    "story.case_1069_a.2": "The intake record was preserved internally. Perhaps that was all he wanted.",
+
+    "story.case_1069_b.0": "Acceptance of reinvestigation was sent.",
+    "story.case_1069_b.1": "No authority to re-issue a disposition exists here. But a formal reinvestigation request was forwarded to a higher body.",
+    "story.case_1069_b.2": "Choi Won-jun: 'Thank you. Late, but at least it can begin.'",
+
+    "story.case_1069_c.0": "His testimony was preserved as an internal file without formal action.",
+    "story.case_1069_c.1": "Three handwritten memos now exist on the record.",
+    "story.case_1069_c.2": "'This is enough,' Choi Won-jun said. 'Just being remembered is something.'",
+
+    "story.case_1069_d.0": "You asked quietly: 'Who gave you the order back then?'",
+    "story.case_1069_d.1": "Choi Won-jun hesitated for a long time. Then: '...Cha Min-seok. Twenty years ago, he worked the same way.'",
+    "story.case_1069_d.2": "The testimony was recorded. With Choi Won-jun's signature.",
+
+    "story.day28_final_choice.0": "Tonight, you must decide.",
+    "story.day28_final_choice.1": "Tomorrow, the choice becomes real.",
+    "story.day28_final_choice.2": "What will it be.",
+    "story.day28_final_choice.choice.0": "Stand with Oh Yu-jin — fight from inside",
+    "story.day28_final_choice.choice.1": "Release everything — confront Cha Min-seok openly",
+    "story.day28_final_choice.choice.2": "Accept Cha Min-seok's offer — keep the position",
+    "story.day28_final_choice.choice.3": "Accept the transfer — leave quietly",
+
+    "story.day28_resolve_alliance.0": "You chose to stand with Oh Yu-jin.",
+    "story.day28_resolve_alliance.1": "Not being alone. That is the most certain thing you have right now.",
+    "story.day28_resolve_alliance.2": "Tomorrow, two people make the final move together.",
+
+    "story.day28_resolve_resistance.0": "You chose to release everything.",
+    "story.day28_resolve_resistance.1": "Every record, every document, every testimony — all of it.",
+    "story.day28_resolve_resistance.2": "Win or lose, nothing stays hidden.",
+
+    "story.day28_resolve_compliance.0": "You chose to accept Cha Min-seok's offer.",
+    "story.day28_resolve_compliance.1": "Whether this is the wise choice, time will tell.",
+    "story.day28_resolve_compliance.2": "The position is kept. Find what can still be done from within.",
+
+    "story.day28_resolve_retreat.0": "You chose to accept the transfer and leave.",
+    "story.day28_resolve_retreat.1": "This city, this system, Cha Min-seok. Distance from all of it.",
+    "story.day28_resolve_retreat.2": "But the records of what you processed remain.",
+
+    "story.day28_end.0": "The twenty-eighth day fades. The decision is made.",
+    "story.day28_end.1": "Tomorrow that decision meets reality.",
+    "story.day28_end.2": "The last day will dawn.",
+
+    "story.day29_morning.0": "Day twenty-nine. What was decided last night becomes real today.",
+    "story.day29_morning.1": "There is no turning back.",
+    "story.day29_morning.choice.0": "With Oh Yu-jin — file the official internal report",
+    "story.day29_morning.choice.1": "Full disclosure — release all materials",
+    "story.day29_morning.choice.2": "Accept — submit the retraction",
+    "story.day29_morning.choice.3": "Depart — process the last case and leave",
+
+    "story.day29_alliance_action.0": "Oh Yu-jin had the paperwork ready on the desk. Official internal whistleblower intake form.",
+    "story.day29_alliance_action.1": "Two signatures. Her records, Choi Won-jun's testimony, case pattern analysis — bundled together.",
+    "story.day29_alliance_action.2": "The intake stamp came down. The official process has begun.",
+    "story.day29_alliance_action.choice.0": "Wait for the response",
+
+    "story.day29_alliance_result.0": "3 p.m. A legal threat notice arrived from Cha Min-seok's law team. Two pages.",
+    "story.day29_alliance_result.1": "At the same time, the investigation committee sent confirmation: 'New materials received and logged.'",
+    "story.day29_alliance_result.2": "Oh Yu-jin's suspension was lifted in the same batch. Someone moved.",
+
+    "story.day29_resistance_action.0": "Materials sorted. Cha Min-seok's internal records. Choi Won-jun's testimony. Case pattern analysis.",
+    "story.day29_resistance_action.1": "Three press outlets, the investigation committee, two civic organizations. Simultaneous distribution prepared.",
+    "story.day29_resistance_action.2": "Send button pressed.",
+    "story.day29_resistance_action.choice.0": "Watch the fallout",
+
+    "story.day29_resistance_result.0": "A breaking report appeared within thirty minutes. Cha Min-seok's name topped the search charts within two hours.",
+    "story.day29_resistance_result.1": "4 p.m. The investigation committee formally demanded Cha Min-seok appear immediately.",
+    "story.day29_resistance_result.2": "5 p.m. A call from headquarters. 'Immediate suspension.' This was expected.",
+
+    "story.day29_compliance_action.0": "The hearing retraction statement was written: 'The remarks stemmed from a misreading of certain materials.'",
+    "story.day29_compliance_action.1": "The file containing Oh Yu-jin's records was returned to Cha Min-seok's side.",
+    "story.day29_compliance_action.2": "Everything feels like it's returning to where it started.",
+    "story.day29_compliance_action.choice.0": "Wait for confirmation",
+
+    "story.day29_compliance_result.0": "Thirty minutes later. Transfer cancellation notice received.",
+    "story.day29_compliance_result.1": "Official statement from Cha Min-seok's side: 'We welcome the officer's voluntary correction. The hearing was confirmed to be based on a misunderstanding.'",
+    "story.day29_compliance_result.2": "The follow-up investigation quietly wound down.",
+
+    "story.day29_retreat_action.0": "The last case file was processed. Slowly. Properly.",
+    "story.day29_retreat_action.1": "The desk was cleared. Everything personal fit in one small box.",
+    "story.day29_retreat_action.2": "The processing list was reviewed one final time. #1042 through #1069.",
+    "story.day29_retreat_action.choice.0": "Step out for the last time",
+
+    "story.day29_retreat_result.0": "You left the office. No one saw you off.",
+    "story.day29_retreat_result.1": "Walking down the corridor, you thought: the cases remain on record.",
+    "story.day29_retreat_result.2": "The door closed.",
+
+    "story.day30_ending_alliance.0": "— From Within —",
+    "story.day30_ending_alliance.1": "One month later. A formal audit of Cha Min-seok is underway.",
+    "story.day30_ending_alliance.2": "Results will take time. But the process does not stop.",
+    "story.day30_ending_alliance.3": "Oh Yu-jin was reinstated. The two of you work in the same building.",
+    "story.day30_ending_alliance.4": "A case file arrived today. Same as always. But you are no longer alone.",
+
+    "story.day30_ending_resistance.0": "— Exposed —",
+    "story.day30_ending_resistance.1": "Two months later. Cha Min-seok formally resigned.",
+    "story.day30_ending_resistance.2": "Legal proceedings are underway. When they will conclude is unknown.",
+    "story.day30_ending_resistance.3": "You remain under suspension. The appeal was accepted but unresolved.",
+    "story.day30_ending_resistance.4": "Still, people remember. The case numbers. The faces behind them.",
+
+    "story.day30_ending_compliance.0": "— The Seat —",
+    "story.day30_ending_compliance.1": "Back at the desk. Case files come in. Same as before.",
+    "story.day30_ending_compliance.2": "Cha Min-seok is still in his position. So are you.",
+    "story.day30_ending_compliance.3": "But one thing has changed. Now you know which side you are on.",
+    "story.day30_ending_compliance.4": "You pick up the next case file. Name. Age. Report contents. They don't know yet.",
+
+    "story.day30_ending_retreat.0": "— The Record —",
+    "story.day30_ending_retreat.1": "Northern District 3. A new desk. A place where no one knows your name.",
+    "story.day30_ending_retreat.2": "One day, an internal document-sharing alert arrived. Anonymous sender.",
+    "story.day30_ending_retreat.3": "Attachment: Case #1053 reinvestigation result. 'Processing standard inconsistency confirmed. Responsible party under review.'",
+    "story.day30_ending_retreat.4": "The cases you processed are still alive. Records don't disappear.",
+
+    "story.day30_credits.0": "Every case stays on the record.",
+    "story.day30_credits.1": "That record can change someone's life.",
+    "story.day30_credits.2": "The decisions you made. They built this city.",
+    "story.day30.choice.finish": "— End —"
 }

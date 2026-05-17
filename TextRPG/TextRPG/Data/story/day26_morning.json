@@ -1,0 +1,31 @@
+{
+  "id": "day26_morning",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day26_morning.0",
+    "story.day26_morning.1",
+    "story.day26_morning.2"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day26_morning.choice.0",
+      "next": "day26_hearing_fallout"
+    },
+    {
+      "text": "story.day26_morning.choice.1",
+      "next": "day26_cha_counter"
+    },
+    {
+      "text": "story.day26_morning.choice.2",
+      "next": "day26_yun_news",
+      "require": [
+        { "type": "flag", "key": "yun_returned" }
+      ]
+    },
+    {
+      "text": "story.day26_morning.choice.3",
+      "next": "case_1067"
+    }
+  ]
+}

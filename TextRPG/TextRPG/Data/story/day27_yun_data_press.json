@@ -1,0 +1,21 @@
+{
+  "id": "day27_yun_data_press",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day27_yun_data_press.0",
+    "story.day27_yun_data_press.1",
+    "story.day27_yun_data_press.2"
+  ],
+  "effects": [
+    { "type": "flag_add",  "key": "yun_data_press" },
+    { "type": "tendency", "key": "justice",   "value": 2 },
+    { "type": "tendency", "key": "coldness",  "value": 1 },
+    { "type": "reputation", "value": 10 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day27_end_turning"
+    }
+  ]
+}

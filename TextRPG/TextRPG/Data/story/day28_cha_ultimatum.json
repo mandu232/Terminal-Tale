@@ -1,0 +1,21 @@
+{
+  "id": "day28_cha_ultimatum",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day28_cha_ultimatum.0",
+    "story.day28_cha_ultimatum.1",
+    "story.day28_cha_ultimatum.2",
+    "story.day28_cha_ultimatum.3"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day28_cha_ultimatum.choice.0",
+      "next": "day28_cha_refused"
+    },
+    {
+      "text": "story.day28_cha_ultimatum.choice.1",
+      "next": "day28_cha_considering"
+    }
+  ]
+}

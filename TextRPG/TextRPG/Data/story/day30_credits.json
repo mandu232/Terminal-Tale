@@ -1,0 +1,11 @@
+{
+  "id": "day30_credits",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day30_credits.0",
+    "story.day30_credits.1",
+    "story.day30_credits.2"
+  ],
+  "effects": [],
+  "choices": []
+}

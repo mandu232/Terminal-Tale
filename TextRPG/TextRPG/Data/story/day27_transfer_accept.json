@@ -1,0 +1,20 @@
+{
+  "id": "day27_transfer_accept",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day27_transfer_accept.0",
+    "story.day27_transfer_accept.1",
+    "story.day27_transfer_accept.2"
+  ],
+  "effects": [
+    { "type": "flag_add",  "key": "transfer_accepted" },
+    { "type": "tendency", "key": "compliance", "value": 2 },
+    { "type": "vitality", "value": -2 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day27_end"
+    }
+  ]
+}

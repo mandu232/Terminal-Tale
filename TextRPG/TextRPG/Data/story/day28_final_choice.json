@@ -1,0 +1,31 @@
+{
+  "id": "day28_final_choice",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day28_final_choice.0",
+    "story.day28_final_choice.1",
+    "story.day28_final_choice.2"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day28_final_choice.choice.0",
+      "next": "day28_resolve_alliance",
+      "require": [
+        { "type": "flag", "key": "alliance_formed" }
+      ]
+    },
+    {
+      "text": "story.day28_final_choice.choice.1",
+      "next": "day28_resolve_resistance"
+    },
+    {
+      "text": "story.day28_final_choice.choice.2",
+      "next": "day28_resolve_compliance"
+    },
+    {
+      "text": "story.day28_final_choice.choice.3",
+      "next": "day28_resolve_retreat"
+    }
+  ]
+}

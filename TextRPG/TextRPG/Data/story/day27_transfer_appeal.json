@@ -1,0 +1,20 @@
+{
+  "id": "day27_transfer_appeal",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day27_transfer_appeal.0",
+    "story.day27_transfer_appeal.1",
+    "story.day27_transfer_appeal.2"
+  ],
+  "effects": [
+    { "type": "flag_add",  "key": "transfer_appealed" },
+    { "type": "tendency", "key": "justice",     "value": 2 },
+    { "type": "tendency", "key": "suspicion",   "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day27_end_turning"
+    }
+  ]
+}

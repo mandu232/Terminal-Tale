@@ -1,0 +1,32 @@
+{
+  "id": "case_1068",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.case_1068.0",
+    "story.case_1068.1",
+    "story.case_1068.2",
+    "story.case_1068.3"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.case_1068.choice.0",
+      "next": "case_1068_a"
+    },
+    {
+      "text": "story.case_1068.choice.1",
+      "next": "case_1068_b"
+    },
+    {
+      "text": "story.case_1068.choice.2",
+      "next": "case_1068_c"
+    },
+    {
+      "text": "story.case_1068.choice.3",
+      "next": "case_1068_d",
+      "require": [
+        { "type": "tendency", "key": "suspicion", "op": "gte", "value": 3 }
+      ]
+    }
+  ]
+}

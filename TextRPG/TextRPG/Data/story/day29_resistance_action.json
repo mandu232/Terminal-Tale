@@ -1,0 +1,21 @@
+{
+  "id": "day29_resistance_action",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day29_resistance_action.0",
+    "story.day29_resistance_action.1",
+    "story.day29_resistance_action.2"
+  ],
+  "effects": [
+    { "type": "flag_add",   "key": "all_evidence_released" },
+    { "type": "tendency",   "key": "justice",   "value": 3 },
+    { "type": "tendency",   "key": "coldness",  "value": 2 },
+    { "type": "reputation", "value": 20 }
+  ],
+  "choices": [
+    {
+      "text": "story.day29_resistance_action.choice.0",
+      "next": "day29_resistance_result"
+    }
+  ]
+}

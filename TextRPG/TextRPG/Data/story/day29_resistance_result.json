@@ -1,0 +1,21 @@
+{
+  "id": "day29_resistance_result",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day29_resistance_result.0",
+    "story.day29_resistance_result.1",
+    "story.day29_resistance_result.2"
+  ],
+  "effects": [
+    { "type": "day",       "value": 1 },
+    { "type": "set_time",  "value": 8 },
+    { "type": "vitality",  "value": -3 },
+    { "type": "city_order","value": -10 }
+  ],
+  "choices": [
+    {
+      "text": "story.day_end.choice.0",
+      "next": "day30_ending_resistance"
+    }
+  ]
+}

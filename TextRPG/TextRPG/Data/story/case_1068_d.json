@@ -1,0 +1,21 @@
+{
+  "id": "case_1068_d",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.case_1068_d.0",
+    "story.case_1068_d.1",
+    "story.case_1068_d.2"
+  ],
+  "effects": [
+    { "type": "case_record", "key": "case_1068", "title": "story.case_1068.0", "outcome": "story.case_1068.choice.3", "content": "story.case_1068_d.0" },
+    { "type": "flag_add",    "key": "cha_network_exposed" },
+    { "type": "tendency",    "key": "justice",   "value": 3 },
+    { "type": "tendency",    "key": "suspicion", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day27_end_turning"
+    }
+  ]
+}

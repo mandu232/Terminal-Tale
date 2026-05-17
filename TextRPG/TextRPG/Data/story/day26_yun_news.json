@@ -1,0 +1,21 @@
+{
+  "id": "day26_yun_news",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day26_yun_news.0",
+    "story.day26_yun_news.1",
+    "story.day26_yun_news.2",
+    "story.day26_yun_news.3"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day26_yun_news.choice.0",
+      "next": "day26_yun_protect"
+    },
+    {
+      "text": "story.day26_yun_news.choice.1",
+      "next": "case_1067"
+    }
+  ]
+}

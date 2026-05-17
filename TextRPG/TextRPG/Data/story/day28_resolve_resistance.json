@@ -1,0 +1,20 @@
+{
+  "id": "day28_resolve_resistance",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day28_resolve_resistance.0",
+    "story.day28_resolve_resistance.1",
+    "story.day28_resolve_resistance.2"
+  ],
+  "effects": [
+    { "type": "flag_add",  "key": "ending_resistance" },
+    { "type": "tendency", "key": "justice",   "value": 3 },
+    { "type": "tendency", "key": "suspicion", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day28_end"
+    }
+  ]
+}

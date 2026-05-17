@@ -1,0 +1,20 @@
+{
+  "id": "case_1068_a",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.case_1068_a.0",
+    "story.case_1068_a.1",
+    "story.case_1068_a.2"
+  ],
+  "effects": [
+    { "type": "case_record",     "key": "case_1068", "title": "story.case_1068.0", "outcome": "story.case_1068.choice.0", "content": "story.case_1068_a.0" },
+    { "type": "citizen_trust",   "value": -5 },
+    { "type": "corruption",      "value": 10 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day27_end"
+    }
+  ]
+}

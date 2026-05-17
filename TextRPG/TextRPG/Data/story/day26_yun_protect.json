@@ -1,0 +1,20 @@
+{
+  "id": "day26_yun_protect",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day26_yun_protect.0",
+    "story.day26_yun_protect.1",
+    "story.day26_yun_protect.2"
+  ],
+  "effects": [
+    { "type": "flag_add", "key": "yun_protected" },
+    { "type": "flag_add", "key": "yun_warned" },
+    { "type": "tendency", "key": "empathy", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day26_end_exposed"
+    }
+  ]
+}

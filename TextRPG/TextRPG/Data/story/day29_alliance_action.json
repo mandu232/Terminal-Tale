@@ -1,0 +1,20 @@
+{
+  "id": "day29_alliance_action",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day29_alliance_action.0",
+    "story.day29_alliance_action.1",
+    "story.day29_alliance_action.2"
+  ],
+  "effects": [
+    { "type": "flag_add",  "key": "hearing_final_submitted" },
+    { "type": "tendency", "key": "justice", "value": 3 },
+    { "type": "tendency", "key": "empathy", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.day29_alliance_action.choice.0",
+      "next": "day29_alliance_result"
+    }
+  ]
+}

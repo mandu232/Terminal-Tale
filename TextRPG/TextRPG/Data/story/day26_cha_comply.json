@@ -1,0 +1,20 @@
+{
+  "id": "day26_cha_comply",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day26_cha_comply.0",
+    "story.day26_cha_comply.1",
+    "story.day26_cha_comply.2"
+  ],
+  "effects": [
+    { "type": "flag_add",      "key": "cha_comply_26" },
+    { "type": "tendency",      "key": "compliance", "value": 3 },
+    { "type": "city_order",    "value": 5 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day26_end"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "day30_ending_alliance",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day30_ending_alliance.0",
+    "story.day30_ending_alliance.1",
+    "story.day30_ending_alliance.2",
+    "story.day30_ending_alliance.3",
+    "story.day30_ending_alliance.4"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day30.choice.finish",
+      "next": "day30_credits"
+    }
+  ]
+}

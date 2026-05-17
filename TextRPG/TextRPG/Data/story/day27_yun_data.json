@@ -1,0 +1,28 @@
+{
+  "id": "day27_yun_data",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day27_yun_data.0",
+    "story.day27_yun_data.1",
+    "story.day27_yun_data.2",
+    "story.day27_yun_data.3"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day27_yun_data.choice.0",
+      "next": "day27_yun_data_hearing"
+    },
+    {
+      "text": "story.day27_yun_data.choice.1",
+      "next": "day27_yun_data_press",
+      "require": [
+        { "type": "flag", "key": "journalist_channel_open" }
+      ]
+    },
+    {
+      "text": "story.day27_yun_data.choice.2",
+      "next": "day27_yun_data_hold"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "day28_cha_considering",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day28_cha_considering.0",
+    "story.day28_cha_considering.1",
+    "story.day28_cha_considering.2"
+  ],
+  "effects": [
+    { "type": "flag_add",  "key": "cha_ultimatum_considering" },
+    { "type": "tendency", "key": "compliance", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.day28_cha_considering.choice.0",
+      "next": "day28_final_choice"
+    }
+  ]
+}

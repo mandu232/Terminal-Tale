@@ -1,0 +1,19 @@
+{
+  "id": "case_1067_b",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.case_1067_b.0",
+    "story.case_1067_b.1",
+    "story.case_1067_b.2"
+  ],
+  "effects": [
+    { "type": "case_record", "key": "case_1067", "title": "story.case_1067.0", "outcome": "story.case_1067.choice.1", "content": "story.case_1067_b.0" },
+    { "type": "tendency", "key": "justice", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day26_end"
+    }
+  ]
+}

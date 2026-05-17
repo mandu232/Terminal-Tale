@@ -1,0 +1,20 @@
+{
+  "id": "day28_cha_refused",
+  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "text": [
+    "story.day28_cha_refused.0",
+    "story.day28_cha_refused.1",
+    "story.day28_cha_refused.2"
+  ],
+  "effects": [
+    { "type": "flag_add",  "key": "cha_ultimatum_refused" },
+    { "type": "tendency", "key": "justice",   "value": 2 },
+    { "type": "tendency", "key": "suspicion", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.day28_cha_refused.choice.0",
+      "next": "day28_final_choice"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "day28_resolve_alliance",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day28_resolve_alliance.0",
+    "story.day28_resolve_alliance.1",
+    "story.day28_resolve_alliance.2"
+  ],
+  "effects": [
+    { "type": "flag_add",  "key": "ending_alliance" },
+    { "type": "tendency", "key": "empathy",  "value": 2 },
+    { "type": "tendency", "key": "justice",  "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day28_end"
+    }
+  ]
+}

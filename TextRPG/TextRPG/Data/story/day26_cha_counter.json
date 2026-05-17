@@ -1,0 +1,28 @@
+{
+  "id": "day26_cha_counter",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day26_cha_counter.0",
+    "story.day26_cha_counter.1",
+    "story.day26_cha_counter.2",
+    "story.day26_cha_counter.3"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day26_cha_counter.choice.0",
+      "next": "day26_cha_comply"
+    },
+    {
+      "text": "story.day26_cha_counter.choice.1",
+      "next": "day26_cha_ignore"
+    },
+    {
+      "text": "story.day26_cha_counter.choice.2",
+      "next": "day26_cha_notify",
+      "require": [
+        { "type": "flag", "key": "yun_returned" }
+      ]
+    }
+  ]
+}

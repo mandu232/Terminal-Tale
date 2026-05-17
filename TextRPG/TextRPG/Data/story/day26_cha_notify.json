@@ -1,0 +1,19 @@
+{
+  "id": "day26_cha_notify",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day26_cha_notify.0",
+    "story.day26_cha_notify.1",
+    "story.day26_cha_notify.2"
+  ],
+  "effects": [
+    { "type": "flag_add",  "key": "yun_warned" },
+    { "type": "tendency",  "key": "empathy", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day26_end_exposed"
+    }
+  ]
+}

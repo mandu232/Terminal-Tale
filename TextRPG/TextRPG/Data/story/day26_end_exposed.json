@@ -1,0 +1,20 @@
+{
+  "id": "day26_end_exposed",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day26_end_exposed.0",
+    "story.day26_end_exposed.1",
+    "story.day26_end_exposed.2"
+  ],
+  "effects": [
+    { "type": "day",      "value": 1 },
+    { "type": "set_time", "value": 8 },
+    { "type": "tendency", "key": "suspicion", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.day_end.choice.0",
+      "next": "day27_morning"
+    }
+  ]
+}

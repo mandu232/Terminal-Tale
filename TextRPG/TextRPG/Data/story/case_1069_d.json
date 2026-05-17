@@ -1,0 +1,21 @@
+{
+  "id": "case_1069_d",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.case_1069_d.0",
+    "story.case_1069_d.1",
+    "story.case_1069_d.2"
+  ],
+  "effects": [
+    { "type": "case_record", "key": "case_1069", "title": "story.case_1069.0", "outcome": "story.case_1069.choice.3", "content": "story.case_1069_d.0" },
+    { "type": "flag_add",    "key": "cha_testimony_secured" },
+    { "type": "tendency",    "key": "justice",   "value": 3 },
+    { "type": "tendency",    "key": "suspicion", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day28_final_choice"
+    }
+  ]
+}

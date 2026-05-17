@@ -1,0 +1,20 @@
+{
+  "id": "day28_resolve_retreat",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day28_resolve_retreat.0",
+    "story.day28_resolve_retreat.1",
+    "story.day28_resolve_retreat.2"
+  ],
+  "effects": [
+    { "type": "flag_add",  "key": "ending_retreat" },
+    { "type": "tendency", "key": "coldness",  "value": 2 },
+    { "type": "vitality", "value": 3 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day28_end"
+    }
+  ]
+}

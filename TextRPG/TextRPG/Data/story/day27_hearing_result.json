@@ -1,0 +1,24 @@
+{
+  "id": "day27_hearing_result",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day27_hearing_result.0",
+    "story.day27_hearing_result.1",
+    "story.day27_hearing_result.2",
+    "story.day27_hearing_result.3"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day27_hearing_result.choice.0",
+      "next": "day27_end_turning",
+      "require": [
+        { "type": "flag", "key": "yun_data_submitted" }
+      ]
+    },
+    {
+      "text": "story.day27_hearing_result.choice.1",
+      "next": "case_1068"
+    }
+  ]
+}

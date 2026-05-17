@@ -1,0 +1,20 @@
+{
+  "id": "day29_retreat_result",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day29_retreat_result.0",
+    "story.day29_retreat_result.1",
+    "story.day29_retreat_result.2"
+  ],
+  "effects": [
+    { "type": "day",      "value": 1 },
+    { "type": "set_time", "value": 8 },
+    { "type": "vitality", "value": 2 }
+  ],
+  "choices": [
+    {
+      "text": "story.day_end.choice.0",
+      "next": "day30_ending_retreat"
+    }
+  ]
+}

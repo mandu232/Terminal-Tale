@@ -1,0 +1,21 @@
+{
+  "id": "day26_hearing_fallout",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day26_hearing_fallout.0",
+    "story.day26_hearing_fallout.1",
+    "story.day26_hearing_fallout.2",
+    "story.day26_hearing_fallout.3"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day26_hearing_fallout.choice.0",
+      "next": "day26_cha_counter"
+    },
+    {
+      "text": "story.day26_hearing_fallout.choice.1",
+      "next": "case_1067"
+    }
+  ]
+}

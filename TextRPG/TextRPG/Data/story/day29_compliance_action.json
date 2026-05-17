@@ -1,0 +1,20 @@
+{
+  "id": "day29_compliance_action",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day29_compliance_action.0",
+    "story.day29_compliance_action.1",
+    "story.day29_compliance_action.2"
+  ],
+  "effects": [
+    { "type": "flag_add",   "key": "hearing_retracted" },
+    { "type": "tendency",   "key": "compliance", "value": 3 },
+    { "type": "city_order", "value": 10 }
+  ],
+  "choices": [
+    {
+      "text": "story.day29_compliance_action.choice.0",
+      "next": "day29_compliance_result"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "case_1069_a",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.case_1069_a.0",
+    "story.case_1069_a.1",
+    "story.case_1069_a.2"
+  ],
+  "effects": [
+    { "type": "case_record", "key": "case_1069", "title": "story.case_1069.0", "outcome": "story.case_1069.choice.0", "content": "story.case_1069_a.0" },
+    { "type": "tendency",    "key": "compliance", "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.to_day_end",
+      "next": "day28_final_choice"
+    }
+  ]
+}

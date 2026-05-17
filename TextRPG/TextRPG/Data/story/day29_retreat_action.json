@@ -1,0 +1,19 @@
+{
+  "id": "day29_retreat_action",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day29_retreat_action.0",
+    "story.day29_retreat_action.1",
+    "story.day29_retreat_action.2"
+  ],
+  "effects": [
+    { "type": "tendency", "key": "coldness", "value": 1 },
+    { "type": "vitality", "value": 3 }
+  ],
+  "choices": [
+    {
+      "text": "story.day29_retreat_action.choice.0",
+      "next": "day29_retreat_result"
+    }
+  ]
+}

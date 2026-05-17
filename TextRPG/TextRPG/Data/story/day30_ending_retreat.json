@@ -1,0 +1,18 @@
+{
+  "id": "day30_ending_retreat",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day30_ending_retreat.0",
+    "story.day30_ending_retreat.1",
+    "story.day30_ending_retreat.2",
+    "story.day30_ending_retreat.3",
+    "story.day30_ending_retreat.4"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day30.choice.finish",
+      "next": "day30_credits"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "case_1069",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.case_1069.0",
+    "story.case_1069.1",
+    "story.case_1069.2",
+    "story.case_1069.3"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.case_1069.choice.0",
+      "next": "case_1069_a"
+    },
+    {
+      "text": "story.case_1069.choice.1",
+      "next": "case_1069_b"
+    },
+    {
+      "text": "story.case_1069.choice.2",
+      "next": "case_1069_c"
+    },
+    {
+      "text": "story.case_1069.choice.3",
+      "next": "case_1069_d",
+      "require": [
+        { "type": "flag", "key": "cha_network_exposed" }
+      ]
+    }
+  ]
+}

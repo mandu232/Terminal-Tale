@@ -1984,5 +1984,339 @@
     "story.day25_end_hearing.0": "스물다섯째 날이 끝난다. 청문회가 끝났다.",
     "story.day25_end_hearing.1": "당신이 말한 것들이 이제 공식 기록이 됐다. 되돌릴 수 없다.",
     "story.day25_end_hearing.2": "심사위원 세 명이 내일 결정을 내린다. 차민석도 오늘 청문회 내용을 들었을 것이다.",
-    "story.day25_end_hearing.3": "이 도시에서 오늘만큼 많은 사람이 당신의 이름을 알게 된 날은 없었다."
+    "story.day25_end_hearing.3": "이 도시에서 오늘만큼 많은 사람이 당신의 이름을 알게 된 날은 없었다.",
+
+    "story.day26_morning.0": "스물여섯째 날. 어젯밤 청문회 발언이 세상에 퍼졌다.",
+    "story.day26_morning.1": "두 개 언론사가 보도했다. 지지 한 곳, 비판 한 곳. 차민석 측은 아직 공식 반응을 내지 않았다.",
+    "story.day26_morning.2": "그리고 오늘, 새 케이스 파일이 올라왔다. 그리고 차민석에게서 전화가 왔다.",
+    "story.day26_morning.choice.0": "청문회 여파 — 언론 보도 확인",
+    "story.day26_morning.choice.1": "차민석의 반격 — 대응 방침 확인",
+    "story.day26_morning.choice.2": "오유진에게 연락",
+    "story.day26_morning.choice.3": "[케이스 #1067 처리]",
+
+    "story.day26_hearing_fallout.0": "청문회 취재 기자에게서 메시지가 왔다. '발언이 의사록에 공식 기록됐습니다.'",
+    "story.day26_hearing_fallout.1": "지지 의원 두 명이 후속 조사위원회 구성을 요청했다. 반대 의원 한 명은 '개인 폭로'라며 반발했다.",
+    "story.day26_hearing_fallout.2": "차민석 측 성명: '해당 심사관은 내부 규정을 오해하고 있으며, 지속적인 혼선을 야기하고 있다.'",
+    "story.day26_hearing_fallout.3": "내일까지 공식 해명 요청 공문이 도착할 것이라는 소문이 돈다.",
+    "story.day26_hearing_fallout.choice.0": "차민석 대응 방침 확인",
+    "story.day26_hearing_fallout.choice.1": "케이스를 처리하러 간다",
+
+    "story.day26_cha_counter.0": "오전 10시. 차민석이 직접 전화했다. 이번엔 보좌관이 아니다.",
+    "story.day26_cha_counter.1": "'어제 청문회에서 한 발언. 24시간 안에 공개 해명문을 내라.'",
+    "story.day26_cha_counter.2": "'안 그러면? 다음 주 인사이동 명단에 이름이 올라가는 건 어렵지 않아.'",
+    "story.day26_cha_counter.3": "전화가 끊겼다. 24시간이 남았다.",
+    "story.day26_cha_counter.choice.0": "해명문을 작성한다 — 청문회 발언 일부를 정정",
+    "story.day26_cha_counter.choice.1": "무시한다 — 인사이동도 감수한다",
+    "story.day26_cha_counter.choice.2": "오유진에게 알린다",
+
+    "story.day26_cha_comply.0": "공개 해명문을 작성했다. '일부 자료 해석에 오류가 있었습니다.'라는 문구를 포함했다.",
+    "story.day26_cha_comply.1": "차민석 측은 즉시 보도자료를 냈다. '담당 심사관, 청문회 발언 자진 정정.'",
+    "story.day26_cha_comply.2": "인사이동 통보는 오지 않았다. 하지만 청문회를 지지했던 의원 한 명에게서 연락이 끊겼다.",
+
+    "story.day26_cha_ignore.0": "전화를 무시했다.",
+    "story.day26_cha_ignore.1": "오후 늦게, 청문회를 지지했던 의원에게서 짧은 메시지가 왔다. '잘하고 있어요.'",
+    "story.day26_cha_ignore.2": "인사이동 여부는 내일이면 알 수 있다. 밤이 길다.",
+
+    "story.day26_cha_notify.0": "오유진에게 차민석의 전화 내용을 그대로 전달했다.",
+    "story.day26_cha_notify.1": "'역시 직접 나왔군요.' 잠시 침묵 후. '내일 오전에 뭔가 보내드릴게요.'",
+    "story.day26_cha_notify.2": "'차민석이 남긴 기록이 있어요. 저만 알고 있는 것들.'",
+
+    "story.day26_yun_news.0": "오유진에게서 먼저 메시지가 왔다.",
+    "story.day26_yun_news.1": "'차민석이 외부 법무팀을 고용했습니다. 청문회 발언에 대한 명예훼손 소송 검토 중이에요.'",
+    "story.day26_yun_news.2": "'그리고 제 접근 로그가 누군가에 의해 열람됐어요. 내부에 누군가가 있는 것 같아요.'",
+    "story.day26_yun_news.3": "오유진이 위험해지고 있다.",
+    "story.day26_yun_news.choice.0": "오유진 보호 방법을 찾는다",
+    "story.day26_yun_news.choice.1": "일단 케이스를 처리한다",
+
+    "story.day26_yun_protect.0": "내부 보안 로그를 검색했다. 3일 전 밤 11시, 외부 경로를 통한 내부 접근 기록이 있다.",
+    "story.day26_yun_protect.1": "오유진의 계정이 아니다. 로그인 IP는 이 건물 외부다.",
+    "story.day26_yun_protect.2": "누군가 오유진을 감시하기 위해 내부 시스템에 침투했다. 기록을 캡처해 오유진에게 전송했다.",
+
+    "story.case_1067.0": "케이스 #1067. 한승민. 남. 38세.",
+    "story.case_1067.1": "신고 내용: 같은 건물 402호 거주자가 반복적으로 심야 소음을 유발하고 위협적 언동을 보인다.",
+    "story.case_1067.2": "첨부 파일 3개. 파일명 모두 '소리.mp3'. 타임스탬프 확인 결과 세 파일이 같은 날 오전 10시에 저장됨.",
+    "story.case_1067.3": "비고: 402호는 1년째 한승민에 대한 소음 민원을 반복 제출한 이력이 있다.",
+    "story.case_1067.choice.0": "신고대로 처리 — 402호에 경고문 발송",
+    "story.case_1067.choice.1": "기각 — 증거 불충분",
+    "story.case_1067.choice.2": "공동 분쟁 처리 — 양측 경고 발송",
+    "story.case_1067.choice.3": "신고자 역조사 — 허위 신고 가능성 검토",
+
+    "story.case_1067_a.0": "402호에 경고문을 발송했다.",
+    "story.case_1067_a.1": "이틀 뒤, 402호 거주자가 이의신청서를 제출했다. '저는 오히려 피해자입니다.'",
+    "story.case_1067_a.2": "파일을 다시 확인하니 세 녹음 모두 같은 날 오전 10시에 저장됐다. 조작 가능성이 있다.",
+
+    "story.case_1067_b.0": "증거 불충분으로 기각 처리했다.",
+    "story.case_1067_b.1": "한승민이 항의 전화를 했다. '왜 아무것도 안 해주는 겁니까.'",
+    "story.case_1067_b.2": "기록은 남긴다. 진짜 위협이 있었다면 다시 올 것이다.",
+
+    "story.case_1067_c.0": "양측 모두에게 경고문을 발송했다.",
+    "story.case_1067_c.1": "한승민: '나도 경고를 받아야 합니까.' 402호는 조용히 수령 확인만 했다.",
+    "story.case_1067_c.2": "분쟁을 공동으로 처리했지만, 무엇이 진실인지는 여전히 모른다.",
+
+    "story.case_1067_d.0": "한승민의 신고 이력을 조회했다. 이 건물에서만 3건. 이전 주소지에서 2건.",
+    "story.case_1067_d.1": "패턴이 있다. 이사 후 6개월 이내에 이웃을 신고한다. 모두 기각됐다.",
+    "story.case_1067_d.2": "허위 신고 반복 이력으로 내부 경고 조치. 외부 공유 없이 파일 보존.",
+
+    "story.day26_end.0": "스물여섯째 날이 저물었다. 차민석의 수는 점점 노골적이다.",
+    "story.day26_end.1": "청문회의 파장은 내일도 이어질 것이다.",
+    "story.day26_end.2": "오늘 무엇을 선택했든, 그 무게가 쌓이고 있다.",
+
+    "story.day26_end_exposed.0": "스물여섯째 날이 저물었다. 오늘, 숨겨진 것들이 더 드러났다.",
+    "story.day26_end_exposed.1": "차민석은 이제 법적 수단도 동원할 준비가 됐다. 소송. 인사. 감시.",
+    "story.day26_end_exposed.2": "내부에서, 외부에서. 압박이 좁혀오고 있다.",
+
+    "story.day27_morning.0": "스물일곱째 날. 예상보다 조용한 아침이다.",
+    "story.day27_morning.1": "인사이동 통보 여부. 오유진의 약속. 청문회 결과. 쌓인 것들이 오늘 풀릴지도 모른다.",
+    "story.day27_morning.2": "그리고 케이스 파일이 하나 더 올라왔다.",
+    "story.day27_morning.choice.0": "인사이동 통보 확인",
+    "story.day27_morning.choice.1": "오유진의 자료 수령",
+    "story.day27_morning.choice.2": "청문회 후속 결과 확인",
+    "story.day27_morning.choice.3": "[케이스 #1068 처리]",
+
+    "story.day27_transfer_notice.0": "오전 9시 30분. 인사이동 통보가 도착했다.",
+    "story.day27_transfer_notice.1": "'이동 발령: 북부 3지구 현장 행정보조 파견.' 실질적 좌천이다.",
+    "story.day27_transfer_notice.2": "효력은 5일 후. 이의신청 기간은 72시간.",
+    "story.day27_transfer_notice.3": "차민석이 협박을 실행했다.",
+    "story.day27_transfer_notice.choice.0": "이의신청서를 제출한다",
+    "story.day27_transfer_notice.choice.1": "수용한다 — 자리를 지키는 것만으로도",
+    "story.day27_transfer_notice.choice.2": "무시하고 케이스를 계속 처리한다",
+
+    "story.day27_transfer_appeal.0": "이의신청서를 작성해 제출했다. 사유: '근거 없는 보복성 발령.'",
+    "story.day27_transfer_appeal.1": "담당 부서는 '검토 중'이라는 자동 응답만 보냈다.",
+    "story.day27_transfer_appeal.2": "차민석은 이의신청을 예상했을 것이다. 그래도 기록은 남는다.",
+
+    "story.day27_transfer_accept.0": "이동 통보를 수용했다.",
+    "story.day27_transfer_accept.1": "이것으로 청문회와 차민석, 이 도시의 심사 시스템과 거리를 두게 된다.",
+    "story.day27_transfer_accept.2": "하지만 5일이 남았다.",
+
+    "story.day27_transfer_ignore.0": "이동 통보를 서랍에 넣었다.",
+    "story.day27_transfer_ignore.1": "5일 동안 할 수 있는 일들이 있다.",
+    "story.day27_transfer_ignore.2": "차민석은 이제 시간을 들여 압박할 생각이다.",
+
+    "story.day27_yun_data.0": "오유진이 작은 USB를 건넸다. '어제 말한 기록이에요.'",
+    "story.day27_yun_data.1": "파일 목록: 차민석의 내부 결재 기록. 특정 케이스 처리 지시 메모. 날짜가 찍혀 있다.",
+    "story.day27_yun_data.2": "'청문회 조사위에 제출하면... 아니면 언론에.' 오유진이 낮은 목소리로 말했다.",
+    "story.day27_yun_data.3": "판단은 당신이 해야 한다.",
+    "story.day27_yun_data.choice.0": "청문회 조사위에 제출한다",
+    "story.day27_yun_data.choice.1": "언론에 넘긴다",
+    "story.day27_yun_data.choice.2": "일단 보관한다",
+
+    "story.day27_yun_data_hearing.0": "자료를 청문회 조사위원회에 제출했다.",
+    "story.day27_yun_data_hearing.1": "접수 확인. 검토에 시간이 걸릴 것이다.",
+    "story.day27_yun_data_hearing.2": "오유진은 문자를 보냈다. '잘하셨어요. 어떤 결과가 나오든.'",
+
+    "story.day27_yun_data_press.0": "자료를 언론 채널로 넘겼다.",
+    "story.day27_yun_data_press.1": "오후에 속보가 올라왔다. '차민석 내부 지시 문건 입수 — 케이스 처분 직접 개입 의혹.'",
+    "story.day27_yun_data_press.2": "차민석 측은 '문건 위조'라고 즉시 반박했다.",
+
+    "story.day27_yun_data_hold.0": "자료를 일단 보관했다.",
+    "story.day27_yun_data_hold.1": "오유진은 짧게 답했다. '알겠어요. 때를 기다려요.'",
+    "story.day27_yun_data_hold.2": "적절한 시점이 올 것이다.",
+
+    "story.day27_hearing_result.0": "청문회 조사위원회에서 1차 결론을 냈다.",
+    "story.day27_hearing_result.1": "'일부 케이스에서 처리 기준 불일치 확인. 차민석 개인 책임은 추가 검토 필요.'",
+    "story.day27_hearing_result.2": "차민석은 이 결과를 '무혐의 판정'이라고 언론에 발표했다.",
+    "story.day27_hearing_result.3": "하지만 '추가 검토'는 아직 끝나지 않았다는 뜻이기도 하다.",
+    "story.day27_hearing_result.choice.0": "제출한 자료와 연결 — 조사위에 추가 의견 제출",
+    "story.day27_hearing_result.choice.1": "케이스를 처리하러 간다",
+
+    "story.case_1068.0": "케이스 #1068. 이동혁. 남. 45세.",
+    "story.case_1068.1": "신고 내용: 내부 업무 지시에 반복적으로 이의를 제기하고, 부하 직원의 규정 위반을 묵인했다.",
+    "story.case_1068.2": "신고자: 익명. 첨부 자료: 내부 회의 녹취 발췌본 1건. 공식 직인 없음.",
+    "story.case_1068.3": "비고: 이동혁의 부하 직원은 직속 상관을 거치지 않고 외부 기관에 보고한 이력이 있다.",
+    "story.case_1068.choice.0": "규정대로 처분 — 업무 지시 불이행 경고",
+    "story.case_1068.choice.1": "기각 — 익명 신고, 공식 증거 없음",
+    "story.case_1068.choice.2": "보류 — 추가 자료 요청",
+    "story.case_1068.choice.3": "신고 경위 역조사 — 신고자 실체 확인",
+
+    "story.case_1068_a.0": "경고문을 발송했다. '직무 지시 불이행 1회 경고.'",
+    "story.case_1068_a.1": "이동혁은 수령 후 이의신청을 냈다. '저는 부하 직원을 보호하려 했을 뿐입니다.'",
+    "story.case_1068_a.2": "신고자가 누구인지 여전히 모른다.",
+
+    "story.case_1068_b.0": "익명 신고, 공식 증거 없음으로 기각 처리했다.",
+    "story.case_1068_b.1": "이동혁에게 기각 통보를 보냈다. 짧은 답장이 왔다. '감사합니다.'",
+    "story.case_1068_b.2": "신고자가 다시 신고할 수도 있다. 이번엔 더 준비할 것이다.",
+
+    "story.case_1068_c.0": "추가 자료 요청 공문을 발송했다. 신고자가 익명이라 전달이 불가능하다.",
+    "story.case_1068_c.1": "자료 제출 기한 내 응답이 없으면 자동 기각 처리된다.",
+    "story.case_1068_c.2": "이동혁은 아직 아무것도 모른다.",
+
+    "story.case_1068_d.0": "신고 경위를 역추적했다. 제출 시각: 오후 6시 7분. 해당 부서의 공식 업무 시간 외.",
+    "story.case_1068_d.1": "내부 시스템 접근 로그를 확인했다. 신고자는 이동혁의 직속 상급자다.",
+    "story.case_1068_d.2": "그리고 그 상급자는 차민석 계열 인물이다. 이 신고는 처음부터 표적이었다.",
+
+    "story.day27_end.0": "스물일곱째 날이 저물었다.",
+    "story.day27_end.1": "차민석의 수가 하나씩 드러나고 있다. 하지만 드러난다고 끝나지는 않는다.",
+    "story.day27_end.2": "내일이면 당신이 이 도시에서 처리할 수 있는 날이 얼마 남지 않을 수 있다.",
+
+    "story.day27_end_turning.0": "스물일곱째 날이 저물었다. 오늘, 무언가 변했다.",
+    "story.day27_end_turning.1": "자료가 제출됐거나, 언론이 움직였거나, 신고자의 실체가 드러났다.",
+    "story.day27_end_turning.2": "차민석도 오늘 밤은 잠을 이루지 못할 것이다.",
+
+    "story.day28_morning.0": "스물여덟째 날. 인사이동 효력 발생 이틀 전.",
+    "story.day28_morning.1": "차민석에게서 메시지가 왔다. 짧고 명확하다. '오늘 안에 답을 내라.'",
+    "story.day28_morning.2": "오늘이 실질적인 마지막 선택의 날일 수 있다.",
+    "story.day28_morning.choice.0": "차민석 최후통첩 확인",
+    "story.day28_morning.choice.1": "오유진 상황 확인",
+    "story.day28_morning.choice.2": "[케이스 #1069 처리]",
+    "story.day28_morning.choice.3": "최종 결심을 정한다",
+
+    "story.day28_cha_ultimatum.0": "메시지 내용: '자료를 모두 회수하고, 청문회 진술을 공식 철회하라.'",
+    "story.day28_cha_ultimatum.1": "'그러면 인사이동을 취소하고 현 직위를 보장하겠다. 이것이 마지막 제안이다.'",
+    "story.day28_cha_ultimatum.2": "'거부하면? 내가 가진 모든 수단을 쓸 것이다. 법적 수단도 포함해서.'",
+    "story.day28_cha_ultimatum.3": "오늘 안에 답을 해야 한다.",
+    "story.day28_cha_ultimatum.choice.0": "거부한다",
+    "story.day28_cha_ultimatum.choice.1": "수락을 검토한다",
+
+    "story.day28_cha_refused.0": "거부 의사를 전달했다.",
+    "story.day28_cha_refused.1": "차민석은 짧게 답했다. '그렇군.'",
+    "story.day28_cha_refused.2": "이제 모든 수단이 동원될 것이다. 그것을 알면서 답했다.",
+    "story.day28_cha_refused.choice.0": "최종 결심을 정한다",
+
+    "story.day28_cha_considering.0": "수락을 검토하겠다는 의사를 전달했다.",
+    "story.day28_cha_considering.1": "차민석은 '내일 오전까지 최종 답을 주면 된다'고 했다.",
+    "story.day28_cha_considering.2": "하루가 더 생겼다. 하지만 결국 답은 내야 한다.",
+    "story.day28_cha_considering.choice.0": "최종 결심을 정한다",
+
+    "story.day28_yun_crisis.0": "오유진에게서 연락이 왔다. 정직 처분 통보를 받았다.",
+    "story.day28_yun_crisis.1": "'저 때문에 당신까지 힘들어진 것 같아요. 미안해요.'",
+    "story.day28_yun_crisis.2": "'그래도 저는 포기하지 않을 거예요. 함께할 수 있어요.'",
+    "story.day28_yun_crisis.3": "오유진의 눈에는 두려움보다 단단한 무언가가 있다.",
+    "story.day28_yun_crisis.choice.0": "같이 싸우자",
+    "story.day28_yun_crisis.choice.1": "오유진을 보호한다 — 지금은 물러나라",
+
+    "story.day28_yun_together.0": "함께하기로 했다. 오유진은 짧게 고개를 끄덕였다.",
+    "story.day28_yun_together.1": "'그럼 제가 가진 것들을 다 꺼낼게요.'",
+    "story.day28_yun_together.2": "두 사람의 기록이 하나로 합쳐진다.",
+    "story.day28_yun_together.choice.0": "최종 결심을 정한다",
+
+    "story.day28_yun_retreat.0": "오유진에게 지금은 물러나라고 했다.",
+    "story.day28_yun_retreat.1": "오유진은 잠시 침묵했다. '알겠어요. 하지만 제 자료는 당신 손에 있어요.'",
+    "story.day28_yun_retreat.2": "그것으로 충분할지도 모른다.",
+    "story.day28_yun_retreat.choice.0": "최종 결심을 정한다",
+
+    "story.case_1069.0": "케이스 #1069. 최원준. 남. 52세.",
+    "story.case_1069.1": "신고 내용: 자기 신고. 20년 전 자신이 내린 처분 결정에 대한 재조사 및 시정을 요청한다.",
+    "story.case_1069.2": "첨부 자료: 당시 처분 기록 사본. 수기 메모 3장. '지시받은 대로 처리했으며, 그것이 잘못됐다는 것을 이제 안다.'",
+    "story.case_1069.3": "비고: 최원준은 12년 전 심사관직을 사임했다. 현재 무직.",
+    "story.case_1069.choice.0": "시효 만료로 기각 — 20년 전 사건",
+    "story.case_1069.choice.1": "재조사 수락 — 본인의 의사 존중",
+    "story.case_1069.choice.2": "증언 기록으로 보존 — 공식 처분 없음",
+    "story.case_1069.choice.3": "차민석 연루 조사 — 지시자 신원 확인",
+
+    "story.case_1069_a.0": "시효 만료로 기각 처리했다.",
+    "story.case_1069_a.1": "최원준은 오래 침묵했다. '그렇겠죠. 그래도 기록이라도 남겨주세요.'",
+    "story.case_1069_a.2": "접수 기록만 내부 파일로 보존했다. 그것이 최원준이 원한 전부인지도 모른다.",
+
+    "story.case_1069_b.0": "재조사 수락 통보를 보냈다.",
+    "story.case_1069_b.1": "실제 재처분 권한은 없다. 하지만 공식 재조사 의뢰서를 상위 기관에 송부했다.",
+    "story.case_1069_b.2": "최원준: '감사합니다. 늦었지만, 시작은 할 수 있군요.'",
+
+    "story.case_1069_c.0": "공식 처분 없이 증언을 내부 파일로 보존했다.",
+    "story.case_1069_c.1": "최원준의 수기 메모 3장이 기록으로 남는다.",
+    "story.case_1069_c.2": "'이걸로 충분합니다.' 최원준이 말했다. '기억되는 것만으로도.'",
+
+    "story.case_1069_d.0": "최원준에게 조용히 물었다. '그때 지시를 내린 사람이 누구입니까?'",
+    "story.case_1069_d.1": "최원준은 오래 망설였다. 그리고 말했다. '...차민석 씨였습니다. 20년 전에도 그는 같은 방식으로 일했어요.'",
+    "story.case_1069_d.2": "이 증언을 기록했다. 최원준의 서명과 함께.",
+
+    "story.day28_final_choice.0": "오늘 밤, 결심을 내려야 한다.",
+    "story.day28_final_choice.1": "내일이면 이 선택의 결과가 현실이 된다.",
+    "story.day28_final_choice.2": "무엇을 선택하겠는가.",
+    "story.day28_final_choice.choice.0": "오유진과 함께, 내부에서 싸운다",
+    "story.day28_final_choice.choice.1": "모든 자료를 공개하고 차민석에 맞선다",
+    "story.day28_final_choice.choice.2": "차민석의 제안을 수락한다 — 자리를 보존한다",
+    "story.day28_final_choice.choice.3": "이동을 수용하고 조용히 떠난다",
+
+    "story.day28_resolve_alliance.0": "오유진과 함께하기로 결심했다.",
+    "story.day28_resolve_alliance.1": "혼자가 아니라는 것. 그것이 지금 가진 가장 확실한 것이다.",
+    "story.day28_resolve_alliance.2": "내일, 두 사람이 함께 마지막 수를 둔다.",
+
+    "story.day28_resolve_resistance.0": "모든 것을 공개하기로 결심했다.",
+    "story.day28_resolve_resistance.1": "가진 자료, 기록, 증언 — 전부 꺼낸다.",
+    "story.day28_resolve_resistance.2": "이기든 지든, 아무것도 감추지 않는다.",
+
+    "story.day28_resolve_compliance.0": "차민석의 제안을 수락하기로 결심했다.",
+    "story.day28_resolve_compliance.1": "이것이 현명한 선택인지, 아닌지는 시간이 말해줄 것이다.",
+    "story.day28_resolve_compliance.2": "자리는 지킨다. 그 안에서 할 수 있는 일을 찾는다.",
+
+    "story.day28_resolve_retreat.0": "이동을 수용하고 떠나기로 결심했다.",
+    "story.day28_resolve_retreat.1": "이 도시, 이 시스템, 차민석. 모두에게서 멀어진다.",
+    "story.day28_resolve_retreat.2": "하지만 지금까지 처리한 것들의 기록은 남는다.",
+
+    "story.day28_end.0": "스물여덟째 날이 저물었다. 결심은 내려졌다.",
+    "story.day28_end.1": "내일이면 그 결심이 현실과 부딪힌다.",
+    "story.day28_end.2": "마지막 날이 밝아올 것이다.",
+
+    "story.day29_morning.0": "스물아홉째 날. 어젯밤 결심한 것이 현실이 되는 날이다.",
+    "story.day29_morning.1": "이제 되돌릴 수 없다.",
+    "story.day29_morning.choice.0": "오유진과 함께 — 내부 고발을 공식 접수한다",
+    "story.day29_morning.choice.1": "전면 공개 — 모든 자료를 배포한다",
+    "story.day29_morning.choice.2": "수락 — 철회문을 제출한다",
+    "story.day29_morning.choice.3": "퇴장 — 마지막 케이스를 처리하고 떠난다",
+
+    "story.day29_alliance_action.0": "오유진이 미리 준비한 서류가 책상 위에 있었다. 내부 고발 공식 접수 양식.",
+    "story.day29_alliance_action.1": "두 사람의 서명. 오유진의 기록, 최원준의 증언, 케이스 패턴 분석 — 한 묶음으로.",
+    "story.day29_alliance_action.2": "접수 도장이 찍혔다. 이제 공식 절차가 시작됐다.",
+    "story.day29_alliance_action.choice.0": "결과를 기다린다",
+
+    "story.day29_alliance_result.0": "오후 3시. 차민석 측 법무팀에서 소송 협박 공문이 왔다. 두 페이지짜리.",
+    "story.day29_alliance_result.1": "동시에 조사위원회에서 '신규 자료 접수 완료' 공문이 도착했다.",
+    "story.day29_alliance_result.2": "오유진의 정직 해제 통보도 함께 왔다. 누군가 움직였다.",
+
+    "story.day29_resistance_action.0": "자료를 분류했다. 차민석 내부 기록. 최원준의 증언. 케이스 패턴 분석.",
+    "story.day29_resistance_action.1": "언론 세 곳, 조사위원회, 시민단체 두 곳. 동시에 배포 준비를 마쳤다.",
+    "story.day29_resistance_action.2": "발신 버튼을 눌렀다.",
+    "story.day29_resistance_action.choice.0": "파장을 확인한다",
+
+    "story.day29_resistance_result.0": "30분 만에 속보가 나왔다. 두 시간 만에 차민석의 이름이 검색어 상위에 올랐다.",
+    "story.day29_resistance_result.1": "오후 4시. 조사위원회에서 차민석에게 즉각 출석을 요구하는 공문을 발송했다.",
+    "story.day29_resistance_result.2": "오후 5시. 본부에서 연락이 왔다. '즉각 정직 처분.' 예상했던 일이다.",
+
+    "story.day29_compliance_action.0": "청문회 진술 철회문을 작성했다. '일부 자료 해석의 오류로 인한 발언이었습니다.'",
+    "story.day29_compliance_action.1": "오유진에게 받은 자료 파일을 차민석 측에 반납했다.",
+    "story.day29_compliance_action.2": "모든 것이 처음으로 돌아가는 느낌이다.",
+    "story.day29_compliance_action.choice.0": "확인을 기다린다",
+
+    "story.day29_compliance_result.0": "30분 후. 인사이동 취소 통보가 왔다.",
+    "story.day29_compliance_result.1": "차민석 측 공식 성명: '담당 심사관의 자진 정정을 환영한다. 청문회는 오해에 기반했음이 확인됐다.'",
+    "story.day29_compliance_result.2": "청문회 후속 조사는 유야무야 마무리됐다.",
+
+    "story.day29_retreat_action.0": "마지막 케이스 파일을 처리했다. 천천히, 제대로.",
+    "story.day29_retreat_action.1": "서랍을 정리했다. 개인 물건은 작은 상자 하나에 다 들어갔다.",
+    "story.day29_retreat_action.2": "처리 목록을 마지막으로 한 번 봤다. #1042부터 #1069까지.",
+    "story.day29_retreat_action.choice.0": "마지막으로 나선다",
+
+    "story.day29_retreat_result.0": "오피스를 나섰다. 아무도 배웅하지 않았다.",
+    "story.day29_retreat_result.1": "복도를 걸으면서 생각했다. 그래도 케이스들은 기록에 남는다.",
+    "story.day29_retreat_result.2": "문이 닫혔다.",
+
+    "story.day30_ending_alliance.0": "— 시스템 안에서 —",
+    "story.day30_ending_alliance.1": "한 달 후. 차민석에 대한 공식 감사가 진행 중이다.",
+    "story.day30_ending_alliance.2": "결과가 나오기까지 시간이 걸릴 것이다. 하지만 절차는 멈추지 않는다.",
+    "story.day30_ending_alliance.3": "오유진은 복직했다. 두 사람은 같은 건물에서 일하고 있다.",
+    "story.day30_ending_alliance.4": "오늘도 케이스 파일이 올라왔다. 예전처럼. 하지만 이제 당신은 혼자가 아니다.",
+
+    "story.day30_ending_resistance.0": "— 공개 —",
+    "story.day30_ending_resistance.1": "두 달 후. 차민석은 공식적으로 사임했다.",
+    "story.day30_ending_resistance.2": "법적 처벌 절차는 진행 중이다. 결과가 언제 나올지는 모른다.",
+    "story.day30_ending_resistance.3": "당신은 여전히 정직 상태다. 이의신청은 수리됐지만 결론은 나지 않았다.",
+    "story.day30_ending_resistance.4": "그래도 사람들은 기억한다. 케이스 번호들을. 그 뒤에 있던 얼굴들을.",
+
+    "story.day30_ending_compliance.0": "— 자리 —",
+    "story.day30_ending_compliance.1": "자리에 돌아왔다. 케이스 파일들이 올라온다. 예전처럼.",
+    "story.day30_ending_compliance.2": "차민석은 여전히 그 자리에 있다. 당신도 마찬가지다.",
+    "story.day30_ending_compliance.3": "하지만 달라진 것이 하나 있다. 이제 당신이 어느 쪽인지 알고 있다.",
+    "story.day30_ending_compliance.4": "다음 케이스 파일을 집어든다. 이름. 나이. 신고 내용. 그 사람은 아직 모른다.",
+
+    "story.day30_ending_retreat.0": "— 기록 —",
+    "story.day30_ending_retreat.1": "북부 3지구. 새 자리. 아무도 이름을 모르는 곳.",
+    "story.day30_ending_retreat.2": "어느 날, 내부 문서 공유 알림이 왔다. 익명의 발신.",
+    "story.day30_ending_retreat.3": "첨부 파일: 케이스 #1053 재조사 결과 통보. '처리 기준 불일치 확인. 담당자 조사 예정.'",
+    "story.day30_ending_retreat.4": "당신이 처리한 케이스들이 살아있다. 기록은 사라지지 않는다.",
+
+    "story.day30_credits.0": "모든 케이스는 기록으로 남는다.",
+    "story.day30_credits.1": "그 기록이 누군가의 삶을 바꿀 수 있다.",
+    "story.day30_credits.2": "당신이 내린 결정들. 그것들이 이 도시를 만들었다.",
+    "story.day30.choice.finish": "— 끝 —"
 }

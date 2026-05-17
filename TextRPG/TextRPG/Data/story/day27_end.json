@@ -1,0 +1,19 @@
+{
+  "id": "day27_end",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day27_end.0",
+    "story.day27_end.1",
+    "story.day27_end.2"
+  ],
+  "effects": [
+    { "type": "day",      "value": 1 },
+    { "type": "set_time", "value": 8 }
+  ],
+  "choices": [
+    {
+      "text": "story.day_end.choice.0",
+      "next": "day28_morning"
+    }
+  ]
+}

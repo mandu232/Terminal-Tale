@@ -1,0 +1,34 @@
+{
+  "id": "day27_morning",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day27_morning.0",
+    "story.day27_morning.1",
+    "story.day27_morning.2"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day27_morning.choice.0",
+      "next": "day27_transfer_notice",
+      "require": [
+        { "type": "flag", "key": "cha_defied_26" }
+      ]
+    },
+    {
+      "text": "story.day27_morning.choice.1",
+      "next": "day27_yun_data",
+      "require": [
+        { "type": "flag", "key": "yun_warned" }
+      ]
+    },
+    {
+      "text": "story.day27_morning.choice.2",
+      "next": "day27_hearing_result"
+    },
+    {
+      "text": "story.day27_morning.choice.3",
+      "next": "case_1068"
+    }
+  ]
+}

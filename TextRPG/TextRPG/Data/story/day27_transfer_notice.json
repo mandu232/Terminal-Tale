@@ -1,0 +1,25 @@
+{
+  "id": "day27_transfer_notice",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day27_transfer_notice.0",
+    "story.day27_transfer_notice.1",
+    "story.day27_transfer_notice.2",
+    "story.day27_transfer_notice.3"
+  ],
+  "effects": [],
+  "choices": [
+    {
+      "text": "story.day27_transfer_notice.choice.0",
+      "next": "day27_transfer_appeal"
+    },
+    {
+      "text": "story.day27_transfer_notice.choice.1",
+      "next": "day27_transfer_accept"
+    },
+    {
+      "text": "story.day27_transfer_notice.choice.2",
+      "next": "day27_transfer_ignore"
+    }
+  ]
+}
