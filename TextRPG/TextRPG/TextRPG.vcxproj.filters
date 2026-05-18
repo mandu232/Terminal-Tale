@@ -330,9 +330,6 @@
     <ClInclude Include="Game\States\SlotSelectState.h">
       <Filter>소스 파일\Game\State</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Log\LogEntry.h">
-      <Filter>소스 파일\Game\Log</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Journal\JournalEntry.h">
       <Filter>소스 파일\Game\Journal</Filter>
     </ClInclude>
@@ -356,6 +353,9 @@
     </ClInclude>
     <ClInclude Include="Game\States\PauseMenuState.h">
       <Filter>소스 파일\Game\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Log\LogEntry.h">
+      <Filter>소스 파일\Game\Log</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

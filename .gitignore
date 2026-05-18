@@ -32,8 +32,6 @@ bld/
 [Oo]bj/
 [Oo]ut/
 [Ll]og/
-[Ll]ogs/
-!**/Game/Log/
 
 # Build results on 'Bin' directories
 **/[Bb]in/*
@@ -417,3 +415,6 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+
+!**/Game/Log/
