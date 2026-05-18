@@ -52,6 +52,7 @@ public:
     // ── 공개 API ─────────────────────────────────
     void SetText(std::string newText);
     void SetSpeed(int newSpeed);        // 런타임에 속도 변경
+    void SetCorruption(int level);      // 오염도 설정 (0 이상)
     void Skip();                        // 즉시 전체 출력
     bool IsFinished() const;
 
@@ -71,6 +72,9 @@ private:
 
     // 줄바꿈 후 각 줄 – 전체 텍스트 기준으로 미리 계산 (고정)
     std::vector<std::wstring> wrappedLines;
+
+    // 오염도 (0 이상, 20 부터 글자 깨짐 시작)
+    int   corruptionLevel = 0;
 
     // 타이핑 상태
     float charsPerSec  = kSpeedTable[2]; // speed 3 기본값

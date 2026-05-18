@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir /B /A-D)",
+      "Bash(dir /B /AD)",
+      "PowerShell(cmd /c \"dir /B `\"C:\\\\Users\\\\mandu252\\\\Desktop\\\\TextRPG\\\\Terminal-Tale\\\\Terminal-Tale`\"\")"
+    ]
+  }
+}

@@ -1,8 +1,10 @@
+#define NOMINMAX
 #include "UITypewriter.h"
 #include "Core/ConsoleDisplay.h"
 #include "Utils/UTF8ToWide.h"
 #include "Utils/GetCharWidth.h"
 #include <algorithm>
+#include <chrono>
 
 // ─────────────────────────────────────────────
 //  내부 헬퍼: 한 줄의 시각적 너비 계산
@@ -105,7 +107,28 @@ void UITypewriter::Render(ConsoleDisplay& display) const
 	else if ( vAlign == VAlign::Bottom )
 		startY = y + ( maxHeight - displayLines );
 
-	// 2. 글자 예산
+	// 2. 오염도 사전 계산 (corruptionLevel >= 20 부터 효과 시작)
+	//    단계별 확률: 20~39=5%, 40~59=15%, 60~79=25%, 80~99=35%, 100+=45%
+	//    시간 기반 위상: 오염도가 높을수록 글리치 속도 증가
+	int corruptPercent = 0;
+	int glitchPhase    = 0;
+	if ( corruptionLevel >= 40 )
+	{
+		const int steps  = std::min((corruptionLevel - 40) / 20 , 3);
+		corruptPercent   = 10 + steps * 10;
+
+		using namespace std::chrono;
+		const long long ms       = duration_cast<milliseconds>(
+			steady_clock::now().time_since_epoch()).count();
+		const int interval       = std::max(200 , 1000 - corruptionLevel * 8);
+		glitchPhase              = static_cast<int>(ms / interval);
+	}
+
+	// 노이즈 문자 테이블
+	static const wchar_t kNoise1[] = L"?#*!@%$~";   // 1-wide (8개)
+	static const wchar_t kNoise2[] = L"？！＊＃＠"; // 2-wide 전각 (5개)
+
+	// 3. 글자 예산
 	int remaining = visibleChars;
 
 	for ( int i = 0; i < displayLines && remaining > 0; ++i )
@@ -119,6 +142,23 @@ void UITypewriter::Render(ConsoleDisplay& display) const
 
 		std::wstring visiblePart = fullLine.substr(0 , show);
 		remaining -= show;
+
+		// 오염도 글자 깨짐 적용
+		if ( corruptPercent > 0 )
+		{
+			for ( int ci = 0; ci < static_cast<int>(visiblePart.size()); ++ci )
+			{
+				const int hash = ((ci + 1) * 31 + (i + 1) * 17 + glitchPhase * 13) % 100;
+				if ( hash < corruptPercent )
+				{
+					const int ni = (ci * 7 + glitchPhase * 3) & 0xFF;
+					if ( GetConsoleCharWidth(visiblePart[ci]) >= 2 )
+						visiblePart[ci] = kNoise2[ni % 5];
+					else
+						visiblePart[ci] = kNoise1[ni % 8];
+				}
+			}
+		}
 
 		// 가로 정렬 – 전체 줄 너비(fullLine) 기준으로 맞춰야
 		// 글자가 늘어날 때 텍스트가 흔들리지 않습니다.
@@ -174,6 +214,14 @@ void UITypewriter::SetSpeed(int newSpeed)
 {
 	charsPerSec = SpeedToCharsPerSec(newSpeed);
 	accumulator = 0.f;   // 이월 값 초기화 (속도 전환 시 튀는 현상 방지)
+}
+
+// ─────────────────────────────────────────────
+//  SetCorruption — 오염도 설정 (0 이상)
+// ─────────────────────────────────────────────
+void UITypewriter::SetCorruption(int level)
+{
+	corruptionLevel = (level < 0) ? 0 : level;
 }
 
 // ─────────────────────────────────────────────

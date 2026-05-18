@@ -286,6 +286,8 @@ void StoryState::RebuildCenter()
 
 		++pendingTypewriters;
 
+		tw->SetCorruption(context.player.corruption);
+
 		tw->onComplete = [ this ] ()
 			{
 				if ( --pendingTypewriters == 0 )
