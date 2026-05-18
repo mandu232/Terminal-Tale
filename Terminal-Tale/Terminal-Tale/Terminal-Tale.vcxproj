@@ -22,7 +22,7 @@
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{49d5d8f7-73ec-417a-8aa5-37b730fc523f}</ProjectGuid>
-    <RootNamespace>TextRPG</RootNamespace>
+    <RootNamespace>Terminal-Tale</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
