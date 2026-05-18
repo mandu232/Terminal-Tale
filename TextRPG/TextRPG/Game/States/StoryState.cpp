@@ -174,15 +174,23 @@ void StoryState::BuildRightPanel()
 		context.PushState(std::make_unique<PauseMenuState>(context));
 		});
 
-	//빠른 저장
-	addQuickBtn(Layout::ColB , Layout::Row1 , L("ui.quickSave") , [ this ] () {
-		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
-		if ( context.activeSlot > 0 )
-		{
-			context.SaveSlot(context.activeSlot);
-			context.AddLog(L("system.save.completed"));
-		}
-		});
+	//빠른 저장 (토글 — 켜진 동안 노드 이동 시 자동 저장)
+	{
+		std::string label = autoSaveEnabled ? L("ui.quickSaveOn") : L("ui.quickSave");
+		auto btn = std::make_unique<UIButton>(
+			Layout::ColB , Layout::Row1 , Layout::ColW , Layout::RowH , Layout::Z ,
+			label ,
+			[ this ] ()
+			{
+				context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+				autoSaveEnabled = !autoSaveEnabled;
+				if ( autoSaveBtn )
+					autoSaveBtn->SetText(autoSaveEnabled ? L("ui.quickSaveOn") : L("ui.quickSave"));
+			});
+		btn->borderless = true;
+		autoSaveBtn = btn.get();
+		uiManager.Add(std::move(btn));
+	}
 
 	//빠른 불러오기
 	addQuickBtn(Layout::ColB , Layout::Row2 , L("ui.quickLoad") , [ this ] () {
@@ -213,6 +221,9 @@ void StoryState::NavigateTo(const std::string& nodeId)
 	for ( const auto& effect : currentNode.effects )
 		EffectInterpreter::Apply(effect , context);
 
+	if ( autoSaveEnabled && context.activeSlot > 0 )
+		context.SaveSlot(context.activeSlot);
+
 	if ( !currentNode.bgm.empty() )
 		context.sound.PlayBGM(currentNode.bgm);
 
@@ -220,6 +231,7 @@ void StoryState::NavigateTo(const std::string& nodeId)
 		context.sound.PlaySE(currentNode.sfx);
 
 	uiManager.Clear();
+	autoSaveBtn = nullptr;
 	BuildLeftPanel();
 	BuildRightPanel();
 	RebuildCenter();
@@ -345,6 +357,39 @@ void StoryState::HandleInput(InputManager& input)
 		case InputAction::OpenInventory:
 			context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 			context.PushState(std::make_unique<InventoryState>(context));
+			break;
+
+		case InputAction::OpenWait:
+			context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+			context.PushState(std::make_unique<WaitState>(context));
+			break;
+
+		case InputAction::OpenSleep:
+			context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+			context.PushState(std::make_unique<SleepState>(context));
+			break;
+
+		case InputAction::OpenLog:
+			context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+			context.PushState(std::make_unique<LogState>(context));
+			break;
+
+		case InputAction::OpenJournal:
+			context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+			context.PushState(std::make_unique<JournalState>(context));
+			break;
+
+		case InputAction::QuickSave:
+			if ( context.activeSlot > 0 )
+			{
+				context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+				context.SaveSlot(context.activeSlot);
+				context.AddLog(L("system.save.completed"));
+			}
+			break;
+
+		case InputAction::QuickLoad:
+			context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 			break;
 
 		case InputAction::Cancel:

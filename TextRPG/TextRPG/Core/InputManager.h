@@ -17,6 +17,9 @@ public:
 
 	bool HasAction() const;
 	InputAction PopAction();
+	void Clear();
+
+	int lastRawVK = 0;  // 마지막으로 눌린 raw VK 코드 (키 리바인딩 캡처용)
 
 private:
 	std::queue<InputAction> actionQueue;

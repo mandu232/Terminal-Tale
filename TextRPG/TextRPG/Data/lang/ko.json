@@ -7,6 +7,7 @@
     "ui.load_game": "게임 불러오기",
     "ui.setting": "설정",
     "ui.quit_game": "종료",
+    "ui.achievements": "업적",
     "ui.back": "나가기",
     "ui.save": "저장",
     "ui.reset": "초기화",
@@ -27,6 +28,10 @@
     "status.on": "켜짐",
     "status.off": "꺼짐",
     "ui.toggle": "변경",
+    "ui.keybind": "키 설정",
+    "ui.keybind.col_action": "동작",
+    "ui.keybind.col_key": "키",
+    "ui.keybind.waiting": "키를 누르세요...",
     "ui.menu": "메뉴",
     "ui.save_game": "게임 저장",
     "ui.return_lobby": "로비로 돌아가기",
@@ -41,6 +46,7 @@
     "log.waited": "시간이 경과했다.",
     "log.slept": "수면을 취했다.",
     "ui.quickSave": "빠른 저장",
+    "ui.quickSaveOn": "빠른 저장 ●",
     "ui.quickLoad": "빠른 불러오기",
     "ui.log": "기록",
     "ui.journal": "열람",
@@ -153,6 +159,7 @@
     "story.day_end.choice.0": "다음 날로",
 
     "story.common.next_case": "다음 파일로",
+    "story.common.to_day_end": "다음 파일로",
     "story.common.return_to_desk": "자리로 돌아간다",
 
     "story.day2_morning.0": "이틀째 아침.",
@@ -1277,13 +1284,13 @@
     "story.case_1056_protect.3": "30일 카운트다운이 시작됐다.",
 
     "story.day15_end.0": "열다섯째 날이 끝난다.",
-    "story.day15_end.1": "전국 확장. D+30. 차민석의 서명.",
+    "story.day15_end.1": "전국 확장. D+15. 차민석의 서명.",
     "story.day15_end.2": "시간이 있다. 충분하지 않을 수도 있지만.",
 
     "story.day15_end_escalate.0": "열다섯째 날이 끝난다.",
     "story.day15_end_escalate.1": "RECORD의 전국 확장 계획이 처음으로 외부에 유출됐다.",
     "story.day15_end_escalate.2": "강민호는 살아있다. 김도현은 움직이기 시작했다.",
-    "story.day15_end_escalate.3": "30일. 당신에게 남은 시간이기도 하다.",
+    "story.day15_end_escalate.3": "15일. 당신에게 남은 시간이기도 하다.",
 
     "story.day16_morning.0": "16일차. 건물 로비에 경비원이 한 명 늘었다.",
     "story.day16_morning.1": "아무도 그 이유를 말하지 않는다. 아무도 묻지도 않는다.",
@@ -1697,7 +1704,7 @@
     "story.day21_end.1": "3막이 끝났다.",
     "story.day21_end.2": "당신이 모은 것들이 무게를 갖기 시작한다. 어떻게 쓸 것인가.",
 
-    "story.day21_end_act4.0": "스물한째 날이 끝난다. 3막이 끝난다.",
+    "story.day21_end_act4.0": "스물한째 날이 끝난다.",
     "story.day21_end_act4.1": "빈 처분 명령서. 9년 전의 서명. 세 번의 기사. 살아있는 사람들.",
     "story.day21_end_act4.2": "당신이 수집한 모든 것이 이제 하나의 선택으로 수렴한다.",
     "story.day21_end_act4.3": "무엇을 할 것인가.",
@@ -2318,5 +2325,38 @@
     "story.day30_credits.0": "모든 케이스는 기록으로 남는다.",
     "story.day30_credits.1": "그 기록이 누군가의 삶을 바꿀 수 있다.",
     "story.day30_credits.2": "당신이 내린 결정들. 그것들이 이 도시를 만들었다.",
-    "story.day30.choice.finish": "— 끝 —"
+    "story.day30.choice.finish": "— 끝 —",
+
+    "ach.ending_alliance.name": "시스템 안에서",
+    "ach.ending_alliance.desc": "'시스템 안에서' 결말을 맞이했습니다.",
+    "ach.ending_compliance.name": "자리",
+    "ach.ending_compliance.desc": "'자리' 결말을 맞이했습니다.",
+    "ach.ending_resistance.name": "공개",
+    "ach.ending_resistance.desc": "'공개' 결말을 맞이했습니다.",
+    "ach.ending_retreat.name": "기록",
+    "ach.ending_retreat.desc": "'기록' 결말을 맞이했습니다.",
+    "ach.ending_all.name": "이야기의 끝 ",
+    "ach.ending_all.desc": "4가지 엔딩을 모두 경험했습니다.",
+
+    "ach.coldness_100.name": "냉혈한",
+    "ach.coldness_100.desc": "냉정 수치를 100 이상으로 달성했습니다.",
+    "ach.empathy_100.name": "공감의 화신",
+    "ach.empathy_100.desc": "공감 수치를 100 이상으로 달성했습니다.",
+    "ach.justice_100.name": "정의의 수호자",
+    "ach.justice_100.desc": "정의 수치를 100 이상으로 달성했습니다.",
+    "ach.compliance_100.name": "절대 복종",
+    "ach.compliance_100.desc": "순응 수치를 100 이상으로 달성했습니다.",
+    "ach.suspicion_100.name": "만성 불신",
+    "ach.suspicion_100.desc": "의심 수치를 100 이상으로 달성했습니다.",
+
+    "ach.corruption_80.name": "오염된 도시",
+    "ach.corruption_80.desc": "도시 오염도가 80 이상에 달했습니다.",
+    "ach.trust_80.name": "시민의 신뢰",
+    "ach.trust_80.desc": "시민 신뢰가 80 이상에 달했습니다.",
+
+    "ach.first_duty.name": "첫 근무",
+    "ach.first_duty.desc": "첫째 날, 첫 문서를 처리했습니다.",
+
+    "ach.vitality_min.name": "사투",
+    "ach.vitality_min.desc": "체력이 1 이하까지 떨어졌습니다."
 }

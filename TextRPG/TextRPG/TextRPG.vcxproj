@@ -144,9 +144,12 @@
     <ClCompile Include="Core\SettingsManager.cpp" />
     <ClCompile Include="Core\SoundSystem.cpp" />
     <ClCompile Include="Core\StateMachine.cpp" />
+    <ClCompile Include="Game\Achievement\AchievementManager.cpp" />
     <ClCompile Include="Game\Effect\EffectInterpreter.cpp" />
     <ClCompile Include="Game\Item\ItemRegistry.cpp" />
+    <ClCompile Include="Game\States\AchievementState.cpp" />
     <ClCompile Include="Game\States\GameState.cpp" />
+    <ClCompile Include="Game\States\KeyBindState.cpp" />
     <ClCompile Include="Game\States\InventoryState.cpp" />
     <ClCompile Include="Game\States\JournalState.cpp" />
     <ClCompile Include="Game\States\LoadSlotState.cpp" />
@@ -192,6 +195,8 @@
     <ClInclude Include="Core\StateMachine.h" />
     <ClInclude Include="external\json\json.hpp" />
     <ClInclude Include="external\sound\miniaudio.h" />
+    <ClInclude Include="Game\Achievement\Achievement.h" />
+    <ClInclude Include="Game\Achievement\AchievementManager.h" />
     <ClInclude Include="Game\Effect\Effect.h" />
     <ClInclude Include="Game\Effect\EffectInterpreter.h" />
     <ClInclude Include="Game\Events\GameStartEvent.h" />
@@ -201,7 +206,9 @@
     <ClInclude Include="Game\Journal\JournalEntry.h" />
     <ClInclude Include="Game\Log\LogEntry.h" />
     <ClInclude Include="Game\Player\PlayerStatus.h" />
+    <ClInclude Include="Game\States\AchievementState.h" />
     <ClInclude Include="Game\States\GameState.h" />
+    <ClInclude Include="Game\States\KeyBindState.h" />
     <ClInclude Include="Game\States\InventoryState.h" />
     <ClInclude Include="Game\States\JournalState.h" />
     <ClInclude Include="Game\States\LoadSlotState.h" />

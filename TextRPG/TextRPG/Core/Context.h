@@ -3,6 +3,7 @@
 #include "Game/Player/PlayerStatus.h"
 #include "Game/Log/LogEntry.h"
 #include "Game/Journal/JournalEntry.h"
+#include "Game/Achievement/AchievementManager.h"
 #include "State.h"
 #include "EventBus.h"
 #include "StateMachine.h"
@@ -25,9 +26,19 @@ public:
 	SoundSystem sound;
 	LocalizationManager localization;
 	ConsoleDisplay display;
+	AchievementManager achievements;
 
 	std::unique_ptr<State> nextState;
 	StateMachine* stateMachine = nullptr;
+
+	// 상태 전환 지연 큐 — 입력 처리 도중 즉시 전환하면 UIManager가 파괴된 채로
+	// 접근되는 use-after-free가 발생하므로, 프레임 끝(Update 이후)에 일괄 적용한다.
+	struct PendingStateOp
+	{
+		enum class Type { Push, Pop, Change } type;
+		std::unique_ptr<State> state; // Push / Change 시에만 유효
+	};
+	std::vector<PendingStateOp> pendingStateOps;
 
 	// ===== Game State =====
 	PlayerStats player;

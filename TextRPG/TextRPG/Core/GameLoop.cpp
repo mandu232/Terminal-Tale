@@ -14,7 +14,7 @@ GameLoop::GameLoop(Context& ctx)
 	inputManager = std::make_unique<InputManager>();
 
 	inputManager->AddSource(
-		std::make_unique<ConsoleInputSource>()
+		std::make_unique<ConsoleInputSource>(&context.settingManager.settings)
 	);
 
 	stateMachine->ChangeState(
@@ -57,12 +57,35 @@ void GameLoop::Update()
 {
 	stateMachine->Update();
 
+	// 입력 처리 중 쌓인 지연 상태 전환을 여기서 일괄 적용한다.
+	// (ProcessInput 도중 즉시 전환하면 UIManager use-after-free가 발생함)
+	bool stateChanged = !context.pendingStateOps.empty();
+	for ( auto& op : context.pendingStateOps )
+	{
+		switch ( op.type )
+		{
+		case Context::PendingStateOp::Type::Push:
+			stateMachine->PushState(std::move(op.state));
+			break;
+		case Context::PendingStateOp::Type::Pop:
+			stateMachine->PopState();
+			break;
+		case Context::PendingStateOp::Type::Change:
+			stateMachine->ChangeState(std::move(op.state));
+			break;
+		}
+	}
+	context.pendingStateOps.clear();
+
 	if ( context.nextState )
 	{
-		stateMachine->ChangeState(
-			std::move(context.nextState)
-		);
+		stateMachine->ChangeState(std::move(context.nextState));
+		stateChanged = true;
 	}
+
+	// 상태가 바뀌었으면 이전 상태용 stale 입력을 버린다.
+	if ( stateChanged )
+		inputManager->Clear();
 }
 
 void GameLoop::Render()

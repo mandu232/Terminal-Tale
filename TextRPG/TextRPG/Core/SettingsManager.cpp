@@ -27,6 +27,18 @@ bool SettingsManager::Load(const std::string& path)
 	settings.showFPS = j.value("showFPS" , false);
 	settings.fullScreen = j.value("fullScreen" , false);
 
+	if ( j.contains("keyBindings") )
+	{
+		const auto& kb = j["keyBindings"];
+		settings.keyBindings.inventoryKey = kb.value("inventory",  (int)'I');
+		settings.keyBindings.waitKey      = kb.value("wait",       (int)'Z');
+		settings.keyBindings.sleepKey     = kb.value("sleep",      (int)'S');
+		settings.keyBindings.logKey       = kb.value("log",        (int)'L');
+		settings.keyBindings.journalKey   = kb.value("journal",    (int)'J');
+		settings.keyBindings.quickSaveKey = kb.value("quickSave",  0x74);
+		settings.keyBindings.quickLoadKey = kb.value("quickLoad",  0x78);
+	}
+
 	return true;
 }
 
@@ -46,7 +58,19 @@ bool SettingsManager::Save(const std::string& path)
 	j[ "vsync" ] = settings.vsync;
 	j[ "showFPS" ] = settings.showFPS;
 	j[ "fullScreen" ] = settings.fullScreen;
-		 
+
+	{
+		json kb;
+		kb[ "inventory"  ] = settings.keyBindings.inventoryKey;
+		kb[ "wait"       ] = settings.keyBindings.waitKey;
+		kb[ "sleep"      ] = settings.keyBindings.sleepKey;
+		kb[ "log"        ] = settings.keyBindings.logKey;
+		kb[ "journal"    ] = settings.keyBindings.journalKey;
+		kb[ "quickSave"  ] = settings.keyBindings.quickSaveKey;
+		kb[ "quickLoad"  ] = settings.keyBindings.quickLoadKey;
+		j[ "keyBindings" ] = kb;
+	}
+
 	std::ofstream file(path);
 	file << j.dump(4);
 

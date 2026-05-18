@@ -9,6 +9,7 @@
 #include "SlotSelectState.h"
 #include "LoadSlotState.h"
 #include "InventoryState.h"              // ← 추가
+#include "AchievementState.h"
 #include "Core/InputManager.h"
 #include "Core/Context.h"
 #include "Game/Events/GameStartEvent.h"
@@ -49,7 +50,7 @@ void TitleState::Enter()
 
 	// ── 새 게임 버튼 ─────────────────────────────────────────────────────────
 	uiManager.Add(
-		std::make_unique<UIButton>(82, 32, 25, 3, 1,
+		std::make_unique<UIButton>(82, 29, 25, 3, 1,
 			L("ui.new_game"),
 			[this]()
 			{
@@ -75,7 +76,7 @@ void TitleState::Enter()
 	);
 
 	uiManager.Add(
-		std::make_unique<UIButton>(82, 37, 25, 3, 1,
+		std::make_unique<UIButton>(82, 34, 25, 3, 1,
 			L("ui.load_game"),
 			[this]()
 			{
@@ -85,7 +86,17 @@ void TitleState::Enter()
 	);
 
 	uiManager.Add(
-		std::make_unique<UIButton>(82, 42, 25, 3, 1,
+		std::make_unique<UIButton>(82, 39, 25, 3, 1,
+			L("ui.achievements"),
+			[this]()
+			{
+				context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+				context.PushState(std::make_unique<AchievementState>(context));
+			})
+	);
+
+	uiManager.Add(
+		std::make_unique<UIButton>(82, 44, 25, 3, 1,
 			L("ui.setting"),
 			[this]()
 			{
@@ -95,7 +106,7 @@ void TitleState::Enter()
 	);
 
 	uiManager.Add(
-		std::make_unique<UIButton>(82, 47, 25, 3, 1,
+		std::make_unique<UIButton>(82, 49, 25, 3, 1,
 			L("ui.quit_game"),
 			[this]()
 			{

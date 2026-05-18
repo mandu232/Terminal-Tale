@@ -29,6 +29,10 @@
                         "type":  "tendency",
                         "key":  "empathy",
                         "value":  1
+                    },
+                    {
+                        "type":  "unlock_achievement",
+                        "key":  "first_duty"
                     }
                 ]
 }

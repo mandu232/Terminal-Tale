@@ -37,6 +37,10 @@
                         "type":  "tendency",
                         "key":  "compliance",
                         "value":  1
+                    },
+                    {
+                        "type":  "unlock_achievement",
+                        "key":  "first_duty"
                     }
                 ]
 }

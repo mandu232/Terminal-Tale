@@ -39,6 +39,10 @@
                         "type":  "tendency",
                         "key":  "suspicion",
                         "value":  1
+                    },
+                    {
+                        "type":  "unlock_achievement",
+                        "key":  "first_duty"
                     }
                 ]
 }

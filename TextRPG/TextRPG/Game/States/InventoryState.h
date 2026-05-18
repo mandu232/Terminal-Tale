@@ -50,4 +50,7 @@ private:
 	Clock::time_point lastTime{};
 
 	bool needsRebuild = false;
+
+	// ── 목록 스크롤 ────────────────────────────────────────────────────────────
+	int scrollOffset = 0;
 };

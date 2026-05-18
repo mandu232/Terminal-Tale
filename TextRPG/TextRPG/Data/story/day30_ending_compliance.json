@@ -8,7 +8,9 @@
     "story.day30_ending_compliance.3",
     "story.day30_ending_compliance.4"
   ],
-  "effects": [],
+  "effects": [
+    { "type": "unlock_achievement", "key": "ending_compliance" }
+  ],
   "choices": [
     {
       "text": "story.day30.choice.finish",

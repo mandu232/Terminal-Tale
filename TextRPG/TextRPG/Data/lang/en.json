@@ -7,6 +7,7 @@
     "ui.load_game": "Load Game",
     "ui.setting": "Settings",
     "ui.quit_game": "Quit",
+    "ui.achievements": "Achievements",
     "ui.back": "Back",
     "ui.save": "Save",
     "ui.reset": "Reset",
@@ -27,6 +28,10 @@
     "status.on": "ON",
     "status.off": "OFF",
     "ui.toggle": "Change",
+    "ui.keybind": "Key Bindings",
+    "ui.keybind.col_action": "Action",
+    "ui.keybind.col_key": "Key",
+    "ui.keybind.waiting": "Press a key...",
     "ui.menu": "Menu",
     "ui.save_game": "Save Game",
     "ui.return_lobby": "Return to Lobby",
@@ -41,6 +46,7 @@
     "log.waited": "Time passed.",
     "log.slept": "You slept.",
     "ui.quickSave": "Quick Save",
+    "ui.quickSaveOn": "Quick Save ●",
     "ui.quickLoad": "Quick Load",
     "ui.log": "Log",
     "ui.journal": "Case Archive",
@@ -151,6 +157,7 @@
     "story.day_end.choice.0": "Next Day",
 
     "story.common.next_case": "Next File",
+    "story.common.to_day_end": "Next File",
     "story.common.return_to_desk": "Return to desk",
 
     "story.day2_morning.0": "The second day.",
@@ -1695,7 +1702,7 @@
     "story.day21_end.1": "Act 3 is over.",
     "story.day21_end.2": "What you have gathered is beginning to carry weight. The question is how to use it.",
 
-    "story.day21_end_act4.0": "The twenty-first day ends. Act 3 ends.",
+    "story.day21_end_act4.0": "The twenty-first day ends.",
     "story.day21_end_act4.1": "A blank disposal order. A signature from nine years ago. Three articles. People still alive.",
     "story.day21_end_act4.2": "Everything you have gathered now converges into a single choice.",
     "story.day21_end_act4.3": "What will you do.",
@@ -2316,5 +2323,38 @@
     "story.day30_credits.0": "Every case stays on the record.",
     "story.day30_credits.1": "That record can change someone's life.",
     "story.day30_credits.2": "The decisions you made. They built this city.",
-    "story.day30.choice.finish": "— End —"
+    "story.day30.choice.finish": "— End —",
+
+    "ach.ending_alliance.name": "Within the System",
+    "ach.ending_alliance.desc": "Reached the 'Within the System' ending.",
+    "ach.ending_compliance.name": "The Seat",
+    "ach.ending_compliance.desc": "Reached the 'The Seat' ending.",
+    "ach.ending_resistance.name": "Disclosure",
+    "ach.ending_resistance.desc": "Reached the 'Disclosure' ending.",
+    "ach.ending_retreat.name": "The Record",
+    "ach.ending_retreat.desc": "Reached the 'The Record' ending.",
+    "ach.ending_all.name": "All Endings",
+    "ach.ending_all.desc": "Experienced all 4 endings.",
+
+    "ach.coldness_100.name": "Cold-Blooded",
+    "ach.coldness_100.desc": "Reached a Coldness stat of 100 or above.",
+    "ach.empathy_100.name": "Embodiment of Empathy",
+    "ach.empathy_100.desc": "Reached an Empathy stat of 100 or above.",
+    "ach.justice_100.name": "Guardian of Justice",
+    "ach.justice_100.desc": "Reached a Justice stat of 100 or above.",
+    "ach.compliance_100.name": "Absolute Obedience",
+    "ach.compliance_100.desc": "Reached a Compliance stat of 100 or above.",
+    "ach.suspicion_100.name": "Chronic Distrust",
+    "ach.suspicion_100.desc": "Reached a Suspicion stat of 100 or above.",
+
+    "ach.corruption_80.name": "Corrupted City",
+    "ach.corruption_80.desc": "City corruption reached 80 or above.",
+    "ach.trust_80.name": "Public Trust",
+    "ach.trust_80.desc": "Citizen trust reached 80 or above.",
+
+    "ach.first_duty.name": "First Shift",
+    "ach.first_duty.desc": "Processed your first document on day one.",
+
+    "ach.vitality_min.name": "Brush with Death",
+    "ach.vitality_min.desc": "Vitality dropped to 1 or below."
 }

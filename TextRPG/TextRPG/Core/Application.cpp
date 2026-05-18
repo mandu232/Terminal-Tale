@@ -20,6 +20,7 @@ Application::Application()
 	GContext = context.get();
 
 	context->localization.LoadLocalization(context->settingManager.settings.language);
+	context->achievements.Init();
 
 	context->ToggleFullscreen(context->settingManager.settings.fullScreen);
 

@@ -227,20 +227,17 @@ Context::SlotInfo Context::GetSlotInfo(int slot) const
 // ── StateMachine Helpers ─────────────────────────────────────────────────────
 void Context::ChangeState(std::unique_ptr<State> state)
 {
-	if (stateMachine)
-		stateMachine->ChangeState(std::move(state));
+	pendingStateOps.push_back({ PendingStateOp::Type::Change, std::move(state) });
 }
 
 void Context::PushState(std::unique_ptr<State> state)
 {
-	if (stateMachine)
-		stateMachine->PushState(std::move(state));
+	pendingStateOps.push_back({ PendingStateOp::Type::Push, std::move(state) });
 }
 
 void Context::PopState()
 {
-	if (stateMachine)
-		stateMachine->PopState();
+	pendingStateOps.push_back({ PendingStateOp::Type::Pop, nullptr });
 }
 
 void Context::ToggleFullscreen(bool mode)

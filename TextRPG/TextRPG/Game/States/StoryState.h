@@ -51,6 +51,8 @@ private:
 	std::string startNodeId;
 	StoryNode   currentNode;
 	bool        resuming = false;
+	bool        autoSaveEnabled = false;
+	UIButton*   autoSaveBtn = nullptr;
 
 	//타이핑 상태
 	int pendingTypewriters = 0;

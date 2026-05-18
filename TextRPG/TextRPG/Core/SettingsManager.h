@@ -1,6 +1,20 @@
 #pragma once
 #include <string>
 
+struct KeyBindings
+{
+	// VK 코드 (Windows Virtual Key)
+	// 문자 키: 대문자 ASCII 값  ('I'=0x49, 'Z'=0x5A, ...)
+	// 기능 키: VK_F5=0x74, VK_F9=0x78
+	int inventoryKey = 'I';
+	int waitKey      = 'Z';
+	int sleepKey     = 'S';
+	int logKey       = 'L';
+	int journalKey   = 'J';
+	int quickSaveKey = 0x74;  // VK_F5
+	int quickLoadKey = 0x78;  // VK_F9
+};
+
 struct Settings
 {
 	int masterVolume = 100;
@@ -16,6 +30,8 @@ struct Settings
 	bool showFPS = false;
 
 	bool fullScreen = true;
+
+	KeyBindings keyBindings;
 };
 
 class SettingsManager

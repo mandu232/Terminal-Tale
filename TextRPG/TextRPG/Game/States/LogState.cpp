@@ -43,10 +43,7 @@ LogState::LogState(Context& context)
 
 void LogState::Enter()
 {
-    // 최신 항목부터 보도록 스크롤을 끝으로 초기화
-    const int total = static_cast<int>(context.log.size());
-    scrollOffset = std::max(0, total - VisibleCount);
-
+    scrollOffset = 0;   // 0 = 가장 최신 항목부터
     Rebuild();
 }
 
@@ -104,34 +101,23 @@ void LogState::Rebuild()
             y += LogLayout::EntryH;
         }
 
-        // ── 스크롤 버튼 ──────────────────────────────────────────────────────
-        bool canUp = (startI < total - 1);
-        bool canDn = (endI > 0);
+        // ── 스크롤 힌트 (키보드 방향키 안내) ────────────────────────────────
+        bool canUp = (startI < total - 1);   // 더 새로운 항목 있음
+        bool canDn = (endI > 0);             // 더 오래된 항목 있음
 
         if (canUp)
         {
-            uiManager.Add(std::make_unique<UIButton>(
-                LogLayout::ScrollX, LogLayout::ScrollUpY, 8, LogLayout::RowH, LogLayout::Z,
-                "▲",
-                [this]()
-                {
-                    scrollOffset = std::max(0,
-                        scrollOffset - VisibleCount);
-                    Rebuild();
-                }));
+            uiManager.Add(std::make_unique<UILabel>(
+                LogLayout::ScrollX, LogLayout::ScrollUpY, LogLayout::Z,
+                8, LogLayout::RowH, "^",
+                8, UILabel::TextAlign::Center, UILabel::VAlign::Middle));
         }
         if (canDn)
         {
-            uiManager.Add(std::make_unique<UIButton>(
-                LogLayout::ScrollX, LogLayout::ScrollDnY, 8, LogLayout::RowH, LogLayout::Z,
-                "▼",
-                [this]()
-                {
-                    int total = static_cast<int>(context.log.size());
-                    scrollOffset = std::min(
-                        scrollOffset + VisibleCount,total - 1);
-                    Rebuild();
-                }));
+            uiManager.Add(std::make_unique<UILabel>(
+                LogLayout::ScrollX, LogLayout::ScrollDnY, LogLayout::Z,
+                8, LogLayout::RowH, "v",
+                8, UILabel::TextAlign::Center, UILabel::VAlign::Middle));
         }
     }
 
@@ -152,8 +138,41 @@ void LogState::HandleInput(InputManager& input)
     while (input.HasAction())
     {
         auto action = input.PopAction();
-        if (action == InputAction::Cancel)
+        switch (action)
+        {
+        case InputAction::Cancel:
             context.PopState();
+            return;
+
+        case InputAction::MoveUp:
+        case InputAction::ScrollUp:
+        {
+            // 위 = 더 최신 항목으로
+            if (scrollOffset > 0)
+            {
+                --scrollOffset;
+                Rebuild();
+            }
+            break;
+        }
+
+        case InputAction::MoveDown:
+        case InputAction::ScrollDown:
+        {
+            // 아래 = 더 오래된 항목으로
+            int total = static_cast<int>(context.log.size());
+            int maxOffset = std::max(0, total - VisibleCount);
+            if (scrollOffset < maxOffset)
+            {
+                ++scrollOffset;
+                Rebuild();
+            }
+            break;
+        }
+
+        default:
+            break;
+        }
     }
 }
 

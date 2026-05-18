@@ -25,6 +25,8 @@ enum class EffectType
 	AddCorruption ,    //오염도 변화
 
 	CaseRecord ,       //케이스 처리 기록 추가 (처리 문서 열람용)
+
+	UnlockAchievement, // 업적 해제 (key: achievement id)
 };
 
 struct Effect

@@ -1,6 +1,7 @@
 #include "EffectInterpreter.h"
 #include "Core/Context.h"
 #include "Core/Localization.h"
+#include "Game/Achievement/AchievementManager.h"
 
 void EffectInterpreter::Apply(const Effect& effect , Context& ctx)
 {
@@ -8,6 +9,7 @@ void EffectInterpreter::Apply(const Effect& effect , Context& ctx)
 	{
 	case EffectType::AddVitality:
 		ctx.player.vitality += effect.value;
+		ctx.achievements.CheckStatAchievements(ctx);
 		break;
 	case EffectType::AddReputation:
 		ctx.player.reputation += effect.value;
@@ -44,12 +46,15 @@ void EffectInterpreter::Apply(const Effect& effect , Context& ctx)
 
 	case EffectType::AddCityOrder:
 		ctx.player.cityOrder += effect.value;
+		ctx.achievements.CheckStatAchievements(ctx);
 		break;
 	case EffectType::AddCitizenTrust:
 		ctx.player.citizenTrust += effect.value;
+		ctx.achievements.CheckStatAchievements(ctx);
 		break;
 	case EffectType::AddCorruption:
 		ctx.player.corruption += effect.value;
+		ctx.achievements.CheckStatAchievements(ctx);
 		break;
 
 	case EffectType::AddTendency:
@@ -60,8 +65,13 @@ void EffectInterpreter::Apply(const Effect& effect , Context& ctx)
 		else if ( effect.key == "justice"    ) p.justice    += effect.value;
 		else if ( effect.key == "compliance" ) p.compliance += effect.value;
 		else if ( effect.key == "suspicion"  ) p.suspicion  += effect.value;
+		ctx.achievements.CheckStatAchievements(ctx);
 		break;
 	}
+
+	case EffectType::UnlockAchievement:
+		ctx.achievements.Unlock(effect.key, ctx);
+		break;
 
 	case EffectType::CaseRecord:
 	{

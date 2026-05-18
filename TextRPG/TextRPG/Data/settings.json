@@ -2,6 +2,15 @@
     "autoSave": true,
     "bgmVolume": 15,
     "fullScreen": true,
+    "keyBindings": {
+        "inventory": 73,
+        "journal": 74,
+        "log": 76,
+        "quickLoad": 120,
+        "quickSave": 116,
+        "sleep": 83,
+        "wait": 90
+    },
     "language": "ko",
     "masterVolume": 30,
     "sfxVolume": 80,

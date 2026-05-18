@@ -8,7 +8,9 @@
     "story.day30_ending_alliance.3",
     "story.day30_ending_alliance.4"
   ],
-  "effects": [],
+  "effects": [
+    { "type": "unlock_achievement", "key": "ending_alliance" }
+  ],
   "choices": [
     {
       "text": "story.day30.choice.finish",

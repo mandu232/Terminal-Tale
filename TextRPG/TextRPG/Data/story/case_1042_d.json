@@ -27,6 +27,10 @@
                     {
                         "type":  "time",
                         "value":  1
+                    },
+                    {
+                        "type":  "unlock_achievement",
+                        "key":  "first_duty"
                     }
                 ]
 }

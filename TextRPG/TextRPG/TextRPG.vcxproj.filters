@@ -68,11 +68,11 @@
     <Filter Include="소스 파일\external\sound">
       <UniqueIdentifier>{a98b8b84-9714-4108-bfad-4e85194d5d9d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Game\Achievement">
+      <UniqueIdentifier>{0e8530e9-32fd-4e68-b60f-b76334197dfe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Application.cpp">
       <Filter>소스 파일\Core</Filter>
     </ClCompile>
@@ -188,6 +188,18 @@
       <Filter>소스 파일\Game\State</Filter>
     </ClCompile>
     <ClCompile Include="Game\States\PauseMenuState.cpp">
+      <Filter>소스 파일\Game\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\States\AchievementState.cpp">
+      <Filter>소스 파일\Game\State</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Achievement\AchievementManager.cpp">
+      <Filter>소스 파일\Game\Achievement</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\States\KeyBindState.cpp">
       <Filter>소스 파일\Game\State</Filter>
     </ClCompile>
   </ItemGroup>
@@ -356,6 +368,18 @@
     </ClInclude>
     <ClInclude Include="Game\Log\LogEntry.h">
       <Filter>소스 파일\Game\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\States\AchievementState.h">
+      <Filter>소스 파일\Game\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Achievement\AchievementManager.h">
+      <Filter>소스 파일\Game\Achievement</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Achievement\Achievement.h">
+      <Filter>소스 파일\Game\Achievement</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\States\KeyBindState.h">
+      <Filter>소스 파일\Game\State</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

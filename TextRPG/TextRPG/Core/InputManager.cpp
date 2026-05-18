@@ -24,6 +24,11 @@ void InputManager::Update(UIManager& ui)
 		source->Update(*this, ui);
 	}
 }
+void InputManager::Clear()
+{
+	actionQueue = {};
+}
+
 void InputManager::AddSource(std::unique_ptr<InputSource> source)
 {
 	sources.push_back(std::move(source));

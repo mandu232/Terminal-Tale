@@ -1,3 +1,4 @@
+#define NOMINMAX
 #include "InventoryState.h"
 
 #include "Core/Context.h"
@@ -20,7 +21,7 @@
 //
 //  StoryState 와 동일한 분할선(x=59, x=151) 을 사용합니다.
 //
-//  x=0 ─── x=59 ─── x=61 ─────────────── x=151 ─── x=153 ──── x=191
+//  x=0 ─── x=59 ─ x=61 ───────── x=151 ─ x=153 ───── x=191
 //  │   좌측 스탯   │       중앙 아이템 목록       │      우측 상세      │
 // ─────────────────────────────────────────────────────────────────────────────
 namespace InvLayout
@@ -36,7 +37,8 @@ namespace InvLayout
 	constexpr int CenterX = 62;
 	constexpr int CenterW = 87;
 	constexpr int ListStartY = 8;   // 첫 번째 아이템 버튼 Y
-	constexpr int MaxListItems = 12;  // 화면에 보여줄 최대 줄 수
+	constexpr int MaxListItems = 10; // 한 페이지에 보여줄 최대 줄 수
+	constexpr int ScrollHintY = 48; // 스크롤 힌트 Y (아이템 10개 끝 이후)
 
 	// ── 우측 (아이템 상세) ───────────────────────────────────────────────────
 	constexpr int RightX = 154;
@@ -62,6 +64,7 @@ InventoryState::InventoryState(Context& context)
 void InventoryState::Enter()
 {
 	selectedItemId.clear();
+	scrollOffset = 0;
 
 	uiManager.Clear();
 	BuildDividers();
@@ -288,15 +291,33 @@ void InventoryState::BuildCenterPanel()
 	std::sort(sortedItems.begin() , sortedItems.end() ,
 		[] (const auto& a , const auto& b) { return a.first < b.first; });
 
-	int y = InvLayout::ListStartY;
-	for ( const auto& [itemId , qty] : sortedItems )
+	int total = static_cast<int>(sortedItems.size());
+
+	// 스크롤 오프셋 범위 보정
+	scrollOffset = std::max(0 , std::min(scrollOffset , total - InvLayout::MaxListItems));
+	if ( scrollOffset < 0 ) scrollOffset = 0;
+
+	// 스크롤 위 힌트 (위에 더 있을 때)
+	if ( scrollOffset > 0 )
 	{
+		uiManager.Add(std::make_unique<UILabel>(
+			InvLayout::CenterX , InvLayout::ListStartY - 2 , InvLayout::Z ,
+			InvLayout::CenterW , 1 ,
+			"^ " + std::to_string(scrollOffset) + "개 더 (위쪽 방향키)" , 8 ,
+			UILabel::TextAlign::Left , UILabel::VAlign::Top));
+	}
+
+	// 현재 페이지 아이템만 표시
+	int visibleEnd = std::min(scrollOffset + InvLayout::MaxListItems , total);
+	int y = InvLayout::ListStartY;
+	for ( int i = scrollOffset; i < visibleEnd; ++i )
+	{
+		const auto& [itemId , qty] = sortedItems[ i ];
 		const Item& item = ItemRegistry::Get(itemId);
 		std::string btnText = L(item.nameKey) + "  x" + std::to_string(qty);
 
 		bool isSelected = ( itemId == selectedItemId );
 
-		// 선택된 아이템은 밝은 노랑(14)으로 강조
 		auto btn = std::make_unique<UIButton>(
 			InvLayout::CenterX , y ,
 			InvLayout::CenterW , InvLayout::RowH ,
@@ -315,8 +336,17 @@ void InventoryState::BuildCenterPanel()
 		uiManager.Add(std::move(btn));
 
 		y += InvLayout::RowH + 1;
-		if ( y >= InvLayout::ListStartY + InvLayout::MaxListItems * ( InvLayout::RowH + 1 ) )
-			break;  // 화면 밖이면 중단 (스크롤은 추후 구현)
+	}
+
+	// 스크롤 아래 힌트 (아래에 더 있을 때)
+	if ( scrollOffset + InvLayout::MaxListItems < total )
+	{
+		int remaining = total - scrollOffset - InvLayout::MaxListItems;
+		uiManager.Add(std::make_unique<UILabel>(
+			InvLayout::CenterX , InvLayout::ScrollHintY , InvLayout::Z ,
+			InvLayout::CenterW , 1 ,
+			"v " + std::to_string(remaining) + "개 더 (아래쪽 방향키)" , 8 ,
+			UILabel::TextAlign::Left , UILabel::VAlign::Top));
 	}
 }
 
@@ -452,11 +482,37 @@ void InventoryState::HandleInput(InputManager& input)
 	{
 		auto action = input.PopAction();
 
-		if ( action == InputAction::Quit )
+		switch ( action )
 		{
+		case InputAction::Cancel:
+		case InputAction::Quit:
 			context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 			context.PopState();
 			return;
+
+		case InputAction::MoveUp:
+		case InputAction::ScrollUp:
+			if ( scrollOffset > 0 )
+			{
+				--scrollOffset;
+				needsRebuild = true;
+			}
+			break;
+
+		case InputAction::MoveDown:
+		case InputAction::ScrollDown:
+		{
+			int total = static_cast<int>(context.player.inventory.size());
+			if ( scrollOffset + InvLayout::MaxListItems < total )
+			{
+				++scrollOffset;
+				needsRebuild = true;
+			}
+			break;
+		}
+
+		default:
+			break;
 		}
 	}
 }

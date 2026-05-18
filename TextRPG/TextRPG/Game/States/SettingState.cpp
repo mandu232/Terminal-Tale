@@ -1,4 +1,5 @@
 #include "SettingState.h"
+#include "KeyBindState.h"
 #include "Core/InputManager.h"
 #include "Core/Context.h"
 #include "Core/ConsoleDisplay.h"
@@ -511,6 +512,19 @@ void SettingState::Enter()
     // ────────────────────────────────────────────
     //  하단 버튼: Reset / Save / Back
     // ────────────────────────────────────────────
+    // ── 키 설정 버튼 (하단 왼쪽) ────────────────────────────────────────
+    uiManager.Add(
+        std::make_unique<UIButton>(
+            Layout::LabelX, Layout::BottomY,
+            Layout::BtnW + 4, Layout::RowH, Layout::Z,
+            L("ui.keybind"),
+            [this]()
+            {
+                context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+                context.PushState(std::make_unique<KeyBindState>(context));
+            })
+    );
+
     uiManager.Add(
         std::make_unique<UIButton>(
             Layout::ResetX, Layout::BottomY,
@@ -579,8 +593,12 @@ void SettingState::HandleInput(InputManager& input)
     while (input.HasAction())
     {
         auto action = input.PopAction();
-        // 필요 시 키보드 단축키 처리 가능
-        // ex) ESC → context.PopState();
+        if ( action == InputAction::Cancel )
+        {
+            context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+            context.PopState();
+            return;
+        }
     }
 }
 

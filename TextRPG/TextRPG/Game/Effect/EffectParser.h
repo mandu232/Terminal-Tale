@@ -22,7 +22,8 @@ inline Effect ParseEffect(const nlohmann::json& j)
 	else if ( type == "city_order"    ) e.type = EffectType::AddCityOrder;
 	else if ( type == "citizen_trust" ) e.type = EffectType::AddCitizenTrust;
 	else if ( type == "corruption"    ) e.type = EffectType::AddCorruption;
-	else if ( type == "case_record"   ) e.type = EffectType::CaseRecord;
+	else if ( type == "case_record"         ) e.type = EffectType::CaseRecord;
+	else if ( type == "unlock_achievement"  ) e.type = EffectType::UnlockAchievement;
 	else throw std::runtime_error("Unknown effect type: " + type);
 
 	if ( j.contains("value")   ) e.value   = j["value"];
