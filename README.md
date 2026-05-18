@@ -430,12 +430,17 @@ Terminal Tale/
 ```json
 {
     "autoSave": false,
+    "autoSave": true,
+    "bgmVolume": 100,
     "fullScreen": true,
     "language": "ko",
     "masterVolume": 100,
+    "sfxVolume": 100,
     "showFPS": false,
     "targetFPS": 15,
     "textSpeed": 1,
+    "targetFPS": 30,
+    "textSpeed": 3,
     "vsync": false
 }
 ```
@@ -446,11 +451,12 @@ Terminal Tale/
 | `fullScreen` | bool | 전체화면 모드 |
 | `language` | string | 언어 코드 (`ko` / `en` / `ja` / `zh` / `fr`) |
 | `masterVolume` | int | 마스터 볼륨 (0 ~ 100) |
+| `bgmVolume` | int | BGM 볼륨 (0 ~ 100) |
+| `sfxVolume` | int | 효과음 볼륨 (0 ~ 100) |
 | `showFPS` | bool | FPS 표시 여부 |
 | `targetFPS` | int | 목표 FPS (`0` = 무제한) |
 | `textSpeed` | int | 텍스트 출력 속도 |
 | `vsync` | bool | 수직 동기화 여부 |
-
 ---
 
 ## 언어파일 지원

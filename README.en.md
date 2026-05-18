@@ -429,13 +429,15 @@ Game settings can be viewed and modified in `Data/settings.json`.
 
 ```json
 {
-    "autoSave": false,
+    "autoSave": true,
+    "bgmVolume": 100,
     "fullScreen": true,
     "language": "ko",
     "masterVolume": 100,
+    "sfxVolume": 100,
     "showFPS": false,
-    "targetFPS": 15,
-    "textSpeed": 1,
+    "targetFPS": 30,
+    "textSpeed": 3,
     "vsync": false
 }
 ```
@@ -446,10 +448,13 @@ Game settings can be viewed and modified in `Data/settings.json`.
 | `fullScreen` | bool | Fullscreen mode |
 | `language` | string | Language code (`ko` / `en` / `ja` / `zh` / `fr`) |
 | `masterVolume` | int | Master volume (0 ~ 100) |
+| `bgmVolume` | int | BGM volume (0 ~ 100) |
+| `sfxVolume` | int | Sound effect volume (0 ~ 100) |
 | `showFPS` | bool | Show FPS counter |
 | `targetFPS` | int | Target FPS (`0` = unlimited) |
 | `textSpeed` | int | Text output speed |
 | `vsync` | bool | Vertical sync |
+
 
 ---
 
