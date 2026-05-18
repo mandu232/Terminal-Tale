@@ -48,13 +48,16 @@ with choice availability determined by the player's stats and flags.
 ## Key Features
 
 - **Branching Text Story** — A node-based story defined in JSON. Branches into different paths based on the player's choices.
-- **Stats & Flag System** — Story conditions are evaluated using 7 stats (vitality, appearance, reputation, karma, wealth, day, time) and string-based flags.
-- **Effect System** — Applies stat increases/decreases and flag add/remove effects when a choice is selected or a node is entered.
+- **Stats & Flag System** — Story conditions are evaluated using personal stats (vitality, reputation, wealth), world stats (city order, citizen trust, corruption), five tendency traits, and string-based flags.
+- **Effect System** — Applies stat changes, flag add/remove, tendency shifts, and world stat changes when a choice is selected or a node is entered.
 - **Conditional Choices** — Choices that do not meet `require` conditions are hidden from the player.
-- **Item Addition & Effects** — Items can be added via JSON and assigned effects.
+- **Save / Load** — 3-slot save system. The full game state is persisted to JSON files in `Data/saves/`.
+- **Inventory & Items** — Items are defined in JSON. Players can carry and use items from the inventory screen.
+- **Case Journal** — Case handling records are saved to a journal and can be reviewed in-game.
+- **Activity Log** — Key in-game events are recorded with day and time stamps.
 - **Typewriter Effect** — Text is printed character by character via `UITypewriter`.
 - **Console UI** — A custom console UI system consisting of UIButton, UILabel, UIImage, and UITypewriter.
-- **Sound** — Sound effect playback powered by miniaudio.
+- **Sound** — BGM and sound effect playback powered by miniaudio.
 - **Settings Save/Load** — Game settings are persisted via `Data/settings.json`.
 - **Multilingual Support** — Korean, English, Japanese, Chinese, and French (JSON-based localization).
 - **FPS Limiter** — Controls game loop speed according to the `targetFPS` setting.
@@ -67,10 +70,17 @@ with choice availability determined by the player's stats and flags.
 Application
 └── GameLoop
     ├── StateMachine (stack-based)
-    │   ├── TitleState     — Title screen
-    │   ├── StoryState     — Story progression screen
-    │   ├── GameState      — In-game screen (pending)
-    │   └── SettingState   — Settings screen
+    │   ├── TitleState       — Title screen
+    │   ├── StoryState       — Story progression screen
+    │   ├── SlotSelectState  — Save slot selection
+    │   ├── LoadSlotState    — Load game screen
+    │   ├── PauseMenuState   — Pause menu
+    │   ├── InventoryState   — Inventory screen
+    │   ├── JournalState     — Case journal viewer
+    │   ├── LogState         — Activity log viewer
+    │   ├── SettingState     — Settings screen
+    │   ├── SleepState       — Sleep / time progression
+    │   └── WaitState        — Wait action
     ├── InputManager
     │   └── ConsoleInputSource
     └── Context (shared state)
@@ -79,7 +89,9 @@ Application
         ├── SettingsManager
         ├── SoundSystem (miniaudio)
         ├── LocalizationManager
-        └── PlayerStats + flags
+        ├── PlayerStats + flags
+        ├── std::vector<LogEntry>
+        └── std::vector<JournalEntry>
 ```
 
 ### Game Loop
@@ -128,7 +140,7 @@ x=0 ────────── x=60 ─────────────�
 ```
 Terminal Tale/
 ├── Assets/
-│   ├── audio/              # Sound effects (.wav)
+│   ├── audio/              # BGM / sound effects (.wav)
 │   └── ui/                 # Title ASCII art
 ├── Core/                   # Engine core
 │   ├── Application         # App entry point, initialization
@@ -145,6 +157,8 @@ Terminal Tale/
 ├── Data/
 │   ├── lang/               # Localization files (ko/en/ja/zh/fr .json)
 │   ├── story/              # Story node JSON files
+│   ├── saves/              # Save slots (slot_1~3 .json)
+│   ├── items.json          # Item definitions
 │   └── settings.json       # User settings
 ├── external/
 │   ├── json/json.hpp       # nlohmann/json (header-only)
@@ -152,8 +166,11 @@ Terminal Tale/
 ├── Game/
 │   ├── Effect/             # Effect type definitions and application
 │   ├── Events/             # Game events (GameStartEvent, PlaySoundEvent)
+│   ├── Item/               # Item definitions and parsing
+│   ├── Journal/            # JournalEntry struct
+│   ├── Log/                # LogEntry struct
 │   ├── Player/             # PlayerStats struct
-│   ├── States/             # TitleState, StoryState, GameState, SettingState
+│   ├── States/             # Game states (TitleState, StoryState, etc. — 11 total)
 │   └── Story/              # StoryNode, StoryLoader (JSON parsing)
 ├── Systems/
 │   └── Condition / ConditionChecker   # Condition evaluation system
@@ -183,40 +200,55 @@ Each file represents a single **StoryNode**, with the `id` field used as the nod
 
 ```json
 {
-  "id": "forest_001",
-  "bgImage": "Assets/ui/forest.txt",
+  "id": "case_1042",
+  "sfx": "Assets/audio/node_paper.wav",
+  "bgm": "Assets/audio/bgm_office.wav",
+  "bgImage": "Assets/ui/office.txt",
 
   "require": [
-    { "type": "vitality", "op": "gt", "value": 5 }
+    { "type": "vitality", "op": "gt", "value": 0 }
   ],
 
   "effects": [
-    { "type": "vitality", "value": -1 }
+    { "type": "city_order", "value": 5 },
+    { "type": "citizen_trust", "value": -3 },
+    { "type": "tendency", "key": "justice", "value": 1 },
+    {
+      "type": "case_record",
+      "key": "case_1042",
+      "title": "story.case_1042.0",
+      "outcome": "story.case_1042.choice.0",
+      "content": "story.case_1042_a.0"
+    }
   ],
 
   "text": [
-    "story.prologue_000.0",
-    "story.prologue_000.1",
-    "story.prologue_000.2",
-    "story.prologue_000.3",
-    "story.prologue_000.4",
-    "story.prologue_000.5"
+    "story.case_1042.0",
+    "story.case_1042.1",
+    "story.case_1042.2"
   ],
 
   "choices": [
     {
-      "text": "story.prologue_000.choice.0",
-      "next": "forest_creature_001",
+      "text": "story.case_1042.choice.0",
+      "next": "case_1042_a",
       "require": [
-        { "type": "karma", "op": "gte", "value": 50 }
+        { "type": "tendency", "key": "justice", "op": "gte", "value": 3 }
       ],
       "effects": [
-        { "type": "flag_add", "key": "approached_creature" }
+        { "type": "flag_add", "key": "reported_case_1042" }
       ]
     },
     {
-      "text": "story.prologue_000.choice.1",
-      "next": "forest_002"
+      "text": "story.case_1042.choice.1",
+      "next": "case_1042_b",
+      "require": [
+        { "type": "has_item", "key": "access_card", "op": "gte", "value": 1 }
+      ]
+    },
+    {
+      "text": "story.case_1042.choice.2",
+      "next": "case_1042_c"
     }
   ]
 }
@@ -227,27 +259,49 @@ Each file represents a single **StoryNode**, with the `id` field used as the nod
 | Field | Type | Description |
 |---|---|---|
 | `id` | string | Unique node identifier (matches the filename) |
+| `sfx` | string | Sound effect path played on node entry (optional) |
+| `bgm` | string | BGM path to switch to on node entry (optional; omit to keep current) |
 | `bgImage` | string | Path to ASCII art displayed in the left panel (optional) |
-| `text` | string[] | Array of narrative text keys printed in order |
+| `text` | string[] | Array of narrative text localization keys printed in order |
 | `choices` | Choice[] | List of player choices |
 | `effects` | Effect[] | Effects applied immediately upon entering the node (optional) |
 | `require` | Condition[] | Conditions required to enter the node (optional) |
 
 ### Effect Types (Effect)
 
-| `type` | Description |
-|---|---|
-| `vitality` | Increases/decreases vitality |
-| `appearance` | Increases/decreases appearance/credibility |
-| `reputation` | Increases/decreases reputation |
-| `karma` | Increases/decreases morality |
-| `wealth` | Increases/decreases wealth |
-| `day` | Advances the day counter |
-| `time` | Advances the time counter |
-| `give_item` | Grants an item |
-| `remove_item` | Removes an item |
-| `flag_add` | Adds a flag (requires `key` field) |
-| `flag_remove` | Removes a flag (requires `key` field) |
+| `type` | Extra Fields | Description |
+|---|---|---|
+| `vitality` | `value` | Increases/decreases vitality |
+| `reputation` | `value` | Increases/decreases reputation |
+| `wealth` | `value` | Increases/decreases wealth |
+| `day` | `value` | Advances the day counter |
+| `time` | `value` | Advances time (relative) |
+| `set_time` | `value` | Sets time to an absolute value |
+| `city_order` | `value` | Increases/decreases city order |
+| `citizen_trust` | `value` | Increases/decreases citizen trust |
+| `corruption` | `value` | Increases/decreases corruption |
+| `tendency` | `key`, `value` | Changes a tendency stat (`key`: `empathy` / `coldness` / `justice` / `compliance` / `suspicion`) |
+| `give_item` | `key`, `value` | Grants an item (`key`: item id, `value`: quantity) |
+| `remove_item` | `key`, `value` | Removes an item |
+| `flag_add` | `key` | Adds a flag |
+| `flag_remove` | `key` | Removes a flag |
+| `case_record` | `key`, `title`, `outcome`, `content` | Adds a case entry to the journal (all localization keys) |
+
+### Condition Types (Condition)
+
+| `type` | Needs `op` | Needs `key` | Description |
+|---|---|---|---|
+| `vitality` | O | - | Compare vitality |
+| `reputation` | O | - | Compare reputation |
+| `wealth` | O | - | Compare wealth |
+| `day` | O | - | Compare current day |
+| `time` | O | - | Compare current time |
+| `city_order` | O | - | Compare city order |
+| `citizen_trust` | O | - | Compare citizen trust |
+| `corruption` | O | - | Compare corruption |
+| `tendency` | O | O | Compare a tendency stat (`key`: tendency name) |
+| `has_item` | O | O | Compare item quantity in inventory (`key`: item id) |
+| `flag` | X | O | Check whether a flag is set |
 
 ### Condition Operators (ConditionOp)
 
@@ -263,10 +317,10 @@ Flag conditions are used without `op`, in the format `{ "type": "flag", "key": "
 
 ### Key Naming Convention
 
-| `type` | Pattern | Example |
+| Type | Pattern | Example |
 |---|---|---|
-| Body text | `story.{NodeId}.{num}` | `story.prologue_000.0` |
-| Choices | `story.{NodeId}.choice.{num}` | `story.prologue_000.choice.0` |
+| Body text | `story.{NodeId}.{num}` | `story.case_1042.0` |
+| Choices | `story.{NodeId}.choice.{num}` | `story.case_1042.choice.0` |
 
 ---
 
@@ -277,13 +331,20 @@ Flag conditions are used without `op`, in the format `{ "type": "flag", "key": "
 ```json
 [
     {
-        "id": "health_potion",
-        "name": "item.health_potion.name",
-        "desc": "item.health_potion.desc",
+        "id": "coffee",
+        "name": "item.coffee.name",
+        "desc": "item.coffee.desc",
         "usable": true,
         "effects": [
-            { "type": "vitality", "value": 2 }
+            { "type": "vitality", "value": 10 }
         ]
+    },
+    {
+        "id": "access_card",
+        "name": "item.access_card.name",
+        "desc": "item.access_card.desc",
+        "usable": false,
+        "effects": []
     }
 ]
 ```
@@ -292,61 +353,73 @@ Flag conditions are used without `op`, in the format `{ "type": "flag", "key": "
 
 | Field | Type | Description |
 |---|---|---|
-| `id` | string | Unique item identifier (used as the tag when granting via effects) |
-| `name` | string | In-game display name of the item (parsed from the language file) |
-| `desc` | string[] | Item description details (parsed from the language file) |
-| `usable` | bool | Whether the item can be used by the player |
+| `id` | string | Unique item identifier (used in `give_item` / `has_item` effects) |
+| `name` | string | In-game display name (localization key) |
+| `desc` | string | Item description (localization key) |
+| `usable` | bool | Whether the item can be used from the inventory |
 | `effects` | Effect[] | Effects applied immediately upon use (optional) |
 
 ### Effect Types (Effect)
 
+Uses the same effect types as story nodes. Commonly used types:
+
 | `type` | Description |
 |---|---|
 | `vitality` | Increases/decreases vitality |
-| `appearance` | Increases/decreases appearance/credibility |
+| `time` | Advances time (relative) |
 | `reputation` | Increases/decreases reputation |
-| `karma` | Increases/decreases morality |
 | `wealth` | Increases/decreases wealth |
-| `day` | Advances the day counter |
-| `time` | Advances the time counter |
-| `give_item` | Grants an item |
-| `remove_item` | Removes an item |
-| `flag_add` | Adds a flag (requires `key` field) |
-| `flag_remove` | Removes a flag (requires `key` field) |
 
 ### Key Naming Convention
 
-```json
-[
-    {
-    "item.health_potion.name": "Health Potion",
-    "item.health_potion.desc": "Drink to restore 30 vitality.\nUse when fatigued or injured.",
-
-    "item.travel_ration.name": "Travel Ration",
-    "item.travel_ration.desc": "Simple hardtack and dried meat.\nRestores 10 vitality, but consumes 1 time unit.",
-    }
-]
-```
-
-| `type` | Pattern | Example |
+| Type | Pattern | Example |
 |---|---|---|
-| Name | `item.{ItemId}.name` | `item.health_potion.name` |
-| Description | `item.{ItemId}.desc` | `item.health_potion.desc` |
+| Name | `item.{ItemId}.name` | `item.coffee.name` |
+| Description | `item.{ItemId}.desc` | `item.coffee.desc` |
 
 ---
 
 ## Player Stats
 
+### Personal Stats
+
 | Stat | Default | Description |
 |---|---|---|
 | `vitality` | 10 | Health / fatigue |
-| `appearance` | 100 | Appearance / credibility |
 | `reputation` | 0 | Reputation |
-| `karma` | 100 | Morality (good/evil alignment) |
 | `wealth` | 0 | Wealth (money) |
-| `day` | 0 | Days elapsed |
-| `time` | 0 | Time elapsed |
-| `flags` | (empty set) | Set of story flag strings |
+
+### World Stats (City Conditions)
+
+| Stat | Default | Description |
+|---|---|---|
+| `cityOrder` | 50 | City order |
+| `citizenTrust` | 50 | Citizen trust |
+| `corruption` | 0 | Corruption (accumulated from record manipulation) |
+
+### Time
+
+| Stat | Default | Description |
+|---|---|---|
+| `day` | 1 | Current day |
+| `time` | 8 | Current time (0–23) |
+
+### Tendencies (accumulate only — never decrease)
+
+| Stat | Default | Description |
+|---|---|---|
+| `empathy` | 0 | Empathy |
+| `coldness` | 0 | Coldness |
+| `justice` | 0 | Justice |
+| `compliance` | 0 | Compliance |
+| `suspicion` | 0 | Suspicion |
+
+### Other
+
+| Item | Description |
+|---|---|
+| `flags` | Set of story flag strings |
+| `inventory` | Map of item id → quantity |
 
 ---
 

@@ -48,14 +48,16 @@ JSON 데이터로 정의된 분기형 스토리를 플레이어가 선택지를 
 ## 주요 기능
 
 - **분기형 텍스트 스토리** — JSON으로 정의된 노드 기반 스토리. 플레이어의 선택에 따라 다른 경로로 분기됩니다.
-- **능력치 & 플래그 시스템** — 체력, 명성, 도덕성, 재화 등 7가지 능력치와 문자열 플래그로 스토리 
-조건을 판별합니다.
-- **이펙트 시스템** — 선택지 또는 노드 진입 시 능력치 증감, 플래그 추가/제거 효과를 적용합니다.
+- **능력치 & 플래그 시스템** — 체력·명성·재화 등 개인 수치, 도시 질서·시민 신뢰·오염도 등 세계 수치, 공감·냉정 등 5종 성향으로 스토리 조건을 판별합니다.
+- **이펙트 시스템** — 선택지 또는 노드 진입 시 능력치 증감, 플래그 추가/제거, 성향·도시 수치 변화 효과를 적용합니다.
 - **조건부 선택지** — `require` 조건을 만족하지 못하는 선택지는 표시되지 않습니다.
-- **아이템 추가 및 효과** — JSON으로 아이템을 추가하고 효과를 부여해줄 수 있습니다.
+- **저장 / 불러오기** — 슬롯 3개 기반 세이브 시스템. `Data/saves/`에 JSON으로 전체 게임 상태를 저장합니다.
+- **인벤토리 & 아이템** — JSON으로 아이템을 정의하고 인벤토리에서 사용 및 효과를 적용합니다.
+- **처리 문서 (Journal)** — 케이스 처리 기록을 저널에 저장하고 게임 내에서 열람할 수 있습니다.
+- **활동 로그 (Log)** — 게임 내 주요 이벤트를 날짜·시각과 함께 기록합니다.
 - **타이프라이터 효과** — `UITypewriter`를 통해 텍스트가 한 글자씩 출력됩니다.
 - **콘솔 UI** — UIButton, UILabel, UIImage, UITypewriter로 구성된 커스텀 콘솔 UI 시스템.
-- **사운드** — miniaudio 기반의 효과음 재생.
+- **사운드** — miniaudio 기반의 BGM 및 효과음 재생.
 - **설정 저장/불러오기** — `Data/settings.json`을 통해 게임 설정이 영속됩니다.
 - **다국어 지원** — 한국어, 영어, 일본어, 중국어, 프랑스어 (JSON 기반 로컬라이제이션).
 - **FPS 제한** — `targetFPS` 설정에 따라 게임 루프 속도를 제어합니다.
@@ -68,10 +70,17 @@ JSON 데이터로 정의된 분기형 스토리를 플레이어가 선택지를 
 Application
 └── GameLoop
     ├── StateMachine (스택 기반)
-    │   ├── TitleState     — 타이틀 화면
-    │   ├── StoryState     — 스토리 진행 화면
-    │   ├── GameState      — 인게임 화면 (보류)
-    │   └── SettingState   — 설정 화면
+    │   ├── TitleState       — 타이틀 화면
+    │   ├── StoryState       — 스토리 진행 화면
+    │   ├── SlotSelectState  — 저장 슬롯 선택
+    │   ├── LoadSlotState    — 게임 불러오기
+    │   ├── PauseMenuState   — 일시정지 메뉴
+    │   ├── InventoryState   — 인벤토리
+    │   ├── JournalState     — 처리 문서 열람
+    │   ├── LogState         — 활동 로그 열람
+    │   ├── SettingState     — 설정 화면
+    │   ├── SleepState       — 수면 / 시간 경과
+    │   └── WaitState        — 대기 행동
     ├── InputManager
     │   └── ConsoleInputSource
     └── Context (공유 상태)
@@ -80,7 +89,9 @@ Application
         ├── SettingsManager
         ├── SoundSystem (miniaudio)
         ├── LocalizationManager
-        └── PlayerStats + flags
+        ├── PlayerStats + flags
+        ├── std::vector<LogEntry>
+        └── std::vector<JournalEntry>
 ```
 
 ### 게임 루프
@@ -129,7 +140,7 @@ x=0 ────────── x=60 ─────────────�
 ```
 Terminal Tale/
 ├── Assets/
-│   ├── audio/              # 효과음 (.wav)
+│   ├── audio/              # BGM / 효과음 (.wav)
 │   └── ui/                 # 타이틀 아스키 아트
 ├── Core/                   # 엔진 코어
 │   ├── Application         # 앱 진입점, 초기화
@@ -146,6 +157,8 @@ Terminal Tale/
 ├── Data/
 │   ├── lang/               # 로컬라이제이션 (ko/en/ja/zh/fr .json)
 │   ├── story/              # 스토리 노드 JSON
+│   ├── saves/              # 세이브 슬롯 (slot_1~3 .json)
+│   ├── items.json          # 아이템 정의
 │   └── settings.json       # 사용자 설정
 ├── external/
 │   ├── json/json.hpp       # nlohmann/json (헤더 온리)
@@ -153,8 +166,11 @@ Terminal Tale/
 ├── Game/
 │   ├── Effect/             # 이펙트 타입 정의 및 적용
 │   ├── Events/             # 게임 이벤트 (GameStartEvent, PlaySoundEvent)
+│   ├── Item/               # 아이템 정의 및 파싱
+│   ├── Journal/            # JournalEntry 구조체
+│   ├── Log/                # LogEntry 구조체
 │   ├── Player/             # PlayerStats 구조체
-│   ├── States/             # TitleState, StoryState, GameState, SettingState
+│   ├── States/             # 게임 상태 (TitleState, StoryState 등 11종)
 │   └── Story/              # StoryNode, StoryLoader (JSON 파싱)
 ├── Systems/
 │   └── Condition / ConditionChecker   # 조건 판별 시스템
@@ -184,40 +200,55 @@ Terminal Tale/
 
 ```json
 {
-  "id": "forest_001",
-  "bgImage": "Assets/ui/forest.txt",
+  "id": "case_1042",
+  "sfx": "Assets/audio/node_paper.wav",
+  "bgm": "Assets/audio/bgm_office.wav",
+  "bgImage": "Assets/ui/office.txt",
 
   "require": [
-    { "type": "vitality", "op": "gt", "value": 5 }
+    { "type": "vitality", "op": "gt", "value": 0 }
   ],
 
   "effects": [
-    { "type": "vitality", "value": -1 }
+    { "type": "city_order", "value": 5 },
+    { "type": "citizen_trust", "value": -3 },
+    { "type": "tendency", "key": "justice", "value": 1 },
+    {
+      "type": "case_record",
+      "key": "case_1042",
+      "title": "story.case_1042.0",
+      "outcome": "story.case_1042.choice.0",
+      "content": "story.case_1042_a.0"
+    }
   ],
 
   "text": [
-    "story.prologue_000.0",
-    "story.prologue_000.1",
-    "story.prologue_000.2",
-    "story.prologue_000.3",
-    "story.prologue_000.4",
-    "story.prologue_000.5"
+    "story.case_1042.0",
+    "story.case_1042.1",
+    "story.case_1042.2"
   ],
 
   "choices": [
     {
-      "text": "story.prologue_000.choice.0",
-      "next": "forest_creature_001",
+      "text": "story.case_1042.choice.0",
+      "next": "case_1042_a",
       "require": [
-        { "type": "karma", "op": "gte", "value": 50 }
+        { "type": "tendency", "key": "justice", "op": "gte", "value": 3 }
       ],
       "effects": [
-        { "type": "flag_add", "key": "approached_creature" }
+        { "type": "flag_add", "key": "reported_case_1042" }
       ]
     },
     {
-      "text": "story.prologue_000.choice.1",
-      "next": "forest_002"
+      "text": "story.case_1042.choice.1",
+      "next": "case_1042_b",
+      "require": [
+        { "type": "has_item", "key": "access_card", "op": "gte", "value": 1 }
+      ]
+    },
+    {
+      "text": "story.case_1042.choice.2",
+      "next": "case_1042_c"
     }
   ]
 }
@@ -228,27 +259,49 @@ Terminal Tale/
 | 필드 | 타입 | 설명 |
 |---|---|---|
 | `id` | string | 노드 고유 식별자 (파일명과 일치) |
+| `sfx` | string | 노드 진입 시 재생할 효과음 경로 (선택) |
+| `bgm` | string | 노드 진입 시 변경할 BGM 경로 (선택, 생략 시 유지) |
 | `bgImage` | string | 좌측 패널에 표시할 아스키 아트 경로 (선택) |
-| `text` | string[] | 순서대로 출력될 내러티브 텍스트 배열 |
+| `text` | string[] | 순서대로 출력될 내러티브 텍스트 로컬라이제이션 키 배열 |
 | `choices` | Choice[] | 플레이어 선택지 목록 |
 | `effects` | Effect[] | 노드 진입 시 즉시 적용되는 이펙트 (선택) |
 | `require` | Condition[] | 노드 진입 조건 (선택) |
 
 ### 이펙트 타입 (Effect)
 
-| `type` | 설명 |
-|---|---|
-| `vitality` | 체력 증감 |
-| `appearance` | 외형/신뢰도 증감 |
-| `reputation` | 명성 증감 |
-| `karma` | 도덕성 증감 |
-| `wealth` | 재화 증감 |
-| `day` | 날짜 증가 |
-| `time` | 시간 증가 |
-| `give_item` | 아이템 부여 |
-| `remove_item` | 아이템 제거 |
-| `flag_add` | 플래그 추가 (`key` 필드 필요) |
-| `flag_remove` | 플래그 제거 (`key` 필드 필요) |
+| `type` | 추가 필드 | 설명 |
+|---|---|---|
+| `vitality` | `value` | 체력 증감 |
+| `reputation` | `value` | 명성 증감 |
+| `wealth` | `value` | 재화 증감 |
+| `day` | `value` | 날짜 증가 |
+| `time` | `value` | 시간 증가 (상대값) |
+| `set_time` | `value` | 시간 설정 (절댓값) |
+| `city_order` | `value` | 도시 질서 증감 |
+| `citizen_trust` | `value` | 시민 신뢰 증감 |
+| `corruption` | `value` | 오염도 증감 |
+| `tendency` | `key`, `value` | 성향 수치 증감 (`key`: `empathy` / `coldness` / `justice` / `compliance` / `suspicion`) |
+| `give_item` | `key`, `value` | 아이템 지급 (`key`: 아이템 id, `value`: 수량) |
+| `remove_item` | `key`, `value` | 아이템 제거 |
+| `flag_add` | `key` | 플래그 추가 |
+| `flag_remove` | `key` | 플래그 제거 |
+| `case_record` | `key`, `title`, `outcome`, `content` | 처리 문서에 케이스 기록 추가 (모두 로컬라이제이션 키) |
+
+### 조건 타입 (Condition)
+
+| `type` | `op` 필요 | `key` 필요 | 설명 |
+|---|---|---|---|
+| `vitality` | O | - | 체력 비교 |
+| `reputation` | O | - | 명성 비교 |
+| `wealth` | O | - | 재화 비교 |
+| `day` | O | - | 날짜 비교 |
+| `time` | O | - | 시각 비교 |
+| `city_order` | O | - | 도시 질서 비교 |
+| `citizen_trust` | O | - | 시민 신뢰 비교 |
+| `corruption` | O | - | 오염도 비교 |
+| `tendency` | O | O | 성향 수치 비교 (`key`: 성향 이름) |
+| `has_item` | O | O | 인벤토리 내 아이템 수량 비교 (`key`: 아이템 id) |
+| `flag` | X | O | 플래그 보유 여부 확인 |
 
 ### 조건 연산자 (ConditionOp)
 
@@ -260,14 +313,14 @@ Terminal Tale/
 | `gte` | 이상 (>=) |
 | `lte` | 이하 (<=) |
 
-플래그 조건은 `op` 없이 `{ "type": "flag", "key": "flag_name" }` 형식으로 사용합니다.
+`flag` 조건은 `op` 없이 `{ "type": "flag", "key": "flag_name" }` 형식으로 사용합니다.
 
 ### 키 네이밍 규칙
 
-| `type` | 패턴 | 예시 |
+| 종류 | 패턴 | 예시 |
 |---|---|---|
-| 본문 텍스트 | `story.{Nodeid}.{num}` | `story.prologue_000.0` |
-| 선택지 | `story.{Nodeid}.choice.{num}` | `story.prologue_000.choice.0` |
+| 본문 텍스트 | `story.{NodeId}.{num}` | `story.case_1042.0` |
+| 선택지 | `story.{NodeId}.choice.{num}` | `story.case_1042.choice.0` |
 
 ---
 
@@ -278,13 +331,20 @@ Terminal Tale/
 ```json
 [
     {
-        "id": "health_potion",
-        "name": "item.health_potion.name",
-        "desc": "item.health_potion.desc",
+        "id": "coffee",
+        "name": "item.coffee.name",
+        "desc": "item.coffee.desc",
         "usable": true,
         "effects": [
-            { "type": "vitality", "value": 2 }
+            { "type": "vitality", "value": 10 }
         ]
+    },
+    {
+        "id": "access_card",
+        "name": "item.access_card.name",
+        "desc": "item.access_card.desc",
+        "usable": false,
+        "effects": []
     }
 ]
 ```
@@ -293,62 +353,73 @@ Terminal Tale/
 
 | 필드 | 타입 | 설명 |
 |---|---|---|
-| `id` | string | 아이템 고유 식별자 (실제 이펙트로 부여시 사용되는 테그) |
-| `name` | string | 인게임에서 출력되는 아이템의 이름 (언어파일에서 파싱하는 구조) |
-| `desc` | string[] | 아이템 상세 정보 (언어파일에서 파싱하는 구조) |
-| `usable` | bool | 유저가 사용가능 여부 |
+| `id` | string | 아이템 고유 식별자 (`give_item` / `has_item` 등에서 사용) |
+| `name` | string | 인게임 표시 이름 (로컬라이제이션 키) |
+| `desc` | string | 아이템 설명 (로컬라이제이션 키) |
+| `usable` | bool | 인벤토리에서 사용 가능 여부 |
 | `effects` | Effect[] | 사용 시 즉시 적용되는 이펙트 (선택) |
 
-
 ### 이펙트 타입 (Effect)
+
+스토리 이펙트와 동일한 타입을 사용합니다. 주로 쓰이는 타입:
 
 | `type` | 설명 |
 |---|---|
 | `vitality` | 체력 증감 |
-| `appearance` | 외형/신뢰도 증감 |
+| `time` | 시간 경과 (상대값) |
 | `reputation` | 명성 증감 |
-| `karma` | 도덕성 증감 |
 | `wealth` | 재화 증감 |
-| `day` | 날짜 증가 |
-| `time` | 시간 증가 |
-| `give_item` | 아이템 부여 |
-| `remove_item` | 아이템 제거 |
-| `flag_add` | 플래그 추가 (`key` 필드 필요) |
-| `flag_remove` | 플래그 제거 (`key` 필드 필요) |
 
 ### 키 네이밍 규칙
 
-```json
-[
-    {
-    "item.health_potion.name": "체력 물약",
-    "item.health_potion.desc": "마시면 체력이 30 회복됩니다.\n피로하거나 부상을 입었을 때 사용하십시오.",
-
-    "item.travel_ration.name": "여행 식량",
-    "item.travel_ration.desc": "간단한 건빵과 말린 고기.\n체력 10을 회복하지만, 시간이 1 소모됩니다.",
-    }
-]
-```
-
-| `type` | 패턴 | 예시 |
+| 종류 | 패턴 | 예시 |
 |---|---|---|
-| 이름 | `item.{Itemid}.name` | `item.health_potion.name` |
-| 설명 | `item.{Itemid}.desc` | `item.health_potion.desc` |
+| 이름 | `item.{ItemId}.name` | `item.coffee.name` |
+| 설명 | `item.{ItemId}.desc` | `item.coffee.desc` |
 
 ---
 
 ## 플레이어 능력치
 
+### 개인 수치
+
 | 능력치 | 기본값 | 설명 |
 |---|---|---|
 | `vitality` | 10 | 체력 / 피로도 |
-| `appearance` | 100 | 외형 / 신뢰도 |
 | `reputation` | 0 | 명성 |
-| `karma` | 100 | 도덕성 (선악) |
 | `wealth` | 0 | 재화 (돈) |
-| `day` | 0 | 경과 날짜 |
-| `time` | 0 | 경과 시간 |
-| `flags` | (빈 집합) | 스토리 플래그 문자열 집합 |
+
+### 세계 수치 (도시 현황)
+
+| 능력치 | 기본값 | 설명 |
+|---|---|---|
+| `cityOrder` | 50 | 도시 질서 |
+| `citizenTrust` | 50 | 시민 신뢰 |
+| `corruption` | 0 | 오염도 (기록 조작 누적) |
+
+### 시간
+
+| 능력치 | 기본값 | 설명 |
+|---|---|---|
+| `day` | 1 | 현재 날짜 |
+| `time` | 8 | 현재 시각 (0~23) |
+
+### 성향 (누적 증가, 감소 없음)
+
+| 능력치 | 기본값 | 설명 |
+|---|---|---|
+| `empathy` | 0 | 공감 |
+| `coldness` | 0 | 냉정 |
+| `justice` | 0 | 정의 |
+| `compliance` | 0 | 순응 |
+| `suspicion` | 0 | 의심 |
+
+### 기타
+
+| 항목 | 설명 |
+|---|---|
+| `flags` | 스토리 플래그 문자열 집합 |
+| `inventory` | 아이템 id → 수량 맵 |
 
 ---
 
