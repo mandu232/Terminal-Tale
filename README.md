@@ -442,6 +442,15 @@ Terminal Tale/
     "targetFPS": 30,
     "textSpeed": 3,
     "vsync": false
+    "keyBindings": {
+        "inventory": 73,
+        "journal": 74,
+        "log": 76,
+        "quickLoad": 120,
+        "quickSave": 116,
+        "sleep": 83,
+        "wait": 90
+    }
 }
 ```
 
@@ -457,6 +466,7 @@ Terminal Tale/
 | `targetFPS` | int | 목표 FPS (`0` = 무제한) |
 | `textSpeed` | int | 텍스트 출력 속도 |
 | `vsync` | bool | 수직 동기화 여부 |
+| `keyBindings` | int | 인게임 키 바인딩 |
 ---
 
 ## 언어파일 지원
