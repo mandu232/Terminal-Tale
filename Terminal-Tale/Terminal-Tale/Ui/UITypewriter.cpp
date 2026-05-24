@@ -107,21 +107,26 @@ void UITypewriter::Render(ConsoleDisplay& display) const
 	else if ( vAlign == VAlign::Bottom )
 		startY = y + ( maxHeight - displayLines );
 
-	// 2. 오염도 사전 계산 (corruptionLevel >= 20 부터 효과 시작)
-	//    단계별 확률: 20~39=5%, 40~59=15%, 60~79=25%, 80~99=35%, 100+=45%
-	//    시간 기반 위상: 오염도가 높을수록 글리치 속도 증가
+	// 2. 오염도 글리치 계산
+	//    10초 주기로 1초 동안만 글자가 깨짐, 나머지 9초는 정상 출력
+	//    글리치 중 깨짐 확률: 40~59=10%, 60~79=20%, 80~99=30%, 100+=40%
 	int corruptPercent = 0;
 	int glitchPhase    = 0;
 	if ( corruptionLevel >= 40 )
 	{
-		const int steps  = std::min((corruptionLevel - 40) / 20 , 3);
-		corruptPercent   = 10 + steps * 10;
-
 		using namespace std::chrono;
-		const long long ms       = duration_cast<milliseconds>(
+		const long long ms      = duration_cast<milliseconds>(
 			steady_clock::now().time_since_epoch()).count();
-		const int interval       = std::max(200 , 1000 - corruptionLevel * 8);
-		glitchPhase              = static_cast<int>(ms / interval);
+
+		// 10000ms 주기 중 앞 1000ms 구간에서만 글리치
+		const bool isGlitching  = (ms % 10000) < 1000;
+
+		if ( isGlitching )
+		{
+			const int steps = std::min((corruptionLevel - 40) / 20 , 3);
+			corruptPercent  = 10 + steps * 10;
+			glitchPhase     = static_cast<int>(ms / 150); // 글리치 중 빠른 위상
+		}
 	}
 
 	// 노이즈 문자 테이블
