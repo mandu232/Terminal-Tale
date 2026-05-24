@@ -2,9 +2,11 @@
 
 > A team-developed text-based RPG built in C++ using the console interface.
 
-A text-based RPG playable in a console (command prompt) environment.
-Players navigate a branching story defined by JSON data through a series of choices,
-with choice availability determined by the player's stats and flags.
+## About the Game
+
+You are a new employee at a government agency that manages every citizen's record in this city.
+Every day, you open the case files that come in, review them, and process them.
+Your choices shape the city's order, the trust of its citizens, and the very system you are part of.
 
 ---
 ## Language
