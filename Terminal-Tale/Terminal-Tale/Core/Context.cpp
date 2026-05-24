@@ -204,6 +204,157 @@ bool Context::HasSaveSlot(int slot) const
 	return std::filesystem::exists(SlotPath(slot));
 }
 
+// ── QuickSave / QuickLoad ─────────────────────────────────────────────────────
+static std::string QuickSlotPath(int activeSlot, int quickSlot)
+{
+	return "Data/saves/quick/slot_" + std::to_string(activeSlot)
+	     + "/quick_" + std::to_string(quickSlot) + ".json";
+}
+
+bool Context::SaveQuick(int slot) const
+{
+	if ( activeSlot <= 0 ) return false;
+
+	const std::string dir = "Data/saves/quick/slot_" + std::to_string(activeSlot);
+	std::filesystem::create_directories(dir);
+
+	json j;
+
+	j["player"]["vitality"]     = player.vitality;
+	j["player"]["reputation"]   = player.reputation;
+	j["player"]["wealth"]       = player.wealth;
+	j["player"]["day"]          = player.day;
+	j["player"]["time"]         = player.time;
+	j["player"]["cityOrder"]    = player.cityOrder;
+	j["player"]["citizenTrust"] = player.citizenTrust;
+	j["player"]["corruption"]   = player.corruption;
+	j["player"]["empathy"]      = player.empathy;
+	j["player"]["coldness"]     = player.coldness;
+	j["player"]["justice"]      = player.justice;
+	j["player"]["compliance"]   = player.compliance;
+	j["player"]["suspicion"]    = player.suspicion;
+
+	json inv = json::object();
+	for (const auto& [id, qty] : player.inventory)
+		inv[id] = qty;
+	j["player"]["inventory"] = inv;
+
+	j["flags"] = json::array();
+	for (const auto& f : flags)
+		j["flags"].push_back(f);
+
+	j["currentNodeId"] = currentNodeId;
+
+	j["log"] = json::array();
+	for (const auto& e : log)
+	{
+		json entry;
+		entry["text"] = e.text;
+		entry["day"]  = e.day;
+		entry["time"] = e.time;
+		j["log"].push_back(entry);
+	}
+
+	j["journal"] = json::array();
+	for (const auto& e : journal)
+	{
+		json entry;
+		entry["id"]          = e.id;
+		entry["title"]       = e.title;
+		entry["outcome"]     = e.outcome;
+		entry["content"]     = e.content;
+		entry["description"] = e.description;
+		entry["day"]         = e.day;
+		j["journal"].push_back(entry);
+	}
+
+	std::ofstream file(QuickSlotPath(activeSlot, slot));
+	if (!file.is_open()) return false;
+	file << j.dump(4);
+	return true;
+}
+
+bool Context::LoadQuick(int slot)
+{
+	if ( activeSlot <= 0 ) return false;
+
+	std::ifstream file(QuickSlotPath(activeSlot, slot));
+	if (!file.is_open()) return false;
+
+	json j;
+	try { file >> j; }
+	catch (...) { return false; }
+
+	const auto& p    = j["player"];
+	player.vitality   = p.value("vitality"  , 10);
+	player.reputation = p.value("reputation", 0);
+	player.wealth     = p.value("wealth"    , 0);
+	player.day        = p.value("day"       , 0);
+	player.time       = p.value("time"      , 0);
+	player.cityOrder    = p.value("cityOrder"   , 50);
+	player.citizenTrust = p.value("citizenTrust", 50);
+	player.corruption   = p.value("corruption"  , 0);
+	player.empathy    = p.value("empathy"   , 0);
+	player.coldness   = p.value("coldness"  , 0);
+	player.justice    = p.value("justice"   , 0);
+	player.compliance = p.value("compliance", 0);
+	player.suspicion  = p.value("suspicion" , 0);
+
+	player.inventory.clear();
+	if (p.contains("inventory"))
+		for (const auto& [id, qty] : p["inventory"].items())
+			player.inventory[id] = qty.get<int>();
+
+	flags.clear();
+	for (const auto& f : j.value("flags", json::array()))
+		flags.insert(f.get<std::string>());
+
+	currentNodeId = j.value("currentNodeId", "");
+
+	log.clear();
+	for (const auto& e : j.value("log", json::array()))
+		log.push_back({ e.value("text",""), e.value("day",0), e.value("time",0) });
+
+	journal.clear();
+	for (const auto& e : j.value("journal", json::array()))
+		journal.push_back({
+			e.value("id"         , ""),
+			e.value("title"      , ""),
+			e.value("outcome"    , ""),
+			e.value("content"    , ""),
+			e.value("description", ""),
+			e.value("day"        , 0)
+		});
+
+	return true;
+}
+
+bool Context::HasQuickSave(int slot) const
+{
+	if ( activeSlot <= 0 ) return false;
+	return std::filesystem::exists(QuickSlotPath(activeSlot, slot));
+}
+
+Context::SlotInfo Context::GetQuickSlotInfo(int slot) const
+{
+	SlotInfo info;
+	if ( activeSlot <= 0 ) return info;
+	std::ifstream file(QuickSlotPath(activeSlot, slot));
+	if (!file.is_open()) return info;
+
+	json j;
+	try { file >> j; } catch (...) { return info; }
+
+	info.exists = true;
+	if (j.contains("player"))
+	{
+		info.day  = j["player"].value("day" , 0);
+		info.time = j["player"].value("time", 0);
+	}
+	info.nodeId = j.value("currentNodeId", "");
+	return info;
+}
+
 // ── GetSlotInfo ───────────────────────────────────────────────────────────────
 Context::SlotInfo Context::GetSlotInfo(int slot) const
 {

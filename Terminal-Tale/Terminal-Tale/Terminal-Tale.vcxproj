@@ -155,6 +155,7 @@
     <ClCompile Include="Game\States\LoadSlotState.cpp" />
     <ClCompile Include="Game\States\LogState.cpp" />
     <ClCompile Include="Game\States\PauseMenuState.cpp" />
+    <ClCompile Include="Game\States\QuickSlotState.cpp" />
     <ClCompile Include="Game\States\SettingState.cpp" />
     <ClCompile Include="Game\States\SleepState.cpp" />
     <ClCompile Include="Game\States\SlotSelectState.cpp" />
@@ -214,6 +215,7 @@
     <ClInclude Include="Game\States\LoadSlotState.h" />
     <ClInclude Include="Game\States\LogState.h" />
     <ClInclude Include="Game\States\PauseMenuState.h" />
+    <ClInclude Include="Game\States\QuickSlotState.h" />
     <ClInclude Include="Game\States\SettingState.h" />
     <ClInclude Include="Game\States\SleepState.h" />
     <ClInclude Include="Game\States\SlotSelectState.h" />

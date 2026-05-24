@@ -5,6 +5,7 @@
 #include "WaitState.h"
 #include "SleepState.h"
 #include "PauseMenuState.h"
+#include "QuickSlotState.h"
 
 #include "Core/InputManager.h"
 #include "Core/Context.h"
@@ -174,27 +175,18 @@ void StoryState::BuildRightPanel()
 		context.PushState(std::make_unique<PauseMenuState>(context));
 		});
 
-	//빠른 저장 (토글 — 켜진 동안 노드 이동 시 자동 저장)
-	{
-		std::string label = autoSaveEnabled ? L("ui.quickSaveOn") : L("ui.quickSave");
-		auto btn = std::make_unique<UIButton>(
-			Layout::ColB , Layout::Row1 , Layout::ColW , Layout::RowH , Layout::Z ,
-			label ,
-			[ this ] ()
-			{
-				context.sound.PlaySE("Assets/audio/ui_button_click.wav");
-				autoSaveEnabled = !autoSaveEnabled;
-				if ( autoSaveBtn )
-					autoSaveBtn->SetText(autoSaveEnabled ? L("ui.quickSaveOn") : L("ui.quickSave"));
-			});
-		btn->borderless = true;
-		autoSaveBtn = btn.get();
-		uiManager.Add(std::move(btn));
-	}
+	//빠른 저장 (슬롯 선택 화면)
+	addQuickBtn(Layout::ColB , Layout::Row1 , L("ui.quickSave") , [ this ] () {
+		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+		context.PushState(
+			std::make_unique<QuickSlotState>(context , QuickSlotState::Mode::Save));
+		});
 
-	//빠른 불러오기
+	//빠른 불러오기 (슬롯 선택 화면)
 	addQuickBtn(Layout::ColB , Layout::Row2 , L("ui.quickLoad") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+		context.PushState(
+			std::make_unique<QuickSlotState>(context , QuickSlotState::Mode::Load));
 		});
 
 	//로그
@@ -221,9 +213,6 @@ void StoryState::NavigateTo(const std::string& nodeId)
 	for ( const auto& effect : currentNode.effects )
 		EffectInterpreter::Apply(effect , context);
 
-	if ( autoSaveEnabled && context.activeSlot > 0 )
-		context.SaveSlot(context.activeSlot);
-
 	if ( !currentNode.bgm.empty() )
 		context.sound.PlayBGM(currentNode.bgm);
 
@@ -231,7 +220,6 @@ void StoryState::NavigateTo(const std::string& nodeId)
 		context.sound.PlaySE(currentNode.sfx);
 
 	uiManager.Clear();
-	autoSaveBtn = nullptr;
 	BuildLeftPanel();
 	BuildRightPanel();
 	RebuildCenter();
@@ -382,16 +370,15 @@ void StoryState::HandleInput(InputManager& input)
 			break;
 
 		case InputAction::QuickSave:
-			if ( context.activeSlot > 0 )
-			{
-				context.sound.PlaySE("Assets/audio/ui_button_click.wav");
-				context.SaveSlot(context.activeSlot);
-				context.AddLog(L("system.save.completed"));
-			}
+			context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+			context.PushState(
+				std::make_unique<QuickSlotState>(context , QuickSlotState::Mode::Save));
 			break;
 
 		case InputAction::QuickLoad:
 			context.sound.PlaySE("Assets/audio/ui_button_click.wav");
+			context.PushState(
+				std::make_unique<QuickSlotState>(context , QuickSlotState::Mode::Load));
 			break;
 
 		case InputAction::Cancel:

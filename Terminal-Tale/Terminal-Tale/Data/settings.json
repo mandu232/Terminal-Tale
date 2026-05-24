@@ -1,6 +1,6 @@
 {
     "autoSave": true,
-    "bgmVolume": 60,
+    "bgmVolume": 20,
     "fullScreen": true,
     "keyBindings": {
         "inventory": 73,
@@ -11,7 +11,7 @@
         "sleep": 83,
         "wait": 90
     },
-    "language": "en",
+    "language": "ko",
     "masterVolume": 100,
     "sfxVolume": 80,
     "showFPS": false,

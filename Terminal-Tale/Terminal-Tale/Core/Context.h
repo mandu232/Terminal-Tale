@@ -79,6 +79,13 @@ public:
 	bool HasSaveSlot(int slot) const;
 	SlotInfo GetSlotInfo(int slot) const;
 
+	// 빠른 저장 / 불러오기 (슬롯과 독립된 체크포인트, 1 ~ kQuickSlotCount)
+	static constexpr int kQuickSlotCount = 5;
+	bool     SaveQuick(int slot) const;
+	bool     LoadQuick(int slot);
+	bool     HasQuickSave(int slot) const;
+	SlotInfo GetQuickSlotInfo(int slot) const;
+
 	// 새 게임 시작 시 게임 상태 전체 초기화
 	void ResetGameState();
 
