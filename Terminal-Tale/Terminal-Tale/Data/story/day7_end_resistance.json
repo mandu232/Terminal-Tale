@@ -7,7 +7,9 @@
     "story.day7_end_resistance.2",
     "story.day7_end_resistance.3"
   ],
-  "effects": [],
+  "effects": [
+    { "type": "flag_add", "key": "network_active" }
+  ],
   "choices": [
     {
       "text": "story.day7_end_resistance.choice.0",

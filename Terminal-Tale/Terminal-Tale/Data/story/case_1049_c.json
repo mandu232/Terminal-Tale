@@ -23,7 +23,7 @@
                     },
                     {
                         "type":  "corruption",
-                        "value":  8
+                        "value":  -8
                     },
                     {
                         "type":  "tendency",
@@ -38,6 +38,8 @@
                     {
                         "type":  "flag_add",
                         "key":  "refused_child_record"
-                    }
+                    },
+                    { "type": "fatigue",    "value": 3 },
+                    { "type": "monitoring", "value": 8 }
                 ]
 }

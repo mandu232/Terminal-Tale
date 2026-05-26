@@ -9,7 +9,9 @@
   ],
   "effects": [
     { "type": "tendency", "key": "suspicion", "value": 2 },
-    { "type": "flag_add", "key": "under_audit" }
+    { "type": "flag_add", "key": "under_audit" },
+    { "type": "fatigue",    "value": 3 },
+    { "type": "monitoring", "value": 8 }
   ],
   "choices": [
     {

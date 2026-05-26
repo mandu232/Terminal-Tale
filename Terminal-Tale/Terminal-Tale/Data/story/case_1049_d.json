@@ -23,7 +23,7 @@
                     },
                     {
                         "type":  "corruption",
-                        "value":  15
+                        "value":  -10
                     },
                     {
                         "type":  "tendency",
@@ -38,6 +38,8 @@
                     {
                         "type":  "flag_add",
                         "key":  "dual_hold_filed"
-                    }
+                    },
+                    { "type": "fatigue",    "value": 5 },
+                    { "type": "monitoring", "value": 12 }
                 ]
 }

@@ -8,7 +8,9 @@
     "story.day8_commendation.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "compliance", "value": 1 }
+    { "type": "tendency", "key": "compliance", "value": 1 },
+    { "type": "fatigue",    "value": 2 },
+    { "type": "monitoring", "value": -3 }
   ],
   "choices": [
     {
