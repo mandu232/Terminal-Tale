@@ -8,6 +8,7 @@
     "story.day4_meeting.3"
   ],
   "effects": [
+    { "type": "flag_add",   "key": "met_informant" },
     { "type": "time",       "value": 2 },
     { "type": "fatigue",    "value": 3 },
     { "type": "monitoring", "value": 5 }

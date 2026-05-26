@@ -1,11 +1,14 @@
 {
   "id": "day5_docs_check",
-  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "sfx": "Assets/audio/node_paper.wav",
   "text": [
     "story.day5_docs_check.0",
     "story.day5_docs_check.1",
     "story.day5_docs_check.2",
     "story.day5_docs_check.3"
+  ],
+  "effects": [
+    { "type": "fatigue", "value": 2 }
   ],
   "choices": [
     {

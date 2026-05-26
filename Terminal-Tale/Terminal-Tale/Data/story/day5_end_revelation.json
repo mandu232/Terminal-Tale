@@ -7,15 +7,14 @@
     "story.day5_end_revelation.2",
     "story.day5_end_revelation.3"
   ],
-  "effects": [
-    { "type": "day",      "value": 1 },
-    { "type": "set_time", "value": 8 },
-    { "type": "tendency", "key": "suspicion", "value": 3 }
-  ],
   "choices": [
     {
       "text": "story.day_end.choice.0",
-      "next": "day6_morning"
+      "next": "day6_morning",
+      "effects": [
+        { "type": "day",      "value": 1 },
+        { "type": "set_time", "value": 8 }
+      ]
     }
   ]
 }

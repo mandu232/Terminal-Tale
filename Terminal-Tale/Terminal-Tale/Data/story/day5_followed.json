@@ -7,7 +7,13 @@
     "story.day5_followed.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "suspicion", "value": 2 }
+    {
+      "type": "tendency",
+      "key": "suspicion",
+      "value": 2
+    },
+    { "type": "fatigue",    "value": 3 },
+    { "type": "monitoring", "value": 5 }
   ],
   "choices": [
     {

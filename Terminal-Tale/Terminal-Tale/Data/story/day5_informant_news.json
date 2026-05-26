@@ -8,8 +8,13 @@
     "story.day5_informant_news.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "suspicion", "value": 2 },
-    { "type": "flag_add", "key": "informant_compromised" }
+    {
+      "type": "tendency",
+      "key": "suspicion",
+      "value": 1
+    },
+    { "type": "fatigue",    "value": 1 },
+    { "type": "monitoring", "value": 3 }
   ],
   "choices": [
     {

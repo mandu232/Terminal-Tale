@@ -8,8 +8,13 @@
     "story.day5_docs_search.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "suspicion", "value": 3 },
-    { "type": "flag_add", "key": "searched_classified" }
+    {
+      "type": "tendency",
+      "key": "suspicion",
+      "value": 1
+    },
+    { "type": "fatigue",    "value": 2 },
+    { "type": "monitoring", "value": 12 }
   ],
   "choices": [
     {

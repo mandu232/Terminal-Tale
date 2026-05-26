@@ -6,6 +6,9 @@
     "story.day5_morning.2",
     "story.day5_morning.3"
   ],
+  "effects": [
+    { "type": "set_time", "value": 9 }
+  ],
   "choices": [
     {
       "text": "story.day5_morning.choice.0",
@@ -25,7 +28,7 @@
       "text": "story.day5_morning.choice.2",
       "next": "day5_followed",
       "require": [
-        { "type": "flag", "key": "watched_by_system" }
+        { "type": "monitoring", "op": "gte", "value": 20 }
       ]
     },
     {
