@@ -8,9 +8,12 @@
     "story.day11_yun_open.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "justice",   "value": 2 },
-    { "type": "tendency", "key": "suspicion", "value": 1 },
-    { "type": "flag_add", "key": "has_yun_archive" }
+    { "type": "tendency",  "key": "justice",   "value": 2 },
+    { "type": "tendency",  "key": "suspicion", "value": 1 },
+    { "type": "flag_add",  "key": "has_yun_archive" },
+    { "type": "give_item", "key": "usb_drive" },
+    { "type": "fatigue",    "value": 2 },
+    { "type": "monitoring", "value": 5 }
   ],
   "choices": [
     {

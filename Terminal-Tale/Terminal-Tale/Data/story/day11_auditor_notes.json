@@ -8,8 +8,12 @@
     "story.day11_auditor_notes.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "suspicion", "value": 3 },
-    { "type": "flag_add", "key": "knows_audit_reason" }
+    { "type": "tendency",  "key": "suspicion", "value": 3 },
+    { "type": "tendency",  "key": "justice",   "value": 2 },
+    { "type": "flag_add",  "key": "knows_audit_reason" },
+    { "type": "corruption",  "value": -5 },
+    { "type": "fatigue",    "value": 3 },
+    { "type": "monitoring", "value": 12 }
   ],
   "choices": [
     {

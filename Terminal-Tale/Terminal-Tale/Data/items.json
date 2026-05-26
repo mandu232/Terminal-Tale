@@ -229,5 +229,12 @@
         "desc": "item.insider_memo.desc",
         "usable": false,
         "effects": []
+    },
+    {
+        "id": "authorizer_record",
+        "name": "item.authorizer_record.name",
+        "desc": "item.authorizer_record.desc",
+        "usable": false,
+        "effects": []
     }
 ]

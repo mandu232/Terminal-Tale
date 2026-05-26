@@ -7,20 +7,33 @@
     "story.day11_yun_approach.2",
     "story.day11_yun_approach.3"
   ],
+  "effects": [
+    { "type": "fatigue", "value": 2 }
+  ],
   "choices": [
     {
       "text": "story.day11_yun_approach.choice.0",
-      "next": "day11_yun_cautious"
+      "next": "day11_yun_cautious",
+      "effects": [
+        { "type": "tendency", "key": "compliance", "value": 1 }
+      ]
     },
     {
       "text": "story.day11_yun_approach.choice.1",
-      "next": "day11_yun_open"
+      "next": "day11_yun_open",
+      "effects": [
+        { "type": "tendency", "key": "justice", "value": 1 }
+      ]
     },
     {
       "text": "story.day11_yun_approach.choice.2",
       "next": "day11_yun_ally",
       "require": [
         { "type": "flag", "key": "protected_dissenter" }
+      ],
+      "effects": [
+        { "type": "tendency", "key": "justice",   "value": 1 },
+        { "type": "tendency", "key": "suspicion", "value": 1 }
       ]
     }
   ]

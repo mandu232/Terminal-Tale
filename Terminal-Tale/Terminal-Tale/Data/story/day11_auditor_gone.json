@@ -7,16 +7,27 @@
     "story.day11_auditor_gone.2",
     "story.day11_auditor_gone.3"
   ],
+  "effects": [
+    { "type": "fatigue", "value": 2 }
+  ],
   "choices": [
     {
       "text": "story.day11_auditor_gone.choice.0",
-      "next": "case_1052"
+      "next": "case_1052",
+      "effects": [
+        { "type": "tendency",  "key": "compliance", "value": 1 },
+        { "type": "monitoring", "value": -3 }
+      ]
     },
     {
       "text": "story.day11_auditor_gone.choice.1",
       "next": "day11_auditor_notes",
       "require": [
         { "type": "tendency", "key": "justice", "op": "gte", "value": 12 }
+      ],
+      "effects": [
+        { "type": "tendency", "key": "justice",   "value": 1 },
+        { "type": "tendency", "key": "suspicion", "value": 1 }
       ]
     }
   ]

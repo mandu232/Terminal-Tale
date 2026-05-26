@@ -8,10 +8,13 @@
     "story.day11_yun_ally.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "justice",   "value": 3 },
-    { "type": "tendency", "key": "suspicion", "value": 1 },
-    { "type": "flag_add", "key": "has_yun_archive" },
-    { "type": "flag_add", "key": "yun_fully_trusted" }
+    { "type": "tendency",  "key": "justice",   "value": 3 },
+    { "type": "tendency",  "key": "suspicion", "value": 1 },
+    { "type": "flag_add",  "key": "has_yun_archive" },
+    { "type": "flag_add",  "key": "yun_fully_trusted" },
+    { "type": "give_item", "key": "usb_drive" },
+    { "type": "fatigue",    "value": 3 },
+    { "type": "monitoring", "value": 8 }
   ],
   "choices": [
     {

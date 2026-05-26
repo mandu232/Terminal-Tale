@@ -8,8 +8,10 @@
     "story.day11_yun_cautious.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "justice", "value": 1 },
-    { "type": "flag_add", "key": "has_cold_case_hint" }
+    { "type": "tendency",  "key": "justice", "value": 1 },
+    { "type": "flag_add",  "key": "has_cold_case_hint" },
+    { "type": "fatigue",    "value": 2 },
+    { "type": "monitoring", "value": 3 }
   ],
   "choices": [
     {
