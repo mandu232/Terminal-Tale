@@ -56,7 +56,7 @@ void ConsoleInputSource::Update(InputManager& input, UIManager& ui)
 				if      ( vk == (WORD)kb.inventoryKey ) input.PushAction(InputAction::OpenInventory);
 				else if ( vk == (WORD)kb.waitKey      ) input.PushAction(InputAction::OpenWait);
 				else if ( vk == (WORD)kb.sleepKey     ) input.PushAction(InputAction::OpenSleep);
-				else if ( vk == (WORD)kb.logKey       ) input.PushAction(InputAction::OpenLog);
+				else if ( vk == (WORD)kb.logKey       ) input.PushAction(InputAction::OpenCharacters);
 				else if ( vk == (WORD)kb.journalKey   ) input.PushAction(InputAction::OpenJournal);
 				else if ( vk == (WORD)kb.quickSaveKey ) input.PushAction(InputAction::QuickSave);
 				else if ( vk == (WORD)kb.quickLoadKey ) input.PushAction(InputAction::QuickLoad);

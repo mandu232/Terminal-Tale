@@ -3,6 +3,7 @@
 #include "Game/Player/PlayerStatus.h"
 #include "Game/Log/LogEntry.h"
 #include "Game/Journal/JournalEntry.h"
+#include "Game/Character/CharacterEntry.h"
 #include "Game/Achievement/AchievementManager.h"
 #include "State.h"
 #include "EventBus.h"
@@ -64,6 +65,14 @@ public:
 	                   const std::string& outcome,
 	                   const std::string& content,
 	                   const std::string& description);
+
+	// ===== Characters =====
+	std::vector<CharacterEntry> characters;
+
+	// 인물 등록 — 로컬라이제이션에서 자동으로 이름/역할/소속/관계/설명을 조회
+	// JSON 키 규칙: char.{id}.name / .role / .affiliation / .relationship / .desc
+	// 같은 id가 이미 있으면 무시 (중복 등록 방지)
+	void RevealCharacter(const std::string& id);
 
 	// ===== Save / Load =====
 	struct SlotInfo

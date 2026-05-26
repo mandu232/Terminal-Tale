@@ -5,6 +5,7 @@
 #include "Core/InputManager.h"
 #include "Core/ConsoleDisplay.h"
 #include "Core/Localization.h"
+#include "Game/Player/PlayerStatus.h"
 #include "Game/Item/Item.h"
 #include "Game/Item/ItemRegistry.h"
 #include "Game/Effect/EffectInterpreter.h"
@@ -124,28 +125,67 @@ void InventoryState::BuildLeftPanel()
 		std::string(InvLayout::LeftW , '-') , 8 ,
 		UILabel::TextAlign::Left , UILabel::VAlign::Top));
 
-	// ── 스탯 항목 ──────────────────────────────────────────────────────────
-	struct StatRow { std::string labelKey; int value; };
-	const std::vector<StatRow> rows =
-	{
-		{ "stat.vitality",   p.vitality   },
-		{ "stat.reputation", p.reputation },
-		{ "stat.wealth",     p.wealth     },
-	};
-
+	// ── 피로도 (색상 코딩) ────────────────────────────────────────────────
 	int y = InvLayout::ContentY;
-	for ( const auto& row : rows )
 	{
+		// 0~29: 녹색(10), 30~69: 노랑(14), 70~100: 빨강(12)
+		int fatigueColor = (p.fatigue < 30) ? 10 : (p.fatigue < 70) ? 14 : 12;
+		std::string fatigueVal = std::to_string(p.fatigue) + " / " + std::to_string(PlayerStats::kMaxFatigue);
+
 		uiManager.Add(std::make_unique<UILabel>(
 			InvLayout::LeftX , y , InvLayout::Z ,
 			30 , InvLayout::RowH ,
-			L(row.labelKey) , 7 ,
+			L("stat.fatigue") , 7 ,
 			UILabel::TextAlign::Left , UILabel::VAlign::Middle));
 
 		uiManager.Add(std::make_unique<UILabel>(
 			InvLayout::LeftX + 30 , y , InvLayout::Z ,
 			InvLayout::LeftW - 30 , InvLayout::RowH ,
-			std::to_string(row.value) , 11 ,
+			fatigueVal , fatigueColor ,
+			UILabel::TextAlign::Left , UILabel::VAlign::Middle));
+
+		y += InvLayout::RowH;
+	}
+
+	// ── 소지금 ────────────────────────────────────────────────────────────
+	{
+		uiManager.Add(std::make_unique<UILabel>(
+			InvLayout::LeftX , y , InvLayout::Z ,
+			30 , InvLayout::RowH ,
+			L("stat.wealth") , 7 ,
+			UILabel::TextAlign::Left , UILabel::VAlign::Middle));
+
+		uiManager.Add(std::make_unique<UILabel>(
+			InvLayout::LeftX + 30 , y , InvLayout::Z ,
+			InvLayout::LeftW - 30 , InvLayout::RowH ,
+			std::to_string(p.wealth) , 11 ,
+			UILabel::TextAlign::Left , UILabel::VAlign::Middle));
+
+		y += InvLayout::RowH;
+	}
+
+	// ── 감시 등급 (색상 + 등급명) ─────────────────────────────────────────
+	{
+		// 0~29: 녹색(10) 정상, 30~59: 노랑(14) 주목, 60~89: 빨강(12) 요주의, 90~: 밝은빨강(12) 위험
+		int    monColor = (p.monitoring < 30) ? 10 : (p.monitoring < 60) ? 14 : 12;
+		const char* monLabel = (p.monitoring < 30) ? "정상"
+		                     : (p.monitoring < 60) ? "주목"
+		                     : (p.monitoring < 90) ? "요주의"
+		                     :                       "위험";
+		std::string monVal = std::to_string(p.monitoring) + " / "
+		                   + std::to_string(PlayerStats::kMaxMonitoring)
+		                   + "  [" + monLabel + "]";
+
+		uiManager.Add(std::make_unique<UILabel>(
+			InvLayout::LeftX , y , InvLayout::Z ,
+			30 , InvLayout::RowH ,
+			L("stat.monitoring") , 7 ,
+			UILabel::TextAlign::Left , UILabel::VAlign::Middle));
+
+		uiManager.Add(std::make_unique<UILabel>(
+			InvLayout::LeftX + 30 , y , InvLayout::Z ,
+			InvLayout::LeftW - 30 , InvLayout::RowH ,
+			monVal , monColor ,
 			UILabel::TextAlign::Left , UILabel::VAlign::Middle));
 
 		y += InvLayout::RowH;

@@ -21,7 +21,7 @@ enum class InputAction
 	OpenInventory,   // 'I' — 인벤토리 열기
 	OpenWait,        // 'Z' — 대기
 	OpenSleep,       // 'S' — 수면
-	OpenLog,         // 'L' — 기록
+	OpenCharacters,  // 'L' — 인물 정보
 	OpenJournal,     // 'J' — 저널
 	QuickSave,       // F5  — 빠른 저장
 	QuickLoad,       // F9  — 빠른 불러오기

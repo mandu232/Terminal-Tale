@@ -1,0 +1,22 @@
+{
+  "id": "prologue_001",
+  "bgm": "Assets/audio/bgm_prologue.wav",
+  "text": [
+    "story.prologue_001.0",
+    "story.prologue_001.1",
+    "story.prologue_001.2",
+    "story.prologue_001.3",
+    "story.prologue_001.4",
+    "story.prologue_001.5",
+    "story.prologue_001.6"
+  ],
+  "effects": [
+    { "type": "reveal_character", "key": "yun_seo" }
+  ],
+  "choices": [
+    {
+      "text": "story.prologue_001.choice.0",
+      "next": "prologue_002"
+    }
+  ]
+}

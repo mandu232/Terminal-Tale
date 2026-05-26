@@ -8,8 +8,10 @@
     "story.day2_supply_followup.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "justice",   "value": 1 },
-    { "type": "tendency", "key": "suspicion", "value": 1 }
+    { "type": "tendency",   "key": "justice",   "value": 1 },
+    { "type": "tendency",   "key": "suspicion", "value": 1 },
+    { "type": "fatigue",    "value": 3 },
+    { "type": "monitoring", "value": 5 }
   ],
   "choices": [
     {

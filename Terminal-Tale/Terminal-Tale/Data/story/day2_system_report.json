@@ -8,8 +8,9 @@
     "story.day2_system_report.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "suspicion", "value": 2 },
-    { "type": "flag_add", "key": "knows_upper_involved" }
+    { "type": "tendency",   "key": "suspicion", "value": 2 },
+    { "type": "flag_add",   "key": "knows_upper_involved" },
+    { "type": "monitoring", "value": 10 }
   ],
   "choices": [
     {

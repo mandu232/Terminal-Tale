@@ -18,15 +18,12 @@ namespace SleepLayout
     constexpr int PanelW  = 50;
     constexpr int RowH    = 3;
 
-    constexpr int TitleY   = 11;
-    constexpr int StatusY  = 17;
-    constexpr int VitalityY = 21;
-    constexpr int DescY    = 27;
+    constexpr int TitleY  = 11;
+    constexpr int StatusY = 17;
+    constexpr int FatigueY = 21;
+    constexpr int DescY   = 27;
     constexpr int ConfirmY = 33;
     constexpr int CancelY  = 38;
-
-    constexpr int VitalityRestore = 50;
-    constexpr int VitalityMax     = 100;
 }
 
 SleepState::SleepState(Context& context)
@@ -52,19 +49,15 @@ void SleepState::Enter()
         192, SleepLayout::RowH, statusStr,
         8, UILabel::TextAlign::Center, UILabel::VAlign::Middle));
 
-    // ── 현재 체력 ─────────────────────────────────────────────────────────────
-    int afterVitality = std::min(
-        context.player.vitality + SleepLayout::VitalityRestore,
-        SleepLayout::VitalityMax);
-
-    std::string vitalStr =
-        L("stat.vitality") + " : "
-        + std::to_string(context.player.vitality)
-        + "  →  " + std::to_string(afterVitality);
+    // ── 현재 피로도 ───────────────────────────────────────────────────────────
+    std::string fatigueStr =
+        L("stat.fatigue") + " : "
+        + std::to_string(context.player.fatigue)
+        + "  →  0";
 
     uiManager.Add(std::make_unique<UILabel>(
-        0, SleepLayout::VitalityY, SleepLayout::Z,
-        192, SleepLayout::RowH, vitalStr,
+        0, SleepLayout::FatigueY, SleepLayout::Z,
+        192, SleepLayout::RowH, fatigueStr,
         7, UILabel::TextAlign::Center, UILabel::VAlign::Middle));
 
     // ── 설명 ─────────────────────────────────────────────────────────────────
@@ -82,11 +75,9 @@ void SleepState::Enter()
         {
             context.sound.PlaySE("Assets/audio/ui_button_click.wav");
 
-            context.player.day   += 1;
-            context.player.time   = 0;
-            context.player.vitality = std::min(
-                context.player.vitality + SleepLayout::VitalityRestore,
-                SleepLayout::VitalityMax);
+            context.player.day    += 1;
+            context.player.time    = 0;
+            context.player.fatigue = 0;
 
             context.AddLog(L("log.slept")
                 + " → Day " + std::to_string(context.player.day));

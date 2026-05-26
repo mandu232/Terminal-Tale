@@ -7,8 +7,9 @@
     "story.day2_summoned_deny.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "compliance", "value": 1 },
-    { "type": "tendency", "key": "suspicion",  "value": 1 }
+    { "type": "tendency",   "key": "compliance", "value": 1 },
+    { "type": "tendency",   "key": "suspicion",  "value": 1 },
+    { "type": "monitoring", "value": 5 }
   ],
   "choices": [
     {

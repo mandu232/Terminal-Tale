@@ -6,6 +6,9 @@
     "story.day2_morning.2",
     "story.day2_morning.3"
   ],
+  "effects": [
+    { "type": "set_time", "value": 9 }
+  ],
   "choices": [
     {
       "text": "story.day2_morning.choice.0",

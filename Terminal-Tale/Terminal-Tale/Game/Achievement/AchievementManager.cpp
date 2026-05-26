@@ -1,5 +1,6 @@
 #include "AchievementManager.h"
 #include "Core/Context.h"
+#include "Game/Player/PlayerStatus.h"
 #include "external/json/json.hpp"
 
 #include <fstream>
@@ -32,8 +33,9 @@ void AchievementManager::Init()
         { "trust_80",       "ach.trust_80.name",       "ach.trust_80.desc"       },
 
         // ── 기타 ───────────────────────────────────────────────────────────────
-        { "first_duty",     "ach.first_duty.name",     "ach.first_duty.desc"     },
-        { "vitality_min",   "ach.vitality_min.name",   "ach.vitality_min.desc"   },
+        { "first_duty",       "ach.first_duty.name",       "ach.first_duty.desc"       },
+        { "vitality_min",     "ach.vitality_min.name",     "ach.vitality_min.desc"     },
+        { "monitoring_high",  "ach.monitoring_high.name",  "ach.monitoring_high.desc"  },
     };
 
     Load();
@@ -85,7 +87,8 @@ void AchievementManager::CheckStatAchievements(Context& ctx)
     if ( p.corruption   >= 80 ) Unlock("corruption_80", ctx);
     if ( p.citizenTrust >= 80 ) Unlock("trust_80",      ctx);
 
-    if ( p.vitality <= 1 && p.vitality >= 0 ) Unlock("vitality_min", ctx);
+    if ( p.fatigue     >= PlayerStats::kMaxFatigue    ) Unlock("vitality_min",    ctx);
+    if ( p.monitoring  >= 80                          ) Unlock("monitoring_high", ctx);
 }
 
 int AchievementManager::UnlockedCount() const

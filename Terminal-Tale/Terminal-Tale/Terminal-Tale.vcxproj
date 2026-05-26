@@ -151,6 +151,7 @@
     <ClCompile Include="Game\States\GameState.cpp" />
     <ClCompile Include="Game\States\KeyBindState.cpp" />
     <ClCompile Include="Game\States\InventoryState.cpp" />
+    <ClCompile Include="Game\States\CharacterState.cpp" />
     <ClCompile Include="Game\States\JournalState.cpp" />
     <ClCompile Include="Game\States\LoadSlotState.cpp" />
     <ClCompile Include="Game\States\LogState.cpp" />
@@ -205,9 +206,11 @@
     <ClInclude Include="Game\Item\Item.h" />
     <ClInclude Include="Game\Item\ItemRegistry.h" />
     <ClInclude Include="Game\Journal\JournalEntry.h" />
+    <ClInclude Include="Game\Character\CharacterEntry.h" />
     <ClInclude Include="Game\Log\LogEntry.h" />
     <ClInclude Include="Game\Player\PlayerStatus.h" />
     <ClInclude Include="Game\States\AchievementState.h" />
+    <ClInclude Include="Game\States\CharacterState.h" />
     <ClInclude Include="Game\States\GameState.h" />
     <ClInclude Include="Game\States\KeyBindState.h" />
     <ClInclude Include="Game\States\InventoryState.h" />

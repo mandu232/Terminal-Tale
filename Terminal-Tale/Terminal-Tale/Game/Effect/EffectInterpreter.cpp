@@ -2,17 +2,25 @@
 #include "Core/Context.h"
 #include "Core/Localization.h"
 #include "Game/Achievement/AchievementManager.h"
+#include "Game/Player/PlayerStatus.h"
+
+#include <algorithm>
 
 void EffectInterpreter::Apply(const Effect& effect , Context& ctx)
 {
 	switch ( effect.type )
 	{
-	case EffectType::AddVitality:
-		ctx.player.vitality += effect.value;
+	case EffectType::AddFatigue:
+		ctx.player.fatigue = std::clamp(
+			ctx.player.fatigue + effect.value,
+			0, PlayerStats::kMaxFatigue);
 		ctx.achievements.CheckStatAchievements(ctx);
 		break;
-	case EffectType::AddReputation:
-		ctx.player.reputation += effect.value;
+	case EffectType::AddMonitoring:
+		ctx.player.monitoring = std::clamp(
+			ctx.player.monitoring + effect.value,
+			0, PlayerStats::kMaxMonitoring);
+		ctx.achievements.CheckStatAchievements(ctx);
 		break;
 	case EffectType::AddWealth:
 		ctx.player.wealth += effect.value;
@@ -71,6 +79,10 @@ void EffectInterpreter::Apply(const Effect& effect , Context& ctx)
 
 	case EffectType::UnlockAchievement:
 		ctx.achievements.Unlock(effect.key, ctx);
+		break;
+
+	case EffectType::RevealCharacter:
+		ctx.RevealCharacter(effect.key);
 		break;
 
 	case EffectType::CaseRecord:

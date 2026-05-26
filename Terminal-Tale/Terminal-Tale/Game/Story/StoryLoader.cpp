@@ -14,8 +14,8 @@ static Condition ParseCondition(const json& j)
 	std::string type = j.at("type");
 
 
-	if      ( type == "vitality"   ) c.type = ConditionType::Vitality;
-	else if ( type == "reputation" ) c.type = ConditionType::Reputation;
+	if      ( type == "fatigue"    ) c.type = ConditionType::Fatigue;
+	else if ( type == "monitoring" ) c.type = ConditionType::Monitoring;
 	else if ( type == "wealth"     ) c.type = ConditionType::Wealth;
 	else if ( type == "day"        ) c.type = ConditionType::Day;
 	else if ( type == "time"       ) c.type = ConditionType::Time;

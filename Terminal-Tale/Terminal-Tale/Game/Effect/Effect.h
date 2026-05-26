@@ -5,8 +5,8 @@
 // 스토리에서 사용가능한 이펙트 타입
 enum class EffectType
 {
-	AddVitality,       //체력 증가
-	AddReputation,     //명성 증가
+	AddFatigue,        //피로도 변화 (양수=피로 증가, 음수=피로 감소)
+	AddMonitoring,     //감시 등급 변화 (양수=감시 상승, 음수=감시 완화)
 	AddWealth,         //돈 증가
 	AddDay,            //날짜 증가
 	AddTime,           //시간 증가 (상대값)
@@ -27,11 +27,13 @@ enum class EffectType
 	CaseRecord ,       //케이스 처리 기록 추가 (처리 문서 열람용)
 
 	UnlockAchievement, // 업적 해제 (key: achievement id)
+
+	RevealCharacter ,  // 인물 정보 등록 (key: character id, 나머지는 로컬라이제이션 자동 조회)
 };
 
 struct Effect
 {
-	EffectType type = EffectType::AddVitality;
+	EffectType type = EffectType::AddFatigue;
 	std::string key;      // 공용 키 (flag 이름, item id, tendency 키, case id 등)
 	int value = 0;
 

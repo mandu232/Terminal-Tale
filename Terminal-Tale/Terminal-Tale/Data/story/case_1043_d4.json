@@ -34,6 +34,8 @@
                     {
                         "type":  "flag_add",
                         "key":  "watched_by_system"
-                    }
+                    },
+                    { "type": "fatigue",    "value":  5 },
+                    { "type": "monitoring", "value": 10 }
                 ]
 }

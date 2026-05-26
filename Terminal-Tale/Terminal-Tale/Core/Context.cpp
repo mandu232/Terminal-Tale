@@ -1,6 +1,7 @@
 #include "Context.h"
 #include "State.h"
 #include "StateMachine.h"
+#include "Localization.h"
 
 #include "external/json/json.hpp"
 #include <fstream>
@@ -59,6 +60,25 @@ void Context::AddCaseRecord(const std::string& id,
 		journal.push_back(entry);
 }
 
+// ── RevealCharacter ───────────────────────────────────────────────────────────
+void Context::RevealCharacter(const std::string& id)
+{
+	auto it = std::find_if(characters.begin(), characters.end(),
+		[&id](const CharacterEntry& e) { return e.id == id; });
+	if (it != characters.end()) return;  // 이미 등록됨
+
+	const std::string base = "char." + id;
+	CharacterEntry entry;
+	entry.id           = id;
+	entry.name         = L(base + ".name");
+	entry.role         = L(base + ".role");
+	entry.affiliation  = L(base + ".affiliation");
+	entry.relationship = L(base + ".relationship");
+	entry.description  = L(base + ".desc");
+	entry.revealedDay  = player.day;
+	characters.push_back(std::move(entry));
+}
+
 // ── ResetGameState ────────────────────────────────────────────────────────────
 void Context::ResetGameState()
 {
@@ -67,6 +87,7 @@ void Context::ResetGameState()
 	currentNodeId = "";
 	log           = {};
 	journal       = {};
+	characters    = {};
 }
 
 // ── SaveSlot ─────────────────────────────────────────────────────────────────
@@ -77,8 +98,8 @@ bool Context::SaveSlot(int slot) const
 	json j;
 
 	// 플레이어 능력치
-	j["player"]["vitality"]   = player.vitality;
-	j["player"]["reputation"] = player.reputation;
+	j["player"]["fatigue"]    = player.fatigue;
+	j["player"]["monitoring"] = player.monitoring;
 	j["player"]["wealth"]     = player.wealth;
 	j["player"]["day"]        = player.day;
 	j["player"]["time"]       = player.time;
@@ -131,6 +152,21 @@ bool Context::SaveSlot(int slot) const
 		j["journal"].push_back(entry);
 	}
 
+	// 인물
+	j["characters"] = json::array();
+	for (const auto& e : characters)
+	{
+		json entry;
+		entry["id"]           = e.id;
+		entry["name"]         = e.name;
+		entry["role"]         = e.role;
+		entry["affiliation"]  = e.affiliation;
+		entry["relationship"] = e.relationship;
+		entry["description"]  = e.description;
+		entry["revealedDay"]  = e.revealedDay;
+		j["characters"].push_back(entry);
+	}
+
 	std::ofstream file(SlotPath(slot));
 	if (!file.is_open()) return false;
 	file << j.dump(4);
@@ -149,9 +185,9 @@ bool Context::LoadSlot(int slot)
 
 	// 플레이어 능력치
 	const auto& p    = j["player"];
-	player.vitality   = p.value("vitality"  , 10);
-	player.reputation = p.value("reputation", 0);
-	player.wealth     = p.value("wealth"    , 0);
+	player.fatigue    = p.value("fatigue"    , 0);
+	player.monitoring = p.value("monitoring" , 0);
+	player.wealth     = p.value("wealth"     , 0);
 	player.day        = p.value("day"       , 0);
 	player.time       = p.value("time"      , 0);
 
@@ -195,6 +231,19 @@ bool Context::LoadSlot(int slot)
 			e.value("day"        , 0)
 		});
 
+	// 인물
+	characters.clear();
+	for (const auto& e : j.value("characters", json::array()))
+		characters.push_back({
+			e.value("id"          , ""),
+			e.value("name"        , ""),
+			e.value("role"        , ""),
+			e.value("affiliation" , ""),
+			e.value("relationship", ""),
+			e.value("description" , ""),
+			e.value("revealedDay" , 0)
+		});
+
 	return true;
 }
 
@@ -220,8 +269,8 @@ bool Context::SaveQuick(int slot) const
 
 	json j;
 
-	j["player"]["vitality"]     = player.vitality;
-	j["player"]["reputation"]   = player.reputation;
+	j["player"]["fatigue"]      = player.fatigue;
+	j["player"]["monitoring"]   = player.monitoring;
 	j["player"]["wealth"]       = player.wealth;
 	j["player"]["day"]          = player.day;
 	j["player"]["time"]         = player.time;
@@ -268,6 +317,20 @@ bool Context::SaveQuick(int slot) const
 		j["journal"].push_back(entry);
 	}
 
+	j["characters"] = json::array();
+	for (const auto& e : characters)
+	{
+		json entry;
+		entry["id"]           = e.id;
+		entry["name"]         = e.name;
+		entry["role"]         = e.role;
+		entry["affiliation"]  = e.affiliation;
+		entry["relationship"] = e.relationship;
+		entry["description"]  = e.description;
+		entry["revealedDay"]  = e.revealedDay;
+		j["characters"].push_back(entry);
+	}
+
 	std::ofstream file(QuickSlotPath(activeSlot, slot));
 	if (!file.is_open()) return false;
 	file << j.dump(4);
@@ -286,10 +349,10 @@ bool Context::LoadQuick(int slot)
 	catch (...) { return false; }
 
 	const auto& p    = j["player"];
-	player.vitality   = p.value("vitality"  , 10);
-	player.reputation = p.value("reputation", 0);
-	player.wealth     = p.value("wealth"    , 0);
-	player.day        = p.value("day"       , 0);
+	player.fatigue    = p.value("fatigue"    , 0);
+	player.monitoring = p.value("monitoring" , 0);
+	player.wealth     = p.value("wealth"     , 0);
+	player.day        = p.value("day"        , 0);
 	player.time       = p.value("time"      , 0);
 	player.cityOrder    = p.value("cityOrder"   , 50);
 	player.citizenTrust = p.value("citizenTrust", 50);
@@ -324,6 +387,18 @@ bool Context::LoadQuick(int slot)
 			e.value("content"    , ""),
 			e.value("description", ""),
 			e.value("day"        , 0)
+		});
+
+	characters.clear();
+	for (const auto& e : j.value("characters", json::array()))
+		characters.push_back({
+			e.value("id"          , ""),
+			e.value("name"        , ""),
+			e.value("role"        , ""),
+			e.value("affiliation" , ""),
+			e.value("relationship", ""),
+			e.value("description" , ""),
+			e.value("revealedDay" , 0)
 		});
 
 	return true;

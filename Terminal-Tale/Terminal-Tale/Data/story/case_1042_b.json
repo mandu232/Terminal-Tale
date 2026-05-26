@@ -1,38 +1,29 @@
-﻿{
-    "id":  "case_1042_b",
-    "text":  [
-                 "story.case_1042_b.0",
-                 "story.case_1042_b.1",
-                 "story.case_1042_b.2",
-                 "story.case_1042_b.3"
-             ],
-    "choices":  [
-                    {
-                        "text":  "story.common.next_case",
-                        "next":  "day_end"
-                    }
-                ],
-    "effects":  [
-                    {
-                        "type":  "case_record",
-                        "key":  "case_1042",
-                        "title":  "story.case_1042.0",
-                        "outcome":  "story.case_1042.choice.1",
-                        "content":  "story.case_1042_b.0"
-                    },
-                    {
-                        "type":  "tendency",
-                        "key":  "justice",
-                        "value":  1
-                    },
-                    {
-                        "type":  "tendency",
-                        "key":  "empathy",
-                        "value":  1
-                    },
-                    {
-                        "type":  "unlock_achievement",
-                        "key":  "first_duty"
-                    }
-                ]
+{
+  "id":  "case_1042_b",
+  "text": [
+    "story.case_1042_b.0",
+    "story.case_1042_b.1",
+    "story.case_1042_b.2",
+    "story.case_1042_b.3"
+  ],
+  "effects": [
+    {
+      "type":    "case_record",
+      "key":     "case_1042",
+      "title":   "story.case_1042.0",
+      "outcome": "story.case_1042.choice.1",
+      "content": "story.case_1042_b.0"
+    },
+    { "type": "tendency",   "key": "justice", "value": 1 },
+    { "type": "tendency",   "key": "empathy", "value": 1 },
+    { "type": "fatigue",    "value":  5 },
+    { "type": "monitoring", "value":  5 },
+    { "type": "unlock_achievement", "key": "first_duty" }
+  ],
+  "choices": [
+    {
+      "text": "story.common.close_file",
+      "next": "day1_desk"
+    }
+  ]
 }

@@ -6,9 +6,10 @@
     "story.day2_supply_save.2"
   ],
   "effects": [
-    { "type": "flag_add", "key": "saved_supply_data" },
+    { "type": "flag_add",   "key": "saved_supply_data" },
     { "type": "corruption", "value": 5 },
-    { "type": "tendency", "key": "justice", "value": 1 }
+    { "type": "tendency",   "key": "justice",   "value": 1 },
+    { "type": "monitoring", "value": 8 }
   ],
   "choices": [
     {

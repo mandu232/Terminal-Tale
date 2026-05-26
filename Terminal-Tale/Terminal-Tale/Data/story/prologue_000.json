@@ -7,17 +7,14 @@
     "story.prologue_000.2",
     "story.prologue_000.3",
     "story.prologue_000.4",
-    "story.prologue_000.5"
-  ],
-  "effects": [
-    { "type": "give_item", "key": "access_card",     "value": 1 },
-    { "type": "give_item", "key": "employee_manual", "value": 1 },
-    { "type": "give_item", "key": "coffee",          "value": 2 }
+    "story.prologue_000.5",
+    "story.prologue_000.6",
+    "story.prologue_000.7"
   ],
   "choices": [
     {
       "text": "story.prologue_000.choice.0",
-      "next": "case_1042"
+      "next": "prologue_001"
     }
   ]
 }

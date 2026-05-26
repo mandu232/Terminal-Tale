@@ -50,6 +50,7 @@
                     {
                         "type":  "flag_add",
                         "key":  "knows_hidden_history"
-                    }
+                    },
+                    { "type": "fatigue", "value": 3 }
                 ]
 }

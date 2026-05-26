@@ -9,8 +9,8 @@
              ],
     "choices":  [
                     {
-                        "text":  "story.common.next_case",
-                        "next":  "day2_end"
+                        "text":  "story.common.close_file",
+                        "next":  "day2_desk"
                     }
                 ],
     "effects":  [
@@ -38,6 +38,9 @@
                     {
                         "type":  "flag_add",
                         "key":  "saved_hidden_history"
-                    }
+                    },
+                    { "type": "fatigue",    "value":  10 },
+                    { "type": "monitoring", "value":  12 },
+                    { "type": "give_item",  "key": "unauthorized_materials", "value": 1 }
                 ]
 }

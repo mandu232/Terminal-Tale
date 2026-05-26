@@ -18,25 +18,25 @@ bool ConditionChecker::CheckOne(const Condition& c , const Context& ctx)
 		return ctx.flags.count(c.key) > 0;
 
 
-	case ConditionType::Vitality:
+	case ConditionType::Fatigue:
 		switch ( c.op )
 		{
-		case ConditionOp::Gt:  return ctx.player.vitality > c.value;
-		case ConditionOp::Lt:  return ctx.player.vitality < c.value;
-		case ConditionOp::Eq:  return ctx.player.vitality == c.value;
-		case ConditionOp::Gte: return ctx.player.vitality >= c.value;
-		case ConditionOp::Lte: return ctx.player.vitality <= c.value;
+		case ConditionOp::Gt:  return ctx.player.fatigue > c.value;
+		case ConditionOp::Lt:  return ctx.player.fatigue < c.value;
+		case ConditionOp::Eq:  return ctx.player.fatigue == c.value;
+		case ConditionOp::Gte: return ctx.player.fatigue >= c.value;
+		case ConditionOp::Lte: return ctx.player.fatigue <= c.value;
 		}
 		return false;
 
-	case ConditionType::Reputation:
+	case ConditionType::Monitoring:
 		switch ( c.op )
 		{
-		case ConditionOp::Gt:  return ctx.player.reputation > c.value;
-		case ConditionOp::Lt:  return ctx.player.reputation < c.value;
-		case ConditionOp::Eq:  return ctx.player.reputation == c.value;
-		case ConditionOp::Gte: return ctx.player.reputation >= c.value;
-		case ConditionOp::Lte: return ctx.player.reputation <= c.value;
+		case ConditionOp::Gt:  return ctx.player.monitoring > c.value;
+		case ConditionOp::Lt:  return ctx.player.monitoring < c.value;
+		case ConditionOp::Eq:  return ctx.player.monitoring == c.value;
+		case ConditionOp::Gte: return ctx.player.monitoring >= c.value;
+		case ConditionOp::Lte: return ctx.player.monitoring <= c.value;
 		}
 		return false;
 

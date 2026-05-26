@@ -1,0 +1,26 @@
+{
+  "id": "prologue_002",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.prologue_002.0",
+    "story.prologue_002.1",
+    "story.prologue_002.2",
+    "story.prologue_002.3",
+    "story.prologue_002.4",
+    "story.prologue_002.5",
+    "story.prologue_002.6"
+  ],
+  "effects": [
+    { "type": "give_item",        "key": "access_card",     "value": 1 },
+    { "type": "give_item",        "key": "employee_manual", "value": 1 },
+    { "type": "give_item",        "key": "coffee",          "value": 2 },
+    { "type": "set_time",         "value": 9 },
+    { "type": "reveal_character", "key": "kang_taewon" }
+  ],
+  "choices": [
+    {
+      "text": "story.prologue_002.choice.0",
+      "next": "case_1042"
+    }
+  ]
+}

@@ -5,11 +5,13 @@
 
 struct PlayerStats
 {
+	static constexpr int kMaxFatigue    = 100;
+	static constexpr int kMaxMonitoring = 100;
 
 	//플레이어 표기 능력치
-	int vitality     = 10;   //체력 + 피로도
-	int reputation   = 0;    //명성
+	int fatigue      = 0;    //피로도 (0=최상, kMaxFatigue=한계)
 	int wealth       = 0;    //돈
+	int monitoring   = 0;    //RECORD 감시 등급 (0=정상, kMaxMonitoring=위험)
 
 	// 도시 현황 (세계 수치)
 	int cityOrder    = 50;   //도시 질서 (기본 50)

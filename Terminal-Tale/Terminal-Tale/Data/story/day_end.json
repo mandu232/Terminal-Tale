@@ -3,16 +3,17 @@
   "text": [
     "story.day_end.0",
     "story.day_end.1",
-    "story.day_end.2"
-  ],
-  "effects": [
-    { "type": "day",      "value": 1 },
-    { "type": "set_time", "value": 8 }
+    "story.day_end.2",
+    "story.day_end.3"
   ],
   "choices": [
     {
       "text": "story.day_end.choice.0",
-      "next": "day2_morning"
+      "next": "day2_morning",
+      "effects": [
+        { "type": "day",      "value": 1 },
+        { "type": "set_time", "value": 8 }
+      ]
     }
   ]
 }

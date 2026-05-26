@@ -19,7 +19,7 @@
         "desc": "item.coffee.desc",
         "usable": true,
         "effects": [
-            { "type": "vitality", "value": 10 }
+            { "type": "fatigue", "value": -10 }
         ]
     },
     {
@@ -28,14 +28,176 @@
         "desc": "item.stimulant.desc",
         "usable": true,
         "effects": [
-            { "type": "vitality", "value": 25 },
-            { "type": "time",     "value": -2  }
+            { "type": "fatigue", "value": -25 },
+            { "type": "time",    "value": -2   }
         ]
     },
     {
         "id": "deleted_record",
         "name": "item.deleted_record.name",
         "desc": "item.deleted_record.desc",
+        "usable": false,
+        "effects": []
+    },
+
+    {
+        "id": "lunch_box",
+        "name": "item.lunch_box.name",
+        "desc": "item.lunch_box.desc",
+        "usable": true,
+        "effects": [
+            { "type": "fatigue", "value": -15 }
+        ]
+    },
+    {
+        "id": "energy_drink",
+        "name": "item.energy_drink.name",
+        "desc": "item.energy_drink.desc",
+        "usable": true,
+        "effects": [
+            { "type": "fatigue", "value": -20 },
+            { "type": "time",    "value": -1  }
+        ]
+    },
+    {
+        "id": "painkiller",
+        "name": "item.painkiller.name",
+        "desc": "item.painkiller.desc",
+        "usable": true,
+        "effects": [
+            { "type": "fatigue", "value": -10 }
+        ]
+    },
+    {
+        "id": "cash_envelope",
+        "name": "item.cash_envelope.name",
+        "desc": "item.cash_envelope.desc",
+        "usable": true,
+        "effects": [
+            { "type": "wealth", "value": 50 }
+        ]
+    },
+
+    {
+        "id": "usb_drive",
+        "name": "item.usb_drive.name",
+        "desc": "item.usb_drive.desc",
+        "usable": false,
+        "effects": []
+    },
+    {
+        "id": "anonymous_note",
+        "name": "item.anonymous_note.name",
+        "desc": "item.anonymous_note.desc",
+        "usable": false,
+        "effects": []
+    },
+    {
+        "id": "classified_docs",
+        "name": "item.classified_docs.name",
+        "desc": "item.classified_docs.desc",
+        "usable": false,
+        "effects": []
+    },
+    {
+        "id": "citizen_record_copy",
+        "name": "item.citizen_record_copy.name",
+        "desc": "item.citizen_record_copy.desc",
+        "usable": false,
+        "effects": []
+    },
+
+    {
+        "id": "vitamin_tablet",
+        "name": "item.vitamin_tablet.name",
+        "desc": "item.vitamin_tablet.desc",
+        "usable": true,
+        "effects": [
+            { "type": "fatigue", "value": -8 }
+        ]
+    },
+    {
+        "id": "instant_noodles",
+        "name": "item.instant_noodles.name",
+        "desc": "item.instant_noodles.desc",
+        "usable": true,
+        "effects": [
+            { "type": "fatigue", "value": -12 }
+        ]
+    },
+    {
+        "id": "sleeping_pill",
+        "name": "item.sleeping_pill.name",
+        "desc": "item.sleeping_pill.desc",
+        "usable": true,
+        "effects": [
+            { "type": "fatigue", "value": -35 },
+            { "type": "time",    "value":   4  }
+        ]
+    },
+
+    {
+        "id": "photo_evidence",
+        "name": "item.photo_evidence.name",
+        "desc": "item.photo_evidence.desc",
+        "usable": false,
+        "effects": []
+    },
+    {
+        "id": "wiretap_recording",
+        "name": "item.wiretap_recording.name",
+        "desc": "item.wiretap_recording.desc",
+        "usable": false,
+        "effects": []
+    },
+    {
+        "id": "assembler_list",
+        "name": "item.assembler_list.name",
+        "desc": "item.assembler_list.desc",
+        "usable": false,
+        "effects": []
+    },
+    {
+        "id": "unauthorized_materials",
+        "name": "item.unauthorized_materials.name",
+        "desc": "item.unauthorized_materials.desc",
+        "usable": false,
+        "effects": []
+    },
+
+    {
+        "id": "encrypted_message",
+        "name": "item.encrypted_message.name",
+        "desc": "item.encrypted_message.desc",
+        "usable": false,
+        "effects": []
+    },
+    {
+        "id": "resistance_contact",
+        "name": "item.resistance_contact.name",
+        "desc": "item.resistance_contact.desc",
+        "usable": false,
+        "effects": []
+    },
+    {
+        "id": "forged_id",
+        "name": "item.forged_id.name",
+        "desc": "item.forged_id.desc",
+        "usable": false,
+        "effects": []
+    },
+
+    {
+        "id": "approval_stamp",
+        "name": "item.approval_stamp.name",
+        "desc": "item.approval_stamp.desc",
+        "usable": false,
+        "effects": []
+    },
+    {
+        "id": "ration_ticket",
+        "name": "item.ration_ticket.name",
+        "desc": "item.ration_ticket.desc",
         "usable": false,
         "effects": []
     }

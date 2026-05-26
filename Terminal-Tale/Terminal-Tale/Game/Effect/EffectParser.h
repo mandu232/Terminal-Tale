@@ -8,8 +8,8 @@ inline Effect ParseEffect(const nlohmann::json& j)
 	Effect e;
 	std::string type = j.at("type");
 
-	if      ( type == "vitality"    ) e.type = EffectType::AddVitality;
-	else if ( type == "reputation"  ) e.type = EffectType::AddReputation;
+	if      ( type == "fatigue"     ) e.type = EffectType::AddFatigue;
+	else if ( type == "monitoring"  ) e.type = EffectType::AddMonitoring;
 	else if ( type == "wealth"      ) e.type = EffectType::AddWealth;
 	else if ( type == "day"         ) e.type = EffectType::AddDay;
 	else if ( type == "time"        ) e.type = EffectType::AddTime;
@@ -24,6 +24,7 @@ inline Effect ParseEffect(const nlohmann::json& j)
 	else if ( type == "corruption"    ) e.type = EffectType::AddCorruption;
 	else if ( type == "case_record"         ) e.type = EffectType::CaseRecord;
 	else if ( type == "unlock_achievement"  ) e.type = EffectType::UnlockAchievement;
+	else if ( type == "reveal_character"    ) e.type = EffectType::RevealCharacter;
 	else throw std::runtime_error("Unknown effect type: " + type);
 
 	if ( j.contains("value")   ) e.value   = j["value"];

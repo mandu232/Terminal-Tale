@@ -7,8 +7,9 @@
     "story.day2_summoned_admit.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "compliance", "value": 2 },
-    { "type": "flag_add", "key": "warned_by_superior" }
+    { "type": "tendency",   "key": "compliance", "value": 2 },
+    { "type": "flag_add",   "key": "warned_by_superior" },
+    { "type": "monitoring", "value": -5 }
   ],
   "choices": [
     {

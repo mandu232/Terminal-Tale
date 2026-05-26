@@ -6,7 +6,12 @@
     "story.case_1042.1",
     "story.case_1042.2",
     "story.case_1042.3",
-    "story.case_1042.4"
+    "story.case_1042.4",
+    "story.case_1042.5"
+  ],
+  "effects": [
+    { "type": "time",    "value": 1 },
+    { "type": "fatigue", "value": 3 }
   ],
   "choices": [
     {

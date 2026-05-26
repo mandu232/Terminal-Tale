@@ -1,6 +1,6 @@
 #include "StoryState.h"
 #include "InventoryState.h"
-#include "LogState.h"
+#include "CharacterState.h"
 #include "JournalState.h"
 #include "WaitState.h"
 #include "SleepState.h"
@@ -189,10 +189,10 @@ void StoryState::BuildRightPanel()
 			std::make_unique<QuickSlotState>(context , QuickSlotState::Mode::Load));
 		});
 
-	//로그
-	addQuickBtn(Layout::ColB , Layout::Row3 , L("ui.log") , [ this ] () {
+	//인물 정보
+	addQuickBtn(Layout::ColB , Layout::Row3 , L("ui.characters") , [ this ] () {
 		context.sound.PlaySE("Assets/audio/ui_button_click.wav");
-		context.PushState(std::make_unique<LogState>(context));
+		context.PushState(std::make_unique<CharacterState>(context));
 		});
 
 	//저널
@@ -359,9 +359,9 @@ void StoryState::HandleInput(InputManager& input)
 			context.PushState(std::make_unique<SleepState>(context));
 			break;
 
-		case InputAction::OpenLog:
+		case InputAction::OpenCharacters:
 			context.sound.PlaySE("Assets/audio/ui_button_click.wav");
-			context.PushState(std::make_unique<LogState>(context));
+			context.PushState(std::make_unique<CharacterState>(context));
 			break;
 
 		case InputAction::OpenJournal:

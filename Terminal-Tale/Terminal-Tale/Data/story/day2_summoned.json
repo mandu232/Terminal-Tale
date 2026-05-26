@@ -7,6 +7,9 @@
     "story.day2_summoned.2",
     "story.day2_summoned.3"
   ],
+  "effects": [
+    { "type": "monitoring", "value": 5 }
+  ],
   "choices": [
     {
       "text": "story.day2_summoned.choice.0",

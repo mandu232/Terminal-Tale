@@ -37,6 +37,7 @@
                     {
                         "type":  "flag_add",
                         "key":  "flagged_by_senior"
-                    }
+                    },
+                    { "type": "monitoring", "value": 5 }
                 ]
 }

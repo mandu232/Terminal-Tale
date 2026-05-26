@@ -8,8 +8,8 @@
              ],
     "choices":  [
                     {
-                        "text":  "story.common.next_case",
-                        "next":  "day2_end"
+                        "text":  "story.common.close_file",
+                        "next":  "day2_desk"
                     }
                 ],
     "effects":  [
@@ -37,6 +37,8 @@
                         "type":  "tendency",
                         "key":  "compliance",
                         "value":  2
-                    }
+                    },
+                    { "type": "fatigue",    "value":  5 },
+                    { "type": "monitoring", "value": -2 }
                 ]
 }

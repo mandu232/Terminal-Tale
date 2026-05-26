@@ -2,8 +2,8 @@
 #include <string>
 
 enum class ConditionType {
-	Vitality,
-	Reputation,
+	Fatigue,
+	Monitoring,
 	Wealth,
 	Day,
 	Time,

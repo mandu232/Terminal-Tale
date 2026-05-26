@@ -33,6 +33,7 @@
                         "type":  "tendency",
                         "key":  "suspicion",
                         "value":  1
-                    }
+                    },
+                    { "type": "monitoring", "value": 3 }
                 ]
 }

@@ -38,6 +38,7 @@
                         "type":  "tendency",
                         "key":  "suspicion",
                         "value":  1
-                    }
+                    },
+                    { "type": "fatigue", "value": 2 }
                 ]
 }
