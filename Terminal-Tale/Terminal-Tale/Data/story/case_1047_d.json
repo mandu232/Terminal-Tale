@@ -1,43 +1,45 @@
-﻿{
-    "id":  "case_1047_d",
-    "sfx":  "Assets/audio/node_paper_crunch.wav",
-    "text":  [
-                 "story.case_1047_d.0",
-                 "story.case_1047_d.1",
-                 "story.case_1047_d.2",
-                 "story.case_1047_d.3"
-             ],
-    "choices":  [
-                    {
-                        "text":  "story.common.next_case",
-                        "next":  "day6_end_truth"
-                    }
-                ],
-    "effects":  [
-                    {
-                        "type":  "case_record",
-                        "key":  "case_1047",
-                        "title":  "story.case_1047.0",
-                        "outcome":  "story.case_1047.choice.3",
-                        "content":  "story.case_1047_d.0"
-                    },
-                    {
-                        "type":  "corruption",
-                        "value":  20
-                    },
-                    {
-                        "type":  "tendency",
-                        "key":  "justice",
-                        "value":  5
-                    },
-                    {
-                        "type":  "tendency",
-                        "key":  "suspicion",
-                        "value":  3
-                    },
-                    {
-                        "type":  "flag_add",
-                        "key":  "case_fully_exposed"
-                    }
-                ]
+{
+  "id": "case_1047_d",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.case_1047_d.0",
+    "story.case_1047_d.1",
+    "story.case_1047_d.2",
+    "story.case_1047_d.3"
+  ],
+  "effects": [
+    {
+      "type": "case_record",
+      "key": "case_1047",
+      "title": "story.case_1047.0",
+      "outcome": "story.case_1047.choice.3",
+      "content": "story.case_1047_d.0"
+    },
+    {
+      "type": "tendency",
+      "key": "justice",
+      "value": 3
+    },
+    {
+      "type": "tendency",
+      "key": "suspicion",
+      "value": 2
+    },
+    {
+      "type": "flag_add",
+      "key": "truth_assembled"
+    },
+    {
+      "type": "corruption",
+      "value": -5
+    },
+    { "type": "fatigue",    "value": 5 },
+    { "type": "monitoring", "value": 12 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.close_file",
+      "next": "day6_end_truth"
+    }
+  ]
 }

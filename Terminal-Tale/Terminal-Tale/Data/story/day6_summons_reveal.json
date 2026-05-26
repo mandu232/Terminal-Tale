@@ -1,6 +1,6 @@
 {
   "id": "day6_summons_reveal",
-  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "sfx": "Assets/audio/node_alert.wav",
   "text": [
     "story.day6_summons_reveal.0",
     "story.day6_summons_reveal.1",
@@ -8,10 +8,22 @@
     "story.day6_summons_reveal.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "justice",   "value": 5 },
-    { "type": "tendency", "key": "suspicion", "value": 5 },
-    { "type": "corruption", "value": 10 },
-    { "type": "flag_add", "key": "evidence_submitted" }
+    {
+      "type": "tendency",
+      "key": "justice",
+      "value": 3
+    },
+    {
+      "type": "tendency",
+      "key": "suspicion",
+      "value": 2
+    },
+    {
+      "type": "flag_add",
+      "key": "docs_revealed"
+    },
+    { "type": "fatigue",    "value": 5 },
+    { "type": "monitoring", "value": 15 }
   ],
   "choices": [
     {

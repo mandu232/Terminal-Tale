@@ -7,20 +7,33 @@
     "story.day6_summons.2",
     "story.day6_summons.3"
   ],
+  "effects": [
+    { "type": "time",       "value": 2 },
+    { "type": "fatigue",    "value": 5 },
+    { "type": "monitoring", "value": 5 }
+  ],
   "choices": [
     {
       "text": "story.day6_summons.choice.0",
-      "next": "day6_summons_back"
+      "next": "day6_summons_back",
+      "effects": [
+        { "type": "tendency",  "key": "compliance", "value": 1 },
+        { "type": "monitoring", "value": -3 }
+      ]
     },
     {
       "text": "story.day6_summons.choice.1",
-      "next": "day6_summons_back"
+      "next": "day6_summons_back",
+      "effects": [
+        { "type": "tendency",  "key": "compliance", "value": 1 },
+        { "type": "monitoring", "value": -2 }
+      ]
     },
     {
       "text": "story.day6_summons.choice.2",
       "next": "day6_summons_reveal",
       "require": [
-        { "type": "flag", "key": "connected_evidence" }
+        { "type": "flag", "key": "has_classified_docs" }
       ]
     }
   ]

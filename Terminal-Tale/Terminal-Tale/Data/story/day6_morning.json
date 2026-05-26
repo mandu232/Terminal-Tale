@@ -1,32 +1,34 @@
 {
   "id": "day6_morning",
-  "sfx": "Assets/audio/node_notification.wav",
   "text": [
     "story.day6_morning.0",
     "story.day6_morning.1",
     "story.day6_morning.2",
     "story.day6_morning.3"
   ],
+  "effects": [
+    { "type": "set_time", "value": 9 }
+  ],
   "choices": [
     {
       "text": "story.day6_morning.choice.0",
       "next": "day6_summons",
       "require": [
-        { "type": "tendency", "key": "suspicion", "op": "gte", "value": 7 }
+        { "type": "monitoring", "op": "gte", "value": 25 }
       ]
     },
     {
       "text": "story.day6_morning.choice.1",
       "next": "day6_audit",
       "require": [
-        { "type": "flag", "key": "searched_classified" }
+        { "type": "monitoring", "op": "gte", "value": 15 }
       ]
     },
     {
       "text": "story.day6_morning.choice.2",
       "next": "day6_informant_gone",
       "require": [
-        { "type": "flag", "key": "informant_compromised" }
+        { "type": "flag", "key": "met_informant" }
       ]
     },
     {

@@ -1,6 +1,6 @@
 {
   "id": "day6_audit",
-  "sfx": "Assets/audio/node_alert.wav",
+  "sfx": "Assets/audio/node_notification.wav",
   "text": [
     "story.day6_audit.0",
     "story.day6_audit.1",
@@ -8,7 +8,13 @@
     "story.day6_audit.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "suspicion", "value": 3 }
+    {
+      "type": "tendency",
+      "key": "suspicion",
+      "value": 1
+    },
+    { "type": "fatigue",    "value": 2 },
+    { "type": "monitoring", "value": 5 }
   ],
   "choices": [
     {
