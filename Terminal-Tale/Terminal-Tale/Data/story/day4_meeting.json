@@ -1,6 +1,6 @@
 {
   "id": "day4_meeting",
-  "sfx": "Assets/audio/node_footstep.wav",
+  "sfx": "Assets/audio/node_notification.wav",
   "text": [
     "story.day4_meeting.0",
     "story.day4_meeting.1",
@@ -8,9 +8,9 @@
     "story.day4_meeting.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "justice",   "value": 1 },
-    { "type": "tendency", "key": "suspicion", "value": 2 },
-    { "type": "flag_add", "key": "met_informant" }
+    { "type": "time",       "value": 2 },
+    { "type": "fatigue",    "value": 3 },
+    { "type": "monitoring", "value": 5 }
   ],
   "choices": [
     {

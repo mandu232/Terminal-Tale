@@ -50,6 +50,7 @@
                     {
                         "type":  "flag_add",
                         "key":  "saw_assembly_list"
-                    }
+                    },
+                    { "type": "fatigue", "value": 2 }
                 ]
 }

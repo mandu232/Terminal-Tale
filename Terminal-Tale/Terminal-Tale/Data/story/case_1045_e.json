@@ -1,43 +1,44 @@
-﻿{
-    "id":  "case_1045_e",
-    "sfx":  "Assets/audio/node_paper_crunch.wav",
-    "text":  [
-                 "story.case_1045_e.0",
-                 "story.case_1045_e.1",
-                 "story.case_1045_e.2",
-                 "story.case_1045_e.3"
-             ],
-    "choices":  [
-                    {
-                        "text":  "story.common.next_case",
-                        "next":  "day4_after_case"
-                    }
-                ],
-    "effects":  [
-                    {
-                        "type":  "case_record",
-                        "key":  "case_1045",
-                        "title":  "story.case_1045.0",
-                        "outcome":  "story.case_1045_c.choice.2",
-                        "content":  "story.case_1045_e.0"
-                    },
-                    {
-                        "type":  "corruption",
-                        "value":  10
-                    },
-                    {
-                        "type":  "tendency",
-                        "key":  "justice",
-                        "value":  3
-                    },
-                    {
-                        "type":  "tendency",
-                        "key":  "empathy",
-                        "value":  2
-                    },
-                    {
-                        "type":  "flag_add",
-                        "key":  "has_evidence"
-                    }
-                ]
+{
+  "id": "case_1045_e",
+  "text": [
+    "story.case_1045_e.0",
+    "story.case_1045_e.1",
+    "story.case_1045_e.2",
+    "story.case_1045_e.3"
+  ],
+  "effects": [
+    {
+      "type": "case_record",
+      "key": "case_1045",
+      "title": "story.case_1045.0",
+      "outcome": "story.case_1045_c.choice.2",
+      "content": "story.case_1045_e.0"
+    },
+    {
+      "type": "tendency",
+      "key": "justice",
+      "value": 2
+    },
+    {
+      "type": "tendency",
+      "key": "suspicion",
+      "value": 2
+    },
+    {
+      "type": "give_item",
+      "key": "photo_evidence"
+    },
+    {
+      "type": "flag_add",
+      "key": "photos_saved"
+    },
+    { "type": "fatigue",    "value": 5 },
+    { "type": "monitoring", "value": 8 }
+  ],
+  "choices": [
+    {
+      "text": "story.common.close_file",
+      "next": "day4_after_case"
+    }
+  ]
 }

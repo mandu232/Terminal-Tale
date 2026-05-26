@@ -8,7 +8,7 @@
              ],
     "choices":  [
                     {
-                        "text":  "story.common.next_case",
+                        "text":  "story.common.close_file",
                         "next":  "day3_end_pending"
                     }
                 ],
@@ -37,6 +37,8 @@
                     {
                         "type":  "flag_add",
                         "key":  "case_pending"
-                    }
+                    },
+                    { "type": "fatigue",    "value":  5 },
+                    { "type": "monitoring", "value": 12 }
                 ]
 }

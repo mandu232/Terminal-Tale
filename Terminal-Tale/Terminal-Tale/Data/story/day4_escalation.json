@@ -1,6 +1,6 @@
 {
   "id": "day4_escalation",
-  "sfx": "Assets/audio/node_paper.wav",
+  "sfx": "Assets/audio/node_alert.wav",
   "text": [
     "story.day4_escalation.0",
     "story.day4_escalation.1",
@@ -8,8 +8,17 @@
     "story.day4_escalation.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "suspicion", "value": 2 },
-    { "type": "flag_add", "key": "escalation_resolved" }
+    {
+      "type": "flag_remove",
+      "key": "case_pending"
+    },
+    {
+      "type": "tendency",
+      "key": "suspicion",
+      "value": 1
+    },
+    { "type": "fatigue",    "value": 2 },
+    { "type": "monitoring", "value": 5 }
   ],
   "choices": [
     {

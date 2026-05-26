@@ -16,8 +16,9 @@
       "text": "story.day4_memo2.choice.1",
       "next": "case_1045",
       "effects": [
-        { "type": "flag_add", "key": "meeting_scheduled" },
-        { "type": "tendency", "key": "suspicion", "value": 1 }
+        { "type": "flag_add",  "key": "going_to_meeting" },
+        { "type": "tendency",  "key": "justice",   "value": 1 },
+        { "type": "tendency",  "key": "suspicion",  "value": 1 }
       ]
     }
   ]

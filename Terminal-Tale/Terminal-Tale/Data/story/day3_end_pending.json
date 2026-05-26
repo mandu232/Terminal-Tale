@@ -7,14 +7,14 @@
     "story.day3_end_pending.2",
     "story.day3_end_pending.3"
   ],
-  "effects": [
-    { "type": "day",      "value": 1 },
-    { "type": "set_time", "value": 8 }
-  ],
   "choices": [
     {
       "text": "story.day_end.choice.0",
-      "next": "day4_morning"
+      "next": "day4_morning",
+      "effects": [
+        { "type": "day",      "value": 1 },
+        { "type": "set_time", "value": 8 }
+      ]
     }
   ]
 }

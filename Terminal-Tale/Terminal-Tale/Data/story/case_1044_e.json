@@ -38,6 +38,8 @@
                     {
                         "type":  "corruption",
                         "value":  5
-                    }
+                    },
+                    { "type": "fatigue",    "value": 3 },
+                    { "type": "monitoring", "value": 8 }
                 ]
 }

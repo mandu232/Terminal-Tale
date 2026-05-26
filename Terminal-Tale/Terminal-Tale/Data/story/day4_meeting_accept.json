@@ -1,6 +1,6 @@
 {
   "id": "day4_meeting_accept",
-  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "sfx": "Assets/audio/node_alert.wav",
   "text": [
     "story.day4_meeting_accept.0",
     "story.day4_meeting_accept.1",
@@ -8,10 +8,25 @@
     "story.day4_meeting_accept.3"
   ],
   "effects": [
-    { "type": "corruption", "value": 5 },
-    { "type": "tendency", "key": "justice",   "value": 2 },
-    { "type": "tendency", "key": "suspicion", "value": 3 },
-    { "type": "flag_add", "key": "has_classified_docs" }
+    {
+      "type": "tendency",
+      "key": "justice",
+      "value": 2
+    },
+    {
+      "type": "tendency",
+      "key": "suspicion",
+      "value": 2
+    },
+    {
+      "type": "give_item",
+      "key": "classified_docs"
+    },
+    {
+      "type": "flag_add",
+      "key": "has_classified_docs"
+    },
+    { "type": "monitoring", "value": 8 }
   ],
   "choices": [
     {
