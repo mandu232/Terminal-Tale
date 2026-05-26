@@ -8,7 +8,13 @@
     "story.day7_locked_out.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "suspicion", "value": 3 }
+    {
+      "type": "tendency",
+      "key": "suspicion",
+      "value": 2
+    },
+    { "type": "fatigue",    "value": 3 },
+    { "type": "monitoring", "value": 8 }
   ],
   "choices": [
     {

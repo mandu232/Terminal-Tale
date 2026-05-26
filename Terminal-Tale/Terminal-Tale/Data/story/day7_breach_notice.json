@@ -8,8 +8,13 @@
     "story.day7_breach_notice.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "suspicion", "value": 3 },
-    { "type": "flag_add", "key": "storage_compromised" }
+    {
+      "type": "tendency",
+      "key": "suspicion",
+      "value": 2
+    },
+    { "type": "fatigue",    "value": 3 },
+    { "type": "monitoring", "value": 5 }
   ],
   "choices": [
     {

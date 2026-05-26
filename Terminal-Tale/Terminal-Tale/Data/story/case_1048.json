@@ -1,12 +1,16 @@
 {
   "id": "case_1048",
-  "sfx": "Assets/audio/node_paper_crunch.wav",
+  "sfx": "Assets/audio/node_alert.wav",
   "text": [
     "story.case_1048.0",
     "story.case_1048.1",
     "story.case_1048.2",
     "story.case_1048.3",
     "story.case_1048.4"
+  ],
+  "effects": [
+    { "type": "time",    "value": 1 },
+    { "type": "fatigue", "value": 5 }
   ],
   "choices": [
     {
@@ -21,14 +25,24 @@
       "text": "story.case_1048.choice.2",
       "next": "case_1048_c",
       "require": [
-        { "type": "flag", "key": "case_fully_exposed" }
+        {
+          "type": "tendency",
+          "key": "justice",
+          "op": "gte",
+          "value": 5
+        }
       ]
     },
     {
       "text": "story.case_1048.choice.3",
       "next": "case_1048_d",
       "require": [
-        { "type": "flag", "key": "connected_evidence" }
+        {
+          "type": "tendency",
+          "key": "justice",
+          "op": "gte",
+          "value": 3
+        }
       ]
     }
   ]

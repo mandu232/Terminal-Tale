@@ -7,13 +7,15 @@
     "story.day7_end_resistance.2",
     "story.day7_end_resistance.3"
   ],
-  "effects": [
-    { "type": "tendency", "key": "suspicion", "value": 2 }
-  ],
+  "effects": [],
   "choices": [
     {
       "text": "story.day7_end_resistance.choice.0",
-      "next": "day8_morning"
+      "next": "day8_morning",
+      "effects": [
+        { "type": "day",      "value": 1 },
+        { "type": "set_time", "value": 8 }
+      ]
     }
   ]
 }

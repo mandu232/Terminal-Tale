@@ -1,16 +1,20 @@
 {
   "id": "day7_end_compliance",
-  "sfx": "Assets/audio/node_paper.wav",
   "text": [
     "story.day7_end_compliance.0",
     "story.day7_end_compliance.1",
     "story.day7_end_compliance.2",
     "story.day7_end_compliance.3"
   ],
+  "effects": [],
   "choices": [
     {
       "text": "story.day7_end_compliance.choice.0",
-      "next": "day8_morning"
+      "next": "day8_morning",
+      "effects": [
+        { "type": "day",      "value": 1 },
+        { "type": "set_time", "value": 8 }
+      ]
     }
   ]
 }
