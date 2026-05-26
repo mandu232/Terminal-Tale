@@ -8,10 +8,14 @@
     "story.day9_network_data.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "justice",   "value": 2 },
-    { "type": "tendency", "key": "suspicion", "value": 2 },
-    { "type": "corruption", "value": 5 },
-    { "type": "flag_add", "key": "has_command_structure" }
+    { "type": "tendency",  "key": "justice",   "value": 2 },
+    { "type": "tendency",  "key": "suspicion", "value": 2 },
+    { "type": "corruption", "value": -5 },
+    { "type": "flag_add",  "key": "has_command_structure" },
+    { "type": "flag_add",  "key": "knows_true_reason" },
+    { "type": "give_item", "key": "command_structure_doc" },
+    { "type": "fatigue",    "value": 3 },
+    { "type": "monitoring", "value": 12 }
   ],
   "choices": [
     {

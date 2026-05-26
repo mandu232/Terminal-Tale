@@ -8,7 +8,11 @@
     "story.day9_colleague_end.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "justice", "value": 1 }
+    { "type": "tendency",  "key": "justice",   "value": 1 },
+    { "type": "give_item", "key": "colleague_note" },
+    { "type": "flag_add",  "key": "has_colleague_contact" },
+    { "type": "fatigue",    "value": 2 },
+    { "type": "monitoring", "value": 3 }
   ],
   "choices": [
     {

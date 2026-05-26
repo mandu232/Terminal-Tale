@@ -8,9 +8,14 @@
     "story.day9_colleague_ally.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "justice",   "value": 2 },
-    { "type": "tendency", "key": "suspicion", "value": 1 },
-    { "type": "flag_add", "key": "has_insider_ally" }
+    { "type": "tendency",  "key": "justice",   "value": 2 },
+    { "type": "tendency",  "key": "suspicion", "value": 1 },
+    { "type": "flag_add",  "key": "has_insider_ally" },
+    { "type": "flag_add",  "key": "has_colleague_contact" },
+    { "type": "flag_add",  "key": "knows_true_reason" },
+    { "type": "give_item", "key": "colleague_note" },
+    { "type": "fatigue",    "value": 2 },
+    { "type": "monitoring", "value": 5 }
   ],
   "choices": [
     {

@@ -2484,5 +2484,14 @@
     "ach.vitality_min.desc": "피로도가 최대치에 도달했습니다.",
 
     "ach.monitoring_high.name": "RECORD의 레이더",
-    "ach.monitoring_high.desc": "감시 등급이 80 이상으로 올라갔습니다.\nRECORD가 당신을 지켜보고 있습니다."
+    "ach.monitoring_high.desc": "감시 등급이 80 이상으로 올라갔습니다.\nRECORD가 당신을 지켜보고 있습니다.",
+
+    "item.colleague_note.name": "동료의 쪽지",
+    "item.colleague_note.desc": "이준혁이 책상 위에 슬며시 남기고 간 손으로 쓴 메모.\n\"필요하면 연락하세요.\"\n전화번호 아래에 아무 서명도 없다.\n그가 감수하는 위험이 무엇인지, 알고 있다.\n\n※ 중요 아이템 — 사용 불가",
+
+    "item.command_structure_doc.name": "내부 명령 체계 구조도",
+    "item.command_structure_doc.desc": "기록 관리국 → 도시 계획부 → 재개발 추진위로 이어지는 결재 라인.\n암호화된 채널로 전송된 파일이다.\n최상단 결재자 이름은 세 군데 모두 동일하게 삭제돼 있다.\n하지만 결재 코드는 살아 있다. 추적할 수 있다.\n\n※ 중요 아이템 — 사용 불가",
+
+    "item.algorithm_report.name": "예측 알고리즘 보고서",
+    "item.algorithm_report.desc": "RECORD 위험도 산출 알고리즘의 가중치 기준 문서.\n거주 구역 +40%, 민원 신고 이력 +30%, 가족 기록 연동 +15%...\n가난하고, 불만을 말한 적 있고, 가족 중 누군가 눈에 띄면 —\n시스템은 당신을 미래 위험 인물로 분류한다.\n\n※ 중요 아이템 — 사용 불가"
 }

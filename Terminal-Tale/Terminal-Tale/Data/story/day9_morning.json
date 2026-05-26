@@ -7,6 +7,9 @@
     "story.day9_morning.2",
     "story.day9_morning.3"
   ],
+  "effects": [
+    { "type": "set_time", "value": 9 }
+  ],
   "choices": [
     {
       "text": "story.day9_morning.choice.0",
@@ -27,6 +30,13 @@
       "next": "day9_colleague",
       "require": [
         { "type": "flag", "key": "refused_child_record" }
+      ]
+    },
+    {
+      "text": "story.day9_morning.choice.2",
+      "next": "day9_colleague",
+      "require": [
+        { "type": "flag", "key": "dual_hold_filed" }
       ]
     },
     {

@@ -7,20 +7,35 @@
     "story.day9_auditor_talk.2",
     "story.day9_auditor_talk.3"
   ],
+  "effects": [
+    { "type": "fatigue", "value": 2 }
+  ],
   "choices": [
     {
       "text": "story.day9_auditor_talk.choice.0",
-      "next": "case_1050"
+      "next": "case_1050",
+      "effects": [
+        { "type": "tendency",  "key": "compliance", "value": 1 },
+        { "type": "monitoring", "value": -2 }
+      ]
     },
     {
       "text": "story.day9_auditor_talk.choice.1",
-      "next": "case_1050"
+      "next": "case_1050",
+      "effects": [
+        { "type": "tendency",  "key": "coldness", "value": 1 },
+        { "type": "monitoring", "value": -1 }
+      ]
     },
     {
       "text": "story.day9_auditor_talk.choice.2",
       "next": "day9_auditor_respond",
       "require": [
         { "type": "tendency", "key": "suspicion", "op": "gte", "value": 13 }
+      ],
+      "effects": [
+        { "type": "tendency",  "key": "suspicion", "value": 1 },
+        { "type": "monitoring", "value": 3 }
       ]
     }
   ]

@@ -7,20 +7,33 @@
     "story.day9_colleague.2",
     "story.day9_colleague.3"
   ],
+  "effects": [
+    { "type": "fatigue", "value": 2 }
+  ],
   "choices": [
     {
       "text": "story.day9_colleague.choice.0",
-      "next": "case_1050"
+      "next": "case_1050",
+      "effects": [
+        { "type": "tendency", "key": "compliance", "value": 1 }
+      ]
     },
     {
       "text": "story.day9_colleague.choice.1",
-      "next": "day9_colleague_end"
+      "next": "day9_colleague_end",
+      "effects": [
+        { "type": "tendency", "key": "suspicion", "value": 1 }
+      ]
     },
     {
       "text": "story.day9_colleague.choice.2",
       "next": "day9_colleague_ally",
       "require": [
         { "type": "tendency", "key": "justice", "op": "gte", "value": 12 }
+      ],
+      "effects": [
+        { "type": "tendency", "key": "justice",   "value": 1 },
+        { "type": "tendency", "key": "suspicion", "value": 1 }
       ]
     }
   ]

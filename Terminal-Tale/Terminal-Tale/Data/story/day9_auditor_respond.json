@@ -8,7 +8,9 @@
     "story.day9_auditor_respond.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "suspicion", "value": 1 }
+    { "type": "tendency",  "key": "suspicion", "value": 1 },
+    { "type": "fatigue",    "value": 2 },
+    { "type": "monitoring", "value": 5 }
   ],
   "choices": [
     {

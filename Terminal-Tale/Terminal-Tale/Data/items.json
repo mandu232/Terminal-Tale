@@ -200,5 +200,27 @@
         "desc": "item.ration_ticket.desc",
         "usable": false,
         "effects": []
+    },
+
+    {
+        "id": "colleague_note",
+        "name": "item.colleague_note.name",
+        "desc": "item.colleague_note.desc",
+        "usable": false,
+        "effects": []
+    },
+    {
+        "id": "command_structure_doc",
+        "name": "item.command_structure_doc.name",
+        "desc": "item.command_structure_doc.desc",
+        "usable": false,
+        "effects": []
+    },
+    {
+        "id": "algorithm_report",
+        "name": "item.algorithm_report.name",
+        "desc": "item.algorithm_report.desc",
+        "usable": false,
+        "effects": []
     }
 ]
