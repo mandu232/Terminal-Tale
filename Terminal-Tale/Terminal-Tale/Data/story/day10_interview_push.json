@@ -8,8 +8,11 @@
     "story.day10_interview_push.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "suspicion", "value": 2 },
-    { "type": "tendency", "key": "justice",   "value": 1 }
+    { "type": "tendency",  "key": "suspicion", "value": 2 },
+    { "type": "tendency",  "key": "justice",   "value": 1 },
+    { "type": "flag_add",  "key": "auditor_knows_cases" },
+    { "type": "fatigue",    "value": 4 },
+    { "type": "monitoring", "value": 10 }
   ],
   "choices": [
     {

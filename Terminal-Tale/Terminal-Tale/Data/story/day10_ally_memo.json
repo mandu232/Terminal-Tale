@@ -8,8 +8,11 @@
     "story.day10_ally_memo.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "justice",   "value": 1 },
-    { "type": "tendency", "key": "suspicion", "value": 1 }
+    { "type": "tendency",  "key": "justice",   "value": 1 },
+    { "type": "tendency",  "key": "suspicion", "value": 1 },
+    { "type": "flag_add",  "key": "knows_predecessor_fate" },
+    { "type": "fatigue",    "value": 2 },
+    { "type": "monitoring", "value": 3 }
   ],
   "choices": [
     {

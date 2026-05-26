@@ -7,13 +7,16 @@
     "story.day10_morning.2",
     "story.day10_morning.3"
   ],
+  "effects": [
+    { "type": "set_time", "value": 9 }
+  ],
   "choices": [
     {
       "text": "story.day10_morning.choice.0",
       "next": "day10_formal_interview",
       "require": [
-        { "type": "flag", "key": "under_audit" },
-        { "type": "tendency", "key": "suspicion", "op": "gte", "value": 13 }
+        { "type": "flag",    "key": "under_audit" },
+        { "type": "tendency","key": "suspicion", "op": "gte", "value": 13 }
       ]
     },
     {

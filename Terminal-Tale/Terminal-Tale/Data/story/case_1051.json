@@ -8,6 +8,10 @@
     "story.case_1051.3",
     "story.case_1051.4"
   ],
+  "effects": [
+    { "type": "time",    "value": 1 },
+    { "type": "fatigue", "value": 3 }
+  ],
   "choices": [
     {
       "text": "story.case_1051.choice.0",

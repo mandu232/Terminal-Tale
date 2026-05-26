@@ -7,14 +7,15 @@
     "story.day10_end.2",
     "story.day10_end.3"
   ],
-  "effects": [
-    { "type": "day",      "value": 1 },
-    { "type": "set_time", "value": 8 }
-  ],
+  "effects": [],
   "choices": [
     {
       "text": "story.day_end.choice.0",
-      "next": "day11_morning"
+      "next": "day11_morning",
+      "effects": [
+        { "type": "day",      "value": 1 },
+        { "type": "set_time", "value": 8 }
+      ]
     }
   ]
 }

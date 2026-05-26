@@ -222,5 +222,12 @@
         "desc": "item.algorithm_report.desc",
         "usable": false,
         "effects": []
+    },
+    {
+        "id": "insider_memo",
+        "name": "item.insider_memo.name",
+        "desc": "item.insider_memo.desc",
+        "usable": false,
+        "effects": []
     }
 ]

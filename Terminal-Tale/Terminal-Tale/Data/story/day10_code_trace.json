@@ -8,9 +8,12 @@
     "story.day10_code_trace.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "justice",   "value": 2 },
-    { "type": "tendency", "key": "suspicion", "value": 1 },
-    { "type": "flag_add", "key": "knows_department" }
+    { "type": "tendency",  "key": "justice",   "value": 2 },
+    { "type": "tendency",  "key": "suspicion", "value": 1 },
+    { "type": "flag_add",  "key": "knows_department" },
+    { "type": "corruption",  "value": -5 },
+    { "type": "fatigue",    "value": 3 },
+    { "type": "monitoring", "value": 10 }
   ],
   "choices": [
     {

@@ -7,20 +7,35 @@
     "story.day10_formal_interview.2",
     "story.day10_formal_interview.3"
   ],
+  "effects": [
+    { "type": "fatigue", "value": 4 }
+  ],
   "choices": [
     {
       "text": "story.day10_formal_interview.choice.0",
-      "next": "case_1051"
+      "next": "case_1051",
+      "effects": [
+        { "type": "tendency",  "key": "compliance", "value": 1 },
+        { "type": "monitoring", "value": -3 }
+      ]
     },
     {
       "text": "story.day10_formal_interview.choice.1",
-      "next": "case_1051"
+      "next": "case_1051",
+      "effects": [
+        { "type": "tendency",  "key": "coldness",  "value": 1 },
+        { "type": "monitoring", "value": -2 }
+      ]
     },
     {
       "text": "story.day10_formal_interview.choice.2",
       "next": "day10_interview_push",
       "require": [
         { "type": "tendency", "key": "suspicion", "op": "gte", "value": 15 }
+      ],
+      "effects": [
+        { "type": "tendency",  "key": "suspicion", "value": 1 },
+        { "type": "monitoring", "value": 5 }
       ]
     }
   ]
