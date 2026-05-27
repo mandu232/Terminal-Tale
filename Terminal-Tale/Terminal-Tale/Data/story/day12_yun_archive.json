@@ -8,10 +8,12 @@
     "story.day12_yun_archive.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "justice",   "value": 2 },
-    { "type": "tendency", "key": "suspicion", "value": 1 },
-    { "type": "corruption",                   "value": 8 },
-    { "type": "flag_add", "key": "archive_analyzed" }
+    { "type": "tendency",   "key": "justice",   "value": 2 },
+    { "type": "tendency",   "key": "suspicion", "value": 1 },
+    { "type": "corruption", "value": -8 },
+    { "type": "flag_add",   "key": "archive_analyzed" },
+    { "type": "fatigue",    "value": 3 },
+    { "type": "monitoring", "value": 8 }
   ],
   "choices": [
     {

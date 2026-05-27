@@ -6,14 +6,15 @@
     "story.day12_end.1",
     "story.day12_end.2"
   ],
-  "effects": [
-    { "type": "day",      "value": 1 },
-    { "type": "set_time", "value": 8 }
-  ],
+  "effects": [],
   "choices": [
     {
       "text": "story.day_end.choice.0",
-      "next": "day13_morning"
+      "next": "day13_morning",
+      "effects": [
+        { "type": "day",      "value": 1 },
+        { "type": "set_time", "value": 8 }
+      ]
     }
   ]
 }

@@ -9,8 +9,8 @@
              ],
     "choices":  [
                     {
-                        "text":  "story.common.next_case",
-                        "next":  "day12_end_expose"
+                        "text":  "story.common.close_file",
+                        "next":  "day12_desk_expose"
                     }
                 ],
     "effects":  [
@@ -23,7 +23,7 @@
                     },
                     {
                         "type":  "corruption",
-                        "value":  15
+                        "value":  -15
                     },
                     {
                         "type":  "tendency",
@@ -38,6 +38,8 @@
                     {
                         "type":  "flag_add",
                         "key":  "has_authorizer_evidence"
-                    }
+                    },
+                    { "type": "fatigue",     "value": 6 },
+                    { "type": "monitoring",  "value": 20 }
                 ]
 }

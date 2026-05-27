@@ -7,7 +7,11 @@
     "story.case_1053.2",
     "story.case_1053.3"
   ],
-  "effects": [],
+  "effects": [
+    { "type": "time",              "value": 1 },
+    { "type": "fatigue",           "value": 3 },
+    { "type": "reveal_character",  "key": "oh_yujin" }
+  ],
   "choices": [
     {
       "text": "story.case_1053.choice.0",

@@ -187,6 +187,18 @@
     "char.seo_minjun.relationship": "처리 대상",
     "char.seo_minjun.desc": "내부 결재 문서 유출 시도 혐의.\n재개발 사업 최종 승인 결재자의 성명이 담긴 문서를 외부로 반출하려 했다.\n세 글자.\n그 문서가 남아 있다.",
 
+    "char.oh_yujin.name": "오유진",
+    "char.oh_yujin.role": "시민",
+    "char.oh_yujin.affiliation": "재개발 예정 구역",
+    "char.oh_yujin.relationship": "처리 대상",
+    "char.oh_yujin.desc": "43세. 도시재개발 반대 청원 대표.\n자신의 집이 사라지는 것을 막기 위해 주민들을 이끌었다.\n처분 등급: 우선. 혐의: 민원 선동.\n재개발이 발표되기도 전에 이미 RECORD에 타겟으로 등록돼 있었다.",
+
+    "char.cha_minseok.name": "차민석",
+    "char.cha_minseok.role": "도시계획부 부국장",
+    "char.cha_minseok.affiliation": "도시계획부 / 재개발추진위 비상임 자문위원",
+    "char.cha_minseok.relationship": "배후 인물",
+    "char.cha_minseok.desc": "재임 8년. 재개발추진위 비상임 자문위원.\n공식 기록에는 흠잡을 데 없는 관료다.\n하지만 결재자 성명이 적힌 문서에 그의 이름이 있었다.\n그는 단순히 지시를 내린 것이 아니라, 직접 집행 명령에 서명하고 있었다.",
+
     "item.access_card.name": "출입 카드",
     "item.access_card.desc": "중앙 기록 관리국 신입 직원 출입 카드.\n이 카드가 없으면 건물에 들어갈 수 없다.\n\n※ 중요 아이템 — 사용 불가",
 
@@ -1301,6 +1313,20 @@
     "story.case_1053_protect.1": "당신의 손이 잠시 떨린다.",
     "story.case_1053_protect.2": "차민석의 이름이, 이제 당신의 기록에도 남겨졌다.",
     "story.case_1053_protect.3": "이것이 증거가 될 수 있다. 그리고 그것은 당신도 표적이 된다는 것을 의미한다.",
+
+    "story.day12_desk.0": "파일을 닫았다.",
+    "story.day12_desk.1": "열두 번째 날. 이름이 생겼다.",
+    "story.day12_desk.2": "차민석. 도시계획부 부국장.",
+    "story.day12_desk.3": "이름이 있다는 것은 — 실재한다는 것이다.",
+    "story.day12_desk.4": "오후 6시. 퇴근 시간.",
+    "story.day12_desk.choice.0": "자리를 정리한다",
+
+    "story.day12_desk_expose.0": "파일을 닫았다.",
+    "story.day12_desk_expose.1": "열두 번째 날. 차민석의 서명이 처음으로 당신의 파일에 남겨졌다.",
+    "story.day12_desk_expose.2": "그것은 당신도 이제 안전하지 않다는 것을 의미한다.",
+    "story.day12_desk_expose.3": "어딘가에서 누군가가 이것을 보고 있다.",
+    "story.day12_desk_expose.4": "오후 6시. 퇴근 시간.",
+    "story.day12_desk_expose.choice.0": "자리를 정리한다",
 
     "story.day12_end.0": "열두째 날이 끝난다.",
     "story.day12_end.1": "당신은 그 이름을 안다. 그 이름이 어떤 파일에 붙어 있는지도.",

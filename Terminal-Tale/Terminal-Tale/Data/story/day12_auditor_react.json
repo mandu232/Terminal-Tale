@@ -7,7 +7,9 @@
     "story.day12_auditor_react.2"
   ],
   "effects": [
-    { "type": "tendency", "key": "suspicion", "value": 1 }
+    { "type": "tendency",   "key": "suspicion", "value": 1 },
+    { "type": "fatigue",    "value": 2 },
+    { "type": "monitoring", "value": 3 }
   ],
   "choices": [
     {

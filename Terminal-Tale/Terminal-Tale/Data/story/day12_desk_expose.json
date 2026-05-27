@@ -1,0 +1,17 @@
+{
+  "id": "day12_desk_expose",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day12_desk_expose.0",
+    "story.day12_desk_expose.1",
+    "story.day12_desk_expose.2",
+    "story.day12_desk_expose.3",
+    "story.day12_desk_expose.4"
+  ],
+  "choices": [
+    {
+      "text": "story.day12_desk_expose.choice.0",
+      "next": "day12_end_expose"
+    }
+  ]
+}

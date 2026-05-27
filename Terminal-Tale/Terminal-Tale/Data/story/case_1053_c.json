@@ -37,11 +37,13 @@
                     },
                     {
                         "type":  "corruption",
-                        "value":  10
+                        "value":  -10
                     },
                     {
                         "type":  "flag_add",
                         "key":  "understands_preemptive_system"
-                    }
+                    },
+                    { "type": "fatigue",     "value": 3 },
+                    { "type": "monitoring",  "value": 5 }
                 ]
 }

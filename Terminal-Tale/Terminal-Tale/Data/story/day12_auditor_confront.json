@@ -6,7 +6,9 @@
     "story.day12_auditor_confront.1",
     "story.day12_auditor_confront.2"
   ],
-  "effects": [],
+  "effects": [
+    { "type": "fatigue", "value": 2 }
+  ],
   "choices": [
     {
       "text": "story.day12_auditor_confront.choice.0",

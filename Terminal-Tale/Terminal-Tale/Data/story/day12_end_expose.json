@@ -8,14 +8,16 @@
     "story.day12_end_expose.3"
   ],
   "effects": [
-    { "type": "day",      "value": 1 },
-    { "type": "set_time", "value": 8 },
     { "type": "tendency", "key": "suspicion", "value": 2 }
   ],
   "choices": [
     {
       "text": "story.day_end.choice.0",
-      "next": "day13_morning"
+      "next": "day13_morning",
+      "effects": [
+        { "type": "day",      "value": 1 },
+        { "type": "set_time", "value": 8 }
+      ]
     }
   ]
 }

@@ -37,11 +37,13 @@
                     },
                     {
                         "type":  "corruption",
-                        "value":  12
+                        "value":  -12
                     },
                     {
                         "type":  "flag_add",
                         "key":  "authorizer_caught_in_act"
-                    }
+                    },
+                    { "type": "fatigue",     "value": 4 },
+                    { "type": "monitoring",  "value": 10 }
                 ]
 }
