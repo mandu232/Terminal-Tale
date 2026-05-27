@@ -1,0 +1,21 @@
+{
+  "id": "day4_break",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day4_break.0",
+    "story.day4_break.1",
+    "story.day4_break.2",
+    "story.day4_break.3"
+  ],
+  "effects": [
+    { "type": "fatigue",   "value": -8 },
+    { "type": "give_item", "key": "painkiller" },
+    { "type": "monitoring","value": -5 }
+  ],
+  "choices": [
+    {
+      "text": "story.day4_break.choice.0",
+      "next": "case_1045"
+    }
+  ]
+}

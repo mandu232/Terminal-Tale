@@ -15,6 +15,16 @@
         { "type": "day",      "value": 1 },
         { "type": "set_time", "value": 8 }
       ]
+    },
+    {
+      "text": "story.common.submit_compliance",
+      "next": "day8_morning",
+      "effects": [
+        { "type": "day",        "value": 1 },
+        { "type": "set_time",   "value": 8 },
+        { "type": "monitoring", "value": -6 },
+        { "type": "tendency",   "key": "compliance", "value": 1 }
+      ]
     }
   ]
 }

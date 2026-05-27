@@ -27,6 +27,10 @@
     {
       "text": "story.day4_morning.choice.2",
       "next": "case_1045"
+    },
+    {
+      "text": "story.day4_morning.choice.3",
+      "next": "day4_break"
     }
   ]
 }

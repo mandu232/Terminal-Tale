@@ -357,6 +357,7 @@
 
     "story.common.next_case": "다음 파일로",
     "story.common.close_file": "파일을 닫는다",
+    "story.common.submit_compliance": "퇴근 전 준수 확인 서류를 제출한다",
     "story.common.to_day_end": "다음 파일로",
     "story.common.return_to_desk": "자리로 돌아간다",
 
@@ -381,6 +382,13 @@
     "story.day2_morning.choice.0": "상관실 호출 메시지를 확인한다",
     "story.day2_morning.choice.1": "어제 조사 후속 데이터를 확인한다",
     "story.day2_morning.choice.2": "오늘의 사건 파일을 연다",
+    "story.day2_morning.choice.3": "자판기에 들른다",
+
+    "story.day2_vending.0": "자판기 앞. 둘째 날 아침.",
+    "story.day2_vending.1": "코인 하나. 종이컵에 커피가 천천히 채워진다.",
+    "story.day2_vending.2": "첫날보다 손이 덜 떨린다.",
+    "story.day2_vending.3": "한 모금. 피로가 조금 걷힌다.",
+    "story.day2_vending.choice.0": "자리로 돌아간다",
 
     "story.day2_summoned.0": "[ 호출 메시지: 오전 09:00, 3층 관리자실 ]",
     "story.day2_summoned.1": "상관 — 강태원 / 기록 관리 3급 — 은 표정 없이 화면을 바라보고 있었다.",
@@ -494,6 +502,13 @@
     "story.day3_morning.choice.0": "사무실 분위기가 평소와 다르다",
     "story.day3_morning.choice.1": "책상 위에 메모 한 장이 놓여 있다",
     "story.day3_morning.choice.2": "오늘의 사건 파일을 연다",
+    "story.day3_morning.choice.3": "탕비실에 잠깐 들른다",
+
+    "story.day3_break.0": "탕비실. 셋째 날 아침.",
+    "story.day3_break.1": "정수기 뜨거운 물 버튼을 눌렀다. 컵라면.",
+    "story.day3_break.2": "이 건물에서 3분이 이렇게 조용한 적이 없었다.",
+    "story.day3_break.3": "국물이 미지근하다. 그래도 먹을 만하다.",
+    "story.day3_break.choice.0": "자리로 돌아간다",
 
     "story.day3_watched.0": "자리에 앉자마자 느꼈다.",
     "story.day3_watched.1": "시선들이 있다. 짧고, 빠르고, 곧 외면한다.",
@@ -583,6 +598,13 @@
     "story.day4_morning.choice.0": "에스컬레이션된 파일이 어떻게 됐는지 확인한다",
     "story.day4_morning.choice.1": "책상 위에 또 메모가 있다",
     "story.day4_morning.choice.2": "오늘의 사건 파일을 연다",
+    "story.day4_morning.choice.3": "두통약을 꺼낸다",
+
+    "story.day4_break.0": "책상 서랍. 넷째 날.",
+    "story.day4_break.1": "어제부터 두통이 시작됐다.",
+    "story.day4_break.2": "두통약 하나. 업무 일지에 정기 루틴을 남겼다.",
+    "story.day4_break.3": "기록에 평범한 것이 많을수록 덜 보인다.",
+    "story.day4_break.choice.0": "파일을 연다",
 
     "story.day4_escalation.0": "시스템에서 #1044 파일을 검색했다.",
     "story.day4_escalation.1": "상태: 처리 완료. 처리자: [관리자 권한 — 열람 불가].",
@@ -673,6 +695,13 @@
     "story.day5_morning.choice.1": "제보자 관련 공지를 확인한다",
     "story.day5_morning.choice.2": "미행의 흔적이 있는지 살핀다",
     "story.day5_morning.choice.3": "오늘의 사건 파일을 연다",
+    "story.day5_morning.choice.4": "비타민을 챙긴다",
+
+    "story.day5_break.0": "다섯째 날. 가방 속에 넣어두고 잊어버렸던 종합 비타민.",
+    "story.day5_break.1": "별 효과는 없을지도 모른다.",
+    "story.day5_break.2": "없는 것보단 낫겠지. 한 알을 삼켰다.",
+    "story.day5_break.3": "물을 마시고 화면을 켰다.",
+    "story.day5_break.choice.0": "파일을 연다",
 
     "story.day5_docs_check.0": "어제 받은 기밀 문서 봉투를 열었다.",
     "story.day5_docs_check.1": "배급 차단 승인 결재서 — 날짜, 구역, 기간.",
@@ -760,6 +789,13 @@
     "story.day6_morning.choice.1": "시스템 감사 공지를 확인한다",
     "story.day6_morning.choice.2": "제보자의 자리가 비어 있다",
     "story.day6_morning.choice.3": "오늘의 사건 파일을 연다",
+    "story.day6_morning.choice.4": "자판기에 들른다",
+
+    "story.day6_vending.0": "자판기 앞. 여섯째 날.",
+    "story.day6_vending.1": "감시 등급이 오르고 있다는 것을 안다.",
+    "story.day6_vending.2": "커피 한 잔. 평소처럼 행동하는 것이 지금 할 수 있는 최선이다.",
+    "story.day6_vending.3": "코인을 넣었다. 일상적인 루틴처럼.",
+    "story.day6_vending.choice.0": "자리로 돌아간다",
 
     "story.day6_summons.0": "5층 상급 관리부 회의실이었다.",
     "story.day6_summons.1": "강태원 상관이 아니었다. 더 높은 사람들이 기다리고 있었다.",
@@ -840,6 +876,13 @@
     "story.day7_morning.choice.1": "개인 저장소에 외부 접근 시도 기록이 있다",
     "story.day7_morning.choice.2": "서랍 틈에 쪽지가 있다",
     "story.day7_morning.choice.3": "마지막 사건 파일이 도착했다",
+    "story.day7_morning.choice.4": "에너지 드링크를 마신다",
+
+    "story.day7_break.0": "일곱째 날.",
+    "story.day7_break.1": "오늘 처리해야 할 파일들이 무겁다. 예감이 좋지 않다.",
+    "story.day7_break.2": "에너지 드링크 하나. 캔 뚜껑을 땄다.",
+    "story.day7_break.3": "오늘은 버텨야 한다.",
+    "story.day7_break.choice.0": "자리로 돌아간다",
 
     "story.day7_locked_out.0": "시스템에 로그인했다. 오류 메시지가 떴다.",
     "story.day7_locked_out.1": "「계정이 임시 제한됐습니다. 상급 관리부 승인 대기 중.」",
@@ -915,6 +958,13 @@
     "story.day8_morning.choice.1": "내부 감사관이 배정됐다는 공지가 왔다",
     "story.day8_morning.choice.2": "업무 메신저에 모르는 계정에서 메시지가 왔다",
     "story.day8_morning.choice.3": "오늘의 사건 파일을 연다",
+    "story.day8_morning.choice.4": "탕비실에 잠깐 들른다",
+
+    "story.day8_break.0": "탕비실. 여덟째 날.",
+    "story.day8_break.1": "박도영 감사관이 자리에 앉아 있다.",
+    "story.day8_break.2": "지금이 탕비실을 쓸 시간이다. 정수기 뜨거운 물. 컵라면.",
+    "story.day8_break.3": "잠깐의 숨.",
+    "story.day8_break.choice.0": "자리로 돌아간다",
 
     "story.day8_commendation.0": "「우수 처리 직원 표창 — 기준 초과 성과 인정.」",
     "story.day8_commendation.1": "어제 1,247건의 기록 처리가 '우수 처리'로 분류됐다.",
@@ -990,6 +1040,13 @@
     "story.day9_morning.choice.1": "요청했던 내부 구조 파일이 도착했다",
     "story.day9_morning.choice.2": "옆 파트 직원이 말을 걸어온다",
     "story.day9_morning.choice.3": "오늘의 사건 파일을 연다",
+    "story.day9_morning.choice.4": "자판기에 들른다",
+
+    "story.day9_vending.0": "자판기 앞. 아홉째 날.",
+    "story.day9_vending.1": "감사는 계속되고 있다.",
+    "story.day9_vending.2": "감시받고 있다는 것을 알면서도 — 커피는 마셔야 한다.",
+    "story.day9_vending.3": "코인을 넣었다. 따뜻한 한 잔.",
+    "story.day9_vending.choice.0": "자리로 돌아간다",
 
     "story.day9_auditor_talk.0": "「잠깐 괜찮으세요?」 박도영 감사관이 의자를 끌어와 옆에 앉았다.",
     "story.day9_auditor_talk.1": "「업무 적응은 잘 되고 계신가요. 처음엔 파일 양에 압도되는 분도 있어서요.」",

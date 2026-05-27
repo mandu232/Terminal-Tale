@@ -1,0 +1,20 @@
+{
+  "id": "day5_break",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day5_break.0",
+    "story.day5_break.1",
+    "story.day5_break.2",
+    "story.day5_break.3"
+  ],
+  "effects": [
+    { "type": "fatigue",   "value": -8 },
+    { "type": "give_item", "key": "vitamin_tablet" }
+  ],
+  "choices": [
+    {
+      "text": "story.day5_break.choice.0",
+      "next": "case_1046"
+    }
+  ]
+}

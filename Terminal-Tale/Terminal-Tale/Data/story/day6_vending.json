@@ -1,0 +1,20 @@
+{
+  "id": "day6_vending",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day6_vending.0",
+    "story.day6_vending.1",
+    "story.day6_vending.2",
+    "story.day6_vending.3"
+  ],
+  "effects": [
+    { "type": "fatigue",   "value": -8 },
+    { "type": "give_item", "key": "coffee" }
+  ],
+  "choices": [
+    {
+      "text": "story.day6_vending.choice.0",
+      "next": "case_1047"
+    }
+  ]
+}

@@ -11,6 +11,15 @@
     {
       "text": "story.day9_desk.choice.0",
       "next": "day9_end"
+    },
+    {
+      "text": "story.common.submit_compliance",
+      "next": "day9_end",
+      "effects": [
+        { "type": "monitoring", "value": -8 },
+        { "type": "time",       "value": 1 },
+        { "type": "tendency",   "key": "compliance", "value": 1 }
+      ]
     }
   ]
 }
