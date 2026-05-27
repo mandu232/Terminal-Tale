@@ -1,0 +1,21 @@
+{
+  "id": "day11_break",
+  "sfx": "Assets/audio/node_paper.wav",
+  "text": [
+    "story.day11_break.0",
+    "story.day11_break.1",
+    "story.day11_break.2",
+    "story.day11_break.3"
+  ],
+  "effects": [
+    { "type": "fatigue",   "value": -12 },
+    { "type": "give_item", "key": "instant_noodles" },
+    { "type": "time",      "value": 1 }
+  ],
+  "choices": [
+    {
+      "text": "story.day11_break.choice.0",
+      "next": "case_1052"
+    }
+  ]
+}

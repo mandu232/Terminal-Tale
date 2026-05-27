@@ -1081,6 +1081,14 @@
     "story.day10_morning.choice.1": "이준혁이 메모를 남겨뒀다",
     "story.day10_morning.choice.2": "결재 코드 추적 결과가 도착했다",
     "story.day10_morning.choice.3": "오늘의 사건 파일을 연다",
+    "story.day10_morning.choice.4": "자판기에 들른다",
+
+    "story.day10_vending.0": "자판기 앞. 오전 9시.",
+    "story.day10_vending.1": "코인을 넣자 종이컵 하나가 떨어졌다.",
+    "story.day10_vending.2": "따뜻한 커피. 이 건물에서 직접 선택할 수 있는 몇 안 되는 것 중 하나.",
+    "story.day10_vending.3": "한 모금. 피로가 조금 걷힌다.",
+    "story.day10_vending.choice.0": "준수 확인 보고서를 작성해서 제출한다",
+    "story.day10_vending.choice.1": "자리로 돌아간다",
 
     "story.day10_formal_interview.0": "회의실 2호. 박도영이 서류 한 묶음을 테이블 위에 올려놓았다.",
     "story.day10_formal_interview.1": "당신의 최근 2주 파일 처리 기록 전체였다.",
@@ -1151,6 +1159,7 @@
     "story.day10_desk.3": "박도영 감사관의 자리가 비어 있다. 오늘 일찍 나갔다.",
     "story.day10_desk.4": "오후 6시. 퇴근 시간.",
     "story.day10_desk.choice.0": "자리를 정리한다",
+    "story.day10_desk.choice.1": "퇴근 전 준수 확인 서류를 제출한다",
 
     "story.day10_end.0": "열째 날이 끝났다.",
     "story.day10_end.1": "윤시현. 5년. 그리고 같은 것을 보고 있었다는 것.",
@@ -1165,6 +1174,13 @@
     "story.day11_morning.choice.1": "윤시현이 다가왔다",
     "story.day11_morning.choice.2": "박도영 감사관의 자리가 비어 있다",
     "story.day11_morning.choice.3": "오늘의 사건 파일을 연다",
+    "story.day11_morning.choice.4": "탕비실에 잠깐 들른다",
+
+    "story.day11_break.0": "탕비실. 오전 9시.",
+    "story.day11_break.1": "정수기 뜨거운 물 버튼을 눌러 컵라면에 물을 부었다.",
+    "story.day11_break.2": "3분. 이 건물에서 진짜로 혼자일 수 있는 시간.",
+    "story.day11_break.3": "국물이 미지근하다. 그래도 먹을 만하다.",
+    "story.day11_break.choice.0": "자리로 돌아간다",
 
     "story.day11_hold_expired.0": "시스템 알림: 「보류 파일 — 72시간 초과. 자동 처리됩니다.」",
     "story.day11_hold_expired.1": "강현수 / 기록 점수 8점 / 요주의 감시 대상 — 확정.",
@@ -1257,6 +1273,13 @@
     "story.day12_morning.choice.1": "박도영의 자리를 확인한다.",
     "story.day12_morning.choice.2": "윤시현의 자료를 검토한다.",
     "story.day12_morning.choice.3": "오늘 처리 파일을 연다.",
+    "story.day12_morning.choice.4": "책상 서랍에서 두통약을 꺼낸다",
+
+    "story.day12_break.0": "어제부터 머리가 아팠다.",
+    "story.day12_break.1": "박도영의 시선이 원인인지, 아니면 그냥 모니터를 너무 오래 봐서인지는 모르겠다.",
+    "story.day12_break.2": "두통약 하나. 물 한 모금. 업무 일지에 정기 루틴 기록을 남겼다.",
+    "story.day12_break.3": "기록에 평범한 것이 많을수록 — 덜 보인다.",
+    "story.day12_break.choice.0": "파일을 연다",
 
     "story.day12_name_research.0": "기록 열람 시스템에서 그 이름을 검색한다.",
     "story.day12_name_research.1": "차민석. 도시계획부 부국장. 재임 8년. 재개발추진위 비상임 자문위원.",
@@ -1340,6 +1363,7 @@
     "story.day13_desk.3": "차민석. 오유진. 서민준. 박재원.",
     "story.day13_desk.4": "오후 6시. 퇴근 시간.",
     "story.day13_desk.choice.0": "자리를 정리한다",
+    "story.day13_desk.choice.1": "서랍에서 두통약을 꺼낸다",
 
     "story.day13_desk_resistance.0": "파일을 닫았다.",
     "story.day13_desk_resistance.1": "열세 번째 날. 박재원의 파일을 보류했다.",

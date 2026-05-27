@@ -1,0 +1,21 @@
+{
+  "id": "day12_break",
+  "sfx": "Assets/audio/node_notification.wav",
+  "text": [
+    "story.day12_break.0",
+    "story.day12_break.1",
+    "story.day12_break.2",
+    "story.day12_break.3"
+  ],
+  "effects": [
+    { "type": "fatigue",   "value": -10 },
+    { "type": "give_item", "key": "painkiller" },
+    { "type": "monitoring","value": -8 }
+  ],
+  "choices": [
+    {
+      "text": "story.day12_break.choice.0",
+      "next": "case_1053"
+    }
+  ]
+}

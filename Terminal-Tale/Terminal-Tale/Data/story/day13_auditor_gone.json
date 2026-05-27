@@ -9,8 +9,8 @@
   "effects": [
     { "type": "tendency", "key": "justice", "value": 1 },
     { "type": "flag_add", "key": "auditor_gone" },
-    { "type": "fatigue", "value": 2 },
-    { "type": "monitoring", "value": 5 }
+    { "type": "fatigue",    "value": 2 },
+    { "type": "monitoring", "value": -12 }
   ],
   "choices": [
     {

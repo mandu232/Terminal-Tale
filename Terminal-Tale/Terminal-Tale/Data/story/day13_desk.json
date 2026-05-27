@@ -11,6 +11,15 @@
     {
       "text": "story.day13_desk.choice.0",
       "next": "day13_end"
+    },
+    {
+      "text": "story.day13_desk.choice.1",
+      "next": "day13_end",
+      "effects": [
+        { "type": "fatigue",    "value": -10 },
+        { "type": "give_item",  "key": "painkiller" },
+        { "type": "time",       "value": 1 }
+      ]
     }
   ]
 }
