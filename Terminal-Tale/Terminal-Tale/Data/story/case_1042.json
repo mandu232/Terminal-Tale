@@ -10,8 +10,9 @@
     "story.case_1042.5"
   ],
   "effects": [
-    { "type": "time",    "value": 1 },
-    { "type": "fatigue", "value": 3 }
+    { "type": "time",              "value": 1 },
+    { "type": "fatigue",           "value": 3 },
+    { "type": "reveal_character",  "key": "han_jiu" }
   ],
   "choices": [
     {

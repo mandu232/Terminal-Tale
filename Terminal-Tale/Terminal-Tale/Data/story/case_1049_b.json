@@ -30,6 +30,7 @@
                     }
                 ],
     "effects":  [
+                    { "type": "reveal_character", "key": "kang_hyeonsu" },
                     {
                         "type":  "case_record",
                         "key":  "case_1049",

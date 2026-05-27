@@ -8,10 +8,11 @@
     "story.day8_audit_officer.3"
   ],
   "effects": [
-    { "type": "tendency", "key": "suspicion", "value": 2 },
-    { "type": "flag_add", "key": "under_audit" },
-    { "type": "fatigue",    "value": 3 },
-    { "type": "monitoring", "value": 8 }
+    { "type": "tendency",         "key": "suspicion", "value": 2 },
+    { "type": "flag_add",         "key": "under_audit" },
+    { "type": "fatigue",          "value": 3 },
+    { "type": "monitoring",       "value": 8 },
+    { "type": "reveal_character", "key": "park_doyoung" }
   ],
   "choices": [
     {

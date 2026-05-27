@@ -9,8 +9,9 @@
     "story.case_1046.4"
   ],
   "effects": [
-    { "type": "time",    "value": 1 },
-    { "type": "fatigue", "value": 3 }
+    { "type": "time",              "value": 1 },
+    { "type": "fatigue",           "value": 3 },
+    { "type": "reveal_character",  "key": "choi_minho" }
   ],
   "choices": [
     {

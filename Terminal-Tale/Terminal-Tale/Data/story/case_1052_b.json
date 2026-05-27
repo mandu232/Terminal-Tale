@@ -23,8 +23,8 @@
   ],
   "choices": [
     {
-      "text": "story.common.next_case",
-      "next": "day11_end"
+      "text": "story.common.close_file",
+      "next": "day11_desk"
     }
   ]
 }

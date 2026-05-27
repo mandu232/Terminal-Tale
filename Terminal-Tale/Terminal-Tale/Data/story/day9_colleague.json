@@ -8,7 +8,8 @@
     "story.day9_colleague.3"
   ],
   "effects": [
-    { "type": "fatigue", "value": 2 }
+    { "type": "fatigue",           "value": 2 },
+    { "type": "reveal_character",  "key": "lee_junhyeok" }
   ],
   "choices": [
     {

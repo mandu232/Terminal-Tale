@@ -8,8 +8,8 @@
              ],
     "choices":  [
                     {
-                        "text":  "story.common.next_case",
-                        "next":  "day8_end"
+                        "text":  "story.common.close_file",
+                        "next":  "day8_desk"
                     }
                 ],
     "effects":  [

@@ -9,8 +9,9 @@
     "story.case_1045.4"
   ],
   "effects": [
-    { "type": "time",    "value": 1 },
-    { "type": "fatigue", "value": 3 }
+    { "type": "time",              "value": 1 },
+    { "type": "fatigue",           "value": 3 },
+    { "type": "reveal_character",  "key": "oh_taeyang" }
   ],
   "choices": [
     {

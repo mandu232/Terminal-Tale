@@ -9,8 +9,9 @@
     "story.case_1051.4"
   ],
   "effects": [
-    { "type": "time",    "value": 1 },
-    { "type": "fatigue", "value": 3 }
+    { "type": "time",              "value": 1 },
+    { "type": "fatigue",           "value": 3 },
+    { "type": "reveal_character",  "key": "yun_sihyeon" }
   ],
   "choices": [
     {

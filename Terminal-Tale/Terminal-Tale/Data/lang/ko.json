@@ -109,6 +109,84 @@
     "char.kang_taewon.relationship": "직속 상관",
     "char.kang_taewon.desc": "중앙 기록 관리국 기록 처리 부서의 직속 상관.\n감정을 드러내는 법이 없고, 항상 규정대로 처리할 것을 요구한다.\n이례적인 파일 처리에 대해 주의를 주었지만, 그 이유가 순응인지 두려움인지는 알 수 없다.\n\n「처음엔 단순해 보일 거예요. 그냥 규정대로 처리하면 됩니다.」",
 
+    "char.han_jiu.name": "한지우",
+    "char.han_jiu.role": "시민",
+    "char.han_jiu.affiliation": "구역 C-7",
+    "char.han_jiu.relationship": "처리 대상",
+    "char.han_jiu.desc": "34세. 딸 하나를 혼자 키우고 있다.\n배급 차단 지역에서 식량 창고에 무단 침입한 혐의로 RECORD에 등록됐다.\n복지 신청 이력은 있었지만, 시스템 오류로 접수가 불가했다.\n딸은 7세.\n\n첫 번째 파일이었다.",
+
+    "char.lee_sujin.name": "이수진",
+    "char.lee_sujin.role": "교사",
+    "char.lee_sujin.affiliation": "구역 D-12",
+    "char.lee_sujin.relationship": "처리 대상",
+    "char.lee_sujin.desc": "41세. 구역 D-12에서 아이들을 가르쳤다.\n승인 목록에 없는 역사 자료를 배포한 혐의로 RECORD에 등록됐다.\n자료의 내용은 30년 전 지역 자치 기록과 주민 투표 결과였다.\n공식 역사에는 존재하지 않는 것들.",
+
+    "char.park_jinsu.name": "박진수",
+    "char.park_jinsu.role": "시민",
+    "char.park_jinsu.affiliation": "구역 B-3",
+    "char.park_jinsu.relationship": "처리 대상",
+    "char.park_jinsu.desc": "28세. 배급 차단 4주차에 15명 이상을 모아 집회를 주도했다.\n주민 신고 12건이 접수됐지만 전부 '처리 완료'로 기록된 뒤였다.\n무허가 집회. 하지만 이유는 기록되지 않았다.",
+
+    "char.oh_taeyang.name": "오태양",
+    "char.oh_taeyang.role": "시민",
+    "char.oh_taeyang.affiliation": "구역 C-7",
+    "char.oh_taeyang.relationship": "처리 대상",
+    "char.oh_taeyang.desc": "35세. 허가되지 않은 구역에서 무단 촬영을 한 혐의로 RECORD에 등록됐다.\n압수된 이미지 107장 — 내용은 배급 차단 구역의 생활상이었다.\n그는 그것을 기록하고 싶었다.",
+
+    "char.choi_minho.name": "최민호",
+    "char.choi_minho.role": "내부 고발자",
+    "char.choi_minho.affiliation": "미상",
+    "char.choi_minho.relationship": "처리 대상",
+    "char.choi_minho.desc": "47세. 기관 내부 정보 유출 의혹으로 RECORD에 등록됐다.\n그가 제출한 문건의 내용: 「배급 차단은 식량 부족이 아닌 주민 이주 압박이었다.」\n그것이 사실인지는 — 파일을 열어봐야만 알 수 있었다.",
+
+    "char.han_jisu.name": "한지수",
+    "char.han_jisu.role": "시민",
+    "char.han_jisu.affiliation": "미상",
+    "char.han_jisu.relationship": "처리 대상",
+    "char.han_jisu.desc": "29세. 재개발 관련 내부 문서 10건을 소지하고 외부 언론사에 접촉을 시도한 혐의로 RECORD에 등록됐다.\n미허가 정보 수집 및 외부 유통 시도.\n그가 가진 문서들이 어떤 내용인지는 기록되지 않았다.",
+
+    "char.park_doyoung.name": "박도영",
+    "char.park_doyoung.role": "감사관",
+    "char.park_doyoung.affiliation": "중앙 기록 관리국 내부 감사팀",
+    "char.park_doyoung.relationship": "감시자",
+    "char.park_doyoung.desc": "내부 감사 지원 인력으로 8일째 아침 배정됐다.\n「정기 감사입니다.」 — 첫 마디였다.\n자리 옆에 추가 모니터를 설치하고, 매일 그 화면을 응시한다.\n무엇을 보고 있는지는 말하지 않는다.",
+
+    "char.kang_seojun.name": "강서준",
+    "char.kang_seojun.role": "시민",
+    "char.kang_seojun.affiliation": "구역 B-3",
+    "char.kang_seojun.relationship": "처리 대상",
+    "char.kang_seojun.desc": "9세. 기록 점수 신규 생성.\n분류: 「예비 위험 대상」 — 보호자의 감시 등급이 기준치를 초과했기 때문.\n그 아이는 아무것도 하지 않았다.\n아버지의 기록이 그를 먼저 RECORD에 데려왔다.",
+
+    "char.kang_hyeonsu.name": "강현수",
+    "char.kang_hyeonsu.role": "시민",
+    "char.kang_hyeonsu.affiliation": "구역 B-3",
+    "char.kang_hyeonsu.relationship": "처리 대상",
+    "char.kang_hyeonsu.desc": "강서준의 아버지. 구역 B-3 거주.\n특별 처리 명령서 #1048 일괄 처리로 어제부터 '요주의 감시 대상'으로 등록됐다.\n그 기록이 아들에게로 이어졌다.",
+
+    "char.lee_junhyeok.name": "이준혁",
+    "char.lee_junhyeok.role": "기록 검토원",
+    "char.lee_junhyeok.affiliation": "중앙 기록 관리국, 옆 파트",
+    "char.lee_junhyeok.relationship": "동료",
+    "char.lee_junhyeok.desc": "3년차 직원. 점심 이후 조용히 다가와 #1049 파일에 대해 물었다.\n말하기 전에 주변을 먼저 확인하고 나서.\n3년 동안 이상한 파일들을 혼자 보고 있었다.\n「혼자 생각하는 사람이 또 있다는 걸 알고 싶었습니다.」",
+
+    "char.jeong_yura.name": "정유라",
+    "char.jeong_yura.role": "시민",
+    "char.jeong_yura.affiliation": "구역 C-7",
+    "char.jeong_yura.relationship": "처리 대상",
+    "char.jeong_yura.desc": "52세. RECORD 예측 알고리즘 위험도 산출 87%.\n분류: 「예측 위험 지수 초과」.\n그녀는 아직 아무것도 하지 않았다.\n예측 근거: 아들의 기록에 항의할 가능성이 높다는 것.",
+
+    "char.yun_sihyeon.name": "윤시현",
+    "char.yun_sihyeon.role": "기록 처리 2급",
+    "char.yun_sihyeon.affiliation": "중앙 기록 관리국",
+    "char.yun_sihyeon.relationship": "처리 대상 / 내부 반체제자",
+    "char.yun_sihyeon.desc": "근속 5년. 권한 외 파일 열람 12건, 개인 메모 보관, 상부 지시 지연 처리 3건.\n그가 추적하던 것은 전부 같은 것이었다 — 배급 차단 구역, 재개발, 이주.\n5년 동안 혼자였다.\n그 기간 동안 작성된 메모들이 남아 있다.",
+
+    "char.seo_minjun.name": "서민준",
+    "char.seo_minjun.role": "시민",
+    "char.seo_minjun.affiliation": "미상",
+    "char.seo_minjun.relationship": "처리 대상",
+    "char.seo_minjun.desc": "내부 결재 문서 유출 시도 혐의.\n재개발 사업 최종 승인 결재자의 성명이 담긴 문서를 외부로 반출하려 했다.\n세 글자.\n그 문서가 남아 있다.",
+
     "item.access_card.name": "출입 카드",
     "item.access_card.desc": "중앙 기록 관리국 신입 직원 출입 카드.\n이 카드가 없으면 건물에 들어갈 수 없다.\n\n※ 중요 아이템 — 사용 불가",
 
@@ -874,6 +952,13 @@
     "story.case_1049_d.2": "72시간. 그 안에 무언가가 달라질 수 있을까.",
     "story.case_1049_d.3": "아니면 더 나빠질 수도 있다.",
 
+    "story.day8_desk.0": "파일을 닫았다.",
+    "story.day8_desk.1": "여덟 번째 날. 오늘 처리한 파일의 대상은 아홉 살이었다.",
+    "story.day8_desk.2": "사무실에 사람들이 있다. 모두 각자의 화면만 보고 있다.",
+    "story.day8_desk.3": "박도영 감사관도 모니터를 응시하고 있다.",
+    "story.day8_desk.4": "오후 6시. 퇴근 시간.",
+    "story.day8_desk.choice.0": "자리를 정리한다",
+
     "story.day8_end.0": "여덟째 날이 끝났다.",
     "story.day8_end.1": "오늘 처리된 파일들이 시스템에 저장됐다.",
     "story.day8_end.2": "강서준이 오늘 밤 무엇을 하고 있는지는 알 수 없다.",
@@ -958,6 +1043,13 @@
     "story.case_1050_d.choice.0": "그래도 등록한다",
     "story.case_1050_d.choice.1": "처리를 거부한다",
 
+    "story.day9_desk.0": "파일을 닫았다.",
+    "story.day9_desk.1": "아홉째 날. 이 시스템은 이제 미래를 처리한다.",
+    "story.day9_desk.2": "이준혁이 자리에 앉아 있다. 시선이 마주쳤다가 다시 화면으로 돌아갔다.",
+    "story.day9_desk.3": "87%라는 숫자가 아직 머릿속에 남아 있다.",
+    "story.day9_desk.4": "오후 6시. 퇴근 시간.",
+    "story.day9_desk.choice.0": "자리를 정리한다",
+
     "story.day9_end.0": "아홉째 날이 끝났다.",
     "story.day9_end.1": "예측 알고리즘. 87%. 정유라.",
     "story.day9_end.2": "이 숫자들이 머릿속을 맴돌았다.",
@@ -1034,6 +1126,13 @@
     "story.case_1051_protect.1": "동시에 메모 원본을 개인 저장소로 복사했다.",
     "story.case_1051_protect.2": "5년치 기록. 당신이 열흘 동안 찾은 것의 몇 배가 그 안에 있었다.",
     "story.case_1051_protect.3": "윤시현은 오늘도 자리에 있다. 그리고 그의 5년도.",
+
+    "story.day10_desk.0": "파일을 닫았다.",
+    "story.day10_desk.1": "열째 날. 5년 동안 같은 것을 보고 있던 사람이 있었다.",
+    "story.day10_desk.2": "그 사실이 위안인지 경고인지 아직 모르겠다.",
+    "story.day10_desk.3": "박도영 감사관의 자리가 비어 있다. 오늘 일찍 나갔다.",
+    "story.day10_desk.4": "오후 6시. 퇴근 시간.",
+    "story.day10_desk.choice.0": "자리를 정리한다",
 
     "story.day10_end.0": "열째 날이 끝났다.",
     "story.day10_end.1": "윤시현. 5년. 그리고 같은 것을 보고 있었다는 것.",
@@ -1120,6 +1219,13 @@
     "story.case_1052_protect.1": "결재자 이름이 있었다. 세 글자.",
     "story.case_1052_protect.2": "처음으로, 모든 것의 끝에 이름이 생겼다.",
     "story.case_1052_protect.3": "이 이름을 가진 사람이 지금도 도시계획부 어딘가에 있다.",
+
+    "story.day11_desk.0": "파일을 닫았다.",
+    "story.day11_desk.1": "열한째 날. 문서 안에 세 글자짜리 이름이 있다.",
+    "story.day11_desk.2": "처음으로 이름이 생겼다.",
+    "story.day11_desk.3": "사무실은 조용하다. 모두 자신의 일을 하고 있다.",
+    "story.day11_desk.4": "오후 6시. 퇴근 시간.",
+    "story.day11_desk.choice.0": "자리를 정리한다",
 
     "story.day11_end.0": "열한째 날이 끝났다.",
     "story.day11_end.1": "윤시현. 서민준. 박도영. 그리고 도시계획부.",
