@@ -1,0 +1,17 @@
+{
+  "id": "day13_desk_resistance",
+  "sfx": "Assets/audio/node_alert.wav",
+  "text": [
+    "story.day13_desk_resistance.0",
+    "story.day13_desk_resistance.1",
+    "story.day13_desk_resistance.2",
+    "story.day13_desk_resistance.3",
+    "story.day13_desk_resistance.4"
+  ],
+  "choices": [
+    {
+      "text": "story.day13_desk_resistance.choice.0",
+      "next": "day13_end_resistance"
+    }
+  ]
+}

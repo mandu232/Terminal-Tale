@@ -7,7 +7,11 @@
     "story.case_1054.2",
     "story.case_1054.3"
   ],
-  "effects": [],
+  "effects": [
+    { "type": "time", "value": 1 },
+    { "type": "fatigue", "value": 3 },
+    { "type": "reveal_character", "key": "park_jaewon" }
+  ],
   "choices": [
     {
       "text": "story.case_1054.choice.0",

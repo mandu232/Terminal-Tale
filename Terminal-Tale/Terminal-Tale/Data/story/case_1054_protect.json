@@ -9,8 +9,8 @@
              ],
     "choices":  [
                     {
-                        "text":  "story.common.next_case",
-                        "next":  "day13_end_resistance"
+                        "text":  "story.common.close_file",
+                        "next":  "day13_desk_resistance"
                     }
                 ],
     "effects":  [
@@ -23,7 +23,7 @@
                     },
                     {
                         "type":  "corruption",
-                        "value":  15
+                        "value":  -15
                     },
                     {
                         "type":  "tendency",
@@ -36,8 +36,20 @@
                         "value":  3
                     },
                     {
+                        "type":  "fatigue",
+                        "value":  6
+                    },
+                    {
+                        "type":  "monitoring",
+                        "value":  20
+                    },
+                    {
                         "type":  "flag_add",
                         "key":  "former_insider_protected"
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "has_insider_ally"
                     }
                 ]
 }

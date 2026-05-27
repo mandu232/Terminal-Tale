@@ -8,7 +8,10 @@
   ],
   "effects": [
     { "type": "tendency", "key": "suspicion", "value": 2 },
-    { "type": "flag_add", "key": "evidence_access_attempted" }
+    { "type": "flag_add", "key": "evidence_access_attempted" },
+    { "type": "corruption", "value": -3 },
+    { "type": "fatigue", "value": 3 },
+    { "type": "monitoring", "value": 8 }
   ],
   "choices": [
     {

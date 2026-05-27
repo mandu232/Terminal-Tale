@@ -6,7 +6,9 @@
     "story.day13_morning.1",
     "story.day13_morning.2"
   ],
-  "effects": [],
+  "effects": [
+    { "type": "set_time", "value": 9 }
+  ],
   "choices": [
     {
       "text": "story.day13_morning.choice.0",
@@ -26,7 +28,7 @@
       "text": "story.day13_morning.choice.2",
       "next": "day13_ally_contact",
       "require": [
-        { "type": "flag", "key": "has_insider_ally" }
+        { "type": "flag", "key": "has_colleague_contact" }
       ]
     },
     {

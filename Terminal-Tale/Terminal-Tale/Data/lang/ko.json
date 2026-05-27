@@ -199,6 +199,12 @@
     "char.cha_minseok.relationship": "배후 인물",
     "char.cha_minseok.desc": "재임 8년. 재개발추진위 비상임 자문위원.\n공식 기록에는 흠잡을 데 없는 관료다.\n하지만 결재자 성명이 적힌 문서에 그의 이름이 있었다.\n그는 단순히 지시를 내린 것이 아니라, 직접 집행 명령에 서명하고 있었다.",
 
+    "char.park_jaewon.name": "박재원",
+    "char.park_jaewon.role": "전직 공무원",
+    "char.park_jaewon.affiliation": "전 도시계획부 특별사업2팀",
+    "char.park_jaewon.relationship": "처리 대상 / 잠재적 내부 제보자",
+    "char.park_jaewon.desc": "51세. 3년 전 조용히 퇴직했다.\n도시계획부 특별사업2팀 — 차민석의 직속 부하였다.\n긴급 처분 명령. 발령자: 차민석.\n퇴직 사유는 기록되지 않았다. 무엇을 알고 있는지도.",
+
     "item.access_card.name": "출입 카드",
     "item.access_card.desc": "중앙 기록 관리국 신입 직원 출입 카드.\n이 카드가 없으면 건물에 들어갈 수 없다.\n\n※ 중요 아이템 — 사용 불가",
 
@@ -1327,6 +1333,20 @@
     "story.day12_desk_expose.3": "어딘가에서 누군가가 이것을 보고 있다.",
     "story.day12_desk_expose.4": "오후 6시. 퇴근 시간.",
     "story.day12_desk_expose.choice.0": "자리를 정리한다",
+
+    "story.day13_desk.0": "파일을 닫았다.",
+    "story.day13_desk.1": "열세 번째 날. 박도영의 자리가 오늘도 비어 있다.",
+    "story.day13_desk.2": "박재원이라는 이름이 머릿속에 걸린다.",
+    "story.day13_desk.3": "차민석. 오유진. 서민준. 박재원.",
+    "story.day13_desk.4": "오후 6시. 퇴근 시간.",
+    "story.day13_desk.choice.0": "자리를 정리한다",
+
+    "story.day13_desk_resistance.0": "파일을 닫았다.",
+    "story.day13_desk_resistance.1": "열세 번째 날. 박재원의 파일을 보류했다.",
+    "story.day13_desk_resistance.2": "차민석이 직접 서명한 처분 명령이 지금 당신의 기록에 연결돼 있다.",
+    "story.day13_desk_resistance.3": "그것이 무엇을 의미하는지 알면서도.",
+    "story.day13_desk_resistance.4": "오후 6시. 퇴근 시간.",
+    "story.day13_desk_resistance.choice.0": "자리를 정리한다",
 
     "story.day12_end.0": "열두째 날이 끝난다.",
     "story.day12_end.1": "당신은 그 이름을 안다. 그 이름이 어떤 파일에 붙어 있는지도.",

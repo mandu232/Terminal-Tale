@@ -8,8 +8,8 @@
              ],
     "choices":  [
                     {
-                        "text":  "story.common.next_case",
-                        "next":  "day13_end"
+                        "text":  "story.common.close_file",
+                        "next":  "day13_desk"
                     }
                 ],
     "effects":  [
@@ -32,6 +32,14 @@
                     },
                     {
                         "type":  "corruption",
+                        "value":  -8
+                    },
+                    {
+                        "type":  "fatigue",
+                        "value":  3
+                    },
+                    {
+                        "type":  "monitoring",
                         "value":  8
                     }
                 ]

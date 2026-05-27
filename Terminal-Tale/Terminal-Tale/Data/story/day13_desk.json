@@ -1,0 +1,16 @@
+{
+  "id": "day13_desk",
+  "text": [
+    "story.day13_desk.0",
+    "story.day13_desk.1",
+    "story.day13_desk.2",
+    "story.day13_desk.3",
+    "story.day13_desk.4"
+  ],
+  "choices": [
+    {
+      "text": "story.day13_desk.choice.0",
+      "next": "day13_end"
+    }
+  ]
+}
