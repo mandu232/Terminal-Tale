@@ -202,6 +202,12 @@
     <ClCompile Include="Game\States\KeyBindState.cpp">
       <Filter>소스 파일\Game\State</Filter>
     </ClCompile>
+    <ClCompile Include="Game\States\CharacterState.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\States\QuickSlotState.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Application.h">
@@ -381,6 +387,9 @@
     <ClInclude Include="Game\States\KeyBindState.h">
       <Filter>소스 파일\Game\State</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Character\CharacterEntry.h" />
+    <ClInclude Include="Game\States\CharacterState.h" />
+    <ClInclude Include="Game\States\QuickSlotState.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\settings.json">
@@ -404,6 +413,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\ui\title.txt">
+      <Filter>소스 파일\Assets\ui</Filter>
+    </Text>
+    <Text Include="Assets\ui\title_bg.txt">
       <Filter>소스 파일\Assets\ui</Filter>
     </Text>
   </ItemGroup>

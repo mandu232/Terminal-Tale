@@ -117,7 +117,10 @@ void TitleState::Enter()
 	);
 
 	uiManager.Add(
-		std::make_unique<UIImage>(63, 3, 0, "Assets/ui/title.txt")
+		std::make_unique<UIImage>(0 , 0 , 0 , "Assets/ui/title_bg.txt")
+	);
+	uiManager.Add(
+		std::make_unique<UIImage>(63 , 3 , 1  , "Assets/ui/title.txt")
 	);
 }
 

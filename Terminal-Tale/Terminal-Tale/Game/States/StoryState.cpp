@@ -15,6 +15,8 @@
 #include "Ui/UILabel.h"
 #include "Ui/UIImage.h"
 #include "Ui/UITypewriter.h"
+#include "Ui/UIDocumentPanel.h"
+#include "Utils/UTF8ToWide.h"
 
 #include <chrono>
 #include "Game/Story/StoryLoader.h"
@@ -120,15 +122,51 @@ std::string StoryState::NodePath(const std::string& nodeId)
 }
 
 // ─────────────────────────────────────────────
-//  BuildLeftPanel — 배경 이미지 (Enter 1회)
+//  BuildLeftPanel — 문서 패널 또는 배경 이미지 (매 노드 전환 시)
+//
+//  docLines 가 있으면 UIDocumentPanel 로 렌더링합니다.
+//  테두리(┌│└)와 헤더/푸터는 UIDocumentPanel 이 코드로 생성합니다.
+//  resuming 중에는 슬라이드 애니메이션을 건너뜁니다.
 // ─────────────────────────────────────────────
 void StoryState::BuildLeftPanel()
 {
-	uiManager.Add(
-		std::make_unique<UIImage>(
-			Layout::LeftX , Layout::LeftY , Layout::Z ,
-			currentNode.bgImage)          // UIImage(x, y, z, path, color=7)
-	);
+	if ( !currentNode.docLines.empty() )
+	{
+		// 본문 내용을 wstring 으로 변환
+		std::vector<std::wstring> wlines;
+		wlines.reserve(currentNode.docLines.size());
+		for ( const auto& s : currentNode.docLines )
+			wlines.push_back(UTF8ToWide(s));
+
+		// 스타일 결정
+		auto docStyle = ( currentNode.docStyle == "order" )
+			? UIDocumentPanel::Style::Order
+			: UIDocumentPanel::Style::Record;
+
+		// 이전 노드와 문서가 동일하면 애니메이션 스킵
+		//   · resuming  : 서브 스테이트에서 돌아올 때
+		//   · sameDoc   : 같은 사건 파일 내 분기 선택 시
+		bool sameDoc = ( currentNode.docStyle == prevDocStyle ) &&
+		               ( currentNode.docLines  == prevDocLines  );
+		bool shouldAnimate = !resuming && !sameDoc;
+
+		uiManager.Add(std::make_unique<UIDocumentPanel>(
+			Layout::LeftX, Layout::LeftY, Layout::Z - 1,
+			std::move(wlines), docStyle, shouldAnimate));
+
+		// 현재 문서를 기억해 다음 노드와 비교
+		prevDocStyle = currentNode.docStyle;
+		prevDocLines = currentNode.docLines;
+	}
+	else if ( currentNode.bgImage != "Data/Images/Story/default.png"
+		      && !currentNode.bgImage.empty() )
+	{
+		// docLines 없이 bgImage 만 있으면 기존 UIImage 사용 (하위 호환)
+		uiManager.Add(std::make_unique<UIImage>(
+			Layout::LeftX, Layout::LeftY, Layout::Z,
+			currentNode.bgImage));
+	}
+	// 그 외(빈 패널)는 아무것도 추가하지 않음
 }
 
 // ─────────────────────────────────────────────
@@ -219,7 +257,17 @@ void StoryState::NavigateTo(const std::string& nodeId)
 	if ( !currentNode.sfx.empty() )
 		context.sound.PlaySE(currentNode.sfx);
 
-	uiManager.Clear();
+	// 다음 문서가 현재 문서와 동일한지 미리 판단한다.
+	//   동일  → Clear() 즉시 제거  (퇴장 슬라이드 없음 + 진입 애니메이션도 없음)
+	//   다름  → SoftClear() 퇴장 슬라이드 후 새 문서 진입 애니메이션 재생
+	bool sameDoc = ( currentNode.docStyle == prevDocStyle ) &&
+	               ( currentNode.docLines  == prevDocLines  );
+
+	if ( sameDoc )
+		uiManager.Clear();      // 잔상 없이 즉시 교체
+	else
+		uiManager.SoftClear();  // 문서 패널이 아래로 슬라이드 아웃
+
 	BuildLeftPanel();
 	BuildRightPanel();
 	RebuildCenter();

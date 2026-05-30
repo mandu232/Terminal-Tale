@@ -65,10 +65,15 @@ StoryNode StoryLoader::Load(const std::string& path)
 
 	StoryNode node;
 
-	node.id      = j[ "id" ];
-	node.bgImage = j.value("bgImage", "Data/Images/Story/default.png");
-	node.bgm     = j.value("bgm"    , "");
-	node.sfx     = j.value("sfx"    , "");
+	node.id       = j[ "id" ];
+	node.bgImage  = j.value("bgImage" , "Data/Images/Story/default.png");
+	node.bgm      = j.value("bgm"     , "");
+	node.sfx      = j.value("sfx"     , "");
+	node.docStyle = j.value("docStyle", "record");
+
+	if ( j.contains("docLines") )
+		for ( auto& line : j[ "docLines" ] )
+			node.docLines.push_back(line.get<std::string>());
 
 	for ( auto& line : j[ "text" ] )
 		node.texts.push_back(line);

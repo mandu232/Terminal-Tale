@@ -56,7 +56,8 @@ namespace Layout
     constexpr int AutoSaveY     = 29;
     constexpr int LanguageY     = 33;
     constexpr int TargetFPSY    = 37;
-    constexpr int ShowFPSY      = 41;
+    constexpr int ShowFPSY           = 41;
+    constexpr int ScreenTransitionY  = 45;   // 화면 전환 슬라이드
 
     // 하단 버튼
     constexpr int BottomY    = 50;
@@ -510,6 +511,39 @@ void SettingState::Enter()
     );
 
     // ────────────────────────────────────────────
+    //  화면 전환 슬라이드  (bool)
+    // ────────────────────────────────────────────
+    uiManager.Add(
+        std::make_unique<UILabel>(
+            Layout::LabelX, Layout::ScreenTransitionY, Layout::Z,
+            Layout::LabelW, Layout::RowH, L("ui.screenTransition"), 7,
+            UILabel::TextAlign::Center,
+            UILabel::VAlign::Middle)
+    );
+    {
+        auto lbl = std::make_unique<UILabel>(
+            Layout::ToggleX, Layout::ScreenTransitionY, Layout::Z,
+            Layout::ToggleLblW, Layout::RowH, BoolToStr(s.screenTransition), 14,
+            UILabel::TextAlign::Center,
+            UILabel::VAlign::Middle);
+        screenTransitionLabel = lbl.get();
+        uiManager.Add(std::move(lbl));
+    }
+    uiManager.Add(
+        std::make_unique<UIButton>(
+            Layout::ToggleBtnX, Layout::ScreenTransitionY,
+            Layout::ToggleBtnW, Layout::RowH, Layout::Z,
+            L("ui.toggle"),
+            [this]()
+            {
+                context.sound.PlaySE("Assets/audio/ui_button_click_3.wav");
+                auto& v = context.settingManager.settings.screenTransition;
+                v = !v;
+                screenTransitionLabel->SetText(BoolToStr(v));
+            })
+    );
+
+    // ────────────────────────────────────────────
     //  하단 버튼: Reset / Save / Back
     // ────────────────────────────────────────────
     // ── 키 설정 버튼 (하단 왼쪽) ────────────────────────────────────────
@@ -577,7 +611,8 @@ void SettingState::RefreshValueLabels()
     if (autoSaveLabel)     autoSaveLabel->SetText(BoolToStr(s.autoSave));
     if (languageLabel)     languageLabel->SetText(LangToStr(s.language));
     if (targetFPSLabel)    targetFPSLabel->SetText(std::to_string(s.targetFPS));
-    if (showFPSLabel)      showFPSLabel->SetText(BoolToStr(s.showFPS));
+    if (showFPSLabel)           showFPSLabel->SetText(BoolToStr(s.showFPS));
+    if (screenTransitionLabel)  screenTransitionLabel->SetText(BoolToStr(s.screenTransition));
 
     // Reset 후 볼륨도 실제 사운드에 반영
     context.sound.SetMasterVolume(s.masterVolume / 100.0f);

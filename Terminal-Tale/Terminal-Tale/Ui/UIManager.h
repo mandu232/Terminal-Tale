@@ -13,7 +13,8 @@ public:
 	void HandleClick(int x , int y);
 	void HandleMouseMove(int x , int y);
 	void Render(ConsoleDisplay& display);
-	void Clear();
+	void Clear();      // 즉시 전체 제거
+	void SoftClear();  // 퇴장 애니메이션 후 자동 제거 (IsDead() 기반)
 	void Update(float fps);
 
 private:

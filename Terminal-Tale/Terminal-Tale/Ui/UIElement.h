@@ -15,5 +15,12 @@ public:
 	virtual void SetHovered(bool) {}
 
 	virtual int GetZ() const = 0;
+
+	virtual void SlideOut() { m_dead = true; }
+	virtual bool IsDead()  const { return m_dead; }
+
 	virtual ~UIElement() = default;
+
+protected:
+	bool m_dead = false;
 };

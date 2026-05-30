@@ -167,6 +167,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Systems\ConditionChecker.cpp" />
     <ClCompile Include="Ui\UIButton.cpp" />
+    <ClCompile Include="Ui\UIDocumentPanel.cpp" />
+    <ClCompile Include="Ui\UIScreenFader.cpp" />
     <ClCompile Include="Ui\UIImage.cpp" />
     <ClCompile Include="Ui\UILabel.cpp" />
     <ClCompile Include="Ui\UIManager.cpp" />
@@ -230,6 +232,8 @@
     <ClInclude Include="Systems\Condition.h" />
     <ClInclude Include="Systems\ConditionChecker.h" />
     <ClInclude Include="Ui\UIButton.h" />
+    <ClInclude Include="Ui\UIDocumentPanel.h" />
+    <ClInclude Include="Ui\UIScreenFader.h" />
     <ClInclude Include="Ui\UIElement.h" />
     <ClInclude Include="Ui\UIImage.h" />
     <ClInclude Include="Ui\UILabel.h" />
@@ -251,6 +255,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\ui\title.txt" />
+    <Text Include="Assets\ui\title_bg.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

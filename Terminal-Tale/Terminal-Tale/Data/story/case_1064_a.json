@@ -1,5 +1,16 @@
 {
   "id": "case_1064_a",
+  "docStyle": "order",
+  "docLines": [
+    "[ 케이스 #1064 ]  긴급 조사",
+    "",
+    "대상: 이준혁 / 37세",
+    "직책: 내부감사팀 직원",
+    "",
+    "사유:",
+    "외부 유출 연루 혐의",
+    "직무상 비밀 누설 공모 의혹"
+  ],
   "sfx": "Assets/audio/node_paper_crunch.wav",
   "text": [
     "story.case_1064_a.0",

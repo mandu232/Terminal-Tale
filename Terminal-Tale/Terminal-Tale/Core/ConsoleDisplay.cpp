@@ -144,6 +144,8 @@ void ConsoleDisplay::Clear(short color) {
 }
 
 void ConsoleDisplay::Draw(int x , int y , wchar_t c , short color) {
+	x += m_offsetX;
+	y += m_offsetY;
 	if ( x < 0 || y < 0 || x >= width || y >= height ) return;
 	screen[ y * width + x ] = { {c}, ( WORD )color };
 }
@@ -164,14 +166,42 @@ void ConsoleDisplay::DrawText(
 
 		Draw(curX , y , c , color);
 
-		// width 2 문자 처리
-		if ( w == 2 && curX + 1 < width )
-		{
-			screen[ y * width + curX + 1 ].Char.UnicodeChar = L'\0';
-			screen[ y * width + curX + 1 ].Attributes = color;
-		}
+		// 2칸 문자의 오른쪽 보조 셀도 Draw() 를 통해 오프셋 적용
+		if ( w == 2 )
+			Draw(curX + 1 , y , L'\0' , color);
 
 		curX += w;
+	}
+}
+
+// ─────────────────────────────────────────────
+//  TakeSnapshot — 현재 screen 전체를 m_snapshot 에 복사
+//  StateMachine::StartFade() 에서 화면 전환 직전에 호출한다.
+// ─────────────────────────────────────────────
+void ConsoleDisplay::TakeSnapshot()
+{
+	m_snapshot = screen;   // std::vector 복사
+}
+
+// ─────────────────────────────────────────────
+//  BlitSnapshot — 스냅샷을 (offsetX, offsetY) 만큼 이동해 screen 에 덧씌움
+//
+//  스냅샷 픽셀 (x, y) → screen (x + offsetX, y + offsetY)
+//  범위 밖은 클리핑
+// ─────────────────────────────────────────────
+void ConsoleDisplay::BlitSnapshot(int offsetX , int offsetY)
+{
+	if ( m_snapshot.empty() ) return;
+
+	for ( int y = 0; y < height; ++y )
+	{
+		for ( int x = 0; x < width; ++x )
+		{
+			int dstX = x + offsetX;
+			int dstY = y + offsetY;
+			if ( dstX < 0 || dstX >= width || dstY < 0 || dstY >= height ) continue;
+			screen[ dstY * width + dstX ] = m_snapshot[ y * width + x ];
+		}
 	}
 }
 

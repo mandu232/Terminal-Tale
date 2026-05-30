@@ -1,5 +1,18 @@
-﻿{
+{
     "id":  "case_1053_protect",
+  "docStyle": "order",
+  "docLines": [
+    "[ 처분 명령서 #1053 ]",
+    "처분 등급: 우선",
+    "",
+    "대상: 오유진 / 43세",
+    "직책: 도시재개발 반대 청원 대표",
+    "혐의: 민원 선동",
+    "",
+    "비고:",
+    "서류 하단 결재자 서명란",
+    "이름 흐릿하게 처리됨"
+  ],
     "sfx":  "Assets/audio/node_paper_crunch.wav",
     "text":  [
                  "story.case_1053_protect.0",

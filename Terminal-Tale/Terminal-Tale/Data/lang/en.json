@@ -22,6 +22,7 @@
     "ui.targetFPS": "Target FPS",
     "ui.vsync": "V-Sync",
     "ui.showFPS": "Show FPS",
+    "ui.screenTransition": "Screen Transition",
     "ui.fullScreen": "Full Screen",
     "status.enabled": "Enabled",
     "status.disabled": "Disabled",

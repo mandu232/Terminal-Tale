@@ -25,7 +25,8 @@ private:
     UILabel* autoSaveLabel     = nullptr;
     UILabel* languageLabel     = nullptr;
     UILabel* targetFPSLabel    = nullptr;
-    UILabel* showFPSLabel      = nullptr;
+    UILabel* showFPSLabel            = nullptr;
+    UILabel* screenTransitionLabel   = nullptr;
 
     // Save 전 임시 설정값 (Reset 버튼으로 원복 가능)
     // Settings tempSettings;

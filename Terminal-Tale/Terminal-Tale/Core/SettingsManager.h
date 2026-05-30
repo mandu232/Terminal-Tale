@@ -30,6 +30,7 @@ struct Settings
 	bool showFPS = false;
 
 	bool fullScreen = true;
+	bool screenTransition = true;   // 화면 전환 슬라이드 애니메이션
 
 	KeyBindings keyBindings;
 };

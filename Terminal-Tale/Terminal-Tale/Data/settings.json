@@ -13,9 +13,10 @@
     },
     "language": "ko",
     "masterVolume": 100,
+    "screenTransition": true,
     "sfxVolume": 80,
     "showFPS": false,
-    "targetFPS": 15,
+    "targetFPS": 60,
     "textSpeed": 3,
     "vsync": false
 }

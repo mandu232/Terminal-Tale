@@ -43,6 +43,20 @@ void UIManager::Clear()
 	elements.clear();
 }
 
+// ─────────────────────────────────────────────
+//  SoftClear — 모든 요소에 SlideOut() 을 호출한다.
+//
+//  UIElement 기본 구현: SlideOut() → m_dead = true (즉시 dead)
+//  UIDocumentPanel   : SlideOut() → 아래 슬라이드 애니메이션 시작
+//
+//  죽은 요소는 Update() 루프 끝에서 자동 제거된다.
+// ─────────────────────────────────────────────
+void UIManager::SoftClear()
+{
+	for ( auto& e : elements )
+		e->SlideOut();
+}
+
 void UIManager::HandleMouseMove(int x , int y)
 {
 	for ( auto& e : elements )
@@ -59,4 +73,10 @@ void UIManager::Update(float fps)
 
 	for ( auto& e : elements )
 		e->Update(deltaTime);
+
+	// IsDead() == true 인 요소 제거 (SlideOut 완료 포함)
+	elements.erase(
+		std::remove_if(elements.begin() , elements.end() ,
+			[] (const auto& e) { return e->IsDead(); }) ,
+		elements.end());
 }

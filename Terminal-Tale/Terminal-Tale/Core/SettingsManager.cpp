@@ -25,7 +25,8 @@ bool SettingsManager::Load(const std::string& path)
 	settings.targetFPS = j.value("targetFPS" , 30);
 	settings.vsync = j.value("vsync" , false);
 	settings.showFPS = j.value("showFPS" , false);
-	settings.fullScreen = j.value("fullScreen" , false);
+	settings.fullScreen         = j.value("fullScreen"         , false);
+	settings.screenTransition  = j.value("screenTransition"  , true);
 
 	if ( j.contains("keyBindings") )
 	{
@@ -57,7 +58,8 @@ bool SettingsManager::Save(const std::string& path)
 	j[ "targetFPS" ] = settings.targetFPS;
 	j[ "vsync" ] = settings.vsync;
 	j[ "showFPS" ] = settings.showFPS;
-	j[ "fullScreen" ] = settings.fullScreen;
+	j[ "fullScreen"        ] = settings.fullScreen;
+	j[ "screenTransition" ] = settings.screenTransition;
 
 	{
 		json kb;

@@ -22,6 +22,7 @@
     "ui.targetFPS": "목표 주사율",
     "ui.vsync": "vsync",
     "ui.showFPS": "주사율 출력",
+    "ui.screenTransition": "화면 전환 슬라이드",
     "ui.fullScreen": "전체화면",
     "status.enabled": "활성화",
     "status.disabled": "비활성화",

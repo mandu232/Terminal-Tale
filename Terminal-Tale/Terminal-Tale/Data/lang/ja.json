@@ -22,6 +22,7 @@
 "ui.targetFPS": "目標フレームレート",
 "ui.vsync": "vsync",
 "ui.showFPS": "フレームレート表示",
+"ui.screenTransition": "画面切替アニメ",
 "ui.fullScreen": "フルスクリーン",
 "status.enabled": "有効",
 "status.disabled": "無効",

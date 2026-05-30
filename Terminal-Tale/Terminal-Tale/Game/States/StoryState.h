@@ -52,6 +52,10 @@ private:
 	StoryNode   currentNode;
 	bool        resuming = false;
 
+	// 이전 노드의 문서 정보 — 동일 문서 재표시 시 애니메이션 스킵에 사용
+	std::string              prevDocStyle;
+	std::vector<std::string> prevDocLines;
+
 	//타이핑 상태
 	int pendingTypewriters = 0;
 	std::vector<std::pair<UIButton* , bool>> choiceButtons;
