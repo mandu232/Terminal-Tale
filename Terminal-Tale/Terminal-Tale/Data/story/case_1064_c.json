@@ -1,35 +1,59 @@
 {
-  "id": "case_1064_c",
-  "docStyle": "order",
-  "docLines": [
-    "[ 케이스 #1064 ]  긴급 조사",
-    "",
-    "대상: 이준혁 / 37세",
-    "직책: 내부감사팀 직원",
-    "",
-    "사유:",
-    "외부 유출 연루 혐의",
-    "직무상 비밀 누설 공모 의혹"
-  ],
-  "sfx": "Assets/audio/node_alert.wav",
-  "text": [
-    "story.case_1064_c.0",
-    "story.case_1064_c.1",
-    "story.case_1064_c.2",
-    "story.case_1064_c.3"
-  ],
-  "effects": [
-    { "type": "case_record", "key": "case_1064", "title": "story.case_1064.0", "outcome": "story.case_1064.choice.2", "content": "story.case_1064_c.0" },
-    { "type": "tendency", "key": "corruption", "value": 15 },
-    { "type": "tendency", "key": "justice", "value": 9 },
-    { "type": "tendency", "key": "suspicion", "value": 5 },
-    { "type": "flag_add", "key": "junhyeok_shielded" },
-    { "type": "flag_add", "key": "audit_turned_on_itself" }
-  ],
-  "choices": [
-    {
-      "text": "story.common.to_day_end",
-      "next": "day23_end_escalate"
-    }
-  ]
+    "id":  "case_1064_c",
+    "docStyle":  "order",
+    "docLines":  [
+                     "doc.case_1064.0",
+                     "",
+                     "doc.case_1064.1",
+                     "doc.case_1064.2",
+                     "",
+                     "doc.case_1064.3",
+                     "doc.case_1064.4",
+                     "doc.case_1064.5"
+                 ],
+    "sfx":  "Assets/audio/node_alert.wav",
+    "text":  [
+                 "story.case_1064_c.0",
+                 "story.case_1064_c.1",
+                 "story.case_1064_c.2",
+                 "story.case_1064_c.3"
+             ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1064",
+                        "title":  "story.case_1064.0",
+                        "outcome":  "story.case_1064.choice.2",
+                        "content":  "story.case_1064_c.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "corruption",
+                        "value":  15
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  9
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  5
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "junhyeok_shielded"
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "audit_turned_on_itself"
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.common.to_day_end",
+                        "next":  "day23_end_escalate"
+                    }
+                ]
 }

@@ -133,10 +133,25 @@ void StoryState::BuildLeftPanel()
 	if ( !currentNode.docLines.empty() )
 	{
 		// 본문 내용을 wstring 으로 변환
+		// 비어 있지 않은 항목은 로컬라이제이션 키로 먼저 시도한다.
+		// 키가 존재하면 현재 언어의 번역문을 사용하고,
+		// 존재하지 않으면 원문 문자열을 그대로 표시한다.
+		static const std::string kMissing = "MISSING_TEXT";
 		std::vector<std::wstring> wlines;
 		wlines.reserve(currentNode.docLines.size());
 		for ( const auto& s : currentNode.docLines )
-			wlines.push_back(UTF8ToWide(s));
+		{
+			if ( s.empty() )
+			{
+				wlines.push_back(L"");
+			}
+			else
+			{
+				const std::string& resolved = context.localization.Get(s);
+				const std::string& text     = ( resolved != kMissing ) ? resolved : s;
+				wlines.push_back(UTF8ToWide(text));
+			}
+		}
 
 		// 스타일 결정
 		auto docStyle = ( currentNode.docStyle == "order" )

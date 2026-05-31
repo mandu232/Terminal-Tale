@@ -1,19 +1,19 @@
 {
     "id":  "case_1060_b",
-  "docStyle": "order",
-  "docLines": [
-    "[ 내부 감사 보고서 #1060 ]",
-    "",
-    "대상: 차민석",
-    "직책: 도시계획부 부국장",
-    "",
-    "혐의:",
-    "직권 남용",
-    "허가되지 않은 처분 명령 발행",
-    "",
-    "비고:",
-    "내부 인물에 의한 감사 요청"
-  ],
+    "docStyle":  "order",
+    "docLines":  [
+                     "doc.case_1060.0",
+                     "",
+                     "doc.case_1060.1",
+                     "doc.case_1060.2",
+                     "",
+                     "doc.case_1060.3",
+                     "doc.case_1060.4",
+                     "doc.case_1060.5",
+                     "",
+                     "doc.case_1060.6",
+                     "doc.case_1060.7"
+                 ],
     "sfx":  "Assets/audio/node_paper.wav",
     "text":  [
                  "story.case_1060_b.0",

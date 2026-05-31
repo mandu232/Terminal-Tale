@@ -1,20 +1,20 @@
 {
     "id":  "case_1044_d",
-  "docStyle": "record",
-  "docLines": [
-    "[ 사건 파일 #1044 ]",
-    "",
-    "대상 시민  :  박진수 / 28세",
-    "기록 점수  :  31점 / 100",
-    "",
-    "혐의:",
-    "무허가 집회 주도",
-    "구역 B-3 / 15인 이상 모임 주선",
-    "",
-    "추가 기록:",
-    "참가자 전원 신원 확인됨",
-    "명단 첨부됨"
-  ],
+    "docStyle":  "record",
+    "docLines":  [
+                     "doc.case_1044.0",
+                     "",
+                     "doc.case_1044.1",
+                     "doc.case_1044.2",
+                     "",
+                     "doc.case_1044.3",
+                     "doc.case_1044.4",
+                     "doc.case_1044.5",
+                     "",
+                     "doc.case_1044.6",
+                     "doc.case_1044.7",
+                     "doc.case_1044.8"
+                 ],
     "sfx":  "Assets/audio/node_paper.wav",
     "text":  [
                  "story.case_1044_d.0",
@@ -62,7 +62,13 @@
                         "key":  "suspicion",
                         "value":  1
                     },
-                    { "type": "fatigue",    "value": 3 },
-                    { "type": "monitoring", "value": 5 }
+                    {
+                        "type":  "fatigue",
+                        "value":  3
+                    },
+                    {
+                        "type":  "monitoring",
+                        "value":  5
+                    }
                 ]
 }

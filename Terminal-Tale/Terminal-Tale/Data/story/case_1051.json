@@ -1,53 +1,65 @@
 {
-  "id": "case_1051",
-  "docStyle": "record",
-  "docLines": [
-    "[ 사건 파일 #1051 ]",
-    "",
-    "대상: 윤시현",
-    "직급: 기록 처리 2급  /  근속 5년",
-    "",
-    "혐의:",
-    "권한 외 파일 열람 12건",
-    "미인가 개인 메모 보관",
-    "상부 지시 지연 처리 3건",
-    "",
-    "추가 기록:",
-    "배급 차단 구역 관련 파일",
-    "다수 접근 이력 확인됨"
-  ],
-  "sfx": "Assets/audio/node_paper.wav",
-  "text": [
-    "story.case_1051.0",
-    "story.case_1051.1",
-    "story.case_1051.2",
-    "story.case_1051.3",
-    "story.case_1051.4"
-  ],
-  "effects": [
-    { "type": "time",              "value": 1 },
-    { "type": "fatigue",           "value": 3 },
-    { "type": "reveal_character",  "key": "yun_sihyeon" }
-  ],
-  "choices": [
-    {
-      "text": "story.case_1051.choice.0",
-      "next": "case_1051_a"
-    },
-    {
-      "text": "story.case_1051.choice.1",
-      "next": "case_1051_b"
-    },
-    {
-      "text": "story.case_1051.choice.2",
-      "next": "case_1051_c"
-    },
-    {
-      "text": "story.case_1051.choice.3",
-      "next": "case_1051_d",
-      "require": [
-        { "type": "flag", "key": "understands_algorithm" }
-      ]
-    }
-  ]
+    "id":  "case_1051",
+    "docStyle":  "record",
+    "docLines":  [
+                     "doc.case_1051.0",
+                     "",
+                     "doc.case_1051.1",
+                     "doc.case_1051.2",
+                     "",
+                     "doc.case_1051.3",
+                     "doc.case_1051.4",
+                     "doc.case_1051.5",
+                     "doc.case_1051.6",
+                     "",
+                     "doc.case_1051.7",
+                     "doc.case_1051.8",
+                     "doc.case_1051.9"
+                 ],
+    "sfx":  "Assets/audio/node_paper.wav",
+    "text":  [
+                 "story.case_1051.0",
+                 "story.case_1051.1",
+                 "story.case_1051.2",
+                 "story.case_1051.3",
+                 "story.case_1051.4"
+             ],
+    "effects":  [
+                    {
+                        "type":  "time",
+                        "value":  1
+                    },
+                    {
+                        "type":  "fatigue",
+                        "value":  3
+                    },
+                    {
+                        "type":  "reveal_character",
+                        "key":  "yun_sihyeon"
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1051.choice.0",
+                        "next":  "case_1051_a"
+                    },
+                    {
+                        "text":  "story.case_1051.choice.1",
+                        "next":  "case_1051_b"
+                    },
+                    {
+                        "text":  "story.case_1051.choice.2",
+                        "next":  "case_1051_c"
+                    },
+                    {
+                        "text":  "story.case_1051.choice.3",
+                        "next":  "case_1051_d",
+                        "require":  [
+                                        {
+                                            "type":  "flag",
+                                            "key":  "understands_algorithm"
+                                        }
+                                    ]
+                    }
+                ]
 }

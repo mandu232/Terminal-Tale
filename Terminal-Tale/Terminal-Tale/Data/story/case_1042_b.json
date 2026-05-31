@@ -1,45 +1,62 @@
 {
-  "id":  "case_1042_b",
-  "docStyle": "record",
-  "docLines": [
-    "[ 사건 파일 #1042 ]",
-    "",
-    "대상 시민  :  한지우 / 34세",
-    "기록 점수  :  47점 / 100",
-    "혐의 분류  :  민사 위반 / 2등급",
-    "",
-    "혐의:",
-    "식량 창고 무단 침입 — 시장 구역 C-7",
-    "발생 일시: 20XX.03.14  02:17",
-    "",
-    "추가 기록:",
-    "미성년 딸 1명 부양 중 (7세)",
-    "부양 지원 신청 이력 없음"
-  ],
-  "text": [
-    "story.case_1042_b.0",
-    "story.case_1042_b.1",
-    "story.case_1042_b.2",
-    "story.case_1042_b.3"
-  ],
-  "effects": [
-    {
-      "type":    "case_record",
-      "key":     "case_1042",
-      "title":   "story.case_1042.0",
-      "outcome": "story.case_1042.choice.1",
-      "content": "story.case_1042_b.0"
-    },
-    { "type": "tendency",   "key": "justice", "value": 1 },
-    { "type": "tendency",   "key": "empathy", "value": 1 },
-    { "type": "fatigue",    "value":  5 },
-    { "type": "monitoring", "value":  5 },
-    { "type": "unlock_achievement", "key": "first_duty" }
-  ],
-  "choices": [
-    {
-      "text": "story.common.close_file",
-      "next": "day1_desk"
-    }
-  ]
+    "id":  "case_1042_b",
+    "docStyle":  "record",
+    "docLines":  [
+                     "doc.case_1042.0",
+                     "",
+                     "doc.case_1042.1",
+                     "doc.case_1042.2",
+                     "doc.case_1042.3",
+                     "",
+                     "doc.case_1042.4",
+                     "doc.case_1042.5",
+                     "doc.case_1042.6",
+                     "",
+                     "doc.case_1042.7",
+                     "doc.case_1042.8",
+                     "doc.case_1042.9"
+                 ],
+    "text":  [
+                 "story.case_1042_b.0",
+                 "story.case_1042_b.1",
+                 "story.case_1042_b.2",
+                 "story.case_1042_b.3"
+             ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1042",
+                        "title":  "story.case_1042.0",
+                        "outcome":  "story.case_1042.choice.1",
+                        "content":  "story.case_1042_b.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  1
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "empathy",
+                        "value":  1
+                    },
+                    {
+                        "type":  "fatigue",
+                        "value":  5
+                    },
+                    {
+                        "type":  "monitoring",
+                        "value":  5
+                    },
+                    {
+                        "type":  "unlock_achievement",
+                        "key":  "first_duty"
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.common.close_file",
+                        "next":  "day1_desk"
+                    }
+                ]
 }

@@ -1,53 +1,64 @@
 {
-  "id": "case_1063",
-  "docStyle": "order",
-  "docLines": [
-    "[ 케이스 #1063 ]  재처분 명령",
-    "",
-    "대상: 박재원 / 51세",
-    "전직 도시계획부 특별사업2팀",
-    "",
-    "사유:",
-    "외부 기관과의 무단 접촉",
-    "내부 정보 유출 혐의 재기",
-    "",
-    "비고:",
-    "기존 보호 조치 무효화됨",
-    "새 명령서에 다른 서명 있음"
-  ],
-  "sfx": "Assets/audio/node_paper.wav",
-  "text": [
-    "story.case_1063.0",
-    "story.case_1063.1",
-    "story.case_1063.2",
-    "story.case_1063.3"
-  ],
-  "effects": [],
-  "choices": [
-    {
-      "text": "story.case_1063.choice.0",
-      "next": "case_1063_a"
-    },
-    {
-      "text": "story.case_1063.choice.1",
-      "next": "case_1063_b",
-      "require": [
-        { "type": "flag", "key": "alliance_plan_proposed" }
-      ]
-    },
-    {
-      "text": "story.case_1063.choice.2",
-      "next": "case_1063_c",
-      "require": [
-        { "type": "flag", "key": "cha_confronted" }
-      ]
-    },
-    {
-      "text": "story.case_1063.choice.3",
-      "next": "case_1063_d",
-      "require": [
-        { "type": "flag", "key": "full_disclosure_sent" }
-      ]
-    }
-  ]
+    "id":  "case_1063",
+    "docStyle":  "order",
+    "docLines":  [
+                     "doc.case_1063.0",
+                     "",
+                     "doc.case_1063.1",
+                     "doc.case_1063.2",
+                     "",
+                     "doc.case_1063.3",
+                     "doc.case_1063.4",
+                     "doc.case_1063.5",
+                     "",
+                     "doc.case_1063.6",
+                     "doc.case_1063.7",
+                     "doc.case_1063.8"
+                 ],
+    "sfx":  "Assets/audio/node_paper.wav",
+    "text":  [
+                 "story.case_1063.0",
+                 "story.case_1063.1",
+                 "story.case_1063.2",
+                 "story.case_1063.3"
+             ],
+    "effects":  [
+
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1063.choice.0",
+                        "next":  "case_1063_a"
+                    },
+                    {
+                        "text":  "story.case_1063.choice.1",
+                        "next":  "case_1063_b",
+                        "require":  [
+                                        {
+                                            "type":  "flag",
+                                            "key":  "alliance_plan_proposed"
+                                        }
+                                    ]
+                    },
+                    {
+                        "text":  "story.case_1063.choice.2",
+                        "next":  "case_1063_c",
+                        "require":  [
+                                        {
+                                            "type":  "flag",
+                                            "key":  "cha_confronted"
+                                        }
+                                    ]
+                    },
+                    {
+                        "text":  "story.case_1063.choice.3",
+                        "next":  "case_1063_d",
+                        "require":  [
+                                        {
+                                            "type":  "flag",
+                                            "key":  "full_disclosure_sent"
+                                        }
+                                    ]
+                    }
+                ]
 }

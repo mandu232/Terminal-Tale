@@ -1,45 +1,54 @@
 {
-  "id": "case_1052",
-  "docStyle": "record",
-  "docLines": [
-    "[ 사건 파일 #1052 ]",
-    "",
-    "대상 시민  :  서민준 / 36세",
-    "기록 점수  :  58점 / 100",
-    "",
-    "혐의:",
-    "내부 정보 무단 유출",
-    "외부 언론사 접촉 및 기밀 자료 전달 시도",
-    "",
-    "추가 기록:",
-    "유출 내용: 배급 차단 관련 내부 결재 문서",
-    "접촉 언론사: 미확인"
-  ],
-  "sfx": "Assets/audio/node_paper_crunch.wav",
-  "text": [
-    "story.case_1052.0",
-    "story.case_1052.1",
-    "story.case_1052.2",
-    "story.case_1052.3",
-    "story.case_1052.4"
-  ],
-  "effects": [
-    { "type": "time",              "value": 1 },
-    { "type": "fatigue",           "value": 3 },
-    { "type": "reveal_character",  "key": "seo_minjun" }
-  ],
-  "choices": [
-    {
-      "text": "story.case_1052.choice.0",
-      "next": "case_1052_a"
-    },
-    {
-      "text": "story.case_1052.choice.1",
-      "next": "case_1052_b"
-    },
-    {
-      "text": "story.case_1052.choice.2",
-      "next": "case_1052_c"
-    }
-  ]
+    "id":  "case_1052",
+    "docStyle":  "record",
+    "docLines":  [
+                     "doc.case_1052.0",
+                     "",
+                     "doc.case_1052.1",
+                     "doc.case_1052.2",
+                     "",
+                     "doc.case_1052.3",
+                     "doc.case_1052.4",
+                     "doc.case_1052.5",
+                     "",
+                     "doc.case_1052.6",
+                     "doc.case_1052.7",
+                     "doc.case_1052.8"
+                 ],
+    "sfx":  "Assets/audio/node_paper_crunch.wav",
+    "text":  [
+                 "story.case_1052.0",
+                 "story.case_1052.1",
+                 "story.case_1052.2",
+                 "story.case_1052.3",
+                 "story.case_1052.4"
+             ],
+    "effects":  [
+                    {
+                        "type":  "time",
+                        "value":  1
+                    },
+                    {
+                        "type":  "fatigue",
+                        "value":  3
+                    },
+                    {
+                        "type":  "reveal_character",
+                        "key":  "seo_minjun"
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1052.choice.0",
+                        "next":  "case_1052_a"
+                    },
+                    {
+                        "text":  "story.case_1052.choice.1",
+                        "next":  "case_1052_b"
+                    },
+                    {
+                        "text":  "story.case_1052.choice.2",
+                        "next":  "case_1052_c"
+                    }
+                ]
 }

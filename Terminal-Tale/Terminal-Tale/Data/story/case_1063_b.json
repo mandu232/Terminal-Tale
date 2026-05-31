@@ -1,37 +1,58 @@
 {
-  "id": "case_1063_b",
-  "docStyle": "order",
-  "docLines": [
-    "[ 케이스 #1063 ]  재처분 명령",
-    "",
-    "대상: 박재원 / 51세",
-    "전직 도시계획부 특별사업2팀",
-    "",
-    "사유:",
-    "외부 기관과의 무단 접촉",
-    "내부 정보 유출 혐의 재기",
-    "",
-    "비고:",
-    "기존 보호 조치 무효화됨",
-    "새 명령서에 다른 서명 있음"
-  ],
-  "sfx": "Assets/audio/node_notification.wav",
-  "text": [
-    "story.case_1063_b.0",
-    "story.case_1063_b.1",
-    "story.case_1063_b.2"
-  ],
-  "effects": [
-    { "type": "case_record", "key": "case_1063", "title": "story.case_1063.0", "outcome": "story.case_1063.choice.1", "content": "story.case_1063_b.0" },
-    { "type": "tendency", "key": "corruption", "value": 15 },
-    { "type": "tendency", "key": "justice", "value": 8 },
-    { "type": "tendency", "key": "suspicion", "value": 3 },
-    { "type": "flag_add", "key": "jaewon_in_alliance" }
-  ],
-  "choices": [
-    {
-      "text": "story.common.to_day_end",
-      "next": "day22_end_alliance"
-    }
-  ]
+    "id":  "case_1063_b",
+    "docStyle":  "order",
+    "docLines":  [
+                     "doc.case_1063.0",
+                     "",
+                     "doc.case_1063.1",
+                     "doc.case_1063.2",
+                     "",
+                     "doc.case_1063.3",
+                     "doc.case_1063.4",
+                     "doc.case_1063.5",
+                     "",
+                     "doc.case_1063.6",
+                     "doc.case_1063.7",
+                     "doc.case_1063.8"
+                 ],
+    "sfx":  "Assets/audio/node_notification.wav",
+    "text":  [
+                 "story.case_1063_b.0",
+                 "story.case_1063_b.1",
+                 "story.case_1063_b.2"
+             ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1063",
+                        "title":  "story.case_1063.0",
+                        "outcome":  "story.case_1063.choice.1",
+                        "content":  "story.case_1063_b.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "corruption",
+                        "value":  15
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  8
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  3
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "jaewon_in_alliance"
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.common.to_day_end",
+                        "next":  "day22_end_alliance"
+                    }
+                ]
 }

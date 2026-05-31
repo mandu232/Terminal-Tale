@@ -1,49 +1,56 @@
 {
-  "id": "case_1067",
-  "docStyle": "record",
-  "docLines": [
-    "[ 사건 파일 #1067 ]",
-    "",
-    "대상 시민  :  한승민 / 38세",
-    "",
-    "신고 내용:",
-    "402호 거주자 — 심야 소음 반복",
-    "위협적 언동",
-    "",
-    "첨부 파일 3개 (소리.mp3 × 3)",
-    "저장 시각: 동일 날짜 오전 10시",
-    "",
-    "비고:",
-    "402호 — 한승민 대상 소음 민원",
-    "1년째 반복 제출 이력"
-  ],
-  "sfx": "Assets/audio/node_paper.wav",
-  "text": [
-    "story.case_1067.0",
-    "story.case_1067.1",
-    "story.case_1067.2",
-    "story.case_1067.3"
-  ],
-  "effects": [],
-  "choices": [
-    {
-      "text": "story.case_1067.choice.0",
-      "next": "case_1067_a"
-    },
-    {
-      "text": "story.case_1067.choice.1",
-      "next": "case_1067_b"
-    },
-    {
-      "text": "story.case_1067.choice.2",
-      "next": "case_1067_c"
-    },
-    {
-      "text": "story.case_1067.choice.3",
-      "next": "case_1067_d",
-      "require": [
-        { "type": "tendency", "key": "justice", "op": "gte", "value": 3 }
-      ]
-    }
-  ]
+    "id":  "case_1067",
+    "docStyle":  "record",
+    "docLines":  [
+                     "doc.case_1067.0",
+                     "",
+                     "doc.case_1067.1",
+                     "",
+                     "doc.case_1067.2",
+                     "doc.case_1067.3",
+                     "doc.case_1067.4",
+                     "",
+                     "doc.case_1067.5",
+                     "doc.case_1067.6",
+                     "",
+                     "doc.case_1067.7",
+                     "doc.case_1067.8",
+                     "doc.case_1067.9"
+                 ],
+    "sfx":  "Assets/audio/node_paper.wav",
+    "text":  [
+                 "story.case_1067.0",
+                 "story.case_1067.1",
+                 "story.case_1067.2",
+                 "story.case_1067.3"
+             ],
+    "effects":  [
+
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1067.choice.0",
+                        "next":  "case_1067_a"
+                    },
+                    {
+                        "text":  "story.case_1067.choice.1",
+                        "next":  "case_1067_b"
+                    },
+                    {
+                        "text":  "story.case_1067.choice.2",
+                        "next":  "case_1067_c"
+                    },
+                    {
+                        "text":  "story.case_1067.choice.3",
+                        "next":  "case_1067_d",
+                        "require":  [
+                                        {
+                                            "type":  "tendency",
+                                            "key":  "justice",
+                                            "op":  "gte",
+                                            "value":  3
+                                        }
+                                    ]
+                    }
+                ]
 }

@@ -1,47 +1,70 @@
 {
-  "id": "case_1052_protect",
-  "docStyle": "record",
-  "docLines": [
-    "[ 사건 파일 #1052 ]",
-    "",
-    "대상 시민  :  서민준 / 36세",
-    "기록 점수  :  58점 / 100",
-    "",
-    "혐의:",
-    "내부 정보 무단 유출",
-    "외부 언론사 접촉 및 기밀 자료 전달 시도",
-    "",
-    "추가 기록:",
-    "유출 내용: 배급 차단 관련 내부 결재 문서",
-    "접촉 언론사: 미확인"
-  ],
-  "sfx": "Assets/audio/node_paper_crunch.wav",
-  "text": [
-    "story.case_1052_protect.0",
-    "story.case_1052_protect.1",
-    "story.case_1052_protect.2",
-    "story.case_1052_protect.3"
-  ],
-  "effects": [
-    {
-      "type": "case_record",
-      "key": "case_1052",
-      "title": "story.case_1052.0",
-      "outcome": "story.case_1052_c.choice.2",
-      "content": "story.case_1052_protect.0"
-    },
-    { "type": "tendency",  "key": "justice",   "value": 6 },
-    { "type": "tendency",  "key": "suspicion", "value": 3 },
-    { "type": "flag_add",  "key": "has_authorizer_name" },
-    { "type": "corruption",  "value": -15 },
-    { "type": "give_item", "key": "authorizer_record" },
-    { "type": "fatigue",    "value": 6 },
-    { "type": "monitoring", "value": 20 }
-  ],
-  "choices": [
-    {
-      "text": "story.common.close_file",
-      "next": "day11_desk"
-    }
-  ]
+    "id":  "case_1052_protect",
+    "docStyle":  "record",
+    "docLines":  [
+                     "doc.case_1052.0",
+                     "",
+                     "doc.case_1052.1",
+                     "doc.case_1052.2",
+                     "",
+                     "doc.case_1052.3",
+                     "doc.case_1052.4",
+                     "doc.case_1052.5",
+                     "",
+                     "doc.case_1052.6",
+                     "doc.case_1052.7",
+                     "doc.case_1052.8"
+                 ],
+    "sfx":  "Assets/audio/node_paper_crunch.wav",
+    "text":  [
+                 "story.case_1052_protect.0",
+                 "story.case_1052_protect.1",
+                 "story.case_1052_protect.2",
+                 "story.case_1052_protect.3"
+             ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1052",
+                        "title":  "story.case_1052.0",
+                        "outcome":  "story.case_1052_c.choice.2",
+                        "content":  "story.case_1052_protect.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  6
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  3
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "has_authorizer_name"
+                    },
+                    {
+                        "type":  "corruption",
+                        "value":  -15
+                    },
+                    {
+                        "type":  "give_item",
+                        "key":  "authorizer_record"
+                    },
+                    {
+                        "type":  "fatigue",
+                        "value":  6
+                    },
+                    {
+                        "type":  "monitoring",
+                        "value":  20
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.common.close_file",
+                        "next":  "day11_desk"
+                    }
+                ]
 }

@@ -1,48 +1,56 @@
 {
-  "id": "case_1061",
-  "docStyle": "order",
-  "docLines": [
-    "[ 처분 명령서 #1061 ]",
-    "처분 등급: 최우선",
-    "",
-    "대상: 김재호 / 55세",
-    "직책: 전직 RECORD 내부 감사관",
-    "혐의: 기밀 누설",
-    "",
-    "비고:",
-    "감사 보고서 접수 이틀 뒤",
-    "처분 명령 발행"
-  ],
-  "sfx": "Assets/audio/node_paper_crunch.wav",
-  "text": [
-    "story.case_1061.0",
-    "story.case_1061.1",
-    "story.case_1061.2",
-    "story.case_1061.3"
-  ],
-  "effects": [],
-  "choices": [
-    {
-      "text": "story.case_1061.choice.0",
-      "next": "case_1061_a"
-    },
-    {
-      "text": "story.case_1061.choice.1",
-      "next": "case_1061_b"
-    },
-    {
-      "text": "story.case_1061.choice.2",
-      "next": "case_1061_c",
-      "require": [
-        { "type": "flag", "key": "audit_approved" }
-      ]
-    },
-    {
-      "text": "story.case_1061.choice.3",
-      "next": "case_1061_d",
-      "require": [
-        { "type": "flag", "key": "has_case_1038_info" }
-      ]
-    }
-  ]
+    "id":  "case_1061",
+    "docStyle":  "order",
+    "docLines":  [
+                     "doc.case_1061.0",
+                     "doc.case_1061.1",
+                     "",
+                     "doc.case_1061.2",
+                     "doc.case_1061.3",
+                     "doc.case_1061.4",
+                     "",
+                     "doc.case_1061.5",
+                     "doc.case_1061.6",
+                     "doc.case_1061.7"
+                 ],
+    "sfx":  "Assets/audio/node_paper_crunch.wav",
+    "text":  [
+                 "story.case_1061.0",
+                 "story.case_1061.1",
+                 "story.case_1061.2",
+                 "story.case_1061.3"
+             ],
+    "effects":  [
+
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1061.choice.0",
+                        "next":  "case_1061_a"
+                    },
+                    {
+                        "text":  "story.case_1061.choice.1",
+                        "next":  "case_1061_b"
+                    },
+                    {
+                        "text":  "story.case_1061.choice.2",
+                        "next":  "case_1061_c",
+                        "require":  [
+                                        {
+                                            "type":  "flag",
+                                            "key":  "audit_approved"
+                                        }
+                                    ]
+                    },
+                    {
+                        "text":  "story.case_1061.choice.3",
+                        "next":  "case_1061_d",
+                        "require":  [
+                                        {
+                                            "type":  "flag",
+                                            "key":  "has_case_1038_info"
+                                        }
+                                    ]
+                    }
+                ]
 }

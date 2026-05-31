@@ -1,49 +1,57 @@
 {
-  "id": "case_1062",
-  "docStyle": "order",
-  "docLines": [
-    "[ 처분 명령서 #1062 ]",
-    "처분 등급: 최우선",
-    "",
-    "대상자:  [ 판독 불가 ]",
-    "나이  :  [ 판독 불가 ]",
-    "혐의  :  [ 판독 불가 ]",
-    "",
-    "파일이 처음부터 비어 있다.",
-    "이름도, 나이도, 혐의도 없다.",
-    "",
-    "서명란만 있다."
-  ],
-  "sfx": "Assets/audio/node_paper_crunch.wav",
-  "text": [
-    "story.case_1062.0",
-    "story.case_1062.1",
-    "story.case_1062.2",
-    "story.case_1062.3"
-  ],
-  "effects": [],
-  "choices": [
-    {
-      "text": "story.case_1062.choice.0",
-      "next": "case_1062_a"
-    },
-    {
-      "text": "story.case_1062.choice.1",
-      "next": "case_1062_b"
-    },
-    {
-      "text": "story.case_1062.choice.2",
-      "next": "case_1062_c",
-      "require": [
-        { "type": "flag", "key": "has_authorizer_evidence" }
-      ]
-    },
-    {
-      "text": "story.case_1062.choice.3",
-      "next": "case_1062_d",
-      "require": [
-        { "type": "flag", "key": "has_case_1038_original" }
-      ]
-    }
-  ]
+    "id":  "case_1062",
+    "docStyle":  "order",
+    "docLines":  [
+                     "doc.case_1062.0",
+                     "doc.case_1062.1",
+                     "",
+                     "doc.case_1062.2",
+                     "doc.case_1062.3",
+                     "doc.case_1062.4",
+                     "",
+                     "doc.case_1062.5",
+                     "doc.case_1062.6",
+                     "",
+                     "doc.case_1062.7"
+                 ],
+    "sfx":  "Assets/audio/node_paper_crunch.wav",
+    "text":  [
+                 "story.case_1062.0",
+                 "story.case_1062.1",
+                 "story.case_1062.2",
+                 "story.case_1062.3"
+             ],
+    "effects":  [
+
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1062.choice.0",
+                        "next":  "case_1062_a"
+                    },
+                    {
+                        "text":  "story.case_1062.choice.1",
+                        "next":  "case_1062_b"
+                    },
+                    {
+                        "text":  "story.case_1062.choice.2",
+                        "next":  "case_1062_c",
+                        "require":  [
+                                        {
+                                            "type":  "flag",
+                                            "key":  "has_authorizer_evidence"
+                                        }
+                                    ]
+                    },
+                    {
+                        "text":  "story.case_1062.choice.3",
+                        "next":  "case_1062_d",
+                        "require":  [
+                                        {
+                                            "type":  "flag",
+                                            "key":  "has_case_1038_original"
+                                        }
+                                    ]
+                    }
+                ]
 }

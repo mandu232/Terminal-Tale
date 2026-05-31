@@ -1,55 +1,61 @@
 {
-  "id": "case_1046_b",
-  "docStyle": "record",
-  "docLines": [
-    "[ 사건 파일 #1046 ]",
-    "",
-    "대상 시민  :  최민호 / 47세",
-    "기록 점수  :  44점 / 100",
-    "",
-    "혐의:",
-    "내부 고발 의혹",
-    "기관 내 정보 유출 — 미확인",
-    "",
-    "추가 기록:",
-    "익명 제보 접수",
-    "배급 차단과의 연관성 주장",
-    "제보 문건 첨부됨"
-  ],
-  "text": [
-    "story.case_1046_b.0",
-    "story.case_1046_b.1",
-    "story.case_1046_b.2",
-    "story.case_1046_b.3"
-  ],
-  "effects": [
-    {
-      "type": "case_record",
-      "key": "case_1046",
-      "title": "story.case_1046.0",
-      "outcome": "story.case_1046.choice.1",
-      "content": "story.case_1046_b.0"
-    },
-    {
-      "type": "tendency",
-      "key": "empathy",
-      "value": 1
-    },
-    {
-      "type": "citizen_trust",
-      "value": 1
-    },
-    {
-      "type": "corruption",
-      "value": 2
-    },
-    { "type": "fatigue",    "value": 5 },
-    { "type": "monitoring", "value": 3 }
-  ],
-  "choices": [
-    {
-      "text": "story.common.close_file",
-      "next": "day5_end"
-    }
-  ]
+    "id":  "case_1046_b",
+    "docStyle":  "record",
+    "docLines":  [
+                     "doc.case_1046.0",
+                     "",
+                     "doc.case_1046.1",
+                     "doc.case_1046.2",
+                     "",
+                     "doc.case_1046.3",
+                     "doc.case_1046.4",
+                     "doc.case_1046.5",
+                     "",
+                     "doc.case_1046.6",
+                     "doc.case_1046.7",
+                     "doc.case_1046.8",
+                     "doc.case_1046.9"
+                 ],
+    "text":  [
+                 "story.case_1046_b.0",
+                 "story.case_1046_b.1",
+                 "story.case_1046_b.2",
+                 "story.case_1046_b.3"
+             ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1046",
+                        "title":  "story.case_1046.0",
+                        "outcome":  "story.case_1046.choice.1",
+                        "content":  "story.case_1046_b.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "empathy",
+                        "value":  1
+                    },
+                    {
+                        "type":  "citizen_trust",
+                        "value":  1
+                    },
+                    {
+                        "type":  "corruption",
+                        "value":  2
+                    },
+                    {
+                        "type":  "fatigue",
+                        "value":  5
+                    },
+                    {
+                        "type":  "monitoring",
+                        "value":  3
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.common.close_file",
+                        "next":  "day5_end"
+                    }
+                ]
 }

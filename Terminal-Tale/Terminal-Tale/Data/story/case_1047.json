@@ -1,51 +1,63 @@
 {
-  "id": "case_1047",
-  "docStyle": "record",
-  "docLines": [
-    "[ 사건 파일 #1047 ]",
-    "",
-    "대상 시민  :  한지수 / 29세",
-    "기록 점수  :  28점 / 100",
-    "",
-    "혐의:",
-    "미허가 내부 정보 수집 및 외부 유통 시도",
-    "",
-    "추가 기록:",
-    "재개발 사업 관련 내부 문서 10건 소지",
-    "외부 언론사 접촉 의혹"
-  ],
-  "sfx": "Assets/audio/node_paper.wav",
-  "text": [
-    "story.case_1047.0",
-    "story.case_1047.1",
-    "story.case_1047.2",
-    "story.case_1047.3",
-    "story.case_1047.4"
-  ],
-  "effects": [
-    { "type": "time",              "value": 1 },
-    { "type": "fatigue",           "value": 3 },
-    { "type": "reveal_character",  "key": "han_jisu" }
-  ],
-  "choices": [
-    {
-      "text": "story.case_1047.choice.0",
-      "next": "case_1047_a"
-    },
-    {
-      "text": "story.case_1047.choice.1",
-      "next": "case_1047_b"
-    },
-    {
-      "text": "story.case_1047.choice.2",
-      "next": "case_1047_c"
-    },
-    {
-      "text": "story.case_1047.choice.3",
-      "next": "case_1047_d",
-      "require": [
-        { "type": "flag", "key": "has_classified_docs" }
-      ]
-    }
-  ]
+    "id":  "case_1047",
+    "docStyle":  "record",
+    "docLines":  [
+                     "doc.case_1047.0",
+                     "",
+                     "doc.case_1047.1",
+                     "doc.case_1047.2",
+                     "",
+                     "doc.case_1047.3",
+                     "doc.case_1047.4",
+                     "",
+                     "doc.case_1047.5",
+                     "doc.case_1047.6",
+                     "doc.case_1047.7"
+                 ],
+    "sfx":  "Assets/audio/node_paper.wav",
+    "text":  [
+                 "story.case_1047.0",
+                 "story.case_1047.1",
+                 "story.case_1047.2",
+                 "story.case_1047.3",
+                 "story.case_1047.4"
+             ],
+    "effects":  [
+                    {
+                        "type":  "time",
+                        "value":  1
+                    },
+                    {
+                        "type":  "fatigue",
+                        "value":  3
+                    },
+                    {
+                        "type":  "reveal_character",
+                        "key":  "han_jisu"
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1047.choice.0",
+                        "next":  "case_1047_a"
+                    },
+                    {
+                        "text":  "story.case_1047.choice.1",
+                        "next":  "case_1047_b"
+                    },
+                    {
+                        "text":  "story.case_1047.choice.2",
+                        "next":  "case_1047_c"
+                    },
+                    {
+                        "text":  "story.case_1047.choice.3",
+                        "next":  "case_1047_d",
+                        "require":  [
+                                        {
+                                            "type":  "flag",
+                                            "key":  "has_classified_docs"
+                                        }
+                                    ]
+                    }
+                ]
 }

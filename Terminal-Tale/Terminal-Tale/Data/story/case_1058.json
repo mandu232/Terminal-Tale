@@ -1,47 +1,55 @@
 {
-  "id": "case_1058",
-  "docStyle": "order",
-  "docLines": [
-    "[ 내부 조사 명령서 #1058 ]",
-    "",
-    "처리 담당: 정보 유출 의심 직원 식별",
-    "및 처분 목록 작성",
-    "",
-    "식별 기준:",
-    "비정상 처리 패턴 (최근 30일)",
-    "외부 접촉 이력",
-    "보류 처리 건수 상위 5%"
-  ],
-  "sfx": "Assets/audio/node_alert.wav",
-  "text": [
-    "story.case_1058.0",
-    "story.case_1058.1",
-    "story.case_1058.2",
-    "story.case_1058.3"
-  ],
-  "effects": [],
-  "choices": [
-    {
-      "text": "story.case_1058.choice.0",
-      "next": "case_1058_a"
-    },
-    {
-      "text": "story.case_1058.choice.1",
-      "next": "case_1058_b"
-    },
-    {
-      "text": "story.case_1058.choice.2",
-      "next": "case_1058_c",
-      "require": [
-        { "type": "flag", "key": "article_published" }
-      ]
-    },
-    {
-      "text": "story.case_1058.choice.3",
-      "next": "case_1058_d",
-      "require": [
-        { "type": "flag", "key": "has_insider_ally" }
-      ]
-    }
-  ]
+    "id":  "case_1058",
+    "docStyle":  "order",
+    "docLines":  [
+                     "doc.case_1058.0",
+                     "",
+                     "doc.case_1058.1",
+                     "doc.case_1058.2",
+                     "",
+                     "doc.case_1058.3",
+                     "doc.case_1058.4",
+                     "doc.case_1058.5",
+                     "doc.case_1058.6"
+                 ],
+    "sfx":  "Assets/audio/node_alert.wav",
+    "text":  [
+                 "story.case_1058.0",
+                 "story.case_1058.1",
+                 "story.case_1058.2",
+                 "story.case_1058.3"
+             ],
+    "effects":  [
+
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1058.choice.0",
+                        "next":  "case_1058_a"
+                    },
+                    {
+                        "text":  "story.case_1058.choice.1",
+                        "next":  "case_1058_b"
+                    },
+                    {
+                        "text":  "story.case_1058.choice.2",
+                        "next":  "case_1058_c",
+                        "require":  [
+                                        {
+                                            "type":  "flag",
+                                            "key":  "article_published"
+                                        }
+                                    ]
+                    },
+                    {
+                        "text":  "story.case_1058.choice.3",
+                        "next":  "case_1058_d",
+                        "require":  [
+                                        {
+                                            "type":  "flag",
+                                            "key":  "has_insider_ally"
+                                        }
+                                    ]
+                    }
+                ]
 }

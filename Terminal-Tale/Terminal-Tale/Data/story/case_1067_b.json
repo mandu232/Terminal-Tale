@@ -1,36 +1,46 @@
 {
-  "id": "case_1067_b",
-  "docStyle": "record",
-  "docLines": [
-    "[ 사건 파일 #1067 ]",
-    "",
-    "대상 시민  :  한승민 / 38세",
-    "",
-    "신고 내용:",
-    "402호 거주자 — 심야 소음 반복",
-    "위협적 언동",
-    "",
-    "첨부 파일 3개 (소리.mp3 × 3)",
-    "저장 시각: 동일 날짜 오전 10시",
-    "",
-    "비고:",
-    "402호 — 한승민 대상 소음 민원",
-    "1년째 반복 제출 이력"
-  ],
-  "sfx": "Assets/audio/node_paper.wav",
-  "text": [
-    "story.case_1067_b.0",
-    "story.case_1067_b.1",
-    "story.case_1067_b.2"
-  ],
-  "effects": [
-    { "type": "case_record", "key": "case_1067", "title": "story.case_1067.0", "outcome": "story.case_1067.choice.1", "content": "story.case_1067_b.0" },
-    { "type": "tendency", "key": "justice", "value": 2 }
-  ],
-  "choices": [
-    {
-      "text": "story.common.to_day_end",
-      "next": "day26_end"
-    }
-  ]
+    "id":  "case_1067_b",
+    "docStyle":  "record",
+    "docLines":  [
+                     "doc.case_1067.0",
+                     "",
+                     "doc.case_1067.1",
+                     "",
+                     "doc.case_1067.2",
+                     "doc.case_1067.3",
+                     "doc.case_1067.4",
+                     "",
+                     "doc.case_1067.5",
+                     "doc.case_1067.6",
+                     "",
+                     "doc.case_1067.7",
+                     "doc.case_1067.8",
+                     "doc.case_1067.9"
+                 ],
+    "sfx":  "Assets/audio/node_paper.wav",
+    "text":  [
+                 "story.case_1067_b.0",
+                 "story.case_1067_b.1",
+                 "story.case_1067_b.2"
+             ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1067",
+                        "title":  "story.case_1067.0",
+                        "outcome":  "story.case_1067.choice.1",
+                        "content":  "story.case_1067_b.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  2
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.common.to_day_end",
+                        "next":  "day26_end"
+                    }
+                ]
 }

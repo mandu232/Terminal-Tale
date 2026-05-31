@@ -1,20 +1,20 @@
 {
     "id":  "case_1043_d",
-  "docStyle": "record",
-  "docLines": [
-    "[ 사건 파일 #1043 ]",
-    "",
-    "대상 시민  :  이수진 / 41세",
-    "기록 점수  :  67점 / 100",
-    "",
-    "혐의:",
-    "미승인 교육 자료 배포",
-    "구역 D-12 / 아동 12명 대상",
-    "",
-    "추가 기록:",
-    "자료 내용: 역사 관련",
-    "승인 목록 외 항목 포함됨"
-  ],
+    "docStyle":  "record",
+    "docLines":  [
+                     "doc.case_1043.0",
+                     "",
+                     "doc.case_1043.1",
+                     "doc.case_1043.2",
+                     "",
+                     "doc.case_1043.3",
+                     "doc.case_1043.4",
+                     "doc.case_1043.5",
+                     "",
+                     "doc.case_1043.6",
+                     "doc.case_1043.7",
+                     "doc.case_1043.8"
+                 ],
     "sfx":  "Assets/audio/node_paper.wav",
     "text":  [
                  "story.case_1043_d.0",
@@ -54,6 +54,9 @@
                         "key":  "suspicion",
                         "value":  1
                     },
-                    { "type": "fatigue", "value": 2 }
+                    {
+                        "type":  "fatigue",
+                        "value":  2
+                    }
                 ]
 }

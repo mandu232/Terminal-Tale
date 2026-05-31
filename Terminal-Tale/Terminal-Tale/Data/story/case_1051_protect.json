@@ -1,48 +1,71 @@
 {
-  "id": "case_1051_protect",
-  "docStyle": "record",
-  "docLines": [
-    "[ 사건 파일 #1051 ]",
-    "",
-    "대상: 윤시현",
-    "직급: 기록 처리 2급  /  근속 5년",
-    "",
-    "혐의:",
-    "권한 외 파일 열람 12건",
-    "미인가 개인 메모 보관",
-    "상부 지시 지연 처리 3건",
-    "",
-    "추가 기록:",
-    "배급 차단 구역 관련 파일",
-    "다수 접근 이력 확인됨"
-  ],
-  "sfx": "Assets/audio/node_paper_crunch.wav",
-  "text": [
-    "story.case_1051_protect.0",
-    "story.case_1051_protect.1",
-    "story.case_1051_protect.2",
-    "story.case_1051_protect.3"
-  ],
-  "effects": [
-    {
-      "type": "case_record",
-      "key": "case_1051",
-      "title": "story.case_1051.0",
-      "outcome": "story.case_1051_d.choice.2",
-      "content": "story.case_1051_protect.0"
-    },
-    { "type": "tendency", "key": "justice",   "value": 4 },
-    { "type": "tendency", "key": "suspicion", "value": 2 },
-    { "type": "flag_add",  "key": "protected_dissenter" },
-    { "type": "corruption",  "value": -12 },
-    { "type": "give_item", "key": "insider_memo" },
-    { "type": "fatigue",    "value": 5 },
-    { "type": "monitoring", "value": 15 }
-  ],
-  "choices": [
-    {
-      "text": "story.common.close_file",
-      "next": "day10_desk"
-    }
-  ]
+    "id":  "case_1051_protect",
+    "docStyle":  "record",
+    "docLines":  [
+                     "doc.case_1051.0",
+                     "",
+                     "doc.case_1051.1",
+                     "doc.case_1051.2",
+                     "",
+                     "doc.case_1051.3",
+                     "doc.case_1051.4",
+                     "doc.case_1051.5",
+                     "doc.case_1051.6",
+                     "",
+                     "doc.case_1051.7",
+                     "doc.case_1051.8",
+                     "doc.case_1051.9"
+                 ],
+    "sfx":  "Assets/audio/node_paper_crunch.wav",
+    "text":  [
+                 "story.case_1051_protect.0",
+                 "story.case_1051_protect.1",
+                 "story.case_1051_protect.2",
+                 "story.case_1051_protect.3"
+             ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1051",
+                        "title":  "story.case_1051.0",
+                        "outcome":  "story.case_1051_d.choice.2",
+                        "content":  "story.case_1051_protect.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  4
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  2
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "protected_dissenter"
+                    },
+                    {
+                        "type":  "corruption",
+                        "value":  -12
+                    },
+                    {
+                        "type":  "give_item",
+                        "key":  "insider_memo"
+                    },
+                    {
+                        "type":  "fatigue",
+                        "value":  5
+                    },
+                    {
+                        "type":  "monitoring",
+                        "value":  15
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.common.close_file",
+                        "next":  "day10_desk"
+                    }
+                ]
 }

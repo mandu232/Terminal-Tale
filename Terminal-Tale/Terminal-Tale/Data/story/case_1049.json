@@ -1,49 +1,63 @@
 {
-  "id": "case_1049",
-  "docStyle": "record",
-  "docLines": [
-    "[ 사건 파일 #1049 ]",
-    "",
-    "대상 시민  :  강서준 / 9세",
-    "기록 점수  :  신규 생성 (0점)",
-    "분류       :  예비 위험 대상",
-    "",
-    "사유:",
-    "보호자의 감시 등급이 기준치 초과",
-    "",
-    "추가 기록:",
-    "보호자 강현수 (부)",
-    "기록 점수 8점 / 요주의 감시 대상",
-    "자동 연동 처리됨"
-  ],
-  "sfx": "Assets/audio/node_paper.wav",
-  "text": [
-    "story.case_1049.0",
-    "story.case_1049.1",
-    "story.case_1049.2",
-    "story.case_1049.3",
-    "story.case_1049.4"
-  ],
-  "effects": [
-    { "type": "time",              "value": 1 },
-    { "type": "fatigue",           "value": 3 },
-    { "type": "reveal_character",  "key": "kang_seojun" }
-  ],
-  "choices": [
-    {
-      "text": "story.case_1049.choice.0",
-      "next": "case_1049_a"
-    },
-    {
-      "text": "story.case_1049.choice.1",
-      "next": "case_1049_b"
-    },
-    {
-      "text": "story.case_1049.choice.2",
-      "next": "case_1049_c",
-      "require": [
-        { "type": "tendency", "key": "justice", "op": "gte", "value": 8 }
-      ]
-    }
-  ]
+    "id":  "case_1049",
+    "docStyle":  "record",
+    "docLines":  [
+                     "doc.case_1049.0",
+                     "",
+                     "doc.case_1049.1",
+                     "doc.case_1049.2",
+                     "doc.case_1049.3",
+                     "",
+                     "doc.case_1049.4",
+                     "doc.case_1049.5",
+                     "",
+                     "doc.case_1049.6",
+                     "doc.case_1049.7",
+                     "doc.case_1049.8",
+                     "doc.case_1049.9"
+                 ],
+    "sfx":  "Assets/audio/node_paper.wav",
+    "text":  [
+                 "story.case_1049.0",
+                 "story.case_1049.1",
+                 "story.case_1049.2",
+                 "story.case_1049.3",
+                 "story.case_1049.4"
+             ],
+    "effects":  [
+                    {
+                        "type":  "time",
+                        "value":  1
+                    },
+                    {
+                        "type":  "fatigue",
+                        "value":  3
+                    },
+                    {
+                        "type":  "reveal_character",
+                        "key":  "kang_seojun"
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1049.choice.0",
+                        "next":  "case_1049_a"
+                    },
+                    {
+                        "text":  "story.case_1049.choice.1",
+                        "next":  "case_1049_b"
+                    },
+                    {
+                        "text":  "story.case_1049.choice.2",
+                        "next":  "case_1049_c",
+                        "require":  [
+                                        {
+                                            "type":  "tendency",
+                                            "key":  "justice",
+                                            "op":  "gte",
+                                            "value":  8
+                                        }
+                                    ]
+                    }
+                ]
 }

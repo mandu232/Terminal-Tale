@@ -1,19 +1,19 @@
 {
     "id":  "case_1055_b",
-  "docStyle": "order",
-  "docLines": [
-    "[ 집행 명령서 #1055 ]",
-    "처분 등급: 최우선  /  오늘 내로",
-    "",
-    "대상: 김도현 / 38세",
-    "직책: 전직 언론인",
-    "혐의: 허가되지 않은 보도 준비",
-    "",
-    "비고:",
-    "RECORD 존재 외부 알리려 시도",
-    "취재 메모 압수",
-    "즉각 처분 요청"
-  ],
+    "docStyle":  "order",
+    "docLines":  [
+                     "doc.case_1055.0",
+                     "doc.case_1055.1",
+                     "",
+                     "doc.case_1055.2",
+                     "doc.case_1055.3",
+                     "doc.case_1055.4",
+                     "",
+                     "doc.case_1055.5",
+                     "doc.case_1055.6",
+                     "doc.case_1055.7",
+                     "doc.case_1055.8"
+                 ],
     "sfx":  "Assets/audio/node_paper_crunch.wav",
     "text":  [
                  "story.case_1055_b.0",

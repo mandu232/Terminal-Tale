@@ -1,46 +1,53 @@
 {
-  "id": "case_1068",
-  "docStyle": "record",
-  "docLines": [
-    "[ 사건 파일 #1068 ]",
-    "",
-    "대상 시민  :  이동혁 / 45세",
-    "",
-    "신고 내용:",
-    "내부 업무 지시에 반복 이의 제기",
-    "부하 직원 규정 위반 묵인",
-    "",
-    "신고자: 익명",
-    "첨부: 내부 회의 녹취 발췌본 1건",
-    "(공식 직인 없음)"
-  ],
-  "sfx": "Assets/audio/node_paper.wav",
-  "text": [
-    "story.case_1068.0",
-    "story.case_1068.1",
-    "story.case_1068.2",
-    "story.case_1068.3"
-  ],
-  "effects": [],
-  "choices": [
-    {
-      "text": "story.case_1068.choice.0",
-      "next": "case_1068_a"
-    },
-    {
-      "text": "story.case_1068.choice.1",
-      "next": "case_1068_b"
-    },
-    {
-      "text": "story.case_1068.choice.2",
-      "next": "case_1068_c"
-    },
-    {
-      "text": "story.case_1068.choice.3",
-      "next": "case_1068_d",
-      "require": [
-        { "type": "tendency", "key": "suspicion", "op": "gte", "value": 3 }
-      ]
-    }
-  ]
+    "id":  "case_1068",
+    "docStyle":  "record",
+    "docLines":  [
+                     "doc.case_1068.0",
+                     "",
+                     "doc.case_1068.1",
+                     "",
+                     "doc.case_1068.2",
+                     "doc.case_1068.3",
+                     "doc.case_1068.4",
+                     "",
+                     "doc.case_1068.5",
+                     "doc.case_1068.6",
+                     "doc.case_1068.7"
+                 ],
+    "sfx":  "Assets/audio/node_paper.wav",
+    "text":  [
+                 "story.case_1068.0",
+                 "story.case_1068.1",
+                 "story.case_1068.2",
+                 "story.case_1068.3"
+             ],
+    "effects":  [
+
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1068.choice.0",
+                        "next":  "case_1068_a"
+                    },
+                    {
+                        "text":  "story.case_1068.choice.1",
+                        "next":  "case_1068_b"
+                    },
+                    {
+                        "text":  "story.case_1068.choice.2",
+                        "next":  "case_1068_c"
+                    },
+                    {
+                        "text":  "story.case_1068.choice.3",
+                        "next":  "case_1068_d",
+                        "require":  [
+                                        {
+                                            "type":  "tendency",
+                                            "key":  "suspicion",
+                                            "op":  "gte",
+                                            "value":  3
+                                        }
+                                    ]
+                    }
+                ]
 }

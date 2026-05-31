@@ -1,48 +1,56 @@
 {
-  "id": "case_1056",
-  "docStyle": "order",
-  "docLines": [
-    "[ 처분 명령서 #1056 ]",
-    "처분 등급: 일반",
-    "",
-    "대상: 강민호 / 29세",
-    "직책: 지역 자치단체 활동가",
-    "혐의: 국가 기록 통합 반대 운동",
-    "",
-    "비고:",
-    "반대 시민 서명 수집: 4,312건",
-    "RECORD 전국 확장 반대 주도"
-  ],
-  "sfx": "Assets/audio/node_paper_crunch.wav",
-  "text": [
-    "story.case_1056.0",
-    "story.case_1056.1",
-    "story.case_1056.2",
-    "story.case_1056.3"
-  ],
-  "effects": [],
-  "choices": [
-    {
-      "text": "story.case_1056.choice.0",
-      "next": "case_1056_a"
-    },
-    {
-      "text": "story.case_1056.choice.1",
-      "next": "case_1056_b"
-    },
-    {
-      "text": "story.case_1056.choice.2",
-      "next": "case_1056_c",
-      "require": [
-        { "type": "flag", "key": "report_date_confirmed" }
-      ]
-    },
-    {
-      "text": "story.case_1056.choice.3",
-      "next": "case_1056_d",
-      "require": [
-        { "type": "flag", "key": "journalist_channel_open" }
-      ]
-    }
-  ]
+    "id":  "case_1056",
+    "docStyle":  "order",
+    "docLines":  [
+                     "doc.case_1056.0",
+                     "doc.case_1056.1",
+                     "",
+                     "doc.case_1056.2",
+                     "doc.case_1056.3",
+                     "doc.case_1056.4",
+                     "",
+                     "doc.case_1056.5",
+                     "doc.case_1056.6",
+                     "doc.case_1056.7"
+                 ],
+    "sfx":  "Assets/audio/node_paper_crunch.wav",
+    "text":  [
+                 "story.case_1056.0",
+                 "story.case_1056.1",
+                 "story.case_1056.2",
+                 "story.case_1056.3"
+             ],
+    "effects":  [
+
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1056.choice.0",
+                        "next":  "case_1056_a"
+                    },
+                    {
+                        "text":  "story.case_1056.choice.1",
+                        "next":  "case_1056_b"
+                    },
+                    {
+                        "text":  "story.case_1056.choice.2",
+                        "next":  "case_1056_c",
+                        "require":  [
+                                        {
+                                            "type":  "flag",
+                                            "key":  "report_date_confirmed"
+                                        }
+                                    ]
+                    },
+                    {
+                        "text":  "story.case_1056.choice.3",
+                        "next":  "case_1056_d",
+                        "require":  [
+                                        {
+                                            "type":  "flag",
+                                            "key":  "journalist_channel_open"
+                                        }
+                                    ]
+                    }
+                ]
 }

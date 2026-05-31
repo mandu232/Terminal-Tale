@@ -1,38 +1,62 @@
 {
-  "id": "case_1066_c",
-  "docStyle": "order",
-  "docLines": [
-    "[ 케이스 #1066 ]  D+30 기산 대상",
-    "",
-    "대상: 정다희 / 26세",
-    "온라인 캠페인 운영자",
-    "",
-    "사유:",
-    "기록 통합 시스템 반대 온라인 캠페인",
-    "허위 정보 유포 및 행정 불신 조장",
-    "",
-    "비고:",
-    "강민호 (#1056) 연관 계보"
-  ],
-  "sfx": "Assets/audio/node_alert.wav",
-  "text": [
-    "story.case_1066_c.0",
-    "story.case_1066_c.1",
-    "story.case_1066_c.2",
-    "story.case_1066_c.3"
-  ],
-  "effects": [
-    { "type": "case_record", "key": "case_1066", "title": "story.case_1066.0", "outcome": "story.case_1066.choice.2", "content": "story.case_1066_c.0" },
-    { "type": "tendency", "key": "corruption", "value": 15 },
-    { "type": "tendency", "key": "justice",    "value": 10 },
-    { "type": "tendency", "key": "suspicion",  "value": 4 },
-    { "type": "flag_add", "key": "countdown_linked" },
-    { "type": "flag_add", "key": "dahee_in_record" }
-  ],
-  "choices": [
-    {
-      "text": "story.common.to_day_end",
-      "next": "day25_end_hearing"
-    }
-  ]
+    "id":  "case_1066_c",
+    "docStyle":  "order",
+    "docLines":  [
+                     "doc.case_1066.0",
+                     "",
+                     "doc.case_1066.1",
+                     "doc.case_1066.2",
+                     "",
+                     "doc.case_1066.3",
+                     "doc.case_1066.4",
+                     "doc.case_1066.5",
+                     "",
+                     "doc.case_1066.6",
+                     "doc.case_1066.7"
+                 ],
+    "sfx":  "Assets/audio/node_alert.wav",
+    "text":  [
+                 "story.case_1066_c.0",
+                 "story.case_1066_c.1",
+                 "story.case_1066_c.2",
+                 "story.case_1066_c.3"
+             ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1066",
+                        "title":  "story.case_1066.0",
+                        "outcome":  "story.case_1066.choice.2",
+                        "content":  "story.case_1066_c.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "corruption",
+                        "value":  15
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  10
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  4
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "countdown_linked"
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "dahee_in_record"
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.common.to_day_end",
+                        "next":  "day25_end_hearing"
+                    }
+                ]
 }

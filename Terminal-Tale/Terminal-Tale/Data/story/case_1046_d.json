@@ -1,81 +1,87 @@
 {
-  "id": "case_1046_d",
-  "docStyle": "record",
-  "docLines": [
-    "[ 사건 파일 #1046 ]",
-    "",
-    "대상 시민  :  최민호 / 47세",
-    "기록 점수  :  44점 / 100",
-    "",
-    "혐의:",
-    "내부 고발 의혹",
-    "기관 내 정보 유출 — 미확인",
-    "",
-    "추가 기록:",
-    "익명 제보 접수",
-    "배급 차단과의 연관성 주장",
-    "제보 문건 첨부됨"
-  ],
-  "sfx": "Assets/audio/node_alert.wav",
-  "text": [
-    "story.case_1046_d.0",
-    "story.case_1046_d.1",
-    "story.case_1046_d.2",
-    "story.case_1046_d.3"
-  ],
-  "effects": [
-    {
-      "type": "case_record",
-      "key": "case_1046",
-      "title": "story.case_1046.0",
-      "outcome": "story.case_1046.choice.3",
-      "content": "story.case_1046_d.0"
-    },
-    {
-      "type": "tendency",
-      "key": "justice",
-      "value": 2
-    },
-    {
-      "type": "tendency",
-      "key": "suspicion",
-      "value": 2
-    },
-    { "type": "fatigue",    "value": 3 },
-    { "type": "monitoring", "value": 8 }
-  ],
-  "choices": [
-    {
-      "text": "story.case_1046_d.choice.0",
-      "next": "case_1046_a"
-    },
-    {
-      "text": "story.case_1046_d.choice.1",
-      "next": "case_1046_b"
-    },
-    {
-      "text": "story.case_1046_d.choice.2",
-      "next": "case_1046_f",
-      "require": [
-        {
-          "type": "tendency",
-          "key": "justice",
-          "op": "gte",
-          "value": 4
-        }
-      ]
-    },
-    {
-      "text": "story.case_1046_d.choice.3",
-      "next": "case_1046_e",
-      "require": [
-        {
-          "type": "tendency",
-          "key": "justice",
-          "op": "gte",
-          "value": 3
-        }
-      ]
-    }
-  ]
+    "id":  "case_1046_d",
+    "docStyle":  "record",
+    "docLines":  [
+                     "doc.case_1046.0",
+                     "",
+                     "doc.case_1046.1",
+                     "doc.case_1046.2",
+                     "",
+                     "doc.case_1046.3",
+                     "doc.case_1046.4",
+                     "doc.case_1046.5",
+                     "",
+                     "doc.case_1046.6",
+                     "doc.case_1046.7",
+                     "doc.case_1046.8",
+                     "doc.case_1046.9"
+                 ],
+    "sfx":  "Assets/audio/node_alert.wav",
+    "text":  [
+                 "story.case_1046_d.0",
+                 "story.case_1046_d.1",
+                 "story.case_1046_d.2",
+                 "story.case_1046_d.3"
+             ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1046",
+                        "title":  "story.case_1046.0",
+                        "outcome":  "story.case_1046.choice.3",
+                        "content":  "story.case_1046_d.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  2
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  2
+                    },
+                    {
+                        "type":  "fatigue",
+                        "value":  3
+                    },
+                    {
+                        "type":  "monitoring",
+                        "value":  8
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1046_d.choice.0",
+                        "next":  "case_1046_a"
+                    },
+                    {
+                        "text":  "story.case_1046_d.choice.1",
+                        "next":  "case_1046_b"
+                    },
+                    {
+                        "text":  "story.case_1046_d.choice.2",
+                        "next":  "case_1046_f",
+                        "require":  [
+                                        {
+                                            "type":  "tendency",
+                                            "key":  "justice",
+                                            "op":  "gte",
+                                            "value":  4
+                                        }
+                                    ]
+                    },
+                    {
+                        "text":  "story.case_1046_d.choice.3",
+                        "next":  "case_1046_e",
+                        "require":  [
+                                        {
+                                            "type":  "tendency",
+                                            "key":  "justice",
+                                            "op":  "gte",
+                                            "value":  3
+                                        }
+                                    ]
+                    }
+                ]
 }

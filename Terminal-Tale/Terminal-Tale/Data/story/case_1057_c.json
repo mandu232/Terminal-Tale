@@ -1,19 +1,19 @@
 {
     "id":  "case_1057_c",
-  "docStyle": "order",
-  "docLines": [
-    "[ 처분 명령서 #1057 ]",
-    "처분 등급: 일반",
-    "",
-    "대상: 이선아 / 34세",
-    "직책: 시민단체 법률 지원 활동가",
-    "혐의: 허가되지 않은 법률 조력",
-    "",
-    "비고:",
-    "RECORD 처분 대상자에게",
-    "이의 제기 방법 안내",
-    "지원 건수 누계: 83건"
-  ],
+    "docStyle":  "order",
+    "docLines":  [
+                     "doc.case_1057.0",
+                     "doc.case_1057.1",
+                     "",
+                     "doc.case_1057.2",
+                     "doc.case_1057.3",
+                     "doc.case_1057.4",
+                     "",
+                     "doc.case_1057.5",
+                     "doc.case_1057.6",
+                     "doc.case_1057.7",
+                     "doc.case_1057.8"
+                 ],
     "sfx":  "Assets/audio/node_paper_crunch.wav",
     "text":  [
                  "story.case_1057_c.0",

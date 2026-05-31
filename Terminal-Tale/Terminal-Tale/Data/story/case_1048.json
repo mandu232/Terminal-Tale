@@ -1,65 +1,71 @@
 {
-  "id": "case_1048",
-  "docStyle": "order",
-  "docLines": [
-    "[ 특별 처리 명령서 #1048 ]",
-    "발신: 상급 관리부  /  즉시 시행",
-    "",
-    "처리 대상: 1,247명",
-    "구역: B-3 / C-7 / D-12",
-    "",
-    "처리 내용:",
-    "전체 거주민 기록 점수 일괄 하향 조정",
-    "배급 민원 제출 이력자 전원",
-    " → '요주의 감시 대상' 자동 등록",
-    "",
-    "경고:",
-    "승인하면 되돌릴 수 없습니다."
-  ],
-  "sfx": "Assets/audio/node_alert.wav",
-  "text": [
-    "story.case_1048.0",
-    "story.case_1048.1",
-    "story.case_1048.2",
-    "story.case_1048.3",
-    "story.case_1048.4"
-  ],
-  "effects": [
-    { "type": "time",    "value": 1 },
-    { "type": "fatigue", "value": 5 }
-  ],
-  "choices": [
-    {
-      "text": "story.case_1048.choice.0",
-      "next": "case_1048_a"
-    },
-    {
-      "text": "story.case_1048.choice.1",
-      "next": "case_1048_b"
-    },
-    {
-      "text": "story.case_1048.choice.2",
-      "next": "case_1048_c",
-      "require": [
-        {
-          "type": "tendency",
-          "key": "justice",
-          "op": "gte",
-          "value": 5
-        }
-      ]
-    },
-    {
-      "text": "story.case_1048.choice.3",
-      "next": "case_1048_d",
-      "require": [
-        {
-          "type": "tendency",
-          "key": "justice",
-          "op": "gte",
-          "value": 3
-        }
-      ]
-    }
-  ]
+    "id":  "case_1048",
+    "docStyle":  "order",
+    "docLines":  [
+                     "doc.case_1048.0",
+                     "doc.case_1048.1",
+                     "",
+                     "doc.case_1048.2",
+                     "doc.case_1048.3",
+                     "",
+                     "doc.case_1048.4",
+                     "doc.case_1048.5",
+                     "doc.case_1048.6",
+                     "doc.case_1048.7",
+                     "",
+                     "doc.case_1048.8",
+                     "doc.case_1048.9"
+                 ],
+    "sfx":  "Assets/audio/node_alert.wav",
+    "text":  [
+                 "story.case_1048.0",
+                 "story.case_1048.1",
+                 "story.case_1048.2",
+                 "story.case_1048.3",
+                 "story.case_1048.4"
+             ],
+    "effects":  [
+                    {
+                        "type":  "time",
+                        "value":  1
+                    },
+                    {
+                        "type":  "fatigue",
+                        "value":  5
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1048.choice.0",
+                        "next":  "case_1048_a"
+                    },
+                    {
+                        "text":  "story.case_1048.choice.1",
+                        "next":  "case_1048_b"
+                    },
+                    {
+                        "text":  "story.case_1048.choice.2",
+                        "next":  "case_1048_c",
+                        "require":  [
+                                        {
+                                            "type":  "tendency",
+                                            "key":  "justice",
+                                            "op":  "gte",
+                                            "value":  5
+                                        }
+                                    ]
+                    },
+                    {
+                        "text":  "story.case_1048.choice.3",
+                        "next":  "case_1048_d",
+                        "require":  [
+                                        {
+                                            "type":  "tendency",
+                                            "key":  "justice",
+                                            "op":  "gte",
+                                            "value":  3
+                                        }
+                                    ]
+                    }
+                ]
 }

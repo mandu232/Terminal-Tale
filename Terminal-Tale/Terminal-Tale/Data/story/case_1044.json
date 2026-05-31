@@ -1,52 +1,64 @@
 {
-  "id": "case_1044",
-  "docStyle": "record",
-  "docLines": [
-    "[ 사건 파일 #1044 ]",
-    "",
-    "대상 시민  :  박진수 / 28세",
-    "기록 점수  :  31점 / 100",
-    "",
-    "혐의:",
-    "무허가 집회 주도",
-    "구역 B-3 / 15인 이상 모임 주선",
-    "",
-    "추가 기록:",
-    "참가자 전원 신원 확인됨",
-    "명단 첨부됨"
-  ],
-  "sfx": "Assets/audio/node_paper.wav",
-  "text": [
-    "story.case_1044.0",
-    "story.case_1044.1",
-    "story.case_1044.2",
-    "story.case_1044.3",
-    "story.case_1044.4"
-  ],
-  "effects": [
-    { "type": "time",              "value": 1 },
-    { "type": "fatigue",           "value": 3 },
-    { "type": "reveal_character",  "key": "park_jinsu" }
-  ],
-  "choices": [
-    {
-      "text": "story.case_1044.choice.0",
-      "next": "case_1044_a"
-    },
-    {
-      "text": "story.case_1044.choice.1",
-      "next": "case_1044_b"
-    },
-    {
-      "text": "story.case_1044.choice.2",
-      "next": "case_1044_c"
-    },
-    {
-      "text": "story.case_1044.choice.3",
-      "next": "case_1044_d",
-      "require": [
-        { "type": "flag", "key": "knows_upper_involved" }
-      ]
-    }
-  ]
+    "id":  "case_1044",
+    "docStyle":  "record",
+    "docLines":  [
+                     "doc.case_1044.0",
+                     "",
+                     "doc.case_1044.1",
+                     "doc.case_1044.2",
+                     "",
+                     "doc.case_1044.3",
+                     "doc.case_1044.4",
+                     "doc.case_1044.5",
+                     "",
+                     "doc.case_1044.6",
+                     "doc.case_1044.7",
+                     "doc.case_1044.8"
+                 ],
+    "sfx":  "Assets/audio/node_paper.wav",
+    "text":  [
+                 "story.case_1044.0",
+                 "story.case_1044.1",
+                 "story.case_1044.2",
+                 "story.case_1044.3",
+                 "story.case_1044.4"
+             ],
+    "effects":  [
+                    {
+                        "type":  "time",
+                        "value":  1
+                    },
+                    {
+                        "type":  "fatigue",
+                        "value":  3
+                    },
+                    {
+                        "type":  "reveal_character",
+                        "key":  "park_jinsu"
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1044.choice.0",
+                        "next":  "case_1044_a"
+                    },
+                    {
+                        "text":  "story.case_1044.choice.1",
+                        "next":  "case_1044_b"
+                    },
+                    {
+                        "text":  "story.case_1044.choice.2",
+                        "next":  "case_1044_c"
+                    },
+                    {
+                        "text":  "story.case_1044.choice.3",
+                        "next":  "case_1044_d",
+                        "require":  [
+                                        {
+                                            "type":  "flag",
+                                            "key":  "knows_upper_involved"
+                                        }
+                                    ]
+                    }
+                ]
 }

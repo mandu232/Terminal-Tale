@@ -1,48 +1,56 @@
 {
-  "id": "case_1059",
-  "docStyle": "order",
-  "docLines": [
-    "[ 긴급 처분 명령서 #1059 ]",
-    "처분 등급: 최우선",
-    "",
-    "대상: 윤시현",
-    "직책: 계약직 기록 관리사",
-    "혐의: 허가되지 않은 자료 유출",
-    "",
-    "비고:",
-    "근속 기간: 5년",
-    "파일 번호: #1051 연동"
-  ],
-  "sfx": "Assets/audio/node_alert.wav",
-  "text": [
-    "story.case_1059.0",
-    "story.case_1059.1",
-    "story.case_1059.2",
-    "story.case_1059.3"
-  ],
-  "effects": [],
-  "choices": [
-    {
-      "text": "story.case_1059.choice.0",
-      "next": "case_1059_a"
-    },
-    {
-      "text": "story.case_1059.choice.1",
-      "next": "case_1059_b"
-    },
-    {
-      "text": "story.case_1059.choice.2",
-      "next": "case_1059_c",
-      "require": [
-        { "type": "flag", "key": "yun_missing" }
-      ]
-    },
-    {
-      "text": "story.case_1059.choice.3",
-      "next": "case_1059_d",
-      "require": [
-        { "type": "flag", "key": "has_yun_archive" }
-      ]
-    }
-  ]
+    "id":  "case_1059",
+    "docStyle":  "order",
+    "docLines":  [
+                     "doc.case_1059.0",
+                     "doc.case_1059.1",
+                     "",
+                     "doc.case_1059.2",
+                     "doc.case_1059.3",
+                     "doc.case_1059.4",
+                     "",
+                     "doc.case_1059.5",
+                     "doc.case_1059.6",
+                     "doc.case_1059.7"
+                 ],
+    "sfx":  "Assets/audio/node_alert.wav",
+    "text":  [
+                 "story.case_1059.0",
+                 "story.case_1059.1",
+                 "story.case_1059.2",
+                 "story.case_1059.3"
+             ],
+    "effects":  [
+
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1059.choice.0",
+                        "next":  "case_1059_a"
+                    },
+                    {
+                        "text":  "story.case_1059.choice.1",
+                        "next":  "case_1059_b"
+                    },
+                    {
+                        "text":  "story.case_1059.choice.2",
+                        "next":  "case_1059_c",
+                        "require":  [
+                                        {
+                                            "type":  "flag",
+                                            "key":  "yun_missing"
+                                        }
+                                    ]
+                    },
+                    {
+                        "text":  "story.case_1059.choice.3",
+                        "next":  "case_1059_d",
+                        "require":  [
+                                        {
+                                            "type":  "flag",
+                                            "key":  "has_yun_archive"
+                                        }
+                                    ]
+                    }
+                ]
 }

@@ -1,67 +1,70 @@
 {
-  "id": "case_1045_c",
-  "docStyle": "record",
-  "docLines": [
-    "[ 사건 파일 #1045 ]",
-    "",
-    "대상 시민  :  오태양 / 35세",
-    "기록 점수  :  55점 / 100",
-    "",
-    "혐의:",
-    "허가되지 않은 구역 무단 촬영",
-    "구역 C-7 일대",
-    "",
-    "추가 기록:",
-    "촬영 이미지 107장 압수",
-    "내용: 배급 차단 구역 생활상"
-  ],
-  "sfx": "Assets/audio/node_paper.wav",
-  "text": [
-    "story.case_1045_c.0",
-    "story.case_1045_c.1",
-    "story.case_1045_c.2",
-    "story.case_1045_c.3"
-  ],
-  "effects": [
-    {
-      "type": "case_record",
-      "key": "case_1045",
-      "title": "story.case_1045.0",
-      "outcome": "story.case_1045.choice.2",
-      "content": "story.case_1045_c.0"
-    },
-    {
-      "type": "tendency",
-      "key": "justice",
-      "value": 1
-    },
-    {
-      "type": "tendency",
-      "key": "suspicion",
-      "value": 1
-    },
-    { "type": "fatigue", "value": 2 }
-  ],
-  "choices": [
-    {
-      "text": "story.case_1045_c.choice.0",
-      "next": "case_1045_a"
-    },
-    {
-      "text": "story.case_1045_c.choice.1",
-      "next": "case_1045_b"
-    },
-    {
-      "text": "story.case_1045_c.choice.2",
-      "next": "case_1045_e",
-      "require": [
-        {
-          "type": "tendency",
-          "key": "justice",
-          "op": "gte",
-          "value": 3
-        }
-      ]
-    }
-  ]
+    "id":  "case_1045_c",
+    "docStyle":  "record",
+    "docLines":  [
+                     "doc.case_1045.0",
+                     "",
+                     "doc.case_1045.1",
+                     "doc.case_1045.2",
+                     "",
+                     "doc.case_1045.3",
+                     "doc.case_1045.4",
+                     "doc.case_1045.5",
+                     "",
+                     "doc.case_1045.6",
+                     "doc.case_1045.7",
+                     "doc.case_1045.8"
+                 ],
+    "sfx":  "Assets/audio/node_paper.wav",
+    "text":  [
+                 "story.case_1045_c.0",
+                 "story.case_1045_c.1",
+                 "story.case_1045_c.2",
+                 "story.case_1045_c.3"
+             ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1045",
+                        "title":  "story.case_1045.0",
+                        "outcome":  "story.case_1045.choice.2",
+                        "content":  "story.case_1045_c.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  1
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  1
+                    },
+                    {
+                        "type":  "fatigue",
+                        "value":  2
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1045_c.choice.0",
+                        "next":  "case_1045_a"
+                    },
+                    {
+                        "text":  "story.case_1045_c.choice.1",
+                        "next":  "case_1045_b"
+                    },
+                    {
+                        "text":  "story.case_1045_c.choice.2",
+                        "next":  "case_1045_e",
+                        "require":  [
+                                        {
+                                            "type":  "tendency",
+                                            "key":  "justice",
+                                            "op":  "gte",
+                                            "value":  3
+                                        }
+                                    ]
+                    }
+                ]
 }

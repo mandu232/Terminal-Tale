@@ -1,64 +1,70 @@
 {
-  "id": "case_1048_a",
-  "docStyle": "order",
-  "docLines": [
-    "[ 특별 처리 명령서 #1048 ]",
-    "발신: 상급 관리부  /  즉시 시행",
-    "",
-    "처리 대상: 1,247명",
-    "구역: B-3 / C-7 / D-12",
-    "",
-    "처리 내용:",
-    "전체 거주민 기록 점수 일괄 하향 조정",
-    "배급 민원 제출 이력자 전원",
-    " → '요주의 감시 대상' 자동 등록",
-    "",
-    "경고:",
-    "승인하면 되돌릴 수 없습니다."
-  ],
-  "text": [
-    "story.case_1048_a.0",
-    "story.case_1048_a.1",
-    "story.case_1048_a.2",
-    "story.case_1048_a.3"
-  ],
-  "effects": [
-    {
-      "type": "case_record",
-      "key": "case_1048",
-      "title": "story.case_1048.0",
-      "outcome": "story.case_1048.choice.0",
-      "content": "story.case_1048_a.0"
-    },
-    {
-      "type": "tendency",
-      "key": "compliance",
-      "value": 3
-    },
-    {
-      "type": "tendency",
-      "key": "coldness",
-      "value": 2
-    },
-    {
-      "type": "city_order",
-      "value": 5
-    },
-    {
-      "type": "citizen_trust",
-      "value": -10
-    },
-    {
-      "type": "corruption",
-      "value": 15
-    },
-    { "type": "fatigue",    "value": 8 },
-    { "type": "monitoring", "value": -5 }
-  ],
-  "choices": [
-    {
-      "text": "story.common.close_file",
-      "next": "day7_end_compliance"
-    }
-  ]
+    "id":  "case_1048_a",
+    "docStyle":  "order",
+    "docLines":  [
+                     "doc.case_1048.0",
+                     "doc.case_1048.1",
+                     "",
+                     "doc.case_1048.2",
+                     "doc.case_1048.3",
+                     "",
+                     "doc.case_1048.4",
+                     "doc.case_1048.5",
+                     "doc.case_1048.6",
+                     "doc.case_1048.7",
+                     "",
+                     "doc.case_1048.8",
+                     "doc.case_1048.9"
+                 ],
+    "text":  [
+                 "story.case_1048_a.0",
+                 "story.case_1048_a.1",
+                 "story.case_1048_a.2",
+                 "story.case_1048_a.3"
+             ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1048",
+                        "title":  "story.case_1048.0",
+                        "outcome":  "story.case_1048.choice.0",
+                        "content":  "story.case_1048_a.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "compliance",
+                        "value":  3
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "coldness",
+                        "value":  2
+                    },
+                    {
+                        "type":  "city_order",
+                        "value":  5
+                    },
+                    {
+                        "type":  "citizen_trust",
+                        "value":  -10
+                    },
+                    {
+                        "type":  "corruption",
+                        "value":  15
+                    },
+                    {
+                        "type":  "fatigue",
+                        "value":  8
+                    },
+                    {
+                        "type":  "monitoring",
+                        "value":  -5
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.common.close_file",
+                        "next":  "day7_end_compliance"
+                    }
+                ]
 }

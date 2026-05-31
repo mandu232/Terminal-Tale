@@ -1,51 +1,63 @@
 {
-  "id": "case_1050",
-  "docStyle": "record",
-  "docLines": [
-    "[ 사건 파일 #1050 ]",
-    "",
-    "대상 시민  :  정유라 / 52세",
-    "기록 점수  :  71점 / 100",
-    "분류       :  예측 위험 지수 초과",
-    "",
-    "RECORD 예측 알고리즘 위험도: 87%",
-    "",
-    "추가 기록:",
-    "현재 확인된 위반 사항 없음",
-    "선제 감시 등록 요청"
-  ],
-  "sfx": "Assets/audio/node_paper.wav",
-  "text": [
-    "story.case_1050.0",
-    "story.case_1050.1",
-    "story.case_1050.2",
-    "story.case_1050.3",
-    "story.case_1050.4"
-  ],
-  "effects": [
-    { "type": "time",              "value": 1 },
-    { "type": "fatigue",           "value": 3 },
-    { "type": "reveal_character",  "key": "jeong_yura" }
-  ],
-  "choices": [
-    {
-      "text": "story.case_1050.choice.0",
-      "next": "case_1050_a"
-    },
-    {
-      "text": "story.case_1050.choice.1",
-      "next": "case_1050_b"
-    },
-    {
-      "text": "story.case_1050.choice.2",
-      "next": "case_1050_c"
-    },
-    {
-      "text": "story.case_1050.choice.3",
-      "next": "case_1050_d",
-      "require": [
-        { "type": "flag", "key": "knows_true_reason" }
-      ]
-    }
-  ]
+    "id":  "case_1050",
+    "docStyle":  "record",
+    "docLines":  [
+                     "doc.case_1050.0",
+                     "",
+                     "doc.case_1050.1",
+                     "doc.case_1050.2",
+                     "doc.case_1050.3",
+                     "",
+                     "doc.case_1050.4",
+                     "",
+                     "doc.case_1050.5",
+                     "doc.case_1050.6",
+                     "doc.case_1050.7"
+                 ],
+    "sfx":  "Assets/audio/node_paper.wav",
+    "text":  [
+                 "story.case_1050.0",
+                 "story.case_1050.1",
+                 "story.case_1050.2",
+                 "story.case_1050.3",
+                 "story.case_1050.4"
+             ],
+    "effects":  [
+                    {
+                        "type":  "time",
+                        "value":  1
+                    },
+                    {
+                        "type":  "fatigue",
+                        "value":  3
+                    },
+                    {
+                        "type":  "reveal_character",
+                        "key":  "jeong_yura"
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.case_1050.choice.0",
+                        "next":  "case_1050_a"
+                    },
+                    {
+                        "text":  "story.case_1050.choice.1",
+                        "next":  "case_1050_b"
+                    },
+                    {
+                        "text":  "story.case_1050.choice.2",
+                        "next":  "case_1050_c"
+                    },
+                    {
+                        "text":  "story.case_1050.choice.3",
+                        "next":  "case_1050_d",
+                        "require":  [
+                                        {
+                                            "type":  "flag",
+                                            "key":  "knows_true_reason"
+                                        }
+                                    ]
+                    }
+                ]
 }

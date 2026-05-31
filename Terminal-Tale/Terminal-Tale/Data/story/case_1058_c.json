@@ -1,17 +1,17 @@
 {
     "id":  "case_1058_c",
-  "docStyle": "order",
-  "docLines": [
-    "[ 내부 조사 명령서 #1058 ]",
-    "",
-    "처리 담당: 정보 유출 의심 직원 식별",
-    "및 처분 목록 작성",
-    "",
-    "식별 기준:",
-    "비정상 처리 패턴 (최근 30일)",
-    "외부 접촉 이력",
-    "보류 처리 건수 상위 5%"
-  ],
+    "docStyle":  "order",
+    "docLines":  [
+                     "doc.case_1058.0",
+                     "",
+                     "doc.case_1058.1",
+                     "doc.case_1058.2",
+                     "",
+                     "doc.case_1058.3",
+                     "doc.case_1058.4",
+                     "doc.case_1058.5",
+                     "doc.case_1058.6"
+                 ],
     "sfx":  "Assets/audio/node_paper_crunch.wav",
     "text":  [
                  "story.case_1058_c.0",

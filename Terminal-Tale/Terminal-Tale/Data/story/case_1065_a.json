@@ -1,34 +1,48 @@
 {
-  "id": "case_1065_a",
-  "docStyle": "order",
-  "docLines": [
-    "[ 케이스 #1065 ]  강제이주 처분",
-    "",
-    "대상: 최선화 / 48세",
-    "재개발 제5구역 주민",
-    "",
-    "사유:",
-    "거주지 수용 기한 경과",
-    "행정 집행 거부",
-    "",
-    "비고:",
-    "케이스 #1053 (오유진) 동일 단지"
-  ],
-  "sfx": "Assets/audio/node_paper_crunch.wav",
-  "text": [
-    "story.case_1065_a.0",
-    "story.case_1065_a.1",
-    "story.case_1065_a.2"
-  ],
-  "effects": [
-    { "type": "case_record", "key": "case_1065", "title": "story.case_1065.0", "outcome": "story.case_1065.choice.0", "content": "story.case_1065_a.0" },
-    { "type": "tendency", "key": "corruption", "value": 20 },
-    { "type": "tendency", "key": "suspicion", "value": -2 }
-  ],
-  "choices": [
-    {
-      "text": "story.common.to_day_end",
-      "next": "day24_end"
-    }
-  ]
+    "id":  "case_1065_a",
+    "docStyle":  "order",
+    "docLines":  [
+                     "doc.case_1065.0",
+                     "",
+                     "doc.case_1065.1",
+                     "doc.case_1065.2",
+                     "",
+                     "doc.case_1065.3",
+                     "doc.case_1065.4",
+                     "doc.case_1065.5",
+                     "",
+                     "doc.case_1065.6",
+                     "doc.case_1065.7"
+                 ],
+    "sfx":  "Assets/audio/node_paper_crunch.wav",
+    "text":  [
+                 "story.case_1065_a.0",
+                 "story.case_1065_a.1",
+                 "story.case_1065_a.2"
+             ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1065",
+                        "title":  "story.case_1065.0",
+                        "outcome":  "story.case_1065.choice.0",
+                        "content":  "story.case_1065_a.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "corruption",
+                        "value":  20
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  -2
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.common.to_day_end",
+                        "next":  "day24_end"
+                    }
+                ]
 }

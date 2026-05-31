@@ -1,35 +1,52 @@
 {
-  "id": "case_1068_d",
-  "docStyle": "record",
-  "docLines": [
-    "[ 사건 파일 #1068 ]",
-    "",
-    "대상 시민  :  이동혁 / 45세",
-    "",
-    "신고 내용:",
-    "내부 업무 지시에 반복 이의 제기",
-    "부하 직원 규정 위반 묵인",
-    "",
-    "신고자: 익명",
-    "첨부: 내부 회의 녹취 발췌본 1건",
-    "(공식 직인 없음)"
-  ],
-  "sfx": "Assets/audio/node_alert.wav",
-  "text": [
-    "story.case_1068_d.0",
-    "story.case_1068_d.1",
-    "story.case_1068_d.2"
-  ],
-  "effects": [
-    { "type": "case_record", "key": "case_1068", "title": "story.case_1068.0", "outcome": "story.case_1068.choice.3", "content": "story.case_1068_d.0" },
-    { "type": "flag_add",    "key": "cha_network_exposed" },
-    { "type": "tendency",    "key": "justice",   "value": 3 },
-    { "type": "tendency",    "key": "suspicion", "value": 2 }
-  ],
-  "choices": [
-    {
-      "text": "story.common.to_day_end",
-      "next": "day27_end_turning"
-    }
-  ]
+    "id":  "case_1068_d",
+    "docStyle":  "record",
+    "docLines":  [
+                     "doc.case_1068.0",
+                     "",
+                     "doc.case_1068.1",
+                     "",
+                     "doc.case_1068.2",
+                     "doc.case_1068.3",
+                     "doc.case_1068.4",
+                     "",
+                     "doc.case_1068.5",
+                     "doc.case_1068.6",
+                     "doc.case_1068.7"
+                 ],
+    "sfx":  "Assets/audio/node_alert.wav",
+    "text":  [
+                 "story.case_1068_d.0",
+                 "story.case_1068_d.1",
+                 "story.case_1068_d.2"
+             ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1068",
+                        "title":  "story.case_1068.0",
+                        "outcome":  "story.case_1068.choice.3",
+                        "content":  "story.case_1068_d.0"
+                    },
+                    {
+                        "type":  "flag_add",
+                        "key":  "cha_network_exposed"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "justice",
+                        "value":  3
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "suspicion",
+                        "value":  2
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.common.to_day_end",
+                        "next":  "day27_end_turning"
+                    }
+                ]
 }

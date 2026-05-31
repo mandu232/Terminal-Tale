@@ -1,62 +1,68 @@
 {
-  "id": "case_1047_a",
-  "docStyle": "record",
-  "docLines": [
-    "[ 사건 파일 #1047 ]",
-    "",
-    "대상 시민  :  한지수 / 29세",
-    "기록 점수  :  28점 / 100",
-    "",
-    "혐의:",
-    "미허가 내부 정보 수집 및 외부 유통 시도",
-    "",
-    "추가 기록:",
-    "재개발 사업 관련 내부 문서 10건 소지",
-    "외부 언론사 접촉 의혹"
-  ],
-  "text": [
-    "story.case_1047_a.0",
-    "story.case_1047_a.1",
-    "story.case_1047_a.2",
-    "story.case_1047_a.3"
-  ],
-  "effects": [
-    {
-      "type": "case_record",
-      "key": "case_1047",
-      "title": "story.case_1047.0",
-      "outcome": "story.case_1047.choice.0",
-      "content": "story.case_1047_a.0"
-    },
-    {
-      "type": "tendency",
-      "key": "compliance",
-      "value": 2
-    },
-    {
-      "type": "tendency",
-      "key": "coldness",
-      "value": 1
-    },
-    {
-      "type": "city_order",
-      "value": 1
-    },
-    {
-      "type": "citizen_trust",
-      "value": -3
-    },
-    {
-      "type": "corruption",
-      "value": 5
-    },
-    { "type": "fatigue",    "value": 5 },
-    { "type": "monitoring", "value": 2 }
-  ],
-  "choices": [
-    {
-      "text": "story.common.close_file",
-      "next": "day6_end"
-    }
-  ]
+    "id":  "case_1047_a",
+    "docStyle":  "record",
+    "docLines":  [
+                     "doc.case_1047.0",
+                     "",
+                     "doc.case_1047.1",
+                     "doc.case_1047.2",
+                     "",
+                     "doc.case_1047.3",
+                     "doc.case_1047.4",
+                     "",
+                     "doc.case_1047.5",
+                     "doc.case_1047.6",
+                     "doc.case_1047.7"
+                 ],
+    "text":  [
+                 "story.case_1047_a.0",
+                 "story.case_1047_a.1",
+                 "story.case_1047_a.2",
+                 "story.case_1047_a.3"
+             ],
+    "effects":  [
+                    {
+                        "type":  "case_record",
+                        "key":  "case_1047",
+                        "title":  "story.case_1047.0",
+                        "outcome":  "story.case_1047.choice.0",
+                        "content":  "story.case_1047_a.0"
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "compliance",
+                        "value":  2
+                    },
+                    {
+                        "type":  "tendency",
+                        "key":  "coldness",
+                        "value":  1
+                    },
+                    {
+                        "type":  "city_order",
+                        "value":  1
+                    },
+                    {
+                        "type":  "citizen_trust",
+                        "value":  -3
+                    },
+                    {
+                        "type":  "corruption",
+                        "value":  5
+                    },
+                    {
+                        "type":  "fatigue",
+                        "value":  5
+                    },
+                    {
+                        "type":  "monitoring",
+                        "value":  2
+                    }
+                ],
+    "choices":  [
+                    {
+                        "text":  "story.common.close_file",
+                        "next":  "day6_end"
+                    }
+                ]
 }
