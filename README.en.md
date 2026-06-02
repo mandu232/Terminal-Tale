@@ -50,15 +50,18 @@ Your choices shape the city's order, the trust of its citizens, and the very sys
 ## Key Features
 
 - **Branching Text Story** — A node-based story defined in JSON. Branches into different paths based on the player's choices.
-- **Stats & Flag System** — Story conditions are evaluated using personal stats (vitality, reputation, wealth), world stats (city order, citizen trust, corruption), five tendency traits, and string-based flags.
+- **Stats & Flag System** — Story conditions are evaluated using personal stats (fatigue, monitoring level, wealth), world stats (city order, citizen trust, corruption), five tendency traits, and string-based flags.
 - **Effect System** — Applies stat changes, flag add/remove, tendency shifts, and world stat changes when a choice is selected or a node is entered.
 - **Conditional Choices** — Choices that do not meet `require` conditions are hidden from the player.
-- **Save / Load** — 3-slot save system. The full game state is persisted to JSON files in `Data/saves/`.
+- **Save / Load** — 3-slot save system + 5-slot quick save. The full game state is persisted to JSON files in `Data/saves/`.
 - **Inventory & Items** — Items are defined in JSON. Players can carry and use items from the inventory screen.
 - **Case Journal** — Case handling records are saved to a journal and can be reviewed in-game.
 - **Activity Log** — Key in-game events are recorded with day and time stamps.
+- **Achievement System** — Achievements are unlocked when specific conditions are met. Saved to `Data/saves/achievements.json`.
+- **Character Log** — Information about characters encountered during the story (name, role, affiliation, relationship) can be viewed on the character screen.
 - **Typewriter Effect** — Text is printed character by character via `UITypewriter`.
-- **Console UI** — A custom console UI system consisting of UIButton, UILabel, UIImage, and UITypewriter.
+- **Console UI** — A custom console UI system consisting of UIButton, UILabel, UIImage, UIDocumentPanel, and UITypewriter.
+- **Screen Transition Animation** — Slide animation effects are applied during state transitions.
 - **Sound** — BGM and sound effect playback powered by miniaudio.
 - **Settings Save/Load** — Game settings are persisted via `Data/settings.json`.
 - **Multilingual Support** — Korean, English, Japanese, Chinese, and French (JSON-based localization).
@@ -72,17 +75,21 @@ Your choices shape the city's order, the trust of its citizens, and the very sys
 Application
 └── GameLoop
     ├── StateMachine (stack-based)
-    │   ├── TitleState       — Title screen
-    │   ├── StoryState       — Story progression screen
-    │   ├── SlotSelectState  — Save slot selection
-    │   ├── LoadSlotState    — Load game screen
-    │   ├── PauseMenuState   — Pause menu
-    │   ├── InventoryState   — Inventory screen
-    │   ├── JournalState     — Case journal viewer
-    │   ├── LogState         — Activity log viewer
-    │   ├── SettingState     — Settings screen
-    │   ├── SleepState       — Sleep / time progression
-    │   └── WaitState        — Wait action
+    │   ├── TitleState        — Title screen
+    │   ├── StoryState        — Story progression screen
+    │   ├── SlotSelectState   — Save slot selection
+    │   ├── LoadSlotState     — Load game screen
+    │   ├── QuickSlotState    — Quick save / load slot selection
+    │   ├── PauseMenuState    — Pause menu
+    │   ├── InventoryState    — Inventory screen
+    │   ├── JournalState      — Case journal viewer
+    │   ├── LogState          — Activity log viewer
+    │   ├── AchievementState  — Achievements screen
+    │   ├── CharacterState    — Character info screen
+    │   ├── SettingState      — Settings screen
+    │   ├── KeyBindState      — Key binding settings
+    │   ├── SleepState        — Sleep / time progression
+    │   └── WaitState         — Wait action
     ├── InputManager
     │   └── ConsoleInputSource
     └── Context (shared state)
@@ -91,9 +98,11 @@ Application
         ├── SettingsManager
         ├── SoundSystem (miniaudio)
         ├── LocalizationManager
+        ├── AchievementManager
         ├── PlayerStats + flags
         ├── std::vector<LogEntry>
-        └── std::vector<JournalEntry>
+        ├── std::vector<JournalEntry>
+        └── std::vector<CharacterEntry>
 ```
 
 ### Game Loop
@@ -166,13 +175,15 @@ Terminal Tale/
 │   ├── json/json.hpp       # nlohmann/json (header-only)
 │   └── sound/miniaudio.h   # miniaudio (header-only)
 ├── Game/
+│   ├── Achievement/        # Achievement system (Achievement, AchievementManager)
+│   ├── Character/          # Character info (CharacterEntry)
 │   ├── Effect/             # Effect type definitions and application
 │   ├── Events/             # Game events (GameStartEvent, PlaySoundEvent)
 │   ├── Item/               # Item definitions and parsing
 │   ├── Journal/            # JournalEntry struct
 │   ├── Log/                # LogEntry struct
 │   ├── Player/             # PlayerStats struct
-│   ├── States/             # Game states (TitleState, StoryState, etc. — 11 total)
+│   ├── States/             # Game states (TitleState, StoryState, etc. — 15 total)
 │   └── Story/              # StoryNode, StoryLoader (JSON parsing)
 ├── Systems/
 │   └── Condition / ConditionChecker   # Condition evaluation system
@@ -182,6 +193,8 @@ Terminal Tale/
 │   ├── UIButton            # Clickable button
 │   ├── UILabel             # Text label
 │   ├── UIImage             # ASCII art image
+│   ├── UIDocumentPanel     # Case file / order document panel (with slide animation)
+│   ├── UIScreenFader       # Screen transition fader
 │   └── UITypewriter        # Typewriter text effect
 └── Utils/
     ├── ConsoleUtils        # Console initialization and utilities
@@ -273,8 +286,8 @@ Each file represents a single **StoryNode**, with the `id` field used as the nod
 
 | `type` | Extra Fields | Description |
 |---|---|---|
-| `vitality` | `value` | Increases/decreases vitality |
-| `reputation` | `value` | Increases/decreases reputation |
+| `fatigue` | `value` | Increases/decreases fatigue (positive = more tired, negative = less tired) |
+| `monitoring` | `value` | Increases/decreases RECORD monitoring level |
 | `wealth` | `value` | Increases/decreases wealth |
 | `day` | `value` | Advances the day counter |
 | `time` | `value` | Advances time (relative) |
@@ -288,13 +301,15 @@ Each file represents a single **StoryNode**, with the `id` field used as the nod
 | `flag_add` | `key` | Adds a flag |
 | `flag_remove` | `key` | Removes a flag |
 | `case_record` | `key`, `title`, `outcome`, `content` | Adds a case entry to the journal (all localization keys) |
+| `unlock_achievement` | `key` | Unlocks an achievement (`key`: achievement id) |
+| `reveal_character` | `key` | Registers a character's info (`key`: character id) |
 
 ### Condition Types (Condition)
 
 | `type` | Needs `op` | Needs `key` | Description |
 |---|---|---|---|
-| `vitality` | O | - | Compare vitality |
-| `reputation` | O | - | Compare reputation |
+| `fatigue` | O | - | Compare fatigue |
+| `monitoring` | O | - | Compare monitoring level |
 | `wealth` | O | - | Compare wealth |
 | `day` | O | - | Compare current day |
 | `time` | O | - | Compare current time |
@@ -387,8 +402,8 @@ Uses the same effect types as story nodes. Commonly used types:
 
 | Stat | Default | Description |
 |---|---|---|
-| `vitality` | 10 | Health / fatigue |
-| `reputation` | 0 | Reputation |
+| `fatigue` | 0 | Fatigue level (0 = best condition, 100 = limit) |
+| `monitoring` | 0 | RECORD monitoring level |
 | `wealth` | 0 | Wealth (money) |
 
 ### World Stats (City Conditions)
@@ -436,11 +451,21 @@ Game settings can be viewed and modified in `Data/settings.json`.
     "fullScreen": true,
     "language": "ko",
     "masterVolume": 100,
+    "screenTransition": true,
     "sfxVolume": 100,
     "showFPS": false,
     "targetFPS": 30,
     "textSpeed": 3,
-    "vsync": false
+    "vsync": false,
+    "keyBindings": {
+        "inventory": 73,
+        "journal": 74,
+        "log": 76,
+        "quickLoad": 120,
+        "quickSave": 116,
+        "sleep": 83,
+        "wait": 90
+    }
 }
 ```
 
@@ -452,10 +477,12 @@ Game settings can be viewed and modified in `Data/settings.json`.
 | `masterVolume` | int | Master volume (0 ~ 100) |
 | `bgmVolume` | int | BGM volume (0 ~ 100) |
 | `sfxVolume` | int | Sound effect volume (0 ~ 100) |
+| `screenTransition` | bool | Screen transition slide animation |
 | `showFPS` | bool | Show FPS counter |
 | `targetFPS` | int | Target FPS (`0` = unlimited) |
 | `textSpeed` | int | Text output speed |
 | `vsync` | bool | Vertical sync |
+| `keyBindings` | object | In-game key bindings (Windows Virtual Key codes) |
 
 
 ---
