@@ -50,15 +50,18 @@
 ## 주요 기능
 
 - **분기형 텍스트 스토리** — JSON으로 정의된 노드 기반 스토리. 플레이어의 선택에 따라 다른 경로로 분기됩니다.
-- **능력치 & 플래그 시스템** — 체력·명성·재화 등 개인 수치, 도시 질서·시민 신뢰·오염도 등 세계 수치, 공감·냉정 등 5종 성향으로 스토리 조건을 판별합니다.
+- **능력치 & 플래그 시스템** — 피로도·감시 등급·재화 등 개인 수치, 도시 질서·시민 신뢰·오염도 등 세계 수치, 공감·냉정 등 5종 성향으로 스토리 조건을 판별합니다.
 - **이펙트 시스템** — 선택지 또는 노드 진입 시 능력치 증감, 플래그 추가/제거, 성향·도시 수치 변화 효과를 적용합니다.
 - **조건부 선택지** — `require` 조건을 만족하지 못하는 선택지는 표시되지 않습니다.
-- **저장 / 불러오기** — 슬롯 3개 기반 세이브 시스템. `Data/saves/`에 JSON으로 전체 게임 상태를 저장합니다.
+- **저장 / 불러오기** — 슬롯 3개 기반 세이브 + 빠른 저장 5슬롯. `Data/saves/`에 JSON으로 전체 게임 상태를 저장합니다.
 - **인벤토리 & 아이템** — JSON으로 아이템을 정의하고 인벤토리에서 사용 및 효과를 적용합니다.
 - **처리 문서 (Journal)** — 케이스 처리 기록을 저널에 저장하고 게임 내에서 열람할 수 있습니다.
 - **활동 로그 (Log)** — 게임 내 주요 이벤트를 날짜·시각과 함께 기록합니다.
+- **업적 시스템** — 특정 조건을 만족하면 업적이 해제됩니다. `Data/saves/achievements.json`에 저장됩니다.
+- **인물 정보** — 스토리 진행 중 등장한 인물들의 이름·직위·관계 등을 인물 화면에서 열람할 수 있습니다.
 - **타이프라이터 효과** — `UITypewriter`를 통해 텍스트가 한 글자씩 출력됩니다.
-- **콘솔 UI** — UIButton, UILabel, UIImage, UITypewriter로 구성된 커스텀 콘솔 UI 시스템.
+- **콘솔 UI** — UIButton, UILabel, UIImage, UITypewriter, UIDocumentPanel로 구성된 커스텀 콘솔 UI 시스템.
+- **화면 전환 애니메이션** — 상태 전환 시 슬라이드 애니메이션 효과를 적용합니다.
 - **사운드** — miniaudio 기반의 BGM 및 효과음 재생.
 - **설정 저장/불러오기** — `Data/settings.json`을 통해 게임 설정이 영속됩니다.
 - **다국어 지원** — 한국어, 영어, 일본어, 중국어, 프랑스어 (JSON 기반 로컬라이제이션).
@@ -72,17 +75,21 @@
 Application
 └── GameLoop
     ├── StateMachine (스택 기반)
-    │   ├── TitleState       — 타이틀 화면
-    │   ├── StoryState       — 스토리 진행 화면
-    │   ├── SlotSelectState  — 저장 슬롯 선택
-    │   ├── LoadSlotState    — 게임 불러오기
-    │   ├── PauseMenuState   — 일시정지 메뉴
-    │   ├── InventoryState   — 인벤토리
-    │   ├── JournalState     — 처리 문서 열람
-    │   ├── LogState         — 활동 로그 열람
-    │   ├── SettingState     — 설정 화면
-    │   ├── SleepState       — 수면 / 시간 경과
-    │   └── WaitState        — 대기 행동
+    │   ├── TitleState        — 타이틀 화면
+    │   ├── StoryState        — 스토리 진행 화면
+    │   ├── SlotSelectState   — 저장 슬롯 선택
+    │   ├── LoadSlotState     — 게임 불러오기
+    │   ├── QuickSlotState    — 빠른 저장/불러오기 슬롯
+    │   ├── PauseMenuState    — 일시정지 메뉴
+    │   ├── InventoryState    — 인벤토리
+    │   ├── JournalState      — 처리 문서 열람
+    │   ├── LogState          — 활동 로그 열람
+    │   ├── AchievementState  — 업적 화면
+    │   ├── CharacterState    — 인물 정보 화면
+    │   ├── SettingState      — 설정 화면
+    │   ├── KeyBindState      — 키 바인딩 설정
+    │   ├── SleepState        — 수면 / 시간 경과
+    │   └── WaitState         — 대기 행동
     ├── InputManager
     │   └── ConsoleInputSource
     └── Context (공유 상태)
@@ -91,9 +98,11 @@ Application
         ├── SettingsManager
         ├── SoundSystem (miniaudio)
         ├── LocalizationManager
+        ├── AchievementManager
         ├── PlayerStats + flags
         ├── std::vector<LogEntry>
-        └── std::vector<JournalEntry>
+        ├── std::vector<JournalEntry>
+        └── std::vector<CharacterEntry>
 ```
 
 ### 게임 루프
@@ -166,13 +175,15 @@ Terminal Tale/
 │   ├── json/json.hpp       # nlohmann/json (헤더 온리)
 │   └── sound/miniaudio.h   # miniaudio (헤더 온리)
 ├── Game/
+│   ├── Achievement/        # 업적 시스템 (Achievement, AchievementManager)
+│   ├── Character/          # 인물 정보 (CharacterEntry)
 │   ├── Effect/             # 이펙트 타입 정의 및 적용
 │   ├── Events/             # 게임 이벤트 (GameStartEvent, PlaySoundEvent)
 │   ├── Item/               # 아이템 정의 및 파싱
 │   ├── Journal/            # JournalEntry 구조체
 │   ├── Log/                # LogEntry 구조체
 │   ├── Player/             # PlayerStats 구조체
-│   ├── States/             # 게임 상태 (TitleState, StoryState 등 11종)
+│   ├── States/             # 게임 상태 (TitleState, StoryState 등 15종)
 │   └── Story/              # StoryNode, StoryLoader (JSON 파싱)
 ├── Systems/
 │   └── Condition / ConditionChecker   # 조건 판별 시스템
@@ -182,6 +193,8 @@ Terminal Tale/
 │   ├── UIButton            # 클릭 가능한 버튼
 │   ├── UILabel             # 텍스트 라벨
 │   ├── UIImage             # 아스키 아트 이미지
+│   ├── UIDocumentPanel     # 사건 파일 / 명령서 문서 패널 (슬라이드 애니메이션 포함)
+│   ├── UIScreenFader       # 화면 전환 페이더
 │   └── UITypewriter        # 타이프라이터 텍스트 효과
 └── Utils/
     ├── ConsoleUtils        # 콘솔 초기화 및 유틸
@@ -273,8 +286,8 @@ Terminal Tale/
 
 | `type` | 추가 필드 | 설명 |
 |---|---|---|
-| `vitality` | `value` | 체력 증감 |
-| `reputation` | `value` | 명성 증감 |
+| `fatigue` | `value` | 피로도 증감 (양수=피로 증가, 음수=피로 감소) |
+| `monitoring` | `value` | 감시 등급 증감 |
 | `wealth` | `value` | 재화 증감 |
 | `day` | `value` | 날짜 증가 |
 | `time` | `value` | 시간 증가 (상대값) |
@@ -288,13 +301,15 @@ Terminal Tale/
 | `flag_add` | `key` | 플래그 추가 |
 | `flag_remove` | `key` | 플래그 제거 |
 | `case_record` | `key`, `title`, `outcome`, `content` | 처리 문서에 케이스 기록 추가 (모두 로컬라이제이션 키) |
+| `unlock_achievement` | `key` | 업적 해제 (`key`: 업적 id) |
+| `reveal_character` | `key` | 인물 정보 등록 (`key`: 인물 id) |
 
 ### 조건 타입 (Condition)
 
 | `type` | `op` 필요 | `key` 필요 | 설명 |
 |---|---|---|---|
-| `vitality` | O | - | 체력 비교 |
-| `reputation` | O | - | 명성 비교 |
+| `fatigue` | O | - | 피로도 비교 |
+| `monitoring` | O | - | 감시 등급 비교 |
 | `wealth` | O | - | 재화 비교 |
 | `day` | O | - | 날짜 비교 |
 | `time` | O | - | 시각 비교 |
@@ -387,8 +402,8 @@ Terminal Tale/
 
 | 능력치 | 기본값 | 설명 |
 |---|---|---|
-| `vitality` | 10 | 체력 / 피로도 |
-| `reputation` | 0 | 명성 |
+| `fatigue` | 0 | 피로도 (0=최상, 100=한계) |
+| `monitoring` | 0 | RECORD 감시 등급 |
 | `wealth` | 0 | 재화 (돈) |
 
 ### 세계 수치 (도시 현황)
@@ -431,19 +446,17 @@ Terminal Tale/
 
 ```json
 {
-    "autoSave": false,
     "autoSave": true,
     "bgmVolume": 100,
     "fullScreen": true,
     "language": "ko",
     "masterVolume": 100,
+    "screenTransition": true,
     "sfxVolume": 100,
     "showFPS": false,
-    "targetFPS": 15,
-    "textSpeed": 1,
     "targetFPS": 30,
     "textSpeed": 3,
-    "vsync": false
+    "vsync": false,
     "keyBindings": {
         "inventory": 73,
         "journal": 74,
@@ -464,11 +477,12 @@ Terminal Tale/
 | `masterVolume` | int | 마스터 볼륨 (0 ~ 100) |
 | `bgmVolume` | int | BGM 볼륨 (0 ~ 100) |
 | `sfxVolume` | int | 효과음 볼륨 (0 ~ 100) |
+| `screenTransition` | bool | 화면 전환 슬라이드 애니메이션 여부 |
 | `showFPS` | bool | FPS 표시 여부 |
 | `targetFPS` | int | 목표 FPS (`0` = 무제한) |
 | `textSpeed` | int | 텍스트 출력 속도 |
 | `vsync` | bool | 수직 동기화 여부 |
-| `keyBindings` | int | 인게임 키 바인딩 |
+| `keyBindings` | object | 인게임 키 바인딩 (VK 코드 정수) |
 ---
 
 ## 언어파일 지원
