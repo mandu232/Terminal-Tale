@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Terminal Tale — 개발 문서</title>
+<style>
+/* ═══════════════════════════════════════════
+   RESET & TOKENS
+═══════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:       #0b0d13;
+  --surface:  #111420;
+  --card:     #161a26;
+  --border:   #242840;
+  --green:    #3dffa0;
+  --green2:   #1a7a4a;
+  --amber:    #f7c948;
+  --blue:     #5b9cf6;
+  --purple:   #c084fc;
+  --red:      #f87171;
+  --text:     #d4dae8;
+  --muted:    #5a6380;
+  --dim:      #2e3450;
+  --r:8px;
+}
+
+html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Pretendard','Noto Sans KR','Segoe UI',system-ui,sans-serif;
+  font-size:15px;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* ═══════════════════════════════════════════
+   SLIDE WRAPPER — each section = one slide
+═══════════════════════════════════════════ */
+.slide{
+  min-height:100vh;
+  scroll-snap-align:start;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:60px 80px 60px 340px;
+  position:relative;
+  border-bottom:1px solid var(--border);
+}
+.slide::before{          /* left accent line */
+  content:'';
+  position:absolute;
+  left:300px;top:10%;bottom:10%;
+  width:1px;background:linear-gradient(to bottom,transparent,var(--border),transparent);
+}
+
+/* ═══════════════════════════════════════════
+   FIXED SIDEBAR
+═══════════════════════════════════════════ */
+#sidebar{
+  position:fixed;top:0;left:0;bottom:0;
+  width:280px;
+  background:var(--surface);
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+  z-index:200;
+  overflow-y:auto;
+}
+.sb-logo{
+  padding:32px 28px 24px;
+  border-bottom:1px solid var(--border);
+}
+.sb-title{
+  font-size:16px;font-weight:800;
+  font-family:'Courier New',monospace;
+  color:var(--green);letter-spacing:.08em;
+  text-shadow:0 0 20px rgba(61,255,160,.3);
+}
+.sb-sub{font-size:11px;color:var(--muted);margin-top:5px;letter-spacing:.04em}
+.sb-tag{
+  display:inline-block;margin-top:10px;
+  font-size:10px;font-family:monospace;
+  padding:2px 8px;border-radius:3px;
+  background:rgba(61,255,160,.08);
+  border:1px solid var(--green2);
+  color:var(--green);letter-spacing:.06em;
+}
+
+nav{padding:12px 0;flex:1}
+.nav-label{
+  font-size:9px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--dim);padding:10px 28px 4px;
+}
+nav a{
+  display:flex;align-items:center;gap:9px;
+  padding:7px 28px;
+  color:var(--muted);text-decoration:none;
+  font-size:13px;transition:all .15s;
+  border-left:2px solid transparent;
+}
+nav a .dot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--muted);flex-shrink:0;transition:all .15s;
+}
+nav a:hover{color:var(--text);background:rgba(255,255,255,.03)}
+nav a.active{
+  color:var(--green);border-left-color:var(--green);
+  background:rgba(61,255,160,.05);
+}
+nav a.active .dot{background:var(--green);box-shadow:0 0 6px var(--green)}
+
+.sb-foot{
+  padding:16px 28px;border-top:1px solid var(--border);
+  font-size:11px;color:var(--muted);line-height:1.6;
+}
+.sb-foot a{color:var(--blue);text-decoration:none}
+
+/* ═══════════════════════════════════════════
+   SLIDE HEADERS
+═══════════════════════════════════════════ */
+.slide-label{
+  font-family:monospace;font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--green);
+  margin-bottom:10px;
+}
+.slide-title{
+  font-size:40px;font-weight:900;line-height:1.1;
+  color:#fff;letter-spacing:-.02em;margin-bottom:28px;
+}
+.slide-title span{color:var(--green)}
+.slide-title small{
+  font-size:20px;font-weight:400;color:var(--muted);
+  display:block;margin-top:6px;letter-spacing:0;
+}
+
+/* ═══════════════════════════════════════════
+   HERO SLIDE
+═══════════════════════════════════════════ */
+.hero-slide{
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 50%, rgba(61,255,160,.04), transparent),
+    radial-gradient(ellipse 40% 60% at 30% 30%, rgba(91,156,246,.04), transparent),
+    var(--bg);
+}
+.hero-slide .slide-title{font-size:56px}
+.hero-desc{
+  font-size:16px;color:var(--muted);max-width:560px;
+  line-height:1.9;margin-bottom:28px;
+}
+.badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.badge{
+  font-size:11px;font-family:monospace;padding:4px 12px;
+  border-radius:4px;border:1px solid;letter-spacing:.05em;
+}
+.b-green{color:var(--green);border-color:var(--green2);background:rgba(61,255,160,.07)}
+.b-amber{color:var(--amber);border-color:#7a6020;background:rgba(247,201,72,.07)}
+.b-blue {color:var(--blue); border-color:#2d5090;background:rgba(91,156,246,.07)}
+.lang-row{display:flex;gap:8px}
+.lang-btn{
+  font-size:12px;padding:5px 18px;border-radius:5px;
+  border:1px solid var(--border);background:var(--card);
+  color:var(--muted);text-decoration:none;transition:all .15s;
+}
+.lang-btn:hover,.lang-btn.on{
+  border-color:var(--green);color:var(--green);
+  background:rgba(61,255,160,.07);
+}
+
+/* grid stats in hero */
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:12px;max-width:480px;margin-top:32px;
+}
+.hstat{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:16px;
+}
+.hstat-num{font-size:28px;font-weight:800;color:var(--green);font-family:'Courier New',monospace;line-height:1}
+.hstat-lbl{font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:.04em}
+
+/* ═══════════════════════════════════════════
+   ENV TABLE SLIDE
+═══════════════════════════════════════════ */
+.env-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:12px;
+  max-width:800px;
+}
+.env-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:18px 20px;
+  display:flex;flex-direction:column;gap:4px;
+  transition:border-color .2s;
+}
+.env-card:hover{border-color:var(--green2)}
+.env-key{font-size:11px;color:var(--muted);letter-spacing:.06em}
+.env-val{font-size:14px;font-weight:600;color:#fff}
+.env-val code{
+  font-family:'Courier New',monospace;font-size:13px;
+  color:var(--amber);background:rgba(247,201,72,.08);
+  padding:1px 6px;border-radius:3px;
+}
+
+/* ═══════════════════════════════════════════
+   FEATURES SLIDE
+═══════════════════════════════════════════ */
+.feat-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:10px;max-width:1000px;
+}
+.feat-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:16px 18px;
+  cursor:pointer;
+  transition:border-color .2s,transform .2s,background .2s;
+  display:flex;flex-direction:column;gap:4px;
+}
+.feat-card:hover{border-color:var(--green);transform:translateY(-2px);background:rgba(61,255,160,.04)}
+.feat-name{font-size:13px;font-weight:700;color:#fff}
+.feat-desc{font-size:12px;color:var(--muted);line-height:1.6;flex:1}
+.feat-desc code{
+  font-family:monospace;font-size:11px;color:var(--amber);
+  background:rgba(247,201,72,.08);padding:1px 4px;border-radius:3px;
+}
+.feat-more{
+  font-size:10.5px;color:var(--green);font-family:monospace;
+  letter-spacing:.04em;margin-top:4px;opacity:.7;
+  transition:opacity .15s;
+}
+.feat-card:hover .feat-more{opacity:1}
+
+/* ── Feature Modal ── */
+#feat-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.65);backdrop-filter:blur(4px);
+  z-index:500;
+}
+#feat-overlay.open{display:block}
+#feat-modal{
+  display:none;position:fixed;
+  top:50%;left:50%;transform:translate(-50%,-48%);
+  width:min(600px,90vw);max-height:80vh;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;z-index:501;
+  flex-direction:column;overflow:hidden;
+  box-shadow:0 24px 80px rgba(0,0,0,.7);
+  opacity:0;transition:opacity .18s,transform .18s;
+}
+#feat-modal.open{
+  display:flex;opacity:1;transform:translate(-50%,-50%);
+}
+#feat-close{
+  position:absolute;top:14px;right:16px;
+  background:none;border:none;cursor:pointer;
+  color:var(--muted);font-size:16px;line-height:1;
+  transition:color .15s;
+}
+#feat-close:hover{color:#fff}
+#feat-modal-header{
+  padding:24px 28px 18px;
+  border-bottom:1px solid var(--border);flex-shrink:0;
+}
+#feat-modal-label{
+  font-size:9px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--green);margin-bottom:6px;
+}
+#feat-modal-title{
+  font-size:20px;font-weight:800;color:#fff;
+}
+#feat-modal-body{
+  padding:20px 28px 28px;overflow-y:auto;
+  display:flex;flex-direction:column;gap:10px;
+}
+.mc{/* modal class row */
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:14px 16px;
+  display:flex;flex-direction:column;gap:5px;
+}
+.mc-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.mc-name{
+  font-family:'Courier New',monospace;font-size:14px;
+  font-weight:700;color:var(--amber);
+}
+.mc-path{
+  font-family:'Courier New',monospace;font-size:11px;
+  color:var(--muted);
+}
+.mc-desc{font-size:12.5px;color:var(--text);line-height:1.6}
+
+/* ═══════════════════════════════════════════
+   ARCH SLIDE
+═══════════════════════════════════════════ */
+.arch-wrap{display:flex;flex-direction:column;gap:16px;max-width:1000px}
+
+/* 트리: 가로 스크롤, 줄바꿈 없음 */
+.arch-tree{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:20px 24px;
+  font-family:'Courier New',monospace;font-size:12.5px;line-height:1.85;
+  color:var(--muted);
+  overflow-x:auto;
+  white-space:pre;
+}
+.t-root {color:var(--green);font-weight:700}
+.t-sub  {color:var(--blue)}
+.t-state{color:var(--amber)}
+.t-ctx  {color:var(--purple)}
+.t-cmt  {color:var(--dim);font-size:11.5px}
+
+/* 하단 3열 카드 행 */
+.arch-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.arch-info{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:16px 18px;
+}
+.arch-info-title{
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--green);margin-bottom:10px;
+}
+.loop-flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.loop-step{
+  font-family:monospace;font-size:12px;font-weight:700;
+  color:#fff;background:var(--bg);
+  border:1px solid var(--border);border-radius:4px;padding:5px 10px;
+}
+.loop-arrow{color:var(--green);font-size:12px}
+.method-row{display:flex;flex-direction:column;gap:6px}
+.method-item{
+  font-family:monospace;font-size:11.5px;
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:4px;padding:6px 10px;color:var(--blue);
+}
+.method-desc{font-size:11px;color:var(--muted);margin-top:2px}
+
+/* ═══════════════════════════════════════════
+   STRUCTURE SLIDE
+═══════════════════════════════════════════ */
+.struct-pre{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:24px 28px;
+  font-family:'Courier New',monospace;font-size:12.5px;
+  line-height:1.85;color:var(--muted);
+  max-height:72vh;overflow-y:auto;overflow-x:auto;
+  white-space:pre;
+}
+
+/* ═══════════════════════════════════════════
+   DATA FORMAT SLIDE
+═══════════════════════════════════════════ */
+.data-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1000px}
+.data-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px}
+.panel-title{
+  font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--green);margin-bottom:14px;padding-bottom:8px;
+  border-bottom:1px solid var(--border);
+}
+pre.code{
+  font-family:'Courier New',monospace;font-size:12px;
+  line-height:1.75;color:var(--muted);
+  overflow-x:auto;white-space:pre;
+}
+.kw {color:#c084fc}
+.fn {color:var(--blue)}
+.str{color:#86efac}
+.num{color:var(--amber)}
+.key{color:var(--amber)}
+.cmt{color:var(--dim);font-style:italic}
+.op {color:#67e8f9}
+.type{color:#e5c07b}
+.punc{color:#6b7280}
+
+/* ═══════════════════════════════════════════
+   TABLES (effects / conditions / settings)
+═══════════════════════════════════════════ */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--r)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead{background:rgba(255,255,255,.03)}
+th{
+  padding:10px 16px;text-align:left;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);font-weight:600;
+  border-bottom:1px solid var(--border);white-space:nowrap;
+}
+td{padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(255,255,255,.02)}
+td code{
+  font-family:'Courier New',monospace;font-size:11.5px;
+  color:var(--amber);background:rgba(247,201,72,.08);
+  padding:1px 6px;border-radius:3px;
+}
+.et{/* effect-type badge */
+  font-family:monospace;font-size:11px;white-space:nowrap;
+  padding:2px 8px;border-radius:3px;
+  background:rgba(247,201,72,.1);color:var(--amber);
+  border:1px solid rgba(247,201,72,.25);
+}
+.ct{
+  font-family:monospace;font-size:11px;white-space:nowrap;
+  padding:2px 8px;border-radius:3px;
+  background:rgba(91,156,246,.1);color:var(--blue);
+  border:1px solid rgba(91,156,246,.25);
+}
+.o{color:var(--green);font-weight:700}
+.x{color:var(--red);font-weight:700}
+
+/* ═══════════════════════════════════════════
+   STATS SLIDE
+═══════════════════════════════════════════ */
+.stats-layout{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:860px}
+.stat-block{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px}
+.sb-title2{
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--green);margin-bottom:14px;
+}
+.stat-row{
+  display:flex;align-items:baseline;gap:12px;
+  padding:7px 0;border-bottom:1px solid rgba(255,255,255,.03);
+}
+.stat-row:last-child{border-bottom:none}
+.sn{font-family:monospace;font-size:12.5px;color:var(--amber);width:140px;flex-shrink:0}
+.sd{font-family:monospace;font-size:12px;color:var(--blue);width:36px;text-align:center;flex-shrink:0}
+.sl{font-size:12.5px;color:var(--muted)}
+.tend-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:8px;
+  grid-column:1/-1;margin-top:4px;
+}
+.tend{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:12px 8px;text-align:center;
+}
+.tend-key{font-family:monospace;font-size:10px;color:var(--amber);margin-bottom:3px}
+.tend-kr {font-size:14px;font-weight:700;color:#fff}
+
+/* ═══════════════════════════════════════════
+   SETTINGS SLIDE
+═══════════════════════════════════════════ */
+.settings-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:980px}
+
+/* ═══════════════════════════════════════════
+   LOCALIZATION SLIDE
+═══════════════════════════════════════════ */
+.lang-grid{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.lang-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:12px 18px;
+  display:flex;align-items:center;gap:10px;
+}
+.lang-flag{font-size:20px}
+.lang-name{font-size:13px;font-weight:600;color:#fff}
+.lang-file{font-family:monospace;font-size:11px;color:var(--amber)}
+.macro-box{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:18px 22px;
+  font-family:monospace;font-size:13px;max-width:520px;
+}
+
+/* ═══════════════════════════════════════════
+   DEVS SLIDE — minimal
+═══════════════════════════════════════════ */
+.devs-slide{
+  background:
+    radial-gradient(ellipse 50% 80% at 80% 50%, rgba(192,132,252,.04), transparent),
+    var(--bg);
+}
+.dev-grid{display:flex;flex-wrap:wrap;gap:10px;max-width:680px}
+.dev-card{
+  background:var(--card);border:1px solid var(--border);
+  border-left:3px solid var(--border);
+  border-radius:var(--r);
+  padding:14px 20px;
+  min-width:260px;flex:1;
+  transition:border-color .15s,border-left-color .15s;
+}
+.dev-card:hover{border-color:var(--green2);border-left-color:var(--green)}
+.dev-info{display:flex;flex-direction:column;gap:3px}
+.dev-name{font-size:14px;font-weight:700;color:#fff}
+.dev-role{font-size:12px;color:var(--muted)}
+.dev-role strong{color:var(--green);font-weight:600}
+
+/* ═══════════════════════════════════════════
+   LIBS SLIDE
+═══════════════════════════════════════════ */
+.lib-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:640px}
+.lib-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:22px 24px;
+  transition:border-color .2s;
+}
+.lib-card:hover{border-color:var(--blue)}
+.lib-name{font-size:18px;font-weight:800;color:var(--blue);margin-bottom:6px}
+.lib-name a{color:inherit;text-decoration:none}
+.lib-name a:hover{text-decoration:underline}
+.lib-badge{
+  display:inline-block;font-size:10px;font-family:monospace;
+  padding:2px 8px;border-radius:3px;margin-bottom:10px;
+  background:rgba(61,255,160,.08);color:var(--green);
+  border:1px solid var(--green2);
+}
+.lib-desc{font-size:13px;color:var(--muted)}
+
+/* ═══════════════════════════════════════════
+   INTRO QUOTE
+═══════════════════════════════════════════ */
+.quote-box{
+  max-width:680px;
+  background:var(--card);border:1px solid var(--border);
+  border-left:3px solid var(--green);border-radius:var(--r);
+  padding:28px 32px;
+  font-size:16px;line-height:2;
+  color:var(--muted);font-style:italic;
+}
+.quote-box::before{
+  content:'"';
+  display:block;font-size:60px;line-height:.8;
+  color:var(--green2);font-family:Georgia,serif;
+  margin-bottom:8px;
+}
+
+/* ═══════════════════════════════════════════
+   PROGRESS BAR
+═══════════════════════════════════════════ */
+#progress{
+  position:fixed;top:0;left:280px;right:0;height:2px;
+  background:var(--border);z-index:300;
+}
+#progress-fill{
+  height:100%;background:linear-gradient(to right,var(--green),var(--blue));
+  width:0%;transition:width .1s;
+}
+
+/* ═══════════════════════════════════════════
+   SLIDE NUMBER
+═══════════════════════════════════════════ */
+.slide-num{
+  position:absolute;bottom:28px;right:36px;
+  font-family:monospace;font-size:11px;color:var(--dim);
+  letter-spacing:.06em;
+}
+
+/* ═══════════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════════ */
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:#3d4558}
+
+/* ═══════════════════════════════════════════
+   SCANLINE
+═══════════════════════════════════════════ */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
+  background:repeating-linear-gradient(
+    0deg,transparent,transparent 3px,rgba(0,0,0,.04) 3px,rgba(0,0,0,.04) 4px
+  );
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media(max-width:1100px){
+  .slide{padding:48px 40px 48px 320px}
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .dev-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:820px){
+  #sidebar{display:none}
+  #progress{left:0}
+  .slide{padding:40px 24px 60px;scroll-snap-align:none}
+  .slide::before{display:none}
+  .data-layout,.settings-layout,.arch-wrap,.tend-grid{grid-template-columns:1fr!important;flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- PROGRESS BAR -->
+<div id="progress"><div id="progress-fill"></div></div>
+
+<!-- ══════════════════ SIDEBAR ══════════════════ -->
+<aside id="sidebar">
+  <div class="sb-logo">
+    <div class="sb-title">TERMINAL TALE</div>
+    <div class="sb-sub">개발 문서 · Developer Docs</div>
+    <div class="sb-tag">C++20 · x64 · Windows</div>
+  </div>
+  <nav>
+    <div class="nav-label">시작</div>
+    <a href="#hero"><span class="dot"></span>홈</a>
+    <a href="#intro"><span class="dot"></span>게임 소개</a>
+    <a href="#env"><span class="dot"></span>개발 환경</a>
+    <div class="nav-label">시스템</div>
+    <a href="#features"><span class="dot"></span>주요 기능</a>
+    <a href="#architecture"><span class="dot"></span>아키텍처</a>
+    <a href="#structure"><span class="dot"></span>프로젝트 구조</a>
+    <div class="nav-label">데이터 형식</div>
+    <a href="#story-format"><span class="dot"></span>스토리 데이터</a>
+    <a href="#item-format"><span class="dot"></span>아이템 데이터</a>
+    <a href="#player-stats"><span class="dot"></span>플레이어 능력치</a>
+    <a href="#settings"><span class="dot"></span>설정 파일</a>
+    <div class="nav-label">기타</div>
+    <a href="#localization"><span class="dot"></span>언어 파일</a>
+    <a href="#libraries"><span class="dot"></span>외부 라이브러리</a>
+    <a href="#developers"><span class="dot"></span>개발자</a>
+  </nav>
+  <div class="sb-foot">Team: 산 넘어 산<br/><a href="https://github.com/mandu232/Terminal-Tale" target="_blank">GitHub 저장소 →</a></div>
+</aside>
+
+<!-- ══════════════════════════════════════════
+   SLIDE 01 — HERO
+══════════════════════════════════════════ -->
+<section class="slide hero-slide" id="hero">
+  <div class="slide-label">■ RECORD SYSTEM INTERFACE</div>
+  <h1 class="slide-title" style="font-size:60px">
+    <span>Terminal</span> Tale
+    <small>팀 개발 텍스트 기반 RPG</small>
+  </h1>
+  <p class="hero-desc">
+    C++로 제작된 콘솔 텍스트 RPG.<br/>
+    국가 기관의 신입 직원으로서 쏟아지는 사건 파일을 처리하며,<br/>
+    당신의 선택이 도시의 질서와 시스템 자체를 바꿔나갑니다.
+  </p>
+  <div class="badge-row">
+    <span class="badge b-green">C++20</span>
+    <span class="badge b-amber">Visual Studio 2022</span>
+    <span class="badge b-blue">Windows x64</span>
+    <span class="badge b-green">Team: 산 넘어 산</span>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-num">15</div><div class="hstat-lbl">Game States</div></div>
+    <div class="hstat"><div class="hstat-num">17</div><div class="hstat-lbl">Effect Types</div></div>
+    <div class="hstat"><div class="hstat-num">5</div><div class="hstat-lbl">Languages</div></div>
+  </div>
+  <div class="lang-row" style="margin-top:28px">
+    <a href="index.html" class="lang-btn on">한국어</a>
+    <a href="index.en.html" class="lang-btn">English</a>
+  </div>
+  <div class="slide-num">01 / 13</div>
+</section>
+
+<!-- ══════════════════════════════════════════
+   SLIDE 02 — 게임 소개
+══════════════════════════════════════════ -->
+<section class="slide" id="intro">
+  <div class="slide-label">GAME INTRODUCTION</div>
+  <h2 class="slide-title">게임 소개<small>배경 설정</small></h2>
+  <div class="quote-box">
+    당신은 이 도시의 모든 시민 기록을 보관하고 처리하는 국가 기관의 신입 직원이다.<br/>
+    매일 들어오는 사건 파일을 열고, 검토하고, 처리하면 그만이다.<br/>
+    당신의 선택은 도시의 질서와 시민의 신뢰, 그리고 이 시스템 자체를 바꿔나간다.
+  </div>
+  <div class="slide-num">02 / 13</div>
+</section>
+
+<!-- ══════════════════════════════════════════
+   SLIDE 03 — 개발 환경
+══════════════════════════════════════════ -->
+<section class="slide" id="env">
+  <div class="slide-label">DEVELOPMENT ENVIRONMENT</div>
+  <h2 class="slide-title">개발 환경<small>Tech Stack</small></h2>
+  <div class="env-grid">
+    <div class="env-card"><div class="env-key">언어</div><div class="env-val"><code>C++</code></div></div>
+    <div class="env-card"><div class="env-key">C++ 표준</div><div class="env-val"><code>ISO C++20</code> (/std:c++20)</div></div>
+    <div class="env-card"><div class="env-key">개발 도구</div><div class="env-val">Visual Studio 2022</div></div>
+    <div class="env-card"><div class="env-key">플랫폼 도구</div><div class="env-val">v143 (MSVC Build Tools)</div></div>
+    <div class="env-card"><div class="env-key">대상 플랫폼</div><div class="env-val">Windows x64</div></div>
+    <div class="env-card"><div class="env-key">구성 형식</div><div class="env-val">응용 프로그램 (.exe)</div></div>
+    <div class="env-card"><div class="env-key">버전 관리</div><div class="env-val">Git &amp; GitHub</div></div>
+    <div class="env-card"><div class="env-key">실행 환경</div><div class="env-val">Windows 10 이상 (x64)</div></div>
+  </div>
+  <div class="slide-num">03 / 13</div>
+</section>
+
+<!-- ══════════════════════════════════════════
+   SLIDE 04 — 주요 기능
+══════════════════════════════════════════ -->
+<section class="slide" id="features">
+  <div class="slide-label">KEY FEATURES</div>
+  <h2 class="slide-title">주요 기능<small>16개 핵심 시스템</small></h2>
+  <div class="feat-grid">
+    <div class="feat-card" data-feat="story"><div class="feat-name">분기형 텍스트 스토리</div><div class="feat-desc">JSON 노드 기반 스토리, 선택에 따라 다른 경로로 분기</div><div class="feat-more">관련 클래스 보기 →</div></div>
+    <div class="feat-card" data-feat="stats"><div class="feat-name">능력치 &amp; 플래그 시스템</div><div class="feat-desc">피로도·감시 등급·재화 등 개인 수치, 도시 질서·신뢰·오염도 등 세계 수치</div><div class="feat-more">관련 클래스 보기 →</div></div>
+    <div class="feat-card" data-feat="effect"><div class="feat-name">이펙트 시스템</div><div class="feat-desc">노드 진입·선택지마다 능력치 증감, 플래그, 성향 변화 적용</div><div class="feat-more">관련 클래스 보기 →</div></div>
+    <div class="feat-card" data-feat="condition"><div class="feat-name">조건부 선택지</div><div class="feat-desc"><code>require</code> 조건 미충족 시 선택지 자동 숨김</div><div class="feat-more">관련 클래스 보기 →</div></div>
+    <div class="feat-card" data-feat="save"><div class="feat-name">저장 / 불러오기</div><div class="feat-desc">슬롯 3개 + 빠른 저장 5슬롯, <code>Data/saves/</code>에 JSON 저장</div><div class="feat-more">관련 클래스 보기 →</div></div>
+    <div class="feat-card" data-feat="inventory"><div class="feat-name">인벤토리 &amp; 아이템</div><div class="feat-desc">JSON 정의 아이템, 인벤토리에서 사용 및 효과 적용</div><div class="feat-more">관련 클래스 보기 →</div></div>
+    <div class="feat-card" data-feat="journal"><div class="feat-name">처리 문서 (Journal)</div><div class="feat-desc">케이스 기록을 저널에 저장하고 게임 내 열람</div><div class="feat-more">관련 클래스 보기 →</div></div>
+    <div class="feat-card" data-feat="log"><div class="feat-name">활동 로그 (Log)</div><div class="feat-desc">게임 주요 이벤트를 날짜·시각과 함께 기록</div><div class="feat-more">관련 클래스 보기 →</div></div>
+    <div class="feat-card" data-feat="achievement"><div class="feat-name">업적 시스템</div><div class="feat-desc">조건 만족 시 업적 해제, <code>achievements.json</code>에 저장</div><div class="feat-more">관련 클래스 보기 →</div></div>
+    <div class="feat-card" data-feat="character"><div class="feat-name">인물 정보</div><div class="feat-desc">등장 인물의 이름·직위·관계를 화면에서 열람</div><div class="feat-more">관련 클래스 보기 →</div></div>
+    <div class="feat-card" data-feat="transition"><div class="feat-name">화면 전환 애니메이션</div><div class="feat-desc">상태 전환 시 슬라이드 애니메이션 효과</div><div class="feat-more">관련 클래스 보기 →</div></div>
+    <div class="feat-card" data-feat="ui"><div class="feat-name">커스텀 콘솔 UI</div><div class="feat-desc">UIButton, UILabel, UIImage, UIDocumentPanel, UITypewriter</div><div class="feat-more">관련 클래스 보기 →</div></div>
+    <div class="feat-card" data-feat="sound"><div class="feat-name">사운드</div><div class="feat-desc">miniaudio 기반 BGM 및 효과음 재생</div><div class="feat-more">관련 클래스 보기 →</div></div>
+    <div class="feat-card" data-feat="localization"><div class="feat-name">다국어 지원</div><div class="feat-desc">한국어·영어·일본어·중국어·프랑스어 JSON 로컬라이제이션</div><div class="feat-more">관련 클래스 보기 →</div></div>
+    <div class="feat-card" data-feat="settings"><div class="feat-name">설정 저장/불러오기</div><div class="feat-desc"><code>Data/settings.json</code>으로 게임 설정 영속</div><div class="feat-more">관련 클래스 보기 →</div></div>
+    <div class="feat-card" data-feat="fps"><div class="feat-name">FPS 제한</div><div class="feat-desc"><code>targetFPS</code> 설정으로 게임 루프 속도 제어</div><div class="feat-more">관련 클래스 보기 →</div></div>
+  </div>
+  <div class="slide-num">04 / 13</div>
+</section>
+
+<!-- ══════════════════════════════════════════
+   SLIDE 05 — 아키텍처
+══════════════════════════════════════════ -->
+<section class="slide" id="architecture">
+  <div class="slide-label">ARCHITECTURE</div>
+  <h2 class="slide-title">아키텍처<small>시스템 구조</small></h2>
+  <div class="arch-wrap">
+    <!-- 트리 전체 너비 -->
+    <div class="arch-tree"><span class="t-root">Application</span>
+└── <span class="t-sub">GameLoop</span>
+    ├── <span class="t-sub">StateMachine</span> <span class="t-cmt">(스택 기반, 15 States)</span>
+    │   ├── <span class="t-state">TitleState</span>  <span class="t-state">StoryState</span>  <span class="t-state">SlotSelectState</span>  <span class="t-state">LoadSlotState</span>  <span class="t-state">QuickSlotState</span>
+    │   ├── <span class="t-state">PauseMenuState</span>  <span class="t-state">InventoryState</span>  <span class="t-state">JournalState</span>  <span class="t-state">LogState</span>
+    │   └── <span class="t-state">AchievementState</span>  <span class="t-state">CharacterState</span>  <span class="t-state">SettingState</span>  <span class="t-state">KeyBindState</span>  <span class="t-state">SleepState</span>  <span class="t-state">WaitState</span>
+    ├── <span class="t-sub">InputManager</span>  └── <span class="t-sub">ConsoleInputSource</span>
+    └── <span class="t-ctx">Context</span> <span class="t-cmt">(공유 상태)</span>
+        ├── <span class="t-ctx">ConsoleDisplay</span><span class="t-cmt">(192×54)</span>  <span class="t-ctx">EventBus</span><span class="t-cmt">(Pub/Sub)</span>  <span class="t-ctx">SettingsManager</span>  <span class="t-ctx">SoundSystem</span><span class="t-cmt">(miniaudio)</span>
+        ├── <span class="t-ctx">LocalizationManager</span>  <span class="t-ctx">AchievementManager</span>  <span class="t-ctx">PlayerStats</span>+<span class="t-ctx">flags</span>
+        └── <span class="t-ctx">vector&lt;LogEntry&gt;</span>  <span class="t-ctx">vector&lt;JournalEntry&gt;</span>  <span class="t-ctx">vector&lt;CharacterEntry&gt;</span></div>
+
+  </div>
+  <div class="slide-num">05 / 13</div>
+</section>
+
+<!-- ══════════════════════════════════════════
+   SLIDE 06 — 프로젝트 구조
+══════════════════════════════════════════ -->
+<section class="slide" id="structure">
+  <div class="slide-label">PROJECT STRUCTURE</div>
+  <h2 class="slide-title">프로젝트 구조<small>디렉터리 트리</small></h2>
+  <div class="struct-pre">
+<span class="t-root">Terminal Tale/</span>
+├── <span class="t-sub">Assets/</span>
+│   ├── audio/              <span class="cmt"># BGM / 효과음 (.wav)</span>
+│   └── ui/                 <span class="cmt"># 타이틀 아스키 아트</span>
+├── <span class="t-sub">Core/</span>                   <span class="cmt"># 엔진 코어</span>
+│   ├── Application         <span class="cmt"># 앱 진입점</span>
+│   ├── GameLoop            <span class="cmt"># 메인 루프</span>
+│   ├── StateMachine        <span class="cmt"># 스택 기반 상태 머신</span>
+│   ├── Context             <span class="cmt"># 전역 공유 컨텍스트</span>
+│   ├── EventBus            <span class="cmt"># 타입 기반 이벤트 버스</span>
+│   ├── InputManager        <span class="cmt"># 입력 수집 및 라우팅</span>
+│   ├── ConsoleDisplay      <span class="cmt"># 콘솔 버퍼 및 렌더링</span>
+│   ├── SoundSystem         <span class="cmt"># miniaudio 래퍼</span>
+│   ├── LocalizationManager <span class="cmt"># 다국어 JSON 로더</span>
+│   └── SettingsManager     <span class="cmt"># 설정 저장/불러오기</span>
+├── <span class="t-sub">Data/</span>
+│   ├── lang/               <span class="cmt"># 로컬라이제이션 JSON (ko/en/ja/zh/fr)</span>
+│   ├── story/              <span class="cmt"># 스토리 노드 JSON</span>
+│   ├── saves/              <span class="cmt"># 세이브 슬롯 + achievements.json</span>
+│   ├── items.json          <span class="cmt"># 아이템 정의</span>
+│   └── settings.json       <span class="cmt"># 사용자 설정</span>
+├── <span class="t-sub">external/</span>
+│   ├── json/json.hpp       <span class="cmt"># nlohmann/json (header-only)</span>
+│   └── sound/miniaudio.h   <span class="cmt"># miniaudio (header-only)</span>
+├── <span class="t-sub">Game/</span>
+│   ├── Achievement/        <span class="cmt"># 업적 시스템</span>
+│   ├── Character/          <span class="cmt"># 인물 정보</span>
+│   ├── Effect/             <span class="cmt"># 이펙트 타입 정의 및 적용</span>
+│   ├── Events/             <span class="cmt"># 게임 이벤트</span>
+│   ├── Item/               <span class="cmt"># 아이템 정의 및 파싱</span>
+│   ├── Journal/            <span class="cmt"># JournalEntry</span>
+│   ├── Log/                <span class="cmt"># LogEntry</span>
+│   ├── Player/             <span class="cmt"># PlayerStats</span>
+│   ├── States/             <span class="cmt"># 게임 상태 15종</span>
+│   └── Story/              <span class="cmt"># StoryNode, StoryLoader</span>
+├── <span class="t-sub">Systems/</span>
+│   └── Condition / ConditionChecker
+├── <span class="t-sub">Ui/</span>
+│   ├── UIManager           <span class="cmt"># UI 컨테이너</span>
+│   ├── UIButton            <span class="cmt"># 클릭 가능 버튼</span>
+│   ├── UILabel             <span class="cmt"># 텍스트 라벨</span>
+│   ├── UIImage             <span class="cmt"># 아스키 아트</span>
+│   ├── UIDocumentPanel     <span class="cmt"># 사건 파일 문서 패널</span>
+│   ├── UIScreenFader       <span class="cmt"># 화면 전환 페이더</span>
+│   └── UITypewriter        <span class="cmt"># 타이프라이터 효과</span>
+└── <span class="t-sub">Utils/</span>
+    ├── ConsoleUtils
+    ├── EnableMouseInput
+    ├── GetCharWidth / GetVisualWidth
+    └── UTF8ToWide
+  </div>
+  <div class="slide-num">06 / 13</div>
+</section>
+
+<!-- ══════════════════════════════════════════
+   SLIDE 07 — 스토리 데이터 형식
+══════════════════════════════════════════ -->
+<section class="slide" id="story-format">
+  <div class="slide-label">STORY DATA FORMAT</div>
+  <h2 class="slide-title">스토리 데이터 형식<small>StoryNode JSON 구조</small></h2>
+  <div class="data-layout">
+    <div class="data-panel">
+      <div class="panel-title">기본 구조 예시</div>
+      <pre class="code"><span class="punc">{</span>
+  <span class="key">"id"</span><span class="punc">:</span> <span class="str">"case_1042"</span><span class="punc">,</span>
+  <span class="key">"sfx"</span><span class="punc">:</span> <span class="str">"Assets/audio/node_paper.wav"</span><span class="punc">,</span>
+  <span class="key">"bgm"</span><span class="punc">:</span> <span class="str">"Assets/audio/bgm_office.wav"</span><span class="punc">,</span>
+  <span class="key">"bgImage"</span><span class="punc">:</span> <span class="str">"Assets/ui/office.txt"</span><span class="punc">,</span>
+
+  <span class="key">"require"</span><span class="punc">: [{</span>
+    <span class="key">"type"</span><span class="punc">:</span> <span class="str">"fatigue"</span><span class="punc">,</span>
+    <span class="key">"op"</span><span class="punc">:</span> <span class="str">"lt"</span><span class="punc">,</span>
+    <span class="key">"value"</span><span class="punc">:</span> <span class="num">80</span>
+  <span class="punc">}],</span>
+
+  <span class="key">"effects"</span><span class="punc">: [</span>
+    <span class="punc">{</span><span class="key">"type"</span><span class="punc">:</span><span class="str">"city_order"</span><span class="punc">,</span><span class="key">"value"</span><span class="punc">:</span><span class="num">5</span><span class="punc">},</span>
+    <span class="punc">{</span><span class="key">"type"</span><span class="punc">:</span><span class="str">"tendency"</span><span class="punc">,</span><span class="key">"key"</span><span class="punc">:</span><span class="str">"justice"</span><span class="punc">,</span><span class="key">"value"</span><span class="punc">:</span><span class="num">1</span><span class="punc">},</span>
+    <span class="punc">{</span><span class="key">"type"</span><span class="punc">:</span><span class="str">"reveal_character"</span><span class="punc">,</span><span class="key">"key"</span><span class="punc">:</span><span class="str">"kang_taewon"</span><span class="punc">}</span>
+  <span class="punc">],</span>
+
+  <span class="key">"text"</span><span class="punc">: [</span>
+    <span class="str">"story.case_1042.0"</span><span class="punc">,</span>
+    <span class="str">"story.case_1042.1"</span>
+  <span class="punc">],</span>
+
+  <span class="key">"choices"</span><span class="punc">: [{</span>
+    <span class="key">"text"</span><span class="punc">:</span><span class="str">"story.case_1042.choice.0"</span><span class="punc">,</span>
+    <span class="key">"next"</span><span class="punc">:</span><span class="str">"case_1042_a"</span><span class="punc">,</span>
+    <span class="key">"require"</span><span class="punc">:[{</span>
+      <span class="key">"type"</span><span class="punc">:</span><span class="str">"tendency"</span><span class="punc">,</span>
+      <span class="key">"key"</span><span class="punc">:</span><span class="str">"justice"</span><span class="punc">,</span>
+      <span class="key">"op"</span><span class="punc">:</span><span class="str">"gte"</span><span class="punc">,</span>
+      <span class="key">"value"</span><span class="punc">:</span><span class="num">3</span>
+    <span class="punc">}]</span>
+  <span class="punc">}]</span>
+<span class="punc">}</span></pre>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="data-panel">
+        <div class="panel-title">이펙트 타입</div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>type</th><th>설명</th></tr></thead>
+            <tbody>
+              <tr><td><span class="et">fatigue</span></td><td>피로도 증감</td></tr>
+              <tr><td><span class="et">monitoring</span></td><td>감시 등급 증감</td></tr>
+              <tr><td><span class="et">wealth</span></td><td>재화 증감</td></tr>
+              <tr><td><span class="et">city_order</span></td><td>도시 질서</td></tr>
+              <tr><td><span class="et">citizen_trust</span></td><td>시민 신뢰</td></tr>
+              <tr><td><span class="et">corruption</span></td><td>오염도</td></tr>
+              <tr><td><span class="et">tendency</span></td><td>성향 수치</td></tr>
+              <tr><td><span class="et">flag_add / flag_remove</span></td><td>플래그 추가/제거</td></tr>
+              <tr><td><span class="et">give_item / remove_item</span></td><td>아이템 지급/제거</td></tr>
+              <tr><td><span class="et">day / time / set_time</span></td><td>날짜·시간</td></tr>
+              <tr><td><span class="et">case_record</span></td><td>처리 문서 기록</td></tr>
+              <tr><td><span class="et">unlock_achievement</span></td><td>업적 해제 <span class="new-tag">NEW</span></td></tr>
+              <tr><td><span class="et">reveal_character</span></td><td>인물 등록 <span class="new-tag">NEW</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="data-panel">
+        <div class="panel-title">조건 타입 &amp; 연산자</div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>type</th><th>op</th><th>key</th></tr></thead>
+            <tbody>
+              <tr><td><span class="ct">fatigue</span></td><td><span class="o">O</span></td><td>—</td></tr>
+              <tr><td><span class="ct">monitoring</span></td><td><span class="o">O</span></td><td>—</td></tr>
+              <tr><td><span class="ct">wealth / day / time</span></td><td><span class="o">O</span></td><td>—</td></tr>
+              <tr><td><span class="ct">city_order / citizen_trust / corruption</span></td><td><span class="o">O</span></td><td>—</td></tr>
+              <tr><td><span class="ct">tendency</span></td><td><span class="o">O</span></td><td><span class="o">O</span></td></tr>
+              <tr><td><span class="ct">has_item</span></td><td><span class="o">O</span></td><td><span class="o">O</span></td></tr>
+              <tr><td><span class="ct">flag</span></td><td><span class="x">X</span></td><td><span class="o">O</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:var(--muted)">
+          op 종류: <code>gt</code> <code>lt</code> <code>eq</code> <code>gte</code> <code>lte</code>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">07 / 13</div>
+</section>
+
+<!-- ══════════════════════════════════════════
+   SLIDE 08 — 아이템 데이터
+══════════════════════════════════════════ -->
+<section class="slide" id="item-format">
+  <div class="slide-label">ITEM DATA FORMAT</div>
+  <h2 class="slide-title">아이템 데이터 형식<small>items.json 구조</small></h2>
+  <div class="data-layout" style="max-width:820px">
+    <div class="data-panel">
+      <div class="panel-title">기본 구조</div>
+      <pre class="code"><span class="punc">[</span>
+  <span class="punc">{</span>
+    <span class="key">"id"</span><span class="punc">:</span>      <span class="str">"coffee"</span><span class="punc">,</span>
+    <span class="key">"name"</span><span class="punc">:</span>    <span class="str">"item.coffee.name"</span><span class="punc">,</span>
+    <span class="key">"desc"</span><span class="punc">:</span>    <span class="str">"item.coffee.desc"</span><span class="punc">,</span>
+    <span class="key">"usable"</span><span class="punc">:</span>  <span class="kw">true</span><span class="punc">,</span>
+    <span class="key">"effects"</span><span class="punc">: [</span>
+      <span class="punc">{</span><span class="key">"type"</span><span class="punc">:</span><span class="str">"fatigue"</span><span class="punc">,</span><span class="key">"value"</span><span class="punc">:</span><span class="num">-10</span><span class="punc">}</span>
+    <span class="punc">]</span>
+  <span class="punc">},</span>
+  <span class="punc">{</span>
+    <span class="key">"id"</span><span class="punc">:</span>      <span class="str">"access_card"</span><span class="punc">,</span>
+    <span class="key">"name"</span><span class="punc">:</span>    <span class="str">"item.access_card.name"</span><span class="punc">,</span>
+    <span class="key">"desc"</span><span class="punc">:</span>    <span class="str">"item.access_card.desc"</span><span class="punc">,</span>
+    <span class="key">"usable"</span><span class="punc">:</span>  <span class="kw">false</span><span class="punc">,</span>
+    <span class="key">"effects"</span><span class="punc">: []</span>
+  <span class="punc">}</span>
+<span class="punc">]</span></pre>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="data-panel">
+        <div class="panel-title">필드 설명</div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>필드</th><th>타입</th><th>설명</th></tr></thead>
+            <tbody>
+              <tr><td><code>id</code></td><td>string</td><td>아이템 고유 식별자</td></tr>
+              <tr><td><code>name</code></td><td>string</td><td>표시 이름 (로컬라이제이션 키)</td></tr>
+              <tr><td><code>desc</code></td><td>string</td><td>아이템 설명 (로컬라이제이션 키)</td></tr>
+              <tr><td><code>usable</code></td><td>bool</td><td>인벤토리에서 사용 가능 여부</td></tr>
+              <tr><td><code>effects</code></td><td>Effect[]</td><td>사용 시 적용되는 이펙트</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="data-panel">
+        <div class="panel-title">키 네이밍 규칙</div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>종류</th><th>패턴</th></tr></thead>
+            <tbody>
+              <tr><td>이름</td><td><code>item.{id}.name</code></td></tr>
+              <tr><td>설명</td><td><code>item.{id}.desc</code></td></tr>
+              <tr><td>스토리 본문</td><td><code>story.{NodeId}.{n}</code></td></tr>
+              <tr><td>선택지</td><td><code>story.{NodeId}.choice.{n}</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">08 / 13</div>
+</section>
+
+<!-- ══════════════════════════════════════════
+   SLIDE 09 — 플레이어 능력치
+══════════════════════════════════════════ -->
+<section class="slide" id="player-stats">
+  <div class="slide-label">PLAYER STATS</div>
+  <h2 class="slide-title">플레이어 능력치<small>PlayerStats 구조체</small></h2>
+  <div class="stats-layout">
+    <div class="stat-block">
+      <div class="sb-title2">개인 수치</div>
+      <div class="stat-row"><div class="sn"><code>fatigue</code></div><div class="sd">0</div><div class="sl">피로도 (0=최상, 100=한계)</div></div>
+      <div class="stat-row"><div class="sn"><code>monitoring</code></div><div class="sd">0</div><div class="sl">RECORD 감시 등급</div></div>
+      <div class="stat-row"><div class="sn"><code>wealth</code></div><div class="sd">0</div><div class="sl">재화 (돈)</div></div>
+    </div>
+    <div class="stat-block">
+      <div class="sb-title2">세계 수치 (도시 현황)</div>
+      <div class="stat-row"><div class="sn"><code>cityOrder</code></div><div class="sd">50</div><div class="sl">도시 질서</div></div>
+      <div class="stat-row"><div class="sn"><code>citizenTrust</code></div><div class="sd">50</div><div class="sl">시민 신뢰</div></div>
+      <div class="stat-row"><div class="sn"><code>corruption</code></div><div class="sd">0</div><div class="sl">오염도 (기록 조작 누적)</div></div>
+    </div>
+    <div class="stat-block">
+      <div class="sb-title2">시간</div>
+      <div class="stat-row"><div class="sn"><code>day</code></div><div class="sd">1</div><div class="sl">현재 날짜</div></div>
+      <div class="stat-row"><div class="sn"><code>time</code></div><div class="sd">8</div><div class="sl">현재 시각 (0~23)</div></div>
+    </div>
+    <div class="stat-block">
+      <div class="sb-title2">기타</div>
+      <div class="stat-row"><div class="sn"><code>flags</code></div><div class="sd">—</div><div class="sl">스토리 플래그 집합</div></div>
+      <div class="stat-row"><div class="sn"><code>inventory</code></div><div class="sd">—</div><div class="sl">아이템 id → 수량 맵</div></div>
+    </div>
+    <div class="stat-block" style="grid-column:1/-1">
+      <div class="sb-title2">성향 — 누적 증가 (5종)</div>
+      <div class="tend-grid">
+        <div class="tend"><div class="tend-key">empathy</div><div class="tend-kr">공감</div></div>
+        <div class="tend"><div class="tend-key">coldness</div><div class="tend-kr">냉정</div></div>
+        <div class="tend"><div class="tend-key">justice</div><div class="tend-kr">정의</div></div>
+        <div class="tend"><div class="tend-key">compliance</div><div class="tend-kr">순응</div></div>
+        <div class="tend"><div class="tend-key">suspicion</div><div class="tend-kr">의심</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">09 / 13</div>
+</section>
+
+<!-- ══════════════════════════════════════════
+   SLIDE 10 — 설정 파일
+══════════════════════════════════════════ -->
+<section class="slide" id="settings">
+  <div class="slide-label">SETTINGS FILE</div>
+  <h2 class="slide-title">설정 파일<small>Data/settings.json</small></h2>
+  <div class="settings-layout">
+    <div class="data-panel">
+      <div class="panel-title">settings.json</div>
+      <pre class="code"><span class="punc">{</span>
+  <span class="key">"autoSave"</span><span class="punc">:</span>         <span class="kw">true</span><span class="punc">,</span>
+  <span class="key">"bgmVolume"</span><span class="punc">:</span>        <span class="num">100</span><span class="punc">,</span>
+  <span class="key">"fullScreen"</span><span class="punc">:</span>       <span class="kw">true</span><span class="punc">,</span>
+  <span class="key">"language"</span><span class="punc">:</span>         <span class="str">"ko"</span><span class="punc">,</span>
+  <span class="key">"masterVolume"</span><span class="punc">:</span>     <span class="num">100</span><span class="punc">,</span>
+  <span class="key">"screenTransition"</span><span class="punc">:</span> <span class="kw">true</span><span class="punc">,</span>
+  <span class="key">"sfxVolume"</span><span class="punc">:</span>        <span class="num">100</span><span class="punc">,</span>
+  <span class="key">"showFPS"</span><span class="punc">:</span>          <span class="kw">false</span><span class="punc">,</span>
+  <span class="key">"targetFPS"</span><span class="punc">:</span>        <span class="num">30</span><span class="punc">,</span>
+  <span class="key">"textSpeed"</span><span class="punc">:</span>        <span class="num">3</span><span class="punc">,</span>
+  <span class="key">"vsync"</span><span class="punc">:</span>            <span class="kw">false</span><span class="punc">,</span>
+  <span class="key">"keyBindings"</span><span class="punc">: {</span>
+    <span class="key">"inventory"</span><span class="punc">:</span>  <span class="num">73</span><span class="punc">,</span>  <span class="cmt">// 'I'</span>
+    <span class="key">"journal"</span><span class="punc">:</span>    <span class="num">74</span><span class="punc">,</span>  <span class="cmt">// 'J'</span>
+    <span class="key">"log"</span><span class="punc">:</span>        <span class="num">76</span><span class="punc">,</span>  <span class="cmt">// 'L'</span>
+    <span class="key">"quickLoad"</span><span class="punc">:</span>  <span class="num">120</span><span class="punc">,</span> <span class="cmt">// F9</span>
+    <span class="key">"quickSave"</span><span class="punc">:</span>  <span class="num">116</span><span class="punc">,</span> <span class="cmt">// F5</span>
+    <span class="key">"sleep"</span><span class="punc">:</span>      <span class="num">83</span><span class="punc">,</span>  <span class="cmt">// 'S'</span>
+    <span class="key">"wait"</span><span class="punc">:</span>       <span class="num">90</span>   <span class="cmt">// 'Z'</span>
+  <span class="punc">}</span>
+<span class="punc">}</span></pre>
+    </div>
+    <div class="data-panel">
+      <div class="panel-title">설정 항목 설명</div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>키</th><th>타입</th><th>설명</th></tr></thead>
+          <tbody>
+            <tr><td><code>autoSave</code></td><td>bool</td><td>자동 저장 여부</td></tr>
+            <tr><td><code>fullScreen</code></td><td>bool</td><td>전체화면 모드</td></tr>
+            <tr><td><code>language</code></td><td>string</td><td>언어 코드 (ko/en/ja/zh/fr)</td></tr>
+            <tr><td><code>masterVolume</code></td><td>int</td><td>마스터 볼륨 (0~100)</td></tr>
+            <tr><td><code>bgmVolume</code></td><td>int</td><td>BGM 볼륨 (0~100)</td></tr>
+            <tr><td><code>sfxVolume</code></td><td>int</td><td>효과음 볼륨 (0~100)</td></tr>
+            <tr><td><code>screenTransition</code></td><td>bool</td><td>화면 전환 슬라이드 애니메이션</td></tr>
+            <tr><td><code>showFPS</code></td><td>bool</td><td>FPS 표시 여부</td></tr>
+            <tr><td><code>targetFPS</code></td><td>int</td><td>목표 FPS (0 = 무제한)</td></tr>
+            <tr><td><code>textSpeed</code></td><td>int</td><td>텍스트 출력 속도</td></tr>
+            <tr><td><code>vsync</code></td><td>bool</td><td>수직 동기화</td></tr>
+            <tr><td><code>keyBindings</code></td><td>object</td><td>인게임 키 바인딩 (VK 코드)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">10 / 13</div>
+</section>
+
+<!-- ══════════════════════════════════════════
+   SLIDE 11 — 언어 파일
+══════════════════════════════════════════ -->
+<section class="slide" id="localization">
+  <div class="slide-label">LOCALIZATION</div>
+  <h2 class="slide-title">언어 파일 지원<small>JSON 기반 다국어</small></h2>
+  <div class="lang-grid">
+    <div class="lang-card"><div class="lang-flag">🇰🇷</div><div><div class="lang-name">한국어</div><div class="lang-file">ko.json</div></div></div>
+    <div class="lang-card"><div class="lang-flag">🇺🇸</div><div><div class="lang-name">English</div><div class="lang-file">en.json</div></div></div>
+    <div class="lang-card"><div class="lang-flag">🇯🇵</div><div><div class="lang-name">日本語</div><div class="lang-file">ja.json</div></div></div>
+    <div class="lang-card"><div class="lang-flag">🇨🇳</div><div><div class="lang-name">中文</div><div class="lang-file">zh.json</div></div></div>
+    <div class="lang-card"><div class="lang-flag">🇫🇷</div><div><div class="lang-name">Français</div><div class="lang-file">fr.json</div></div></div>
+  </div>
+  <p style="color:var(--muted);font-size:14px;margin-bottom:16px">
+    <code>Data/lang/</code>에 언어 코드별 JSON 파일을 추가하면 새 언어를 등록할 수 있습니다.
+  </p>
+  <div class="macro-box">
+    <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:10px">L() 매크로</div>
+    <span class="fn">L</span><span class="punc">(</span><span class="str">"ui.new_game"</span><span class="punc">)</span>
+    <span style="color:var(--muted)">  →  </span><span class="str">"새 게임"</span><span style="color:var(--muted)"> (ko)</span><br/>
+    <span class="fn">L</span><span class="punc">(</span><span class="str">"ui.new_game"</span><span class="punc">)</span>
+    <span style="color:var(--muted)">  →  </span><span class="str">"New Game"</span><span style="color:var(--muted)"> (en)</span>
+  </div>
+  <div class="slide-num">11 / 13</div>
+</section>
+
+<!-- ══════════════════════════════════════════
+   SLIDE 12 — 외부 라이브러리
+══════════════════════════════════════════ -->
+<section class="slide" id="libraries">
+  <div class="slide-label">EXTERNAL LIBRARIES</div>
+  <h2 class="slide-title">외부 라이브러리<small>Header-Only · MIT License</small></h2>
+  <div class="lib-grid">
+    <div class="lib-card">
+      <div class="lib-name"><a href="https://github.com/nlohmann/json" target="_blank">nlohmann / json</a></div>
+      <div class="lib-badge">MIT License</div>
+      <div class="lib-desc">C++ JSON 파싱 라이브러리. 헤더 온리로 <code>external/json/json.hpp</code>에 포함.</div>
+    </div>
+    <div class="lib-card">
+      <div class="lib-name"><a href="https://miniaud.io/" target="_blank">miniaudio</a></div>
+      <div class="lib-badge">MIT / Public Domain</div>
+      <div class="lib-desc">크로스 플랫폼 오디오 라이브러리. BGM과 효과음 재생. <code>external/sound/miniaudio.h</code>에 포함.</div>
+    </div>
+  </div>
+  <div class="slide-num">12 / 13</div>
+</section>
+
+<!-- ══════════════════════════════════════════
+   SLIDE 13 — 개발자
+══════════════════════════════════════════ -->
+<section class="slide devs-slide" id="developers">
+  <div class="slide-label">DEVELOPMENT TEAM</div>
+  <h2 class="slide-title">개발자<small>Team: 산 넘어 산</small></h2>
+  <div class="dev-grid">
+    <div class="dev-card">
+      <div class="dev-info">
+        <div class="dev-name">이형원</div>
+        <div class="dev-role"><strong>팀장</strong> · Core 시스템</div>
+      </div>
+    </div>
+    <div class="dev-card">
+      <div class="dev-info">
+        <div class="dev-name">노민지</div>
+        <div class="dev-role"><strong>저장 / 로드</strong></div>
+      </div>
+    </div>
+    <div class="dev-card">
+      <div class="dev-info">
+        <div class="dev-name">홍성우</div>
+        <div class="dev-role"><strong>UX / UI</strong> · 번역</div>
+      </div>
+    </div>
+    <div class="dev-card">
+      <div class="dev-info">
+        <div class="dev-name">김세민</div>
+        <div class="dev-role"><strong>콘텐츠</strong> · 데이터</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">13 / 13</div>
+</section>
+
+<!-- ══ FEATURE MODAL ══ -->
+<div id="feat-overlay" onclick="closeModal()"></div>
+<div id="feat-modal">
+  <button id="feat-close" onclick="closeModal()">✕</button>
+  <div id="feat-modal-header">
+    <div id="feat-modal-label">RELATED CLASSES</div>
+    <div id="feat-modal-title"></div>
+  </div>
+  <div id="feat-modal-body"></div>
+</div>
+
+<script>
+// ── 스크롤 프로그레스 바 ──────────────────
+const fill = document.getElementById('progress-fill');
+function updateProgress() {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  fill.style.width = pct + '%';
+}
+window.addEventListener('scroll', updateProgress, {passive:true});
+
+// ── Feature Modal 데이터 ───────────────────
+const FEAT_DATA = {
+  story: {
+    title: '분기형 텍스트 스토리',
+    classes: [
+      { name: 'StoryNode',   path: 'Game/Story/StoryNode.h',   desc: '스토리 노드 데이터 구조체. id, text 배열, choices, effects, require 필드를 담습니다.' },
+      { name: 'StoryLoader', path: 'Game/Story/StoryLoader.h', desc: 'Data/story/ 디렉터리의 JSON 파일을 읽어 StoryNode로 파싱합니다.' },
+      { name: 'StoryState',  path: 'Game/States/StoryState.h', desc: '스토리 화면 렌더링 및 진행을 담당하는 게임 State. 노드 이동, 선택지 처리, 이펙트 적용을 수행합니다.' },
+    ]
+  },
+  stats: {
+    title: '능력치 & 플래그 시스템',
+    classes: [
+      { name: 'PlayerStats',  path: 'Game/Player/PlayerStatus.h', desc: '플레이어 수치 구조체. fatigue, monitoring, wealth, cityOrder, citizenTrust, corruption, 성향 5종, 시간을 보유합니다.' },
+      { name: 'Context::flags', path: 'Core/Context.h',           desc: '스토리 플래그 문자열 집합(unordered_set). flag_add / flag_remove 이펙트로 조작합니다.' },
+    ]
+  },
+  effect: {
+    title: '이펙트 시스템',
+    classes: [
+      { name: 'Effect',            path: 'Game/Effect/Effect.h',            desc: '이펙트 타입 열거형(EffectType)과 key·value·CaseRecord 전용 필드를 포함하는 구조체.' },
+      { name: 'EffectParser',      path: 'Game/Effect/EffectParser.h',      desc: 'JSON 객체를 Effect 구조체로 변환하는 헤더 온리 파서.' },
+      { name: 'EffectInterpreter', path: 'Game/Effect/EffectInterpreter.h', desc: 'Effect를 받아 Context에 실제 수치 변화·플래그·업적·인물 등록 등을 적용합니다.' },
+    ]
+  },
+  condition: {
+    title: '조건부 선택지',
+    classes: [
+      { name: 'Condition',        path: 'Systems/Condition.h',        desc: '조건 타입(ConditionType), 연산자(ConditionOp), key, value를 담는 구조체.' },
+      { name: 'ConditionChecker', path: 'Systems/ConditionChecker.h', desc: 'Condition 배열을 순회하며 현재 Context 상태와 비교해 충족 여부를 반환합니다.' },
+    ]
+  },
+  save: {
+    title: '저장 / 불러오기',
+    classes: [
+      { name: 'Context::SaveSlot / LoadSlot',   path: 'Core/Context.h', desc: '슬롯 1~3 기반 저장/불러오기. 게임 전체 상태를 Data/saves/slot_N.json에 기록합니다.' },
+      { name: 'Context::SaveQuick / LoadQuick', path: 'Core/Context.h', desc: '슬롯과 독립된 빠른 저장 5슬롯. Data/saves/quick_N.json에 저장합니다.' },
+      { name: 'SlotSelectState',                path: 'Game/States/SlotSelectState.h',  desc: '일반 저장 슬롯 선택 화면.' },
+      { name: 'LoadSlotState',                  path: 'Game/States/LoadSlotState.h',    desc: '불러오기 슬롯 선택 화면.' },
+      { name: 'QuickSlotState',                 path: 'Game/States/QuickSlotState.h',   desc: '빠른 저장/불러오기 슬롯 선택 화면. Mode::Save / Mode::Load 두 가지 모드를 지원합니다.' },
+    ]
+  },
+  inventory: {
+    title: '인벤토리 & 아이템',
+    classes: [
+      { name: 'Item',           path: 'Game/Item/Item.h',           desc: '아이템 id, 이름·설명 로컬라이제이션 키, usable 여부, 사용 이펙트 배열을 담는 구조체.' },
+      { name: 'ItemRegistry',   path: 'Game/Item/ItemRegistry.h',   desc: 'Data/items.json을 읽어 Item 목록을 보유하고 id로 조회하는 레지스트리.' },
+      { name: 'InventoryState', path: 'Game/States/InventoryState.h', desc: '인벤토리 화면. 보유 아이템 목록 표시 및 사용 처리를 담당합니다.' },
+    ]
+  },
+  journal: {
+    title: '처리 문서 (Journal)',
+    classes: [
+      { name: 'JournalEntry',        path: 'Game/Journal/JournalEntry.h', desc: '케이스 id, 제목, 선택 결과, 본문을 저장하는 저널 항목 구조체.' },
+      { name: 'JournalState',        path: 'Game/States/JournalState.h',  desc: '저널 목록 열람 화면.' },
+      { name: 'Context::AddJournal', path: 'Core/Context.h',              desc: '저널 항목을 추가하거나 기존 항목을 덮어씁니다. AddCaseRecord()로 case_record 이펙트를 처리합니다.' },
+    ]
+  },
+  log: {
+    title: '활동 로그 (Log)',
+    classes: [
+      { name: 'LogEntry',      path: 'Game/Log/LogEntry.h',       desc: '이벤트 텍스트, 날짜(day), 시각(time)을 담는 로그 항목 구조체.' },
+      { name: 'LogState',      path: 'Game/States/LogState.h',    desc: '활동 로그 목록 열람 화면.' },
+      { name: 'Context::AddLog', path: 'Core/Context.h',          desc: '현재 player.day / player.time을 자동으로 기록하여 LogEntry를 추가합니다.' },
+    ]
+  },
+  achievement: {
+    title: '업적 시스템',
+    classes: [
+      { name: 'Achievement',        path: 'Game/Achievement/Achievement.h',        desc: '업적 id, 이름·설명 로컬라이제이션 키, 잠금 해제 여부를 담는 구조체.' },
+      { name: 'AchievementManager', path: 'Game/Achievement/AchievementManager.h', desc: '업적 목록 관리. Unlock()으로 해제, CheckStatAchievements()로 수치 조건 자동 확인. Data/saves/achievements.json에 저장합니다.' },
+      { name: 'AchievementState',   path: 'Game/States/AchievementState.h',        desc: '업적 목록 열람 화면.' },
+    ]
+  },
+  character: {
+    title: '인물 정보',
+    classes: [
+      { name: 'CharacterEntry',        path: 'Game/Character/CharacterEntry.h', desc: '인물 id, 이름, 직위, 소속, 관계, 설명, 첫 등장 날짜를 보유하는 구조체.' },
+      { name: 'CharacterState',        path: 'Game/States/CharacterState.h',    desc: '등록된 인물 목록과 상세 정보 열람 화면.' },
+      { name: 'Context::RevealCharacter', path: 'Core/Context.h',              desc: 'reveal_character 이펙트 처리. 로컬라이제이션에서 이름·직위 등을 자동 조회해 등록합니다.' },
+    ]
+  },
+  transition: {
+    title: '화면 전환 애니메이션',
+    classes: [
+      { name: 'UIScreenFader',            path: 'Ui/UIScreenFader.h',       desc: '화면 전환 페이드 인/아웃 애니메이션 UI 요소.' },
+      { name: 'ConsoleDisplay::TakeSnapshot', path: 'Core/ConsoleDisplay.h', desc: '현재 화면 버퍼를 스냅샷으로 보존합니다.' },
+      { name: 'ConsoleDisplay::BlitSnapshot', path: 'Core/ConsoleDisplay.h', desc: '저장된 스냅샷을 오프셋만큼 이동시켜 슬라이드 효과를 만듭니다.' },
+      { name: 'ConsoleDisplay::SetOffset',    path: 'Core/ConsoleDisplay.h', desc: '이후 Draw 호출에 (dx, dy)를 더해 렌더링 오프셋을 적용합니다.' },
+    ]
+  },
+  ui: {
+    title: '커스텀 콘솔 UI',
+    classes: [
+      { name: 'UIManager',       path: 'Ui/UIManager.h',       desc: 'UI 요소 컨테이너. 등록된 모든 UIElement의 Update / Render를 일괄 처리합니다.' },
+      { name: 'UIElement',       path: 'Ui/UIElement.h',       desc: 'UI 기반 추상 클래스. Render, Update, SlideOut, IsDead를 순수 가상으로 선언합니다.' },
+      { name: 'UIButton',        path: 'Ui/UIButton.h',        desc: '마우스 클릭/호버 처리가 가능한 버튼. 콜백 함수를 등록해 사용합니다.' },
+      { name: 'UILabel',         path: 'Ui/UILabel.h',         desc: '정적 텍스트를 렌더링하는 라벨.' },
+      { name: 'UIImage',         path: 'Ui/UIImage.h',         desc: '.txt 파일에서 아스키 아트를 로드해 출력하는 이미지 요소.' },
+      { name: 'UIDocumentPanel', path: 'Ui/UIDocumentPanel.h', desc: '사건 파일·명령서 문서 패널. 슬라이드 진입/퇴장 애니메이션과 한국어 정렬을 지원합니다.' },
+      { name: 'UITypewriter',    path: 'Ui/UITypewriter.h',    desc: '텍스트를 한 글자씩 출력하는 타이프라이터 효과 요소.' },
+    ]
+  },
+  sound: {
+    title: '사운드',
+    classes: [
+      { name: 'SoundSystem',    path: 'Core/SoundSystem.h',              desc: 'miniaudio 래퍼. BGM 재생/중지와 효과음(SFX) 원샷 재생을 관리합니다.' },
+      { name: 'PlaySoundEvent', path: 'Game/Events/PlaySoundEvent.h',    desc: '효과음 재생 요청 이벤트. EventBus를 통해 발행합니다.' },
+      { name: 'GameStartEvent', path: 'Game/Events/GameStartEvent.h',    desc: '새 게임 시작 이벤트. BGM 초기화 등에 사용됩니다.' },
+    ]
+  },
+  localization: {
+    title: '다국어 지원',
+    classes: [
+      { name: 'LocalizationManager', path: 'Core/LocalizationManager.h', desc: 'Data/lang/{lang}.json을 로드하고 키로 문자열을 조회하는 매니저.' },
+      { name: 'Localization',        path: 'Core/Localization.h',        desc: '언어 파일 데이터 구조 및 L() 매크로 정의. L("key")로 현재 언어 문자열을 가져옵니다.' },
+    ]
+  },
+  settings: {
+    title: '설정 저장/불러오기',
+    classes: [
+      { name: 'SettingsManager', path: 'Core/SettingsManager.h', desc: 'Data/settings.json을 읽고 씁니다. Context가 소유합니다.' },
+      { name: 'Settings',        path: 'Core/SettingsManager.h', desc: '볼륨, 언어, FPS, 화면 전환 등 모든 설정값을 담는 구조체.' },
+      { name: 'KeyBindings',     path: 'Core/SettingsManager.h', desc: '인게임 단축키를 Windows VK 코드로 보관하는 구조체.' },
+      { name: 'SettingState',    path: 'Game/States/SettingState.h',  desc: '볼륨·언어·FPS 등 설정 조정 화면.' },
+      { name: 'KeyBindState',    path: 'Game/States/KeyBindState.h',  desc: '각 단축키를 직접 재설정할 수 있는 키 바인딩 설정 화면.' },
+    ]
+  },
+  fps: {
+    title: 'FPS 제한',
+    classes: [
+      { name: 'GameLoop', path: 'Core/GameLoop.h', desc: '메인 루프(ProcessInput → Update → Render → LimitFPS). targetFPS 값으로 프레임 시간을 계산해 sleep 처리합니다.' },
+    ]
+  },
+};
+
+function openModal(key) {
+  const data = FEAT_DATA[key];
+  if (!data) return;
+
+  document.getElementById('feat-modal-title').textContent = data.title;
+
+  const body = document.getElementById('feat-modal-body');
+  body.innerHTML = data.classes.map(c => `
+    <div class="mc">
+      <div class="mc-head">
+        <span class="mc-name">${c.name}</span>
+        <span class="mc-path">${c.path}</span>
+      </div>
+      <div class="mc-desc">${c.desc}</div>
+    </div>
+  `).join('');
+
+  document.getElementById('feat-overlay').classList.add('open');
+  // 한 프레임 뒤에 open 클래스 추가해서 트랜지션 발동
+  requestAnimationFrame(() => document.getElementById('feat-modal').classList.add('open'));
+
+  // 스크롤 snap 방해 방지
+  document.documentElement.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('feat-modal').classList.remove('open');
+  document.getElementById('feat-overlay').classList.remove('open');
+  document.documentElement.style.overflow = '';
+}
+
+document.querySelectorAll('.feat-card[data-feat]').forEach(card => {
+  card.addEventListener('click', () => openModal(card.dataset.feat));
+});
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ── 사이드바 active ────────────────────────
+const sections = document.querySelectorAll('section[id]');
+const links    = document.querySelectorAll('#sidebar nav a');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(a => a.classList.remove('active'));
+      const active = document.querySelector(`#sidebar nav a[href="#${e.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, {rootMargin:'-30% 0px -60% 0px'});
+sections.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
